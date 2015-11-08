@@ -19,6 +19,7 @@ class JerryScript : ZilchComponent
         
         if(player.PlayerController.CurrentLevel == 1)
         {
+            this.Space.CreateAtPosition(Archetype.Note, this.Owner.Transform.Translation);
             this.Owner.Destroy();
         }
         this.TextArray.Add("");
