@@ -22,13 +22,13 @@ class BoxScript : ZilchComponent
         this.TextArray.Add("");
         this.TextArray.Add("It's locked.”");
         this.TextArray.Add("’There's a note on top...");
-        this.TextArray.Add("\"Aha! You thought you could open me? Think \nagain.\"”");
+        this.TextArray.Add("\"Aha! You thought you could open ME? Think \nagain.\"”");
         this.TextArray.Add("\"You see, the only one who can open me is me!”\"”");
-        this.TextArray.Add("\"Note: if you actually are me, I sincerely \napologize for the accusation\"”");
-        this.TextArray.Add("\"Aha! That’s it. If you are me, then only you could \nanswer this question...\"”");
+        this.TextArray.Add("\"Note: if you actually are me, I sincerely \napologize for the accusation.\"”");
+        this.TextArray.Add("\"Aha! That’'s it. If you are me, then only you could \nanswer this question...\"”");
         this.TextArray.Add("\"What is my name?\"”");
         this.TextArray.Add("”");
-        this.TextArray.Add("”“\"Jerry? How did you know? Hmm... I suppose you \nare truly me, then.”\"");
+        this.TextArray.Add("”“\"Jerry? How did you know? Hmm... I suppose you \ntruly ARE me, then.”\"");
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -37,21 +37,22 @@ class BoxScript : ZilchComponent
         var player = this.Space.FindObjectByName("Player");
         
         this.TextArray.Set(8, (text.TextInput.ST));
-        
-
-        
+        Console.WriteLine(this.I);
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
         {
                 if(Zero.Keyboard.KeyIsPressed(Keys.Enter))
                 {
                     ++this.I;
                 }
-                if(this.I == this.NumberOfLines + 1)
+                
+                if(this.I >= this.TextArray.Count)
                 {
                     player.PlayerController.Talking = false;
-                    this.I  = 0;
+                    this.I = 0;
                 }
-                this.Space.LevelSettings.HudInteraction.HudText.SpriteText.Text = /*this.Space.LevelSettings.HudInteraction.HudText.TextInput.ST;*/this.TextArray[this.I];
+
+                this.Space.LevelSettings.HudInteraction.HudText.SpriteText.Text = this.TextArray[this.I];
+
         }
         else
         {
@@ -67,7 +68,7 @@ class BoxScript : ZilchComponent
         {
             player.PlayerController.Talking = true;
         }
-        
+        Console.WriteLine(this.GameSession.GameStats.CurrentObject);
         if (this.I < 8)
         {
             text.TextInput.ST = "";
@@ -82,15 +83,15 @@ class BoxScript : ZilchComponent
             
             if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
             {
-                this.TextArray.Set(9,"“\"That’ s not my name.\"");
+                this.TextArray.Set(9,"“\"That’ is not my name.\"");
             }
             else if(this.Input != this.RightAnswer)
             {
-                this.TextArray.Set(9,"“\"Jeffery? Are you insane? That’ s not my name. \nGet out of here, imposter!\"");
+                this.TextArray.Set(9,"“\"Jeffery? Are you insane? That’ is not my name. \nGet out of here, imposter!\"");
             }
             else
             {
-                this.TextArray.Set(9,"\"Jerry? How did you know? Hmm... I suppose you \nare truly me, then.”\"");
+                this.TextArray.Set(9,"\"Jerry? How did you know? Hmm... I suppose you \ntruly ARE me, then.”\"");
             }
         }
         
@@ -99,18 +100,31 @@ class BoxScript : ZilchComponent
             if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
             {
                 this.Talked = true;
-                this.TextArray.Set(9,"“\"That’ s not my name.\"");
+                this.TextArray.Set(9,"“\"That’ is not my name.\"");
             }
             else if(this.Input != this.RightAnswer)
             {
                 this.Talked = true;
-                this.TextArray.Set(9,"“\"Jeffery? Are you insane? That’ s not my name. \nGet out of here, imposter!\"");
+                this.TextArray.Set(9,"“\"Jeffrey? Are you insane? That’ is not my name. \nGet out of here, imposter!\"");
             }
             else
             {
-                this.TextArray.Set(9,"\"Jerry? How did you know? Hmm... I suppose you \nare truly me, then.”\"");
-                player.PlayerController.Keys = true;
+                this.TextArray.Set(9,"\"Jerry? How did you know? Hmm... I suppose you \ntruly ARE me, then.”\"");
+                if (this.TextArray.Count <= 10 )
+                {
+                    this.TextArray.Add("\"So, me, is this what you were looking for?\"");
+                    this.TextArray.Add("\"I never would have thought I'd ever resort to using it, \nbut who am I to disregard the wisdom of myself?\"");
+                }
             }
+            
+        }
+        if(this.I == 10)
+        {
+            this.GameSession.GameStats.CurrentObject = "Key";
+        }
+        
+        if (this.I == 11)
+        {
             player.PlayerController.Texting = false;
         }
     

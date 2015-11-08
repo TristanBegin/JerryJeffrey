@@ -99,7 +99,7 @@ class RayCastings : ZilchComponent
 
         //Console.WriteLine(this.NameOfObject);
         
-        Console.WriteLine("Looking: `this.DistanceLooking`");
+        //Console.WriteLine("Looking: `this.DistanceLooking`");
 
         
     }

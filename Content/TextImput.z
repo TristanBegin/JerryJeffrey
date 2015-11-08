@@ -19,7 +19,7 @@ class TextInput : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        Console.WriteLine(this.ST);
+        //Console.WriteLine(this.ST);
     }
         
     

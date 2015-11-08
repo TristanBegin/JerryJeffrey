@@ -110,7 +110,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [6.43955231, 2.56209278, 50],
+			Vec3 Translation = [5.28976202, 2.92192817, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -122,7 +122,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 16.3323421,
+			float Size = 9.90607071,
 		},
 		EditorCameraController = 
 		{
@@ -130,7 +130,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [6.43955231, 2.56209278, -3.66918187e-007],
+			Vec3 LookTarget = [5.28976202, 2.92192817, -4.17176864e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -240,7 +240,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [8.5, 3.5, 40],
+			Vec3 Translation = [8.5, 2.5, 40],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -310,8 +310,8 @@ Level =
 		},
 		BoxScript = 
 		{
-			float NumberOfLines = 9,
-			string RightAnswer = "Jeffery",
+			float NumberOfLines = 11,
+			string RightAnswer = "Jeffrey",
 			string WrongAnswer = "Jerry",
 		},
 	},
@@ -377,7 +377,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Door",
+			string Name = "DoorLockBarrier",
 		},
 		Transform = 
 		{

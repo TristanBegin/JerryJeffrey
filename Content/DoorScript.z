@@ -24,7 +24,7 @@ class DoorScript : ZilchComponent
         this.OpeningArray.Add("");
         this.OpeningArray.Add("Door unlocked.");
         
-        if(player.PlayerController.Keys == false)
+        if(this.GameSession.GameStats.CurrentObject != "Key")
         {
             if(player.RayCastings.DistanceLooking < 0.7 && player.RayCastings.NameOfObject == this.Owner.Name)
             {
@@ -49,10 +49,6 @@ class DoorScript : ZilchComponent
             {
                 player.PlayerController.Talking = true;
             }
-            //else
-            //{
-            //    player.PlayerController.Talking = true;
-            //}
         }
         else
         {
@@ -73,6 +69,7 @@ class DoorScript : ZilchComponent
             {
                 player.PlayerController.Talking = false;
                 this.Owner.Destroy();
+                this.GameSession.GameStats.CurrentObject = "";
             }
         }
         

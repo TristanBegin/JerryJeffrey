@@ -103,7 +103,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12, -6.8203125, 50],
+			Vec3 Translation = [12.4905243, -6.08929682, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -115,7 +115,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 16.3746071,
+			float Size = 13.4063997,
 		},
 		EditorCameraController = 
 		{
@@ -123,7 +123,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-12, -6.8203125, 0],
+			Vec3 LookTarget = [12.4905243, -6.08929682, 1.07051494e-006],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -178,7 +178,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-6, -6.875, 0],
+			Vec3 Translation = [-6, -8, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -196,8 +196,8 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [6, -0.625, 0],
-					Vec3 Scale = [25, 3, 1],
+					Vec3 Translation = [6, -0.5, 0],
+					Vec3 Scale = [40, 3, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
 				Sprite = 
@@ -206,7 +206,7 @@ Level =
 					bool VisibilityCulling = true,
 					bool VisibilityEvents = true,
 					bool CastShadows = false,
-					Vec4 Color = [0.0400000215, 0.0400000215, 0.0400000215, 0.5],
+					Vec4 Color = [0.0400000215, 0.0400000215, 0.0400000215, 0.800000012],
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -231,7 +231,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [-6, 0.625, 0],
+					Vec3 Translation = [-10, 0.5, 0],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -256,6 +256,79 @@ Level =
 				{
 				},
 			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Named = 
+		{
+			string Name = "Inventory",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [15, -8.5, 0],
+			Vec3 Scale = [2, 2, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5614fccbdc18fb63:Inventory_2",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 8,
+		},
+		Named = 
+		{
+			string Name = "Item",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [15, -8.5, 0],
+			Vec3 Scale = [2, 2, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5614fccbdc18fb63:Inventory_2",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		ItemUI = 
+		{
 		},
 	},
 },
