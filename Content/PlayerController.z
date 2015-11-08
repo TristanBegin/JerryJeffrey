@@ -1,0 +1,140 @@
+class PlayerController : ZilchComponent
+{
+    //Keeps track of the player's position
+    //var CurrentPosX : Real = 0.0;
+    //var CurrentPosY : Real = 0.0;
+    
+    //K eeps track of the next position the player will move to
+    var NextPosX : Real = 0.5;
+    var NextPosY : Real = 0.5;
+    
+    //Whether or not there is keyboard input
+    var UpInput : Boolean = false;
+    var DownInput : Boolean = false;
+    var LeftInput : Boolean = false;
+    var RightInput : Boolean = false;
+    
+    //Used in RayCasting to tell the direction the player is looking
+    var LookingDirection : Real = Real(0);
+    
+    var CloseToWall : Boolean = false;
+    
+    var Talking : Boolean = false;
+    
+    var Texting : Boolean = false;
+    
+    var Keys : Boolean = false;
+    
+    var CurrentLevel : Integer = 0;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //gets the player's current position
+        var currentPos = this.Owner.Transform.Translation;
+        var currentPosX = currentPos.X;
+        var currentPosY = currentPos.Y;
+        
+        //Console.WriteLine("`currentPosX`, `currentPosY`");
+        //Console.WriteLine("`this.NextPosY`");
+        //Console.WriteLine("UpInput: `this.UpInput`, DownInput: `this.DownInput`");
+        
+        Console.WriteLine(this.Talking);
+        
+        if (this.Talking == false)
+        {
+            if (Zero.Keyboard.KeyIsDown(Keys.W))
+            {
+                this.LookingDirection = 0;
+            }
+            else if (Zero.Keyboard.KeyIsDown(Keys.S))
+            {
+                this.LookingDirection = 2;
+            }
+            else if (Zero.Keyboard.KeyIsDown(Keys.A))
+            {
+                this.LookingDirection = 3;
+            }
+            else if (Zero.Keyboard.KeyIsDown(Keys.D))
+            {
+                this.LookingDirection = 1;
+            }
+    
+            //checks which key is pressed and if the player has reached the next position on the grid on that axis
+            //if true, depending on the key, adds or subtracts 1.0 to "this.NextPos" of the appropriate axis
+            if (Math.Abs(currentPosY - this.NextPosY) <= 0.1 && this.LeftInput == false && this.RightInput == false)
+            {
+                if (Zero.Keyboard.KeyIsDown(Keys.W) && this.Owner.RayCastings.DistanceNorth > 0.9 )
+                {
+                    this.NextPosY += 1.0;
+                    this.UpInput = true;
+                    //this.LookingDirection = 0;
+                }
+                else if (Zero.Keyboard.KeyIsDown(Keys.S) && this.Owner.RayCastings.DistanceSouth > 0.9 )
+                {
+                    this.NextPosY -= 1.0;
+                    this.DownInput = true;
+                    //this.LookingDirection = 2;
+                }
+                else
+                {
+                    this.Owner.Transform.Translation = Real3(this.Owner.Transform.Translation.X, this.NextPosY, 0.0);
+                    this.UpInput = false;
+                    this.DownInput = false;
+                }
+            }
+            
+            if (Math.Abs(currentPosX - this.NextPosX) <= 0.1 && this.UpInput == false && this.DownInput == false)
+            {
+                if (Zero.Keyboard.KeyIsDown(Keys.A) && this.Owner.RayCastings.DistanceWest > 0.9 )
+                {
+                    this.NextPosX -= 1.0;
+                    this.LeftInput = true;
+                    //this.LookingDirection = 3;
+                    
+                }
+                else if (Zero.Keyboard.KeyIsDown(Keys.D) && this.Owner.RayCastings.DistanceEast > 0.9 )
+                {
+                    this.NextPosX += 1.0;
+                    this.RightInput = true;
+                    //this.LookingDirection = 1;
+                }
+                else
+                {
+                    this.Owner.Transform.Translation = Real3(this.NextPosX, this.Owner.Transform.Translation.Y, 0.0);
+                    this.LeftInput = false;
+                    this.RightInput = false;
+                }
+            }
+            
+    
+            
+            //checks if the current position is less than the next Y position on the grid and there is 
+            //if true, the player keeps moving in the Y direction
+            if (currentPosY < this.NextPosY && this.UpInput == true)
+            {
+                this.Owner.RigidBody.Velocity = Real3(0.0, 300.0 * event.Dt, 0.0);
+            }
+            else if (currentPosY > this.NextPosY && this.DownInput == true)
+            {
+                this.Owner.RigidBody.Velocity = Real3(0.0, -300.0 * event.Dt, 0.0);
+            }
+            else if (currentPosX < this.NextPosX && this.RightInput == true)
+            {
+                this.Owner.RigidBody.Velocity = Real3(300.0 * event.Dt, 0.0, 0.0);
+            }
+            else if (currentPosX > this.NextPosX && this.LeftInput == true)
+            {
+                this.Owner.RigidBody.Velocity = Real3(-300.0 * event.Dt, 0.0, 0.0);
+            }
+            else
+            {
+                this.Owner.RigidBody.Velocity = Real3(0.0, 0.0, 0.0);
+            }
+        }
+    }
+}

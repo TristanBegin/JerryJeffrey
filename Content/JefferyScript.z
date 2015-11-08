@@ -1,0 +1,48 @@
+class JefferyScript : ZilchComponent
+{
+    var I : Integer = Integer(0);
+    var TextArray : Array[String] = Array[String]();
+    
+    
+    [Property]
+    var NumberOfLines : Real;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var text = this.Space.LevelSettings.HudInteraction.HudText.SpriteText.Text;
+        var player = this.Space.FindObjectByName("Player");
+        
+        this.TextArray.Add("");
+        this.TextArray.Add("Jeffery - \"Hello.\"");
+        
+         
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
+        {
+                if(Zero.Keyboard.KeyIsPressed(Keys.Enter))
+                {
+                    ++this.I;
+                }
+                if(this.I == this.NumberOfLines + 1)
+                {
+                    player.PlayerController.Talking = false;
+                    this.I  = 0;
+                }
+                this.Space.LevelSettings.HudInteraction.HudText.SpriteText.Text = this.TextArray[this.I];
+                
+        }
+        else
+        {
+            this.I = 0;
+        }
+        
+        if (this.I != 0)
+        {
+            player.PlayerController.Talking = true;
+        }
+    }
+}

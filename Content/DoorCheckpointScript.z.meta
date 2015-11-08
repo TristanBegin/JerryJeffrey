@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "DoorCheckpointScript",
+		uint64 ResourceId = 563bf0f56a61dc39,
+	},
+},

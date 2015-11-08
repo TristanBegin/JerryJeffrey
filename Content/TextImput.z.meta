@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "TextImput",
+		uint64 ResourceId = 5636cdeba3cb32d0,
+	},
+},

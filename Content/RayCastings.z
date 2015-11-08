@@ -1,0 +1,106 @@
+class RayCastings : ZilchComponent
+{
+    [Dependency]
+    var Transfrom : Transform;
+    
+    
+    var NameOfObject: String;
+    
+    var DistanceNorth: Real;
+    var DistanceEast: Real;
+    var DistanceSouth: Real;
+    var DistanceWest: Real;
+    var DistanceLooking: Real;
+     
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var rayNorth = Ray();
+        var rayEast = Ray();
+        var raySouth = Ray();
+        var rayWest = Ray();
+        // The ray starts where ew are now..
+        
+        var thisPosition = this.Transfrom.WorldTranslation;
+        
+        // ...and goes in our Orientation's "forward" direction
+        var rayDirection = Real3();
+        
+        //if (this.Owner.PlayerController.LookingDirection == 0)
+        //{
+        rayNorth.Direction = Real3(0.0, 1.0, 0.0);
+        rayNorth.Start = this.Transfrom.WorldTranslation + Real3(0.0, 0.4, 0.0);
+        //}
+        //else if (this.Owner.PlayerController.LookingDirection == 1)
+        //{
+        rayEast.Direction = Real3(1.0, 0.0, 0.0);
+        rayEast.Start = this.Transfrom.WorldTranslation + Real3(0.4, 0.0, 0.0);
+        //}
+        //else if (this.Owner.PlayerController.LookingDirection == 2)
+        //{
+        raySouth.Direction = Real3(0.0, -1.0, 0.0);
+        raySouth.Start = this.Transfrom.WorldTranslation + Real3(0.0, -0.4, 0.0);
+        //}
+        //else
+        //{
+        rayWest.Direction = Real3(-1.0, 0.0, 0.0);
+        rayWest.Start= this.Transfrom.WorldTranslation + Real3(-0.4, 0.0, 0.0);
+        //}
+        
+        
+        //ray.Start = thisPosition;
+        //ray.Direction = rayDirection;
+        
+        var castResultNorth = this.Space.PhysicsSpace.CastRayFirst(rayNorth);
+        var castResultEast = this.Space.PhysicsSpace.CastRayFirst(rayEast);
+        var castResultSouth = this.Space.PhysicsSpace.CastRayFirst(raySouth);
+        var castResultWest = this.Space.PhysicsSpace.CastRayFirst(rayWest);
+        var castResultLooking = castResultNorth;
+        
+        if(this.Owner.PlayerController.LookingDirection == 0)
+        {
+            if(castResultNorth.ObjectHit != null)
+            {
+                castResultLooking = castResultNorth;
+            }
+        }
+        else if (this.Owner.PlayerController.LookingDirection == 1)
+        {
+            if(castResultEast.ObjectHit != null)
+            {
+                castResultLooking = castResultEast;
+            }
+        }
+        else if(this.Owner.PlayerController.LookingDirection == 2)
+        {
+            if(castResultSouth.ObjectHit != null)
+            {
+                castResultLooking = castResultSouth;
+            }
+        }
+        else
+        {
+            if(castResultWest.ObjectHit != null)
+            {
+                castResultLooking = castResultWest ;
+            }
+        }
+        this.NameOfObject = castResultLooking.ObjectHit.Name;
+        
+        this.DistanceNorth = castResultNorth.Distance;
+        this.DistanceEast = castResultEast.Distance;
+        this.DistanceSouth = castResultSouth.Distance;
+        this.DistanceWest = castResultWest.Distance;
+        this.DistanceLooking = castResultLooking.Distance;
+
+        //Console.WriteLine(this.NameOfObject);
+        
+        Console.WriteLine("Looking: `this.DistanceLooking`");
+
+        
+    }
+}

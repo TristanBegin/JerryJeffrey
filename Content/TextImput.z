@@ -1,0 +1,82 @@
+class TextInput : ZilchComponent
+{
+    
+    var ST : String;
+    
+    var BG : Sprite;
+    
+    
+   function Initialize(init : CogInitializer)
+    {
+        
+        this.ClearText();
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(Zero.Keyboard, Events.TextTyped, this.OnTextTyped);
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+        Zero.Connect(Zero.Keyboard, Events.KeyRepeated, this.OnKeyDown);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        Console.WriteLine(this.ST);
+    }
+        
+    
+    function OnTextTyped(event : KeyboardTextEvent)
+    {
+        this.ProcessCode(event.Character);
+    }
+    
+    function ProcessCode(code : Integer)
+    {
+        if(this.IsRenderable(code))
+        {
+            this.AddText(String.FromChar(code));
+        }
+    }
+        
+    function AddText(char : String)
+    {
+        this.ST = "`this.ST``char`";
+    }
+    
+    function IsRenderable(code : Integer) : Boolean
+    {
+        return code >= " "[0] && code <= "~"[0];
+    }
+    
+    function ClearText()
+    {
+        this.ST = "";
+    }
+    
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        this.ProcessKey(event.Key);
+    }
+    function ProcessKey(key : Keys)
+    {
+        if(key == Keys.Back)
+        {
+            if(Zero.Keyboard.KeyIsDown(Keys.Control) &&
+                Zero.Keyboard.KeyIsDown(Keys.Shift))
+            {   
+                this.ClearText();
+            }
+            else
+            {
+                this.Backspace();
+            }
+        }
+    }
+    function Backspace()
+    {
+        var length = this.ST.Count;
+
+        if(length > 0)
+        {
+            this.ST = this.ST.SubString(0, length - 1);
+        }
+    }
+}

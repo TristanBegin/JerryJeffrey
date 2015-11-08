@@ -1,0 +1,19 @@
+class HudInteraction : ZilchComponent
+{
+    // A way to store the sprite we are controlling, so we don't have to find it every frame.
+    var HudText : Cog;
+    [Dependency]
+    
+    var HudCreator: HudCreator;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.HudText = this.Owner.HudCreator.HudSpace.FindObjectByName("HudText");
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+    }
+}

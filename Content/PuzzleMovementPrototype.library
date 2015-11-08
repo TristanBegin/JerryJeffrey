@@ -1,0 +1,7 @@
+ContentLibrary = 
+{
+	string Name = "PuzzleMovementPrototype",
+	uint64 LibraryId = 560387f3e77c3095,
+	string SourceControlType = "",
+	bool ReadOnly = false,
+},

@@ -1,0 +1,14 @@
+class ReciveText : ZilchComponent
+{
+    var Str : String = "";
+    
+    function Initialize(init : CogInitializer)
+    {
+         Zero.Connect(this.GameSession, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        Console.WriteLine(this.Str);
+    }
+}

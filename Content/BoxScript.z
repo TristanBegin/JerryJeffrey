@@ -1,0 +1,122 @@
+class BoxScript : ZilchComponent
+{
+    var I : Integer = Integer(0);
+    
+    var TextArray : Array[String] = Array[String]();
+
+    [Property]
+    var NumberOfLines : Real;
+    
+    [Property]
+    var RightAnswer : String;
+    
+    [Property]
+    var WrongAnswer : String;
+    
+    var Input : String;
+    
+    var Talked : Boolean = false;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.TextArray.Add("");
+        this.TextArray.Add("It's locked.”");
+        this.TextArray.Add("’There's a note on top...");
+        this.TextArray.Add("\"Aha! You thought you could open me? Think \nagain.\"”");
+        this.TextArray.Add("\"You see, the only one who can open me is me!”\"”");
+        this.TextArray.Add("\"Note: if you actually are me, I sincerely \napologize for the accusation\"”");
+        this.TextArray.Add("\"Aha! That’s it. If you are me, then only you could \nanswer this question...\"”");
+        this.TextArray.Add("\"What is my name?\"”");
+        this.TextArray.Add("”");
+        this.TextArray.Add("”“\"Jerry? How did you know? Hmm... I suppose you \nare truly me, then.”\"");
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var text = this.Space.LevelSettings.HudInteraction.HudText;
+        var player = this.Space.FindObjectByName("Player");
+        
+        this.TextArray.Set(8, (text.TextInput.ST));
+        
+
+        
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
+        {
+                if(Zero.Keyboard.KeyIsPressed(Keys.Enter))
+                {
+                    ++this.I;
+                }
+                if(this.I == this.NumberOfLines + 1)
+                {
+                    player.PlayerController.Talking = false;
+                    this.I  = 0;
+                }
+                this.Space.LevelSettings.HudInteraction.HudText.SpriteText.Text = /*this.Space.LevelSettings.HudInteraction.HudText.TextInput.ST;*/this.TextArray[this.I];
+        }
+        else
+        {
+            this.I = 0;
+        }
+        
+        if(this.Talked == true && player.PlayerController.Talking == true && this.I < 7)
+        {
+            this.I = 7;
+        }
+        
+        if (this.I != 0)
+        {
+            player.PlayerController.Talking = true;
+        }
+        
+        if (this.I < 8)
+        {
+            text.TextInput.ST = "";
+        }
+        else if (this.I == 8)
+        {
+            if(player.PlayerController.Texting == false)
+            {
+                
+                player.PlayerController.Texting = true;
+            }
+            
+            if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
+            {
+                this.TextArray.Set(9,"“\"That’ s not my name.\"");
+            }
+            else if(this.Input != this.RightAnswer)
+            {
+                this.TextArray.Set(9,"“\"Jeffery? Are you insane? That’ s not my name. \nGet out of here, imposter!\"");
+            }
+            else
+            {
+                this.TextArray.Set(9,"\"Jerry? How did you know? Hmm... I suppose you \nare truly me, then.”\"");
+            }
+        }
+        
+        else if(this.I == 9)
+        {
+            if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
+            {
+                this.Talked = true;
+                this.TextArray.Set(9,"“\"That’ s not my name.\"");
+            }
+            else if(this.Input != this.RightAnswer)
+            {
+                this.Talked = true;
+                this.TextArray.Set(9,"“\"Jeffery? Are you insane? That’ s not my name. \nGet out of here, imposter!\"");
+            }
+            else
+            {
+                this.TextArray.Set(9,"\"Jerry? How did you know? Hmm... I suppose you \nare truly me, then.”\"");
+                player.PlayerController.Keys = true;
+            }
+            player.PlayerController.Texting = false;
+        }
+    
+        if(player.PlayerController.Texting == true)
+        {
+            this.Input = text.TextInput.ST;
+        }
+    }
+}

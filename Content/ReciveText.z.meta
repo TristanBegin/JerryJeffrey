@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "ReciveText",
+		uint64 ResourceId = 5636e0078a94e650,
+	},
+},

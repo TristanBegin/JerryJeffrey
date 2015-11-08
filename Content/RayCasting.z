@@ -1,0 +1,59 @@
+class RayCasting : ZilchComponent
+{
+    [Dependency]
+    var Transfrom : Transform;
+    
+    
+    var NameOfObject: String;
+    var DistanceToObject: Real;
+     
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var ray = Ray();
+        // The ray starts where ew are now..
+        
+        var thisPosition = this.Transfrom.WorldTranslation;
+        
+        // ...and goes in our Orientation's "forward" direction
+        var rayDirection = Real3();
+        
+        if (this.Owner.PlayerController.LookingDirection == 0)
+        {
+            rayDirection = Real3(0.0, 1.0, 0.0);
+            thisPosition = this.Transfrom.WorldTranslation + Real3(0.0, 1.0, 0.0);
+        }
+        else if (this.Owner.PlayerController.LookingDirection == 1)
+        {
+            rayDirection = Real3(1.0, 0.0, 0.0);
+            thisPosition = this.Transfrom.WorldTranslation + Real3(0.5, 0.0, 0.0);
+        }
+        else if (this.Owner.PlayerController.LookingDirection == 2)
+        {
+            rayDirection = Real3(0.0, -1.0, 0.0);
+            thisPosition = this.Transfrom.WorldTranslation + Real3(0.0, -0.5, 0.0);
+        }
+        else
+        {
+            rayDirection = Real3(-1.0, 0.0, 0.0);
+            thisPosition = this.Transfrom.WorldTranslation + Real3(0.5, 0.0, 0.0);
+        }
+        
+        
+        ray.Start = thisPosition;
+        ray.Direction = rayDirection;
+        
+        var castResult = this.Space.PhysicsSpace.CastRayFirst(ray);
+        if(castResult.ObjectHit != null)
+        {
+            this.NameOfObject = castResult.ObjectHit.Name;
+        }
+        this.DistanceToObject = castResult.Distance;
+        //Console.WriteLine(this.DistanceToObject);
+        //Console.WriteLine(this.NameOfObject);
+    }
+}
