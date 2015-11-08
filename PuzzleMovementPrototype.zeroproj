@@ -6,7 +6,7 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
-		string ProjectFolder = "C:\Users\Stefan\Desktop\4Gents\Puzzle",
+		string ProjectFolder = "C:\Users\Tristan Begin\Desktop\JerryAndJeffrey0.2",
 		uint ProjectEngineRevision = 12259,
 		bool AutoTakeProjectScreenshot = true,
 	},

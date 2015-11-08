@@ -62,7 +62,7 @@ Level =
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
 			},
-			ViewportScaling Scaling = Fill,
+			ViewportScaling Scaling = Letterbox,
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
 		},
@@ -110,7 +110,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [13.5, 6.5, 50],
+			Vec3 Translation = [6.43955231, 2.56209278, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -122,7 +122,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 40.6569557,
+			float Size = 16.3323421,
 		},
 		EditorCameraController = 
 		{
@@ -130,7 +130,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [13.5, 6.5, 0],
+			Vec3 LookTarget = [6.43955231, 2.56209278, -3.66918187e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -167,8 +167,8 @@ Level =
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "56006f596c1afa31:Blank",
+			string SpriteLayer = "56157d33d1d0d269:Player",
+			string SpriteSource = "5615718a3c9a2f20:PlayerIdleForwardAnim",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -178,6 +178,13 @@ Level =
 		},
 		PlayerController = 
 		{
+			string WalkDown = "561571720f0d944f:PlayerWalkingForwardAnim",
+			string WalkUp = "56157158327621a9:PlayerWalkingBackAnim",
+			string WalkRight = "561571640b4a6b3b:PlayerWalkingRightAnim",
+			string IdleDown = "5615718a3c9a2f20:PlayerIdleForwardAnim",
+			string IdleUp = "5615719620fd4182:PlayerIdleBackAnim",
+			string IdleRight = "561571bf394ed5bc:PlayerIdleRightAnim",
+			float Speed = 200,
 		},
 		RigidBody = 
 		{
@@ -233,7 +240,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 40],
+			Vec3 Translation = [8.5, 3.5, 40],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -245,7 +252,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
-			float Size = 30,
+			float Size = 11,
 		},
 		SoundListener = 
 		{
@@ -264,7 +271,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.5, 6.5, 0],
+			Vec3 Translation = [0, 4, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -278,7 +285,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
+			string SpriteSource = "56006f596c1afa31:Blank",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -289,7 +296,7 @@ Level =
 		Area = 
 		{
 			Vec2 Size = [1, 1],
-			Location Origin = Center,
+			Location Origin = TopLeft,
 		},
 		BoxCollider = 
 		{
@@ -298,7 +305,7 @@ Level =
 			bool Seamless = true,
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
+			Vec3 Offset = [0.5, -0.5, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 		BoxScript = 
@@ -320,7 +327,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.5, 6.5, 0],
+			Vec3 Translation = [3, 7, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -330,11 +337,11 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = false,
-			Vec4 Color = [0.685000002, 0.167824984, 0.183340102, 1],
+			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
+			string SpriteSource = "56157c8d9e5eb505:JerryFrontIdleAnim",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -349,12 +356,17 @@ Level =
 			bool Seamless = true,
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
+			Vec3 Offset = [0.5, -0.5, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 		JerryScript = 
 		{
 			float NumberOfLines = 1,
+		},
+		Area = 
+		{
+			Vec2 Size = [0.9375, 1.125],
+			Location Origin = TopLeft,
 		},
 	},
 	Cog = 
@@ -369,9 +381,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [8.5, 1.5, 0],
-			Vec3 Scale = [3, 0.100000001, 1],
-			Quat Rotation = [0, 0, 0.707106769, 0.707106769],
+			Vec3 Translation = [7.5, 3.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
 		{
@@ -383,7 +395,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
+			string SpriteSource = "56157bc620bd5886:DoorLock",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -398,8 +410,8 @@ Level =
 			bool Seamless = true,
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
+			Vec3 Offset = [0.5, 0, 0],
+			Vec3 Size = [0.0500000007, 0.5, 0.5],
 		},
 		DoorScript = 
 		{
@@ -436,7 +448,7 @@ Level =
 		TileMap = 
 		{
 			string SourceName = "563bd7f71f216cd8:Level_TileMap00",
-			string PaletteName = "",
+			string PaletteName = "5615743d05c08375:Normal",
 			float UnitsPerTile = 1,
 			float MeshThickness = 1.20000005,
 		},
@@ -453,7 +465,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [13.5, 6.5, 0],
+			Vec3 Translation = [12, 7, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -463,11 +475,11 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = false,
-			Vec4 Color = [0, 0.610000134, 1, 1],
+			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
+			string SpriteSource = "56157c18eb8599b1:JeffreyIdleForwardAnim",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -482,12 +494,17 @@ Level =
 			bool Seamless = true,
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
+			Vec3 Offset = [0.5, -0.5, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 		JefferyScript = 
 		{
 			float NumberOfLines = 1,
+		},
+		Area = 
+		{
+			Vec2 Size = [1, 1.125],
+			Location Origin = TopLeft,
 		},
 	},
 	Cog = 
@@ -502,7 +519,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [16.5, 6.5, 0],
+			Vec3 Translation = [15, 4, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -516,18 +533,13 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
+			string SpriteSource = "56006f596c1afa31:Blank",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
-		},
-		Area = 
-		{
-			Vec2 Size = [1, 1],
-			Location Origin = Center,
 		},
 		BoxCollider = 
 		{
@@ -536,12 +548,17 @@ Level =
 			bool Seamless = true,
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
+			Vec3 Offset = [0.5, -0.5, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 		WoodScript = 
 		{
 			float NumberOfLines = 1,
+		},
+		Area = 
+		{
+			Vec2 Size = [1, 1],
+			Location Origin = TopLeft,
 		},
 	},
 	Cog = 
@@ -552,12 +569,83 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "DoorCheckpoint",
+			string Name = "JeffreyDoorTrigger",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = true,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [8.5, 1.5, 0],
-			Vec3 Scale = [1, 3, 1],
+			Vec3 Translation = [12.5, 3.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "56157f2144f1c243:Blacks",
+			string SpriteSource = "56157801b60da455:Cover",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [4.5, 4.5, 0.5],
+		},
+		DoorCheckpointScript = 
+		{
+		},
+		BlackTrigger = 
+		{
+			CogPath TheBlackOff = 
+			{
+				string Path = ":/JerryDoorTrigger",
+				bool ErrorOnResolveToNull = false,
+				bool ErrorOnPathCantCompute = false,
+				bool ErrorOnDirectLinkFail = false,
+				bool UpdateCogOnPathChange = true,
+				bool UpdatePathOnCogChange = true,
+				bool UpdateCogOnInitialize = true,
+				bool ResolvedNullErrorOccurred = false,
+				uint ResolvedCog = 12,
+				CogPathPreference PathPreference0 = CogRelative,
+				CogPathPreference PathPreference1 = SpaceRelative,
+				CogPathPreference PathPreference2 = Absolute,
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 13,
+		},
+		Named = 
+		{
+			string Name = "MidWall",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8, 6, 0],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
@@ -580,16 +668,196 @@ Level =
 		},
 		BoxCollider = 
 		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.0500000007, 2, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 14,
+		},
+		Named = 
+		{
+			string Name = "MidWall",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8, 1, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.0500000007, 2, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 12,
+		},
+		Named = 
+		{
+			string Name = "JerryDoorTrigger",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = true,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [3.5, 3.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "56157f2144f1c243:Blacks",
+			string SpriteSource = "56157801b60da455:Cover",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		BoxCollider = 
+		{
 			bool Ghost = true,
 			bool SendsMessages = true,
 			bool Seamless = true,
 			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
+			Vec3 Size = [4.5, 4.5, 0.5],
 		},
-		DoorCheckpointScript = 
+		BlackTrigger = 
 		{
+			CogPath TheBlackOff = 
+			{
+				string Path = ":/JeffreyDoorTrigger",
+				bool ErrorOnResolveToNull = false,
+				bool ErrorOnPathCantCompute = false,
+				bool ErrorOnDirectLinkFail = false,
+				bool UpdateCogOnPathChange = true,
+				bool UpdatePathOnCogChange = true,
+				bool UpdateCogOnInitialize = true,
+				bool ResolvedNullErrorOccurred = false,
+				uint ResolvedCog = 11,
+				CogPathPreference PathPreference0 = CogRelative,
+				CogPathPreference PathPreference1 = SpaceRelative,
+				CogPathPreference PathPreference2 = Absolute,
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 15,
+		},
+		Named = 
+		{
+			string Name = "Door",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [7.5, 3.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "56157a3c2837614a:Door",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 16,
+		},
+		Named = 
+		{
+			string Name = "Door",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [8.5, 3.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "56157a3c2837614a:Door",
+			bool RenderMask = false,
+			bool FlipX = true,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
 		},
 	},
 },

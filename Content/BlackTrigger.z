@@ -1,0 +1,24 @@
+class BlackTrigger : ZilchComponent
+{
+
+    [Property]
+    var TheBlackOff : CogPath;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        if (event.OtherObject.Name == "Player")
+        {
+            this.Owner.Sprite.Visible = false;
+            this.TheBlackOff.Cog.Sprite.Visible = true;
+        }
+    }
+}
+
