@@ -37,22 +37,20 @@ class BoxScript : ZilchComponent
         var player = this.Space.FindObjectByName("Player");
         
         this.TextArray.Set(8, (text.TextInput.ST));
-        Console.WriteLine(this.I);
+        
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
         {
-                if(Zero.Keyboard.KeyIsPressed(Keys.Enter))
-                {
-                    ++this.I;
-                }
-                
-                if(this.I >= this.TextArray.Count)
-                {
-                    player.PlayerController.Talking = false;
-                    this.I = 0;
-                }
-
-                this.Space.LevelSettings.HudInteraction.HudText.SpriteText.Text = this.TextArray[this.I];
-
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping)
+            {
+                ++this.I;
+            }
+            
+            if(this.I >= this.TextArray.Count)
+            {
+                player.PlayerController.Talking = false;
+                this.I = 0;
+            }
+            this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
         }
         else
         {
@@ -68,7 +66,7 @@ class BoxScript : ZilchComponent
         {
             player.PlayerController.Talking = true;
         }
-        Console.WriteLine(this.GameSession.GameStats.CurrentObject);
+        
         if (this.I < 8)
         {
             text.TextInput.ST = "";
@@ -77,25 +75,16 @@ class BoxScript : ZilchComponent
         {
             if(player.PlayerController.Texting == false)
             {
-                
                 player.PlayerController.Texting = true;
             }
-            
-            if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
-            {
-                this.TextArray.Set(9,"“\"That’ is not my name.\"");
-            }
-            else if(this.Input != this.RightAnswer)
-            {
-                this.TextArray.Set(9,"“\"Jeffery? Are you insane? That’ is not my name. \nGet out of here, imposter!\"");
-            }
-            else
-            {
-                this.TextArray.Set(9,"\"Jerry? How did you know? Hmm... I suppose you \ntruly ARE me, then.”\"");
-            }
+            this.GameSession.GameStats.AutoComplete = true;
+        }
+        if (this.I != 8)
+        {
+            this.GameSession.GameStats.AutoComplete = false;
         }
         
-        else if(this.I == 9)
+        if(this.I == 9)
         {
             if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
             {
@@ -116,6 +105,7 @@ class BoxScript : ZilchComponent
                     this.TextArray.Add("\"I never would have thought I'd ever resort to using it, \nbut who am I to disregard the wisdom of myself?\"");
                 }
             }
+            player.PlayerController.Texting = false;
             
         }
         if(this.I == 10)
@@ -123,11 +113,6 @@ class BoxScript : ZilchComponent
             this.GameSession.GameStats.CurrentObject = "Key";
         }
         
-        if (this.I == 11)
-        {
-            player.PlayerController.Texting = false;
-        }
-    
         if(player.PlayerController.Texting == true)
         {
             this.Input = text.TextInput.ST;

@@ -2,7 +2,7 @@ TextContent =
 {
 	ZilchScriptBuilder = 
 	{
-		string Name = "TextImput",
+		string Name = "TextInput",
 		uint64 ResourceId = 5636cdeba3cb32d0,
 	},
 },

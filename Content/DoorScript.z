@@ -15,7 +15,7 @@ class DoorScript : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var text = this.Space.LevelSettings.HudInteraction.HudText.SpriteText.Text;
+        var text = this.GameSession.GameStats.CurrentString;
         var player = this.Space.FindObjectByName("Player");
         
         this.TextArray.Add("");
@@ -37,7 +37,7 @@ class DoorScript : ZilchComponent
                         player.PlayerController.Talking = false;
                         this.I  = 0;
                     }
-                    this.Space.LevelSettings.HudInteraction.HudText.SpriteText.Text = this.TextArray[this.I];
+                    this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
                     
             }
             else
@@ -58,7 +58,7 @@ class DoorScript : ZilchComponent
                 {
                 ++this.I;
                 }
-                this.Space.LevelSettings.HudInteraction.HudText.SpriteText.Text = this.OpeningArray[this.I];
+                this.GameSession.GameStats.CurrentString = this.OpeningArray[this.I];
             }
             
             if (this.I == 1)

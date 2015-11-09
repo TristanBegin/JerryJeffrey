@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "DisplayTextOverTIme",
+		uint64 ResourceId = 5614e2c4e5c96325,
+	},
+},

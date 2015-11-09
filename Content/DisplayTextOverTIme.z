@@ -1,0 +1,88 @@
+/*******************************************************************************
+DisplayTextOverTime
+Created by Tristan Begin.
+
+Description:
+Displays text one letter at a time.
+
+Object -
+The spritetext object.
+
+*******************************************************************************/
+
+class DisplayTextOverTime : ZilchComponent
+{
+    //Delay between new letters.
+    [Property] var DelayLetters : Real = 0.1;
+    
+    //Delay between new lines.
+    [Property] var DelayLines : Real = 0.75;
+    
+    var CurDelay : Real = 1;
+    var CurLineDelay : Real = 0.75;
+    
+    //The Strings for each line to be displayed (some can be left blank)
+    [Property] var String0 : String;
+    [Property] var String1 : String;
+    [Property] var String2 : String;
+    [Property] var String3 : String;
+    [Property] var String4 : String;
+    [Property] var String5 : String;
+    
+    [Property] var NextLevel : Level;
+    var Strings : Array[String] = new Array[String]();
+    var CurString : Integer = 0;
+    var MyText : SpriteText;
+    var Count : Integer = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.MyText = this.Owner.SpriteText;
+        this.MyText.Text = "";
+        
+        //Add all strings to the array.
+        this.Strings.Add(this.String0);
+        this.Strings.Add(this.String1);
+        this.Strings.Add(this.String2);
+        this.Strings.Add(this.String3);
+        this.Strings.Add(this.String4);
+        this.Strings.Add(this.String5);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //Subtract from current letter delay every frame.
+        this.CurDelay -= event.Dt;
+        
+        //When it's zero, incriment count, play osund, and display strings[count] upt the index count.
+        if (this.CurDelay <= 0 && this.Count <= this.Strings[this.CurString].Count)
+        {
+            this.CurDelay = this.DelayLetters;
+            this.MyText.Text = this.Strings[this.CurString].SubString(0, this.Count);
+            this.Count += 1;
+            this.Owner.SimpleSound.Play();
+        }
+        
+        //When count exceed the amount of letters in the string, start decrementing line delay timer.
+        if (this.Count >= this.Strings[this.CurString].Count)
+        {
+            this.CurLineDelay -= 0.75 * event.Dt;
+        }
+        
+        //Go to next string when timer runs out and reset timers.
+        if (this.CurLineDelay <= 0)
+        {
+            this.CurString += 1;
+            this.Count = 0;
+            this.CurLineDelay = 1;
+            this.CurDelay = 0.1;
+        }
+        
+        //Go to next level when the text is done.
+        if (this.CurString > this.Strings.Capacity - 1 || this.Strings[this.CurString] == null)
+        {
+            this.Space.SoundSpace.StopTaggedSounds(SoundTag.DefaultSoundTag);
+            this.Space.LoadLevel(this.NextLevel);
+        }
+    }
+}

@@ -1,5 +1,7 @@
 class GameStats : ZilchComponent
 {
     var CurrentObject : String = "";
-
+    var CurrentString : String = "";
+    var DoneTyping : Boolean = true;
+    var AutoComplete : Boolean = false;
 }

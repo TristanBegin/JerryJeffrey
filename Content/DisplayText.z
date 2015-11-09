@@ -1,0 +1,40 @@
+class DisplayText : ZilchComponent
+{
+    [Property]
+    var Delay : Real = 0.02;
+    var CurDelay : Real = 0;
+    var Count : Integer = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var  goalText = this.GameSession.GameStats.CurrentString;
+        //Subtract from current letter delay every frame.
+        this.CurDelay -= event.Dt;
+        
+        //When it's zero, incriment count, play osund, and display strings[count] upt the index count.
+        if (this.CurDelay <= 0 && this.Count <= goalText.Count && this.Owner.SpriteText.Text != goalText)
+        {
+            this.CurDelay = this.Delay;
+            this.Owner.SpriteText.Text = goalText.SubString(0, this.Count);
+            this.Count += 1;
+            //this.Owner.SimpleSound.Play();
+        }
+        
+        if (this.GameSession.GameStats.AutoComplete
+            || this.Owner.SpriteText.Text == goalText
+            || (Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.Count > 2))
+        {
+            this.Owner.SpriteText.Text = goalText;
+            this.GameSession.GameStats.DoneTyping = true;
+            this.Count = 0;
+        }
+        else
+        {
+            this.GameSession.GameStats.DoneTyping = false;
+        }
+    }
+}
