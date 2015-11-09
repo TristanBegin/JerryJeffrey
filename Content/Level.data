@@ -110,7 +110,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [5.28976202, 2.92192817, 50],
+			Vec3 Translation = [6.9606905, 2.92192817, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -130,7 +130,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [5.28976202, 2.92192817, -4.17176864e-007],
+			Vec3 LookTarget = [6.9606905, 2.92192817, -4.17176864e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -517,6 +517,10 @@ Level =
 		{
 			string Name = "Wood",
 		},
+		Archetyped = 
+		{
+			string Name = "563fdf596bdb9f8b:Wood",
+		},
 		Transform = 
 		{
 			Vec3 Translation = [15, 4, 0],
@@ -554,6 +558,7 @@ Level =
 		WoodScript = 
 		{
 			float NumberOfLines = 1,
+			string Text = "“It’ s just a piece of wood. Stop wasting time.”",
 		},
 		Area = 
 		{

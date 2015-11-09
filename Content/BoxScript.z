@@ -36,6 +36,12 @@ class BoxScript : ZilchComponent
         var text = this.Space.LevelSettings.HudInteraction.HudText;
         var player = this.Space.FindObjectByName("Player");
         
+        if(player.PlayerController.CurrentLevel == 1)
+        {
+            this.Space.CreateAtPosition(Archetype.Wood, this.Owner.Transform.Translation);
+            this.Owner.Destroy();
+        }
+        
         this.TextArray.Set(8, (text.TextInput.ST));
         
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
