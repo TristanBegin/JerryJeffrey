@@ -29,6 +29,7 @@ class NoteScript : ZilchComponent
                 }
                 if(this.I == this.NumberOfLines + 1)
                 {
+                    this.GameSession.GameStats.NoteRead = true;
                     player.PlayerController.Talking = false;
                     this.I  = 0;
                 }

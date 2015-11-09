@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "Note",
-		uint64 ResourceId = 563fdcad9c91cda7,
+		string Name = "Wood1",
+		uint64 ResourceId = 563ff9b90e868dc1,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,

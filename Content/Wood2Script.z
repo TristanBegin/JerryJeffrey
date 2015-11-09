@@ -1,4 +1,4 @@
-class Wood1Script : ZilchComponent
+class Wood2Script : ZilchComponent
 {
     var I : Integer = Integer(0);
     var TextArray : Array[String] = Array[String]();
@@ -21,13 +21,6 @@ class Wood1Script : ZilchComponent
         
         this.TextArray.Add("");
         this.TextArray.Add(this.Text);
-        
-        if(this.GameSession.GameStats.NoteRead == true)
-        {
-            this.Space.CreateAtPosition(Archetype.Box2, this.Owner.Transform.Translation);
-            this.Owner.Destroy();
-        }
-         
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
         {
                 if(Zero.Keyboard.KeyIsPressed(Keys.Enter))
@@ -53,4 +46,3 @@ class Wood1Script : ZilchComponent
         }
     }
 }
-

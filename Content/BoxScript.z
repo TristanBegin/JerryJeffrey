@@ -1,4 +1,4 @@
-class BoxScript : ZilchComponent
+class Box1Script : ZilchComponent
 {
     var I : Integer = Integer(0);
     
@@ -14,6 +14,8 @@ class BoxScript : ZilchComponent
     var WrongAnswer : String;
     
     var Input : String;
+    
+    var GotKey : Boolean = false;
     
     var Talked : Boolean = false;
     function Initialize(init : CogInitializer)
@@ -38,11 +40,9 @@ class BoxScript : ZilchComponent
         
         if(player.PlayerController.CurrentLevel == 1)
         {
-            this.Space.CreateAtPosition(Archetype.Wood, this.Owner.Transform.Translation);
+            this.Space.CreateAtPosition(Archetype.Wood2, this.Owner.Transform.Translation);
             this.Owner.Destroy();
         }
-        
-        this.TextArray.Set(8, (text.TextInput.ST));
         
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
         {
@@ -62,66 +62,79 @@ class BoxScript : ZilchComponent
         {
             this.I = 0;
         }
-        
-        if(this.Talked == true && player.PlayerController.Talking == true && this.I < 7)
-        {
-            this.I = 7;
-        }
-        
-        if (this.I != 0)
-        {
-            player.PlayerController.Talking = true;
-        }
-        
-        if (this.I < 8)
-        {
-            text.TextInput.ST = "";
-        }
-        else if (this.I == 8)
-        {
-            if(player.PlayerController.Texting == false)
-            {
-                player.PlayerController.Texting = true;
-            }
-            this.GameSession.GameStats.AutoComplete = true;
-        }
-        if (this.I != 8)
-        {
-            this.GameSession.GameStats.AutoComplete = false;
-        }
-        
-        if(this.I == 9)
-        {
-            if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
-            {
-                this.Talked = true;
-                this.TextArray.Set(9,"“\"That’ is not my name.\"");
-            }
-            else if(this.Input != this.RightAnswer)
-            {
-                this.Talked = true;
-                this.TextArray.Set(9,"“\"Jeffrey? Are you insane? That’ is not my name. \nGet out of here, imposter!\"");
-            }
-            else
-            {
-                this.TextArray.Set(9,"\"Jerry? How did you know? Hmm... I suppose you \ntruly ARE me, then.”\"");
-                if (this.TextArray.Count <= 10 )
-                {
-                    this.TextArray.Add("\"So, me, is this what you were looking for?\"");
-                    this.TextArray.Add("\"I never would have thought I'd ever resort to using it, \nbut who am I to disregard the wisdom of myself?\"");
-                }
-            }
-            player.PlayerController.Texting = false;
             
-        }
-        if(this.I == 10)
+        if (this.GotKey == true && this.I < 3)
         {
-            this.GameSession.GameStats.CurrentObject = "Key";
+            var newText = Array[String]();
+            newText.Add("“");
+            newText.Add("“\"Hello again, me.\"");
+            this.TextArray = newText;
         }
-        
-        if(player.PlayerController.Texting == true)
+        else
         {
-            this.Input = text.TextInput.ST;
+            this.TextArray.Set(8, (text.TextInput.ST));
+            
+            if(this.Talked == true && player.PlayerController.Talking == true && this.I < 7 && this.GameSession.GameStats.CurrentString != "Key")
+            {
+                this.I = 7;
+            }
+            
+            if (this.I != 0)
+            {
+                player.PlayerController.Talking = true;
+            }
+            
+            if (this.I < 8)
+            {
+                text.TextInput.ST = "";
+            }
+            else if (this.I == 8)
+            {
+                if(player.PlayerController.Texting == false)
+                {
+                    player.PlayerController.Texting = true;
+                }
+                this.GameSession.GameStats.AutoComplete = true;
+            }
+            if (this.I != 8)
+            {
+                this.GameSession.GameStats.AutoComplete = false;
+            }
+            
+            if(this.I == 9)
+            {
+                if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
+                {
+                    this.Talked = true;
+                    this.TextArray.Set(9,"“\"That’ is not my name.\"");
+                }
+                else if(this.Input != this.RightAnswer)
+                {
+                    this.Talked = true;
+                    this.TextArray.Set(9,"“\"Jeffrey? Are you insane? That’ is not my name. \nGet out of here, imposter!\"");
+                }
+                else
+                {
+                    this.GotKey = true;
+                    this.TextArray.Set(9,"\"Jerry? How did you know? Hmm... I suppose you \ntruly ARE me, then.”\"");
+                    if (this.TextArray.Count <= 10 )
+                    {
+                        this.TextArray.Add("\"So, me, is this what you were looking for?\"");
+                        this.TextArray.Add("\"I never would have thought I'd ever resort to using it, \nbut who am I to disregard the wisdom of myself?\"");
+                    }
+                }
+                player.PlayerController.Texting = false;
+                
+            }
+            if(this.I == 10)
+            {
+                this.GameSession.GameStats.CurrentObject = "Key";
+            }
+            
+            if(player.PlayerController.Texting == true)
+            {
+                this.Input = text.TextInput.ST;
+            }
         }
     }
 }

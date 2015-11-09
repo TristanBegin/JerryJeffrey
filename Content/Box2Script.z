@@ -1,0 +1,48 @@
+class Box2Script : ZilchComponent
+{
+    var I : Integer = Integer(0);
+    
+    var TextArray : Array[String] = Array[String]();
+
+    [Property]
+    var NumberOfLines : Real;
+    
+    [Property]
+    var RightAnswer : String;
+    
+    [Property]
+    var WrongAnswer : String;
+    
+    var Input : String;
+    
+    var Talked : Boolean = false;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.TextArray.Add("");
+        this.TextArray.Add("“\"Hello again, me.”\"”");
+
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var text = this.Space.LevelSettings.HudInteraction.HudText;
+        var player = this.Space.FindObjectByName("Player");
+        
+        
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
+        {
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping)
+            {
+                ++this.I;
+            }
+            
+            if(this.I >= this.TextArray.Count)
+            {
+                player.PlayerController.Talking = false;
+                this.I = 0;
+            }
+            this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+        }
+    }
+}

@@ -4,4 +4,5 @@ class GameStats : ZilchComponent
     var CurrentString : String = "";
     var DoneTyping : Boolean = true;
     var AutoComplete : Boolean = false;
+    var NoteRead : Boolean = false;
 }

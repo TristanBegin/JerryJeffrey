@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Wood2Script",
+		uint64 ResourceId = 563ffbf4f706975b,
+	},
+},
