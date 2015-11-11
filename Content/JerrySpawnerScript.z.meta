@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "JerrySpawnerScript",
+		uint64 ResourceId = 5689d3143d328ba2,
+	},
+},

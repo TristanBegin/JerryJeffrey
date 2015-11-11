@@ -21,9 +21,18 @@ class Box2Script : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.TextArray.Add("");
         this.TextArray.Add("“\"Hello again, me.”\"”");
+        this.TextArray.Add("“\"“It would seem that one have them has disappeared, yes? \"”");
+        this.TextArray.Add("“\"Interesting. Very interesting.\"”");
+        this.TextArray.Add("“\"You should probably do something about that.\"”");
+        this.TextArray.Add("“\"Or you could just focus on the one who is still here.\nThat is also an option.\"”");
+        this.TextArray.Add("“\"But of course you don’t care about him. You\njust want what you can’t have, hmm?\"”");
+        this.TextArray.Add("“\"Well I’m afraid I don’t have anything that can help you.\"”");
+        this.TextArray.Add("“\"You are me after all; if I did have something,\nyou would have it too.\"”");
+        this.TextArray.Add("“\"However, I’m not the only container, you know.\"”");
+        this.TextArray.Add("“\"Some other container may have something for you.\"”");
+        
 
     }
-
     function OnLogicUpdate(event : UpdateEvent)
     {
         var text = this.Space.LevelSettings.HudInteraction.HudText;
@@ -32,6 +41,11 @@ class Box2Script : ZilchComponent
         
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
         {
+            if (this.I != 0)
+            {
+                player.PlayerController.Talking = true;
+            }
+            
             if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping)
             {
                 ++this.I;
@@ -39,6 +53,7 @@ class Box2Script : ZilchComponent
             
             if(this.I >= this.TextArray.Count)
             {
+                this.GameSession.GameStats.CurrentObject = "Box2";
                 player.PlayerController.Talking = false;
                 this.I = 0;
             }

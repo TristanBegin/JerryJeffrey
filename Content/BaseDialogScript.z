@@ -5,42 +5,129 @@ class BaseDialogScript : ZilchComponent
     
     
     [Property]
-    var NumberOfLines : Real;
+    var Text1 : String;
+    
+    [Property]
+    var Text2 : String;
+    
+    [Property]
+    var Text3 : String;
+    
+    [Property]
+    var Text4 : String;
+    
+    [Property]
+    var Text5 : String;
+    
+    [Property]
+    var Text6 : String;
+    
+    [Property]
+    var Text7 : String;
+    
+    [Property]
+    var Text8 : String;
+    
+    [Property]
+    var Text9 : String;
+    
+    [Property]
+    var Text10 : String;
+    
+    [Property]
+    var Text11 : String;
+    
+    [Property]
+    var Text12 : String;
+    
+    [Property]
+    var Text13 : String;
+    
+    [Property]
+    var Text14 : String;
+    
+    [Property]
+    var Text15 : String;
+    
+    [Property]
+    var Text16 : String;
+    [Property]
+    var Text17 : String;
+    [Property]
+    var Text18 : String;
+    [Property]
+    var Text19 : String;
+    [Property]
+    var Text20 : String;
+    [Property]
+    var Text21 : String;
+    [Property]
+    var Text22 : String;
+    [Property]
+    var Text23 : String;
+    [Property]
+    var Text24 : String;
+    [Property]
+    var Text25 : String;
+    [Property]
+    var Text26 : String;
+    [Property]
+    var Text27 : String;
+    [Property]
+    var Text28 : String;
+    [Property]
+    var Text29 : String;
+    [Property]
+    var Text30 : String;
     
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        this.TextArray.Add("");
+        this.TextArray.Add("`this.Text1`\n`this.Text2`");
+        this.TextArray.Add("`this.Text3`\n`this.Text4`");
+        this.TextArray.Add("`this.Text5`\n`this.Text6`");
+        this.TextArray.Add("`this.Text7`\n`this.Text8`");
+        this.TextArray.Add("`this.Text9`\n`this.Text10`");
+        this.TextArray.Add("`this.Text11`\n`this.Text12`");
+        this.TextArray.Add("`this.Text13`\n`this.Text14`");
+        this.TextArray.Add("`this.Text15`\n`this.Text16`");
+        this.TextArray.Add("`this.Text17`\n`this.Text18`");
+        this.TextArray.Add("`this.Text19`\n`this.Text20`");
+        this.TextArray.Add("`this.Text21`\n`this.Text22`");
+        this.TextArray.Add("`this.Text23`\n`this.Text24`");
+        this.TextArray.Add("`this.Text25`\n`this.Text26`");
+        this.TextArray.Add("`this.Text27`\n`this.Text28`");
+        this.TextArray.Add("`this.Text29`\n`this.Text30`");
+        
     }
+
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var text = this.GameSession.GameStats.CurrentString;
+        var text = this.Space.LevelSettings.HudInteraction.HudText;
         var player = this.Space.FindObjectByName("Player");
         
-        this.TextArray.Add("");
-         
+        
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
         {
-                if(Zero.Keyboard.KeyIsPressed(Keys.Enter))
-                {
-                   ++this.I;
-                }
-                if(this.I == this.NumberOfLines + 1)
-                {
-                    player.PlayerController.Talking = false;
-                    this.I  = 0;
-                }
-                this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
-                
-        }
-        else
-        {
-            this.I = 0;
-        }
-        
-        if (this.I == 0)
-        {
-            player.PlayerController.Talking = true;
+            if (this.I != 0)
+            {
+                player.PlayerController.Talking = true;
+            }
+            
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping)
+            {
+                ++this.I;
+            }
+            
+            if((this.TextArray[this.I]) == "\n" && (this.I != 0))
+            {
+                player.PlayerController.Talking = false;
+                this.I = 0;
+            }
+            this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
         }
     }
 }

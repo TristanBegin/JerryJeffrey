@@ -15,5 +15,10 @@ class DoorCheckpointScript : ZilchComponent
         var otherObject = event.OtherObject;
         
         otherObject.PlayerController.CurrentLevel = 1;
+        
+        if (this.GameSession.GameStats.CurrentObject == "Box2")
+        {
+            this.GameSession.GameStats.CurrentObject = "TrashCan";
+        }
     }
 }
