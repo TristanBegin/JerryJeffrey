@@ -21,18 +21,20 @@ class JefferyScript : ZilchComponent
         this.TextArray.Add("Jeffery - \"Hello.\"");
         
          
-        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
         {
-                if(Zero.Keyboard.KeyIsPressed(Keys.Enter))
+                if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
+                    && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
                 {
                     ++this.I;
+                    this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
                 }
                 if(this.I == this.NumberOfLines + 1)
                 {
                     player.PlayerController.Talking = false;
                     this.I  = 0;
                 }
-                this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+                
                 
         }
         else

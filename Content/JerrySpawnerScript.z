@@ -8,8 +8,7 @@ class JerrySpawnerScript : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        Console.WriteLine(this.GameSession.GameStats.CurrentObject);
-        if(this.GameSession.GameStats.CurrentObject == "Box2")
+        if(this.GameSession.GameStats.Trigger == "Box2")
         {
             if(this.Object == null)
             {

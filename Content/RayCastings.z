@@ -4,7 +4,7 @@ class RayCastings : ZilchComponent
     var Transfrom : Transform;
     
     
-    var NameOfObject: String;
+    var HitObject : Cog;
     
     var DistanceNorth: Real;
     var DistanceEast: Real;
@@ -19,6 +19,8 @@ class RayCastings : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        
+        
         var rayNorth = Ray();
         var rayEast = Ray();
         var raySouth = Ray();
@@ -89,18 +91,22 @@ class RayCastings : ZilchComponent
                 castResultLooking = castResultWest ;
             }
         }
-        this.NameOfObject = castResultLooking.ObjectHit.Name;
+        this.HitObject = castResultLooking.ObjectHit;
         
         this.DistanceNorth = castResultNorth.Distance;
         this.DistanceEast = castResultEast.Distance;
         this.DistanceSouth = castResultSouth.Distance;
         this.DistanceWest = castResultWest.Distance;
         this.DistanceLooking = castResultLooking.Distance;
-
-        //Console.WriteLine(this.NameOfObject);
         
-        //Console.WriteLine("Looking: `this.DistanceLooking`");
-
+        if (castResultLooking.Distance < 1)
+        {
+            this.GameSession.GameStats.LookingAt = castResultLooking.ObjectHit;
+        }
+        else
+        {
+            this.GameSession.GameStats.LookingAt = null;
+        }
         
     }
 }

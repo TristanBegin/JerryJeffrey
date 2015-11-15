@@ -35,9 +35,10 @@ class DeskScript : ZilchComponent
         var player = this.Space.FindObjectByName("Player");
         
         
-        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
         {
-            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping)
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
+                && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
             {
                 ++this.I;
             }
@@ -46,8 +47,13 @@ class DeskScript : ZilchComponent
             {
                 player.PlayerController.Talking = false;
                 this.I = 0;
+                this.GameSession.GameStats.CurrentString = "";
             }
-            this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            if (this.I > 0)
+            {
+                this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            }
+            
         }
         else
         {
@@ -116,7 +122,7 @@ class DeskScript : ZilchComponent
         }
         if(this.I == 13)
         {
-            this.GameSession.GameStats.CurrentObject = "Journal";
+            this.GameSession.GameStats.Trigger = "Journal";
         }
         
         if(player.PlayerController.Texting == true)

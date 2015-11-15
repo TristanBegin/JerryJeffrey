@@ -3,8 +3,7 @@ class RayCasting : ZilchComponent
     [Dependency]
     var Transfrom : Transform;
     
-    
-    var NameOfObject: String;
+    var HitObject: Cog;
     var DistanceToObject: Real;
      
     function Initialize(init : CogInitializer)
@@ -50,10 +49,8 @@ class RayCasting : ZilchComponent
         var castResult = this.Space.PhysicsSpace.CastRayFirst(ray);
         if(castResult.ObjectHit != null)
         {
-            this.NameOfObject = castResult.ObjectHit.Name;
+            this.HitObject = castResult.ObjectHit;
         }
         this.DistanceToObject = castResult.Distance;
-        //Console.WriteLine(this.DistanceToObject);
-        //Console.WriteLine(this.NameOfObject);
     }
 }

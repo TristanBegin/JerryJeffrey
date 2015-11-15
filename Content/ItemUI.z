@@ -1,5 +1,7 @@
 class ItemUI : ZilchComponent
 {
+    [Property]
+    var WhichItem : Integer = 1;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -7,13 +9,22 @@ class ItemUI : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if (this.GameSession.GameStats.CurrentObject == "Key")
-        {
-            this.Owner.Sprite.SpriteSource = SpriteSource.Key;
-        }
-        else
-        {
-            this.Owner.Sprite.SpriteSource = SpriteSource.None;
-        }
+        var theObject : String = "";
+        if (this.WhichItem == 1) theObject = this.GameSession.GameStats.ObjectOne;
+        if (this.WhichItem == 2) theObject = this.GameSession.GameStats.ObjectTwo;
+        if (this.WhichItem == 3) theObject = this.GameSession.GameStats.ObjectThree;
+        if (theObject == "") theObject = "None";
+        this.Owner.Sprite.SpriteSource = SpriteSource.Find(theObject);
+        
+        //if ((this.GameSession.GameStats.ObjectOne != "" && this.WhichItem == 1)
+        //    || (this.GameSession.GameStats.ObjectTwo != "" && this.WhichItem == 2)
+        //    || (this.GameSession.GameStats.ObjectTwo != "" && this.WhichItem == 2))
+        //{
+        //    this.Owner.Sprite.SpriteSource = SpriteSource.Find()
+        //}
+        //else
+        //{
+        //    this.Owner.Sprite.SpriteSource = SpriteSource.None;
+        //}
     }
 }

@@ -44,9 +44,10 @@ class Box1Script : ZilchComponent
             this.Owner.Destroy();
         }
         
-        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
         {
-            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping)
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
+                && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
             {
                 ++this.I;
             }
@@ -55,20 +56,27 @@ class Box1Script : ZilchComponent
             {
                 player.PlayerController.Talking = false;
                 this.I = 0;
+                this.GameSession.GameStats.CurrentString = "";
             }
-            this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            if (this.I > 0)
+            {
+                this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            }
         }
         else
         {
             this.I = 0;
         }
-            
         if (this.GotKey == true && this.I < 3)
         {
             var newText = Array[String]();
             newText.Add("“");
             newText.Add("“\"Hello again, me.\"");
             this.TextArray = newText;
+            if (this.I != 0)
+            {
+                player.PlayerController.Talking = true;
+            }
         }
         else
         {
@@ -83,13 +91,12 @@ class Box1Script : ZilchComponent
             {
                 player.PlayerController.Talking = true;
             }
-            
             if (this.I < 8)
             {
                 text.TextInput.ST = "";
             }
             else if (this.I == 8)
-            {
+            { 
                 if(player.PlayerController.Texting == false)
                 {
                     player.PlayerController.Texting = true;
@@ -128,7 +135,7 @@ class Box1Script : ZilchComponent
             }
             if(this.I == 10)
             {
-                this.GameSession.GameStats.CurrentObject = "Key";
+                this.GameSession.GameStats.ObjectOne = "Key";
             }
             
             if(player.PlayerController.Texting == true)

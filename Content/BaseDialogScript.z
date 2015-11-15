@@ -85,21 +85,37 @@ class BaseDialogScript : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         
         this.TextArray.Add("");
-        this.TextArray.Add("`this.Text1`\n`this.Text2`");
-        this.TextArray.Add("`this.Text3`\n`this.Text4`");
-        this.TextArray.Add("`this.Text5`\n`this.Text6`");
-        this.TextArray.Add("`this.Text7`\n`this.Text8`");
-        this.TextArray.Add("`this.Text9`\n`this.Text10`");
-        this.TextArray.Add("`this.Text11`\n`this.Text12`");
-        this.TextArray.Add("`this.Text13`\n`this.Text14`");
-        this.TextArray.Add("`this.Text15`\n`this.Text16`");
-        this.TextArray.Add("`this.Text17`\n`this.Text18`");
-        this.TextArray.Add("`this.Text19`\n`this.Text20`");
-        this.TextArray.Add("`this.Text21`\n`this.Text22`");
-        this.TextArray.Add("`this.Text23`\n`this.Text24`");
-        this.TextArray.Add("`this.Text25`\n`this.Text26`");
-        this.TextArray.Add("`this.Text27`\n`this.Text28`");
-        this.TextArray.Add("`this.Text29`\n`this.Text30`");
+        this.TextArray.Add("");
+        this.TextArray.Add(this.Text1);
+        this.TextArray.Add(this.Text2);
+        this.TextArray.Add(this.Text3);
+        this.TextArray.Add(this.Text4);
+        this.TextArray.Add(this.Text5);
+        this.TextArray.Add(this.Text6);
+        this.TextArray.Add(this.Text7);
+        this.TextArray.Add(this.Text8);
+        this.TextArray.Add(this.Text9);
+        this.TextArray.Add(this.Text10);
+        this.TextArray.Add(this.Text11);
+        this.TextArray.Add(this.Text12);
+        this.TextArray.Add(this.Text13);
+        this.TextArray.Add(this.Text14);
+        this.TextArray.Add(this.Text15);
+        this.TextArray.Add(this.Text16);
+        this.TextArray.Add(this.Text17);
+        this.TextArray.Add(this.Text18);
+        this.TextArray.Add(this.Text19);
+        this.TextArray.Add(this.Text20);
+        this.TextArray.Add(this.Text21);
+        this.TextArray.Add(this.Text22);
+        this.TextArray.Add(this.Text23);
+        this.TextArray.Add(this.Text24);
+        this.TextArray.Add(this.Text25);
+        this.TextArray.Add(this.Text26);
+        this.TextArray.Add(this.Text27);
+        this.TextArray.Add(this.Text28);
+        this.TextArray.Add(this.Text29);
+        this.TextArray.Add(this.Text30);
         
     }
 
@@ -110,24 +126,26 @@ class BaseDialogScript : ZilchComponent
         var player = this.Space.FindObjectByName("Player");
         
         
-        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
         {
             if (this.I != 0)
             {
                 player.PlayerController.Talking = true;
             }
             
-            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping)
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
+                && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
             {
-                ++this.I;
+                this.I += 2; 
+                this.GameSession.GameStats.CurrentString = ("`this.TextArray[this.I]`\n`this.TextArray[this.I + 1]`");
             }
             
-            if((this.TextArray[this.I]) == "\n" && (this.I != 0))
+            if((this.TextArray[this.I]) == "" && (this.I != 0))
             {
                 player.PlayerController.Talking = false;
                 this.I = 0;
+                this.GameSession.GameStats.CurrentString = "";
             }
-            this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
         }
     }
 }

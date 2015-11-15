@@ -1,8 +1,81 @@
 class GameStats : ZilchComponent
 {
-    var CurrentObject : String = "";
+    var ObjectOne : String = "";
+    var ObjectTwo : String = "";
+    var ObjectThree : String = "";
     var CurrentString : String = "";
+    var Trigger : String = "";
     var DoneTyping : Boolean = true;
     var AutoComplete : Boolean = false;
     var NoteRead : Boolean = false;
+    var LookingAt : Cog;
+    
+    var UsingItem : Boolean = false;
+    var ItemBeingUsed : String;
+    var Player : Cog; 
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var objectName = "Nothing";
+        var lookingName = "Nothing";
+        if (Zero.Keyboard.KeyIsPressed(Keys.NumPad1))
+        {
+            objectName = "Nothing";
+            lookingName = "Nothing";
+            this.Player.PlayerController.Talking = true;
+            this.UsingItem = true;
+            if (this.LookingAt != null) lookingName = this.LookingAt.Name;
+            if (this.ObjectOne != "") objectName = this.ObjectOne;
+            this.CurrentString = "Used `objectName` on `lookingName`.";
+            this.ItemBeingUsed = this.ObjectOne;
+            
+        }
+        if (Zero.Keyboard.KeyIsPressed(Keys.NumPad2))
+        {
+            this.Player.PlayerController.Talking = true;
+            this.UsingItem = true;
+            if (this.LookingAt != null) lookingName = this.LookingAt.Name;
+            if (this.ObjectTwo != "") objectName = this.ObjectTwo;
+            this.CurrentString = "Used `objectName` on `lookingName`.";
+            this.ItemBeingUsed = this.ObjectTwo;
+        }
+        
+        if (Zero.Keyboard.KeyIsPressed(Keys.NumPad3))
+        {
+            this.Player.PlayerController.Talking = true;
+            this.UsingItem = true;
+            if (this.LookingAt != null) lookingName = this.LookingAt.Name;
+            if (this.ObjectThree != "") objectName = this.ObjectThree;
+            this.CurrentString = "Used `objectName` on `lookingName`.";
+            this.ItemBeingUsed = this.ObjectThree;
+        }
+        
+        if (Zero.Keyboard.KeyIsReleased(Keys.Enter) && this.CurrentString == "Nothing happened." && this.DoneTyping)
+        {
+            this.UsingItem = false;
+            this.Player.PlayerController.Talking = false;
+            this.CurrentString = "";
+        }
+        if (Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.DoneTyping && this.UsingItem)
+        {
+            
+            this.CurrentString = "Nothing happened.";
+            if (this.ItemBeingUsed != "" && this.LookingAt != null)
+            {
+                var itemUsed : ItemUsed = new ItemUsed();
+                itemUsed.TheItem = this.ItemBeingUsed;
+                this.LookingAt.DispatchEvent(Events.ItemUsed, itemUsed);
+            }
+        }
+    }
+}
+
+class ItemUsed : ZilchEvent
+{
+    var TheItem : String = "";
+    sends ItemUsed : ItemUsed;
 }

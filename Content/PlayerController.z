@@ -44,24 +44,36 @@ class PlayerController : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.GameSession.GameStats.Player = this.Owner;
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        var update : UpdateEvent = event;
+        this.GameSession.DispatchEvent(Events.LogicUpdate, update);
+        
+        if (this.GameSession.GameStats.CurrentString != "" && this.GameSession.GameStats.CurrentString != null)
+        {
+            //this.Talking = true;
+        }
+        else if (this.Texting == false)
+        {
+            //this.Talking = false;
+        }
         
         //gets the player's current position
         var currentPos = this.Owner.Transform.Translation;
         var currentPosX = currentPos.X;
         var currentPosY = currentPos.Y;
         
-        //Console.WriteLine("`currentPosX`, `currentPosY`");
-        //Console.WriteLine("`this.NextPosY`");
-        //Console.WriteLine("UpInput: `this.UpInput`, DownInput: `this.DownInput`");
-        
-        Console.WriteLine(this.Talking);
         
         if (this.Talking == false)
         {
+        //    this.UpInput = false;
+        //    this.DownInput = false;
+        //    this.RightInput = false;
+        //    this.LeftInput = false;
+        //}
             if (Zero.Keyboard.KeyIsDown(Keys.W))
             {
                 this.LookingDirection = 0;
@@ -78,10 +90,10 @@ class PlayerController : ZilchComponent
             {
                 this.LookingDirection = 1;
             }
-    
+            
             //checks which key is pressed and if the player has reached the next position on the grid on that axis
             //if true, depending on the key, adds or subtracts 1.0 to "this.NextPos" of the appropriate axis
-            if (Math.Abs(currentPosY - this.NextPosY) <= 0.1 && this.LeftInput == false && this.RightInput == false)
+            if (Math.Abs(currentPosY - this.NextPosY) <= 0.1 && this.LeftInput == false && this.RightInput == false )
             {
                 if (Zero.Keyboard.KeyIsDown(Keys.W) && this.Owner.RayCastings.DistanceNorth > 0.9 )
                 {
@@ -126,7 +138,7 @@ class PlayerController : ZilchComponent
                 }
             }
             
-    
+        }
             
             //checks if the current position is less than the next Y position on the grid and there is 
             //if true, the player keeps moving in the Y direction
@@ -182,6 +194,6 @@ class PlayerController : ZilchComponent
                 }
                 this.Owner.RigidBody.Velocity = Real3(0.0, 0.0, 0.0);
             }
-        }
+        
     }
 }

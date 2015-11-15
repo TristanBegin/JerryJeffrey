@@ -39,25 +39,31 @@ class Box2Script : ZilchComponent
         var player = this.Space.FindObjectByName("Player");
         
         
-        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.NameOfObject == this.Owner.Name)
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
         {
             if (this.I != 0)
             {
                 player.PlayerController.Talking = true;
             }
             
-            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping)
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping 
+                && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
             {
                 ++this.I;
             }
             
             if(this.I >= this.TextArray.Count)
             {
-                this.GameSession.GameStats.CurrentObject = "Box2";
+                this.GameSession.GameStats.Trigger = "Box2";
                 player.PlayerController.Talking = false;
                 this.I = 0;
+                this.GameSession.GameStats.CurrentString = "";
             }
-            this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            
+            if (this.I > 0)
+            {
+                this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            }
         }
     }
 }

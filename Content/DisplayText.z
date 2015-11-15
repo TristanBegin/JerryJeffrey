@@ -15,7 +15,7 @@ class DisplayText : ZilchComponent
         //Subtract from current letter delay every frame.
         this.CurDelay -= event.Dt;
         
-        //When it's zero, incriment count, play osund, and display strings[count] upt the index count.
+        //When it's zero, incriment count, play sound, and display strings[count] upt the index count.
         if (this.CurDelay <= 0 && this.Count <= goalText.Count && this.Owner.SpriteText.Text != goalText)
         {
             this.CurDelay = this.Delay;

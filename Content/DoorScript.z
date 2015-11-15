@@ -8,9 +8,13 @@ class DoorScript : ZilchComponent
     [Property]
     var NumberOfLines : Real;
     
+    var GoingToOpen : Boolean = false;
+    
+    var Start : Boolean = false;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -23,57 +27,42 @@ class DoorScript : ZilchComponent
         
         this.OpeningArray.Add("");
         this.OpeningArray.Add("Door unlocked.");
-        
-        if(this.GameSession.GameStats.CurrentObject != "Key")
+        if(player.RayCastings.DistanceLooking < 0.7 && player.RayCastings.HitObject == this.Owner)
         {
-            if(player.RayCastings.DistanceLooking < 0.7 && player.RayCastings.NameOfObject == this.Owner.Name)
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
+                && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
             {
-                    if(Zero.Keyboard.KeyIsPressed(Keys.Enter))
-                    {
-                        ++this.I;
-                    }
-                    if(this.I == this.NumberOfLines + 1)
-                    {
-                        player.PlayerController.Talking = false;
-                        this.I  = 0;
-                    }
-                    this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
-                    
+                ++this.I;
+                
+                    //Tell the Global what the current string to display is.
+                if (this.GoingToOpen) this.GameSession.GameStats.CurrentString = this.OpeningArray[this.I];
+                else  this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
             }
-            else
+            if(this.I == this.NumberOfLines + 1)
             {
-                this.I = 0;
+                player.PlayerController.Talking = false;
+                this.I  = 0;
+                if (this.GoingToOpen) this.Owner.Destroy();
             }
             
-            if (this.I != 0)
-            {
-                player.PlayerController.Talking = true;
-            }
         }
         else
         {
-            if(player.RayCastings.DistanceLooking < 0.7 && player.RayCastings.NameOfObject == this.Owner.Name)
-            {
-                if(Zero.Keyboard.KeyIsPressed(Keys.Enter))
-                {
-                ++this.I;
-                }
-                this.GameSession.GameStats.CurrentString = this.OpeningArray[this.I];
-            }
-            
-            if (this.I == 1)
-            {
-                player.PlayerController.Talking = true;
-            }
-            else if(this.I == 2)
-            {
-                player.PlayerController.Talking = false;
-                this.Owner.Destroy();
-                this.GameSession.GameStats.CurrentObject = "";
-            }
+            this.I = 0;
         }
         
-        
-        
+        if (this.I != 0)
+        {
+            player.PlayerController.Talking = true;
+        }
+    }
+    
+    function OnItemUsed (event : ItemUsed)
+    {
+        if (event.TheItem == "Key")
+        {
+            this.GameSession.GameStats.CurrentString = this.OpeningArray[this.I];
+            this.GoingToOpen = true;
+        }
     }
 }

@@ -9,6 +9,5 @@ class ReciveText : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        //Console.WriteLine(this.Str);
     }
 }
