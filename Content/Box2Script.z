@@ -21,14 +21,14 @@ class Box2Script : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.TextArray.Add("");
         this.TextArray.Add("“\"Hello again, me.”\"”");
-        this.TextArray.Add("“\"“It would seem that one have them has disappeared, yes? \"”");
+        this.TextArray.Add("“\"“It would seem that one of them has disappeared, yes? \"”");
         this.TextArray.Add("“\"Interesting. Very interesting.\"”");
         this.TextArray.Add("“\"You should probably do something about that.\"”");
         this.TextArray.Add("“\"Or you could just focus on the one who is still here.\nThat is also an option.\"”");
-        this.TextArray.Add("“\"But of course you don’t care about him. You\njust want what you can’t have, hmm?\"”");
-        this.TextArray.Add("“\"Well I’m afraid I don’t have anything that can help you.\"”");
+        this.TextArray.Add("“\"But of course you don'’t care about him. You\njust want what you can'’t have, hmm?\"”");
+        this.TextArray.Add("“\"Well I'’m afraid I don'’t have anything that can help you.\"”");
         this.TextArray.Add("“\"You are me after all; if I did have something,\nyou would have it too.\"”");
-        this.TextArray.Add("“\"However, I’m not the only container, you know.\"”");
+        this.TextArray.Add("“\"However, I’'m not the only container, you know.\"”");
         this.TextArray.Add("“\"Some other container may have something for you.\"”");
         
 
@@ -52,9 +52,14 @@ class Box2Script : ZilchComponent
                 ++this.I;
             }
             
-            if(this.I >= this.TextArray.Count)
+            if(this.I >= this.TextArray.Count
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
             {
-                this.GameSession.GameStats.Trigger = "Box2";
+                if (this.I >= this.TextArray.Count)
+                {
+                    this.GameSession.GameStats.Trigger = "Box2";
+                }
+                
                 player.PlayerController.Talking = false;
                 this.I = 0;
                 this.GameSession.GameStats.CurrentString = "";

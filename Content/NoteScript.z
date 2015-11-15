@@ -18,7 +18,7 @@ class NoteScript : ZilchComponent
         var player = this.Space.FindObjectByName("Player");
         
         this.TextArray.Add("");
-        this.TextArray.Add("Note- \"–“To the worthless piece of trash: \nThough I thought that we had begun to form a bond\"”");
+        this.TextArray.Add("Note : \"–“To the worthless piece of trash: \nThough I thought that we had begun to form a bond\"”");
         this.TextArray.Add("\"through pleasant conversation, it would \nseem you’'d rather twiddle away our final hours \"");
         this.TextArray.Add("\"together with that vile insect on the other side of the wall.\nThus, I have decided to take my leave. Good day sir.\"”");
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
@@ -29,13 +29,17 @@ class NoteScript : ZilchComponent
                     ++this.I;
                     this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
                 }
-                if(this.I == this.NumberOfLines + 1)
+                if(this.I == this.NumberOfLines + 1
+                || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
                 {
-                    this.GameSession.GameStats.NoteRead = true;
+                    if(this.I == this.NumberOfLines + 1)
+                    {
+                        this.GameSession.GameStats.NoteRead = true;
+                    }
                     player.PlayerController.Talking = false;
                     this.I  = 0;
+                    this.GameSession.GameStats.CurrentString = "";
                 }
-                
                 
         }
         else

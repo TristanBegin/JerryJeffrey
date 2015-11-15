@@ -23,7 +23,7 @@ class JerryScript : ZilchComponent
             this.Owner.Destroy();
         }
         this.TextArray.Add("");
-        this.TextArray.Add("Jerry - \"Hello.\"");
+        this.TextArray.Add("Jerry : \"Hello.\"");
         
          
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)

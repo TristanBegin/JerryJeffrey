@@ -54,6 +54,6 @@ Cog =
 	Wood1Script = 
 	{
 		float NumberOfLines = 1,
-		string Text = "It’ s just a piece of wood. Stop wasting time.",
+		string Text = "It'’s just a piece of wood. Stop wasting time.",
 	},
 },

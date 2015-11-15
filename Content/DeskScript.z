@@ -23,7 +23,7 @@ class DeskScript : ZilchComponent
         this.TextArray.Add("’“\"Open, close, open, close, open, close, OPEN!”\"");
         this.TextArray.Add("\"Huh, what? Oh, hello there.”“My apologies,\nI was just writing in my diary.\"”");
         this.TextArray.Add("\"Opening and closing... that is my entire life.\n”“But I suppose that’s just how life is.\"”");
-        this.TextArray.Add("\"At least I’m back where I’'m supposed to be, now.\n”“What is it you would like?\"”");
+        this.TextArray.Add("\"At least I’'m back where I’'m supposed to be, now.\n”“What is it you would like?\"”");
         this.TextArray.Add("”");
         this.TextArray.Add("”");
 
@@ -43,7 +43,8 @@ class DeskScript : ZilchComponent
                 ++this.I;
             }
             
-            if(this.I >= this.TextArray.Count)
+            if(this.I >= this.TextArray.Count
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
             {
                 player.PlayerController.Talking = false;
                 this.I = 0;
@@ -91,6 +92,10 @@ class DeskScript : ZilchComponent
         
         if(this.I == 7)
         {
+            this.Input = this.Input.ToLower();
+            this.WrongAnswer1 = this.WrongAnswer1.ToLower();
+            this.WrongAnswer2 = this.WrongAnswer2.ToLower();
+            
             if(this.Input == this.WrongAnswer1)
             {
                 this.Talked = true;
@@ -99,7 +104,7 @@ class DeskScript : ZilchComponent
             else if(this.Input == this.WrongAnswer2)
             {
                 this.Talked = true;
-                this.TextArray.Set(7,"“\"I can’t close unless I’ve been opened, moron.\"");
+                this.TextArray.Set(7,"“\"I can'’t close unless I'’ve been opened, moron.\"");
             }
             else if(this.Input == "")
             {
@@ -111,10 +116,11 @@ class DeskScript : ZilchComponent
                 {
                     this.TextArray.Add("\"Are you... by chance... trying to have a conversation with me?”“\nOh goodness, this has never happened to me before.\"");
                     this.TextArray.Add("*Ahem*”“\n\"Hello! How are you today? I’m doing amazing, actually.\"");
-                    this.TextArray.Add("\"You know how it is, opening and closing and whatnot.”“Yes, yes,\nbeing a drawer is a truly thrilling experience, let me tell you.\"");
-                    this.TextArray.Add("\"Why just the other day, I had to open for a very important\nindividual.”“So...”“Would you like to be my girlfriend?\"");
-                    this.TextArray.Add("\"“No? Okay, what about my boyfriend?”“\nWhat about just being my friend?”“Acquaintance?”\"");
-                    this.TextArray.Add("\"Okay. I understand... I’ll just be opening then.”\"\nThe drawer opens you receive Jeffrey’s journal.");
+                    this.TextArray.Add("\"You know how it is, opening and closing and whatnot.”“\nYes, yes, being a drawer is a truly thrilling experience,\"" );
+                    this.TextArray.Add("\"let me tell you. Why just the other day, I had to open\nfor a very importantindividual.\"");
+                    this.TextArray.Add("\"So...”“Would you like to be my girlfriend?\n“No? Okay, what about my boyfriend?”“”\"");
+                    this.TextArray.Add("\"What about just being my friend?”“Acquaintance?\nOkay. I understand... I’ll just be opening then.”\"");
+                    this.TextArray.Add("The drawer opens you receive Jeffrey’s journal.");
                 }
             }
             player.PlayerController.Texting = false;
