@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "cour",
+		uint64 ResourceId = 56835458fcb93cb7,
+	},
+},

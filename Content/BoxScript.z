@@ -5,9 +5,6 @@ class Box1Script : ZilchComponent
     var TextArray : Array[String] = Array[String]();
 
     [Property]
-    var NumberOfLines : Real;
-    
-    [Property]
     var RightAnswer : String;
     
     [Property]
@@ -52,7 +49,7 @@ class Box1Script : ZilchComponent
                 ++this.I;
             }
             
-            if(this.I >= this.TextArray.Count)
+            if(this.I >= this.TextArray.Count || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
             {
                 player.PlayerController.Talking = false;
                 this.I = 0;
@@ -110,6 +107,10 @@ class Box1Script : ZilchComponent
             
             if(this.I == 9)
             {
+                this.Input = this.Input.ToLower();
+                this.WrongAnswer = this.WrongAnswer.ToLower();
+                this.RightAnswer = this.RightAnswer.ToLower();
+                
                 if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
                 {
                     this.Talked = true;
@@ -141,6 +142,8 @@ class Box1Script : ZilchComponent
             if(player.PlayerController.Texting == true)
             {
                 this.Input = text.TextInput.ST;
+                
+                
             }
         }
     }

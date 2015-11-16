@@ -56,13 +56,14 @@ class GameStats : ZilchComponent
         
         if (Zero.Keyboard.KeyIsReleased(Keys.Enter) && this.CurrentString == "Nothing happened." && this.DoneTyping)
         {
-            this.UsingItem = false;
+            
             this.Player.PlayerController.Talking = false;
             this.CurrentString = "";
         }
+        Console.WriteLine(this.UsingItem);
         if (Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.DoneTyping && this.UsingItem)
         {
-            
+            this.UsingItem = false;
             this.CurrentString = "Nothing happened.";
             if (this.ItemBeingUsed != "" && this.LookingAt != null)
             {

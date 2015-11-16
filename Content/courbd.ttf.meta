@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "courbd",
+		uint64 ResourceId = 568354e00e4f687e,
+	},
+},

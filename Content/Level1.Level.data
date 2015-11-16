@@ -303,14 +303,14 @@ Level =
 			Vec3 Offset = [0.5, -0.5, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
 		},
-		JerryScript = 
-		{
-			float NumberOfLines = 1,
-		},
 		Area = 
 		{
 			Vec2 Size = [0.9375, 1.125],
 			Location Origin = TopLeft,
+		},
+		JerryScript = 
+		{
+			float NumberOfLines = 1,
 		},
 	},
 	Cog = 
@@ -368,7 +368,6 @@ Level =
 		},
 		Box1Script = 
 		{
-			float NumberOfLines = 11,
 			string RightAnswer = "Jeffrey",
 			string WrongAnswer = "Jerry",
 		},
@@ -504,14 +503,43 @@ Level =
 			Vec3 Offset = [0.5, -0.5, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
 		},
-		JefferyScript = 
-		{
-			float NumberOfLines = 1,
-		},
 		Area = 
 		{
 			Vec2 Size = [1, 1.125],
 			Location Origin = TopLeft,
+		},
+		BaseDialogScript = 
+		{
+			string Text1 = "Jeffrey : –""“Hello.”""",
+			string Text2 = "",
+			string Text3 = "",
+			string Text4 = "",
+			string Text5 = "",
+			string Text6 = "",
+			string Text7 = "",
+			string Text8 = "",
+			string Text9 = "",
+			string Text10 = "",
+			string Text11 = "",
+			string Text12 = "",
+			string Text13 = "",
+			string Text14 = "",
+			string Text15 = "",
+			string Text16 = "",
+			string Text17 = "",
+			string Text18 = "",
+			string Text19 = "",
+			string Text20 = "",
+			string Text21 = "",
+			string Text22 = "",
+			string Text23 = "",
+			string Text24 = "",
+			string Text25 = "",
+			string Text26 = "",
+			string Text27 = "",
+			string Text28 = "",
+			string Text29 = "",
+			string Text30 = "",
 		},
 	},
 	Cog = 

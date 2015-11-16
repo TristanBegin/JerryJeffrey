@@ -1,0 +1,82 @@
+class BasicTextInputScript : ZilchComponent
+{
+    
+    var I : Integer = Integer(0); //Text counter
+    
+    var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
+    
+    var Input : String; //The input that the player will input.
+    
+    var Talked : Boolean = false; //The varable that see if the player has talked to this object
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.TextArray.Add(""); //The first element of the string array, it will aways be ""
+        //here is where you will put the rest of the strings
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var player = this.Space.FindObjectByName("Player"); //Finds the player
+        var text = this.Space.LevelSettings.HudInteraction.HudText; //Finds the hud text
+        
+        // If the object is next to the player
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
+        {
+            //If the player presses enter and not at the begining of the string
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
+                && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
+            {
+                //Go to the next string
+                ++this.I;
+            }
+            //If it has reached the end of the string or the player has pressed enter, stop talking to it
+            if(this.I >= this.TextArray.Count 
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
+            {
+                player.PlayerController.Talking = false;
+                this.I = 0;
+                this.GameSession.GameStats.CurrentString = "";
+            }
+            //If not in the begining of the string
+            if (this.I > 0)
+            {
+                this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            }
+        }
+        else //If not next to the player
+        {
+            //Reset text counter 
+            this.I = 0;
+        }
+        
+        //Use this to set the imput : this.TextArray.Set(Number in the string array of imput, (text.TextInput.ST));
+        
+
+        //Use this for tbe imput if (this.I == Number in the string array of imput)
+        //{ 
+            if(player.PlayerController.Texting == false)
+            {
+                player.PlayerController.Texting = true;
+            }
+            this.GameSession.GameStats.AutoComplete = true;
+        //}
+        //if (this.I != Number in the string array of imput)
+        //{
+            this.GameSession.GameStats.AutoComplete = false;
+        //}
+        
+        //if(this.I == Number in the string array of imput)
+        //{
+            this.Input = this.Input.ToLower();
+            //Pu the possible results in here
+        //}
+        
+        //If the player is texting, set Input to what ever the players types.
+        if(player.PlayerController.Texting == true)
+        {
+            this.Input = text.TextInput.ST;
+        }
+    }
+}
