@@ -49,7 +49,8 @@ class Box1Script : ZilchComponent
                 ++this.I;
             }
             
-            if(this.I >= this.TextArray.Count || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
+            if(this.I >= this.TextArray.Count 
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !player.PlayerController.Texting ))
             {
                 player.PlayerController.Talking = false;
                 this.I = 0;

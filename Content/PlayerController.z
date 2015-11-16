@@ -180,17 +180,25 @@ class PlayerController : ZilchComponent
             }
             else
             {
-                if (this.Owner.Sprite.SpriteSource == this.WalkUp)
+                if (this.LookingDirection == 0 && this.Owner.Sprite.SpriteSource != this.IdleUp)
                 {
                     this.Owner.Sprite.SpriteSource = this.IdleUp;
+                    this.Owner.Sprite.FlipX = false;
                 }
-                if (this.Owner.Sprite.SpriteSource == this.WalkDown)
+                if (this.LookingDirection == 2 && this.Owner.Sprite.SpriteSource != this.IdleDown)
                 {
                     this.Owner.Sprite.SpriteSource = this.IdleDown;
+                    this.Owner.Sprite.FlipX = false;
                 }
-                if (this.Owner.Sprite.SpriteSource == this.WalkRight)
+                if (this.LookingDirection == 1 && this.Owner.Sprite.SpriteSource != this.IdleRight)
                 {
                     this.Owner.Sprite.SpriteSource = this.IdleRight;
+                    this.Owner.Sprite.FlipX = false;
+                }
+                if (this.LookingDirection == 3 && this.Owner.Sprite.SpriteSource != this.IdleRight)
+                {
+                    this.Owner.Sprite.SpriteSource = this.IdleRight;
+                    this.Owner.Sprite.FlipX = true;
                 }
                 this.Owner.RigidBody.Velocity = Real3(0.0, 0.0, 0.0);
             }

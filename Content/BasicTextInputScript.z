@@ -33,7 +33,7 @@ class BasicTextInputScript : ZilchComponent
             }
             //If it has reached the end of the string or the player has pressed enter, stop talking to it
             if(this.I >= this.TextArray.Count 
-            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !player.PlayerController.Texting ))
             {
                 player.PlayerController.Talking = false;
                 this.I = 0;

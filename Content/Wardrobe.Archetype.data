@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [15.1967983, 5.83400488, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,22 +24,17 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = false,
 		bool CastShadows = false,
-		Vec4 Color = [0.949999928, 1, 0, 1],
+		Vec4 Color = [1, 1, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "5275aa4d802dd6dc:Square",
+		string SpriteSource = "5662134e0193f146:Wardrobe",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
 		bool AnimationActive = true,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
-	},
-	Area = 
-	{
-		Vec2 Size = [1, 1],
-		Location Origin = TopLeft,
 	},
 	BoxCollider = 
 	{
@@ -48,8 +43,8 @@ Cog =
 		bool Seamless = true,
 		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0.5, -0.5, 0],
-		Vec3 Size = [0.5, 0.5, 0.5],
+		Vec3 Offset = [0.5, 0, 0],
+		Vec3 Size = [0.5, 1, 0.5],
 	},
 	BaseDialogScript = 
 	{

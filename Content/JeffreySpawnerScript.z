@@ -12,14 +12,18 @@ class JeffreySpawnerScript : ZilchComponent
         {
             if(this.Object == null)
             {
-                this.Object = this.Space.CreateAtPosition(Archetype.TrashCan, Real3(9.0, 2.0, 0.0));
+                this.Object = this.Space.CreateAtPosition(Archetype.TrashCan, Real3(16.0, 8.0, 0.0));
+                this.Object = this.Space.CreateAtPosition(Archetype.TrashCan, Real3(11.0, 8.0, 0.0));
+                this.Object = this.Space.CreateAtPosition(Archetype.TrashCan, Real3(14.0, 6.0, 0.0));
+                this.Object = this.Space.CreateAtPosition(Archetype.TrashCan, Real3(8.0, 6.0, 0.0));
                 this.Object = this.Space.CreateAtPosition(Archetype.TrashCan, Real3(11.0, 0.0, 0.0));
-                this.Object = this.Space.CreateAtPosition(Archetype.TrashCan, Real3(14.0, 3.0, 0.0));
-                this.Object = this.Space.CreateAtPosition(Archetype.Freezer, Real3(9.0, 7.0, 0.0));
-                this.Object = this.Space.CreateAtPosition(Archetype.Fridge, Real3(10.0, 7.0, 0.0));
-                this.Object = this.Space.CreateAtPosition(Archetype.LaundryBasket, Real3(9.0, 5.0, 0.0));
-                this.Object = this.Space.CreateAtPosition(Archetype.Wardrobe, Real3(15.0, 7.0, 0.0));
-                this.Object = this.Space.CreateAtPosition(Archetype.Desk, Real3(14.0, 0.0, 0.0));
+                this.Object = this.Space.CreateAtPosition(Archetype.TrashCan, Real3(14.0, 0.0, 0.0));
+                this.Object = this.Space.CreateAtPosition(Archetype.TrashCan, Real3(15.0, 0.0, 0.0));
+                this.Object = this.Space.CreateAtPosition(Archetype.Freezer, Real3(9.0, 8.0, 0.0));
+                this.Object = this.Space.CreateAtPosition(Archetype.Fridge, Real3(10.0, 8.0, 0.0));
+                this.Object = this.Space.CreateAtPosition(Archetype.LaundryBasket, Real3(9.0, 1.0, 0.0));
+                this.Object = this.Space.CreateAtPosition(Archetype.Wardrobe, Real3(16.0, 1.0, 0.0));
+                this.Object = this.Space.CreateAtPosition(Archetype.Desk, Real3(14.0, 8.0, 0.0));
             }
         }
     }

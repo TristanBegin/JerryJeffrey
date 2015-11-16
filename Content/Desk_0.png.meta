@@ -2,15 +2,15 @@ ImageContent =
 {
 	SpriteSourceBuilder = 
 	{
-		string Name = "TrashCan",
-		uint64 ResourceId = 56622356c9de761a,
+		string Name = "Desk_0",
+		uint64 ResourceId = 5662187b192dea95,
 		uint64 AtlasId = 5274cf95e4a661fd,
-		uint FrameSizeX = 16,
+		uint FrameSizeX = 32,
 		uint FrameSizeY = 16,
 		uint FrameCount = 1,
 		float FrameDelay = 0.0833333358,
 		float OriginX = 0,
-		float OriginY = -2,
+		float OriginY = -3,
 		float PixelsPerUnit = 16,
 		bool Smoothing = false,
 		bool Looping = true,
