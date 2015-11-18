@@ -22,7 +22,7 @@ class GameStats : ZilchComponent
     {
         var objectName = "Nothing";
         var lookingName = "Nothing";
-        if (Zero.Keyboard.KeyIsPressed(Keys.NumPad1))
+        if (Zero.Keyboard.KeyIsPressed(Keys.One))
         {
             objectName = "Nothing";
             lookingName = "Nothing";
@@ -34,7 +34,7 @@ class GameStats : ZilchComponent
             this.ItemBeingUsed = this.ObjectOne;
             
         }
-        if (Zero.Keyboard.KeyIsPressed(Keys.NumPad2))
+        if (Zero.Keyboard.KeyIsPressed(Keys.Two))
         {
             this.Player.PlayerController.Talking = true;
             this.UsingItem = true;
@@ -44,7 +44,7 @@ class GameStats : ZilchComponent
             this.ItemBeingUsed = this.ObjectTwo;
         }
         
-        if (Zero.Keyboard.KeyIsPressed(Keys.NumPad3))
+        if (Zero.Keyboard.KeyIsPressed(Keys.Three))
         {
             this.Player.PlayerController.Talking = true;
             this.UsingItem = true;
