@@ -45,6 +45,8 @@ class PlayerController : ZilchComponent
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.GameSession.GameStats.Player = this.Owner;
+        this.NextPosX = this.Owner.Transform.Translation.X;
+        this.NextPosY = this.Owner.Transform.Translation.Y;
     }
 
     function OnLogicUpdate(event : UpdateEvent)

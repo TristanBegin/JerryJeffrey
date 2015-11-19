@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "FreezerRhinoScript",
+		uint64 ResourceId = 56807181161fd646,
+	},
+},
