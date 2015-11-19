@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "InvisMouse",
+		uint64 ResourceId = 56aeccd40ec0d0ed,
+	},
+},

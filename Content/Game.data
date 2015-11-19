@@ -25,4 +25,11 @@ GameSession =
 	GameStats = 
 	{
 	},
+	ToggleCursor = 
+	{
+	},
+	InvisMouse = 
+	{
+		bool IsMouseInvisible = true,
+	},
 },
