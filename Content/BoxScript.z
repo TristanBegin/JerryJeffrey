@@ -10,6 +10,9 @@ class Box1Script : ZilchComponent
     [Property]
     var WrongAnswer : String;
     
+    [Property]
+    var InputI : Integer;
+    
     var Input : String;
     
     var GotKey : Boolean = false;
@@ -46,7 +49,13 @@ class Box1Script : ZilchComponent
             if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
                 && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
             {
-                ++this.I;
+                if(this.I == this.InputI && this.Input == "")
+                {
+                }
+                else
+                {
+                    ++this.I;
+                }
             }
             
             if(this.I >= this.TextArray.Count 
@@ -143,8 +152,6 @@ class Box1Script : ZilchComponent
             if(player.PlayerController.Texting == true)
             {
                 this.Input = text.TextInput.ST;
-                
-                
             }
         }
     }

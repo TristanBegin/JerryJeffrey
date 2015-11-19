@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [17.2588062, 6.27139997, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -50,5 +50,6 @@ Cog =
 	{
 		string WrongAnswer1 = "Open",
 		string WrongAnswer2 = "Close",
+		int InputI = 6,
 	},
 },

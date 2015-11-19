@@ -10,6 +10,9 @@ class DeskScript : ZilchComponent
     [Property]
     var WrongAnswer2 : String;
     
+    [Property]
+    var InputI : Integer;
+    
     var Input : String;
     
     var GotKey : Boolean = false;
@@ -34,13 +37,20 @@ class DeskScript : ZilchComponent
         var text = this.Space.LevelSettings.HudInteraction.HudText;
         var player = this.Space.FindObjectByName("Player");
         
+        Console.WriteLine(this.Input);
         
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
         {
             if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
                 && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
             {
-                ++this.I;
+                if(this.I == this.InputI && this.Input == "")
+                {
+                }
+                else
+                {
+                    ++this.I;
+                }
             }
             
             if(this.I >= this.TextArray.Count
@@ -60,7 +70,7 @@ class DeskScript : ZilchComponent
         {
             this.I = 0;
         }
-            
+        
         this.TextArray.Set(6, (text.TextInput.ST));
         
         if(this.Talked == true && player.PlayerController.Talking == true && this.I < 6 && this.GameSession.GameStats.CurrentString != "Journal")
@@ -105,9 +115,6 @@ class DeskScript : ZilchComponent
             {
                 this.Talked = true;
                 this.TextArray.Set(7,"“\"I can'’t close unless I'’ve been opened, moron.\"");
-            }
-            else if(this.Input == "")
-            {
             }
             else
             {
