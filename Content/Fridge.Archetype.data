@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [10, 7, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -48,8 +48,8 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "It’s filled with several types of food, ",
-		string Text2 = "like meat, vegetables, and cheese.",
+		string Text1 = "It'’s filled with several types of food:",
+		string Text2 = "meat, vegetables, cheese, etc.",
 		string Text3 = "There’'s a note in one of the drawers",
 		string Text4 = """Go away, I’'ll just make you fat.”""",
 		string Text5 = "",
