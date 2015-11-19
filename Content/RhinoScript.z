@@ -9,7 +9,7 @@ class RhinoScript : ZilchComponent
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.TextArray.Add("");
-        this.TextArray.Add("Colected a Ceramic Rhino");
+        this.TextArray.Add("Obtained a Ceramic Rhino");
     }
 
     function OnLogicUpdate(event : UpdateEvent)

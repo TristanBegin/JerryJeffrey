@@ -22,10 +22,10 @@ class DeskScript : ZilchComponent
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.TextArray.Add("");
-        this.TextArray.Add("There’s a small drawer on the side of the desk.\n It has a note on it.");
+        this.TextArray.Add("There’'s a small drawer on the side of the desk.\n It has a note on it.");
         this.TextArray.Add("’“\"Open, close, open, close, open, close, OPEN!”\"");
-        this.TextArray.Add("\"Huh, what? Oh, hello there.”“My apologies,\nI was just writing in my diary.\"”");
-        this.TextArray.Add("\"Opening and closing... that is my entire life.\n”“But I suppose that’s just how life is.\"”");
+        this.TextArray.Add("\"Huh, what? Oh, hello there.”“ My apologies,\nI was just writing in my diary.\"”");
+        this.TextArray.Add("\"Opening and closing... that is my entire life.\n”“But I suppose that’'s just how life is.\"”");
         this.TextArray.Add("\"At least I’'m back where I’'m supposed to be, now.\n”“What is it you would like?\"”");
         this.TextArray.Add("”");
         this.TextArray.Add("”");

@@ -26,7 +26,7 @@ class Box1Script : ZilchComponent
         this.TextArray.Add("’There's a note on top...");
         this.TextArray.Add("\"Aha! You thought you could open ME? Think \nagain.\"”");
         this.TextArray.Add("\"You see, the only one who can open me is me!”\"”");
-        this.TextArray.Add("\"Note: if you actually are me, I sincerely \napologize for the accusation.\"”");
+        this.TextArray.Add("\"Note: If you actually are me, I sincerely \napologize for the accusation.\"”");
         this.TextArray.Add("\"Aha! That’'s it. If you are me, then only you could \nanswer this question...\"”");
         this.TextArray.Add("\"What is my name?\"”");
         this.TextArray.Add("”");
