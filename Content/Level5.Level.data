@@ -219,6 +219,13 @@ Level =
 			Vec2 Size = [1, 1],
 			Location Origin = Center,
 		},
+		InvisMouse = 
+		{
+			bool IsMouseInvisible = true,
+		},
+		ToggleCursor = 
+		{
+		},
 		Hierarchy = 
 		{
 		},
