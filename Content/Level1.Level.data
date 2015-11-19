@@ -391,7 +391,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "DoorLockBarrier",
+			string Name = "Door",
 		},
 		Transform = 
 		{

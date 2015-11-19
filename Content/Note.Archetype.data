@@ -48,6 +48,6 @@ Cog =
 	},
 	NoteScript = 
 	{
-		float NumberOfLines = 3,
+		float NumberOfLines = 4,
 	},
 },
