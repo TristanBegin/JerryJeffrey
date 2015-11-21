@@ -81,8 +81,6 @@ class ContainerRhinoScript : ZilchComponent
             player.PlayerController.Talking = true;
         }
         
-        Console.WriteLine(this.GameSession.GameStats.Trigger);
-        
     }
     
     function OnItemUsed (event : ItemUsed)

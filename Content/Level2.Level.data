@@ -722,7 +722,7 @@ Level =
 			Vec2 Size = [1, 1],
 			Location Origin = TopLeft,
 		},
-		JerrySpawnerScript = 
+		JerryLevel2SpawnerScript = 
 		{
 		},
 	},
