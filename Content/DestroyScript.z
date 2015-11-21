@@ -10,7 +10,8 @@ class DestroyScript : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.GameSession.GameStats.Trigger == this.Condition)
+        Console.WriteLine(this.GameSession.GameStats.Trigger);
+        if(this.GameSession.GameStats.Trigger != this.Condition)
         {
             this.Owner.Destroy();
         }

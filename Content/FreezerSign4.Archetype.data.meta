@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "FreezerSign",
-		uint64 ResourceId = 569b8f491b6e790d,
+		string Name = "FreezerSign4",
+		uint64 ResourceId = 569b804bec811cf6,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,

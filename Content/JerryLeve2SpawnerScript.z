@@ -14,9 +14,9 @@ class JerryLevel2SpawnerScript : ZilchComponent
             if(this.Object == null)
             {
                 
-                this.Object = (this.Space.CreateAtPosition(Archetype.TrashCan, Real3(0.0, 7.0, 0.0)));
-                this.Object = (this.Space.CreateAtPosition(Archetype.TrashCan, Real3(0.0, 4.0, 0.0)));
-                this.Object = (this.Space.CreateAtPosition(Archetype.TrashCan, Real3(0.0, 2.0, 0.0)));
+                this.Object = (this.Space.CreateAtPosition(Archetype.FreezerSign1, Real3(0.0, 7.0, 0.0)));
+                this.Object = (this.Space.CreateAtPosition(Archetype.FreezerSign2, Real3(0.0, 4.0, 0.0)));
+                this.Object = (this.Space.CreateAtPosition(Archetype.FreezerSign3, Real3(0.0, 2.0, 0.0)));
             }
         }
         

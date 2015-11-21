@@ -60,7 +60,6 @@ class GameStats : ZilchComponent
             this.Player.PlayerController.Talking = false;
             this.CurrentString = "";
         }
-        Console.WriteLine(this.UsingItem);
         if (Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.DoneTyping && this.UsingItem)
         {
             this.UsingItem = false;

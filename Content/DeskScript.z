@@ -46,7 +46,6 @@ class DeskScript : ZilchComponent
         var text = this.Space.LevelSettings.HudInteraction.HudText;
         var player = this.Space.FindObjectByName("Player");
         
-        Console.WriteLine(this.Input);
         
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
         {
