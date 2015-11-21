@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "OstrichToBox",
+		uint64 ResourceId = 56af2813f7cd39f0,
+	},
+},
