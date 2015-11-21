@@ -4,6 +4,7 @@ class DeskScript : ZilchComponent
     
     var TextArray : Array[String] = Array[String]();
     
+    var OtherContainers : Integer = 0;
     [Property]
     var WrongAnswer1 : String;
     
@@ -22,11 +23,11 @@ class DeskScript : ZilchComponent
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.TextArray.Add("");
-        this.TextArray.Add("There’'s a small drawer on the side of the desk.\n It has a note on it.");
+        this.TextArray.Add("There’'s a small drawer on the side of the desk.\nThere's a note attached to it.");
         this.TextArray.Add("’“\"Open, close, open, close, open, close, OPEN!”\"");
         this.TextArray.Add("\"Huh, what? Oh, hello there.”“ My apologies,\nI was just writing in my diary.\"”");
         this.TextArray.Add("\"Opening and closing... that is my entire life.\n”“But I suppose that’'s just how life is.\"”");
-        this.TextArray.Add("\"At least I’'m back where I’'m supposed to be.\n”“What would you like me to do?\"”");
+        this.TextArray.Add("\"At least I’'m back where I’'m supposed to be, now.\n”“So, what would you like me to do?\"”");
         this.TextArray.Add("”");
         this.TextArray.Add("”");
 
@@ -34,6 +35,14 @@ class DeskScript : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if (this.OtherContainers < 4)
+        {
+            this.TextArray.Set(2, "Open, close, ope-- AH! You're not supposed to be here yet;\ngo talk to the other containers first.\"");
+        }
+        else
+        {
+            this.TextArray.Set(2, "’“\"Open, close, open, close, open, close, OPEN!”\"");
+        }
         var text = this.Space.LevelSettings.HudInteraction.HudText;
         var player = this.Space.FindObjectByName("Player");
         
@@ -54,7 +63,8 @@ class DeskScript : ZilchComponent
             }
             
             if(this.I >= this.TextArray.Count
-            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !player.PlayerController.Texting ))
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !player.PlayerController.Texting )
+            || (this.OtherContainers < 4 && this.I >= 3))
             {
                 player.PlayerController.Talking = false;
                 this.I = 0;

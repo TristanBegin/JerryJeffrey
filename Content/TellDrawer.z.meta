@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "TellDrawer",
+		uint64 ResourceId = 5664c9c77cbfe092,
+	},
+},

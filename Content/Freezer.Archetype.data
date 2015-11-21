@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [2, 4, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -48,7 +48,7 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "It's freeser, stacked with every flavor of ice cream;",
+		string Text1 = "It's a freezer, stacked with every flavor of ice cream;",
 		string Text2 = "the shelf has a note attached:",
 		string Text3 = """What? Huh? Why am I here? I’'m usually in the other room.""",
 		string Text4 = """Who are you? You aren’'t my owner.""",
@@ -78,5 +78,8 @@ Cog =
 		string Text28 = "",
 		string Text29 = "",
 		string Text30 = "",
+	},
+	TellDrawer = 
+	{
 	},
 },

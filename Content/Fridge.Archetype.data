@@ -48,9 +48,9 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "It'’s filled with several types of food:",
+		string Text1 = "The fridge is filled with several types of food:",
 		string Text2 = "meat, vegetables, cheese, etc.",
-		string Text3 = "There’'s a note in one of the drawers",
+		string Text3 = "There’'s a note in one of the drawers:",
 		string Text4 = """Go away, I’'ll just make you fat.”""",
 		string Text5 = "",
 		string Text6 = "",
@@ -78,5 +78,8 @@ Cog =
 		string Text28 = "",
 		string Text29 = "",
 		string Text30 = "",
+	},
+	TellDrawer = 
+	{
 	},
 },

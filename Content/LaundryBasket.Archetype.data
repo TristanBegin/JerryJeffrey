@@ -84,4 +84,7 @@ Cog =
 		string Text29 = "",
 		string Text30 = "",
 	},
+	TellDrawer = 
+	{
+	},
 },
