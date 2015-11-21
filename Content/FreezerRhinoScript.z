@@ -3,14 +3,15 @@ class FreezerRhinoScript : ZilchComponent
     var I : Integer = Integer(0);
     var TextArray : Array[String] = Array[String]();
     var OpeningArray : Array[String] = Array[String]();
+    
     var UsedRhino : Boolean = false;
     
+    var HasRhino : Boolean = false;
     
-    [Property]
-    var NumberOfLines : Real = 1;
     
     
     var Start : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -26,11 +27,19 @@ class FreezerRhinoScript : ZilchComponent
         
         if(this.UsedRhino)
         {
+            this.HasRhino = true;
             this.UsedRhino = false;
             this.I = 0;
             this.TextArray.Set(1,"Rhino is now inside the Freezer ");
             this.GameSession.GameStats.ObjectOne = "";
         }
+        if(this.HasRhino == true && player.PlayerController.Talking == false)
+        {
+            this.GameSession.GameStats.Trigger = "Freezer";
+            this.TextArray.Set(1,"You collected the Rhino");
+            
+        }
+        
             
         if(player.RayCastings.DistanceLooking < 0.7 && player.RayCastings.HitObject == this.Owner)
         {
@@ -42,7 +51,6 @@ class FreezerRhinoScript : ZilchComponent
             }
             if(this.I >= this.TextArray.Count)
             {
-                Console.WriteLine("`this.I` BITCH");
                 player.PlayerController.Talking = false;
                 this.I  = 0;
                 this.GameSession.GameStats.CurrentString = "";
@@ -59,11 +67,19 @@ class FreezerRhinoScript : ZilchComponent
             this.I = 0;
         }
         
+        if(this.I == 1 && this.TextArray[1] == "You collected the Rhino" )
+        {
+            this.HasRhino = false; 
+            this.GameSession.GameStats.Trigger = "";
+            this.GameSession.GameStats.ObjectOne = "Rhino";
+        }
+        
         if (this.I != 0)
         {
             player.PlayerController.Talking = true;
         }
         
+        Console.WriteLine(this.GameSession.GameStats.Trigger);
         
     }
     
