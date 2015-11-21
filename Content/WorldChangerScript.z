@@ -1,0 +1,39 @@
+class WorldChangerScript : ZilchComponent
+{
+    [Property]
+    var FreezerWorld : SpriteSource;
+    [Property]
+    var FridgeWorld : SpriteSource;
+    [Property]
+    var DeskWorld : SpriteSource;
+    [Property]
+    var WardrobeWorld : SpriteSource;
+    [Property]
+    var LaundryWorld : SpriteSource;
+    
+    [Property]
+    var NormalWorld : SpriteSource;
+       
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.GameSession.GameStats.Trigger == "Freezer")
+        {
+            if(this.Owner.Sprite.SpriteSource != this.FreezerWorld)
+            {
+                this.Owner.Sprite.SpriteSource = this.FreezerWorld;
+            }
+        }
+        else
+        {
+            if(this.Owner.Sprite.SpriteSource != this.NormalWorld)
+            {
+                this.Owner.Sprite.SpriteSource = this.NormalWorld;
+            }
+        }
+    }
+}
