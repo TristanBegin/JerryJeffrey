@@ -26,7 +26,7 @@ class DeskScript : ZilchComponent
         this.TextArray.Add("’“\"Open, close, open, close, open, close, OPEN!”\"");
         this.TextArray.Add("\"Huh, what? Oh, hello there.”“ My apologies,\nI was just writing in my diary.\"”");
         this.TextArray.Add("\"Opening and closing... that is my entire life.\n”“But I suppose that’'s just how life is.\"”");
-        this.TextArray.Add("\"At least I’'m back where I’'m supposed to be, now.\n”“What would you like me to do?\"”");
+        this.TextArray.Add("\"At least I’'m back where I’'m supposed to be.\n”“What would you like me to do?\"”");
         this.TextArray.Add("”");
         this.TextArray.Add("”");
 
@@ -109,7 +109,7 @@ class DeskScript : ZilchComponent
             if(this.Input == this.WrongAnswer1)
             {
                 this.Talked = true;
-                this.TextArray.Set(7,"“\"“Just like the others... Is opening all \nI'’m good for to you people?”\"");
+                this.TextArray.Set(7,"“\"“Just like the others... Is opening all\n I'm good for to you people? I REFUSE!\"");
             }
             else if(this.Input == this.WrongAnswer2)
             {
@@ -125,15 +125,18 @@ class DeskScript : ZilchComponent
                     this.TextArray.Add("*Ahem*”“\n\"Hello! How are you today? I’'m doing amazing, actually.\"");
                     this.TextArray.Add("\"You know how it is, opening and closing and whatnot.”“\nYes, yes, being a drawer is a truly thrilling experience,\"" );
                     this.TextArray.Add("\"let me tell you. Why, just the other day, I had to open\nfor a very important individual.\"");
-                    this.TextArray.Add("\"So...”“Would you like to be my girlfriend?\n“No? Okay, what about my boyfriend?”“”\"");
-                    this.TextArray.Add("\"What about just being my friend?”“ Acquaintance?\nOkay. I understand...I’'ll just be opening then.”\"");
+                    this.TextArray.Add("\"So...”“Would you like to be my girlfriend?\"");
+                    this.TextArray.Add("\"No? Okay, what about my boyfriend?”“”\"");
+                    this.TextArray.Add("\"What about just being my friend?”“\"");
+                    this.TextArray.Add("\"Acquaintance?\"");
+                    this.TextArray.Add("\"Okay. I understand... \nI’'ll just be opening then.”\"");
                     this.TextArray.Add("The drawer opens and you receive Jeffrey'’s journal.");
                 }
             }
             player.PlayerController.Texting = false;
             
         }
-        if(this.I == 13)
+        if(this.I == 16)
         {
             this.GameSession.GameStats.Trigger = "Journal";
         }

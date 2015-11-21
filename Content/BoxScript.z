@@ -138,7 +138,7 @@ class Box1Script : ZilchComponent
                     if (this.TextArray.Count <= 10 )
                     {
                         this.TextArray.Add("\"So, me, is this what you were looking for?\"");
-                        this.TextArray.Add("\"I never would have thought I'd ever resort to using it, \nbut who am I to disregard the wisdom of myself?\"");
+                        this.TextArray.Add("\"I never thought I would actually use it, \nbut who am I to disregard the wisdom of myself?\"");
                     }
                 }
                 player.PlayerController.Texting = false;
