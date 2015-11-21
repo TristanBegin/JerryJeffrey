@@ -10,6 +10,8 @@ class WorldChangerScript : ZilchComponent
     var WardrobeWorld : SpriteSource;
     [Property]
     var LaundryWorld : SpriteSource;
+    [Property]
+    var BoxWorld : SpriteSource;
     
     [Property]
     var NormalWorld : SpriteSource;
@@ -26,6 +28,41 @@ class WorldChangerScript : ZilchComponent
             if(this.Owner.Sprite.SpriteSource != this.FreezerWorld)
             {
                 this.Owner.Sprite.SpriteSource = this.FreezerWorld;
+            }
+        }
+        else if(this.GameSession.GameStats.Trigger == "Fridge")
+        {
+            if(this.Owner.Sprite.SpriteSource != this.FridgeWorld)
+            {
+                this.Owner.Sprite.SpriteSource = this.FridgeWorld;
+            }
+        }
+        else if(this.GameSession.GameStats.Trigger == "Desk")
+        {
+            if(this.Owner.Sprite.SpriteSource != this.DeskWorld)
+            {
+                this.Owner.Sprite.SpriteSource = this.DeskWorld;
+            }
+        }
+        else if(this.GameSession.GameStats.Trigger == "Wardrobe")
+        {
+            if(this.Owner.Sprite.SpriteSource != this.WardrobeWorld)
+            {
+                this.Owner.Sprite.SpriteSource = this.WardrobeWorld;
+            }
+        }
+        else if(this.GameSession.GameStats.Trigger == "LaundryBasket")
+        {
+            if(this.Owner.Sprite.SpriteSource != this.LaundryWorld)
+            {
+                this.Owner.Sprite.SpriteSource = this.LaundryWorld;
+            }
+        }
+        else if(this.GameSession.GameStats.Trigger == "Box")
+        {
+            if(this.Owner.Sprite.SpriteSource != this.BoxWorld)
+            {
+                this.Owner.Sprite.SpriteSource = this.BoxWorld;
             }
         }
         else

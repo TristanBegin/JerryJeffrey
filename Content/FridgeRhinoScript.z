@@ -1,4 +1,4 @@
-class ContainerRhinoScript : ZilchComponent
+class FridgeRhinoScript : ZilchComponent
 {
     var I : Integer = Integer(0);
     var TextArray : Array[String] = Array[String]();
@@ -30,12 +30,12 @@ class ContainerRhinoScript : ZilchComponent
             this.HasRhino = true;
             this.UsedRhino = false;
             this.I = 0;
-            this.TextArray.Set(1,"Rhino is now inside the `this.Owner.Name`");
+            this.TextArray.Set(1,"Rhino is now inside the Fridge ");
             this.GameSession.GameStats.ObjectOne = "";
         }
         if(this.HasRhino == true && player.PlayerController.Talking == false)
         {
-            this.GameSession.GameStats.Trigger = this.Owner.Name;
+            this.GameSession.GameStats.Trigger = "Freezer";
             this.TextArray.Set(1,"You collected the Rhino");
             
         }
@@ -60,6 +60,7 @@ class ContainerRhinoScript : ZilchComponent
                 this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
                 Console.WriteLine(this.TextArray[this.I]);
             }
+            Console.WriteLine(this.I);
         }
         else
         {
@@ -72,10 +73,7 @@ class ContainerRhinoScript : ZilchComponent
             this.GameSession.GameStats.Trigger = "";
             this.GameSession.GameStats.ObjectOne = "Rhino";
         }
-        if(this.I == 0 && this.HasRhino == false)
-        {
-            this.TextArray.Set(1,"It's locked.");
-        }
+        
         if (this.I != 0)
         {
             player.PlayerController.Talking = true;
