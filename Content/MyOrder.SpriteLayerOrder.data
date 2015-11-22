@@ -2,8 +2,17 @@ SpriteLayerOrder =
 {
 	Array SpriteLayerList = 
 	[
+		567a3040a62de022,
 		52ad5fa30d7fcd50,
-		56157d33d1d0d269,
-		56157f2144f1c243,
+		567a3047a7b66186,
+		567a304ca4b7e2a7,
+		567a3072a24b9b12,
+		567a307da02fc3e3,
+		567a3066be6ac8a0,
+		567a306bbf1dea0f,
+		567a3010bc65f0ee,
+		567a3015bd10befa,
+		567a301ebb5f633a,
+		567a3002b85804d8,
 	],
 },

@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "ChristmasTree",
+		uint64 ResourceId = 567bcb8e570b79e8,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 18,
+		uint FrameSizeY = 28,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 9,
+		float OriginY = 12,
+		float PixelsPerUnit = 16,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

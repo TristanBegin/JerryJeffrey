@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "Blacks",
-		uint64 ResourceId = 56157f2144f1c243,
+		string Name = "Seven",
+		uint64 ResourceId = 567a3010bc65f0ee,
 		string LoaderType = "SpriteLayer",
 		uint Version = 0,
 		bool ShowInEditor = true,
