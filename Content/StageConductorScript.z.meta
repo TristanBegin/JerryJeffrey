@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "StageConductorScript",
+		uint64 ResourceId = 569f3b998da7c082,
+	},
+},

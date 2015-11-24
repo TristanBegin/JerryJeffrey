@@ -6,7 +6,11 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
+<<<<<<< HEAD
 		string ProjectFolder = "C:\Users\nicka\JerryJeffrey",
+=======
+		string ProjectFolder = "C:\Users\Stefan\Documents\GitHub\JerryJeffrey",
+>>>>>>> 367a7af65418f3a6c176800b257fb31b67510eb7
 		uint ProjectEngineRevision = 12494,
 		bool AutoTakeProjectScreenshot = true,
 	},

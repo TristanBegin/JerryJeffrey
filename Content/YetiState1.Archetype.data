@@ -8,6 +8,10 @@ Cog =
 	{
 		string Name = "Yeti",
 	},
+	Archetyped = 
+	{
+		string Name = "569859c6b62ce13a:YetiState1",
+	},
 	Transform = 
 	{
 		Vec3 Translation = [0, 0, 0],
@@ -44,6 +48,9 @@ Cog =
 	},
 	DestroyScript = 
 	{
-		string Condition = "Fridge",
+		string Condition = "Freezer",
+	},
+	YetiState1Script = 
+	{
 	},
 },

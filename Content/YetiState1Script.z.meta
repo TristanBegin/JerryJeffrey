@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "YetiState1Script",
+		uint64 ResourceId = 569f27c9e5b61d88,
+	},
+},
