@@ -1,0 +1,35 @@
+class L5DoorBlocking : ZilchComponent
+{
+  
+  var MagicBarrierLeft: Cog;
+  var MagicBarrierRight: Cog;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.MagicBarrierLeft = this.Space.FindObjectByName("MagicBarrierLeft");
+    this.MagicBarrierLeft.BoxCollider.Ghost = true;
+    this.MagicBarrierLeft.Sprite.Visible = false;
+    
+    this.MagicBarrierRight = this.Space.FindObjectByName("MagicBarrierRight");
+    this.MagicBarrierRight.BoxCollider.Ghost = true;
+    this.MagicBarrierRight.Sprite.Visible = false;
+    
+    
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    // If the player is in the right room (Jeffrey) and they have the rhino
+    if (this.Owner.Transform.Translation.X > 8 && this.GameSession.GameStats.ObjectOne == "Rhino")
+    {
+      this.MagicBarrierLeft.BoxCollider.Ghost = false;
+      this.MagicBarrierLeft.Sprite.Visible = true;
+    }
+    else
+    {
+      this.MagicBarrierLeft.BoxCollider.Ghost = true;
+      this.MagicBarrierLeft.Sprite.Visible = false;
+    }
+  }
+}
