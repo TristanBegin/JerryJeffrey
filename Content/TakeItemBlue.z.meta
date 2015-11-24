@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "TakeItemBlue",
+		uint64 ResourceId = 565e6cb1185a4f74,
+	},
+},

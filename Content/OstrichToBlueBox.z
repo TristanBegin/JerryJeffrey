@@ -3,6 +3,8 @@ class OstrichToBlueBox : ZilchComponent
   var UsedOstrich : Boolean = false;
   var JeffreyFloor : Cog;
   
+  var ItemInBox : String = "";
+  
   [Property]
   var PurpleYellowWorld : SpriteSource;
   
@@ -24,9 +26,10 @@ class OstrichToBlueBox : ZilchComponent
   function OnItemUsed(event : ItemUsed)
   {
     Console.WriteLine("Event received.");
-    if (event.TheItem == "Ostrich")
+    if (event.TheItem == "Ostrich" && this.ItemInBox == "")
     {
       this.UsedOstrich = true;
+      this.ItemInBox = "Ostrich";
       this.GameSession.GameStats.ObjectTwo = "";
       this.JeffreyFloor.Sprite.SpriteSource = this.PurpleYellowWorld;
       
@@ -34,6 +37,11 @@ class OstrichToBlueBox : ZilchComponent
       this.Space.CreateAtPosition(Archetype.YellowFigure, Real3(14.5, 2.5, 0));
       this.Space.CreateAtPosition(Archetype.Ostrich, Real3(14.5, 3.5, 0));
       
+    }
+    else if (event.TheItem == "Rhino" && this.ItemInBox == "")
+    {
+      this.ItemInBox = "Rhino";
+      this.GameSession.GameStats.ObjectOne = "";
     }
   }
 }

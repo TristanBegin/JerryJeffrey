@@ -1,0 +1,27 @@
+class TakeItem : ZilchComponent
+{
+  var Player : Cog;
+
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    
+    this.Player = this.Space.FindObjectByName("Player");
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if (this.Player.RayCastings.HitObject == this.Owner && Zero.Keyboard.KeyIsPressed(Keys.Enter))
+    {
+      if (this.GameSession.GameStats.CurrentString == "" && this.GameSession.GameStats.DoneTyping == true)
+      {
+        if (this.Owner.OstrichToBox.ItemInBox == "Ostrich")
+        {
+          Console.WriteLine("Happened");
+          this.GameSession.GameStats.ObjectTwo = "Ostrich";
+          this.Owner.OstrichToBox.ItemInBox = "";
+        }
+      }
+    }
+  }
+}

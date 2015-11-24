@@ -5,6 +5,7 @@ class OstrichToBox : ZilchComponent
   var Rhino : Cog;
   var PitTop : Cog;
   var PitBottom : Cog;
+  var ItemInBox : String = "";
   
   [Property]
   var PitWorld : SpriteSource;
@@ -36,10 +37,12 @@ class OstrichToBox : ZilchComponent
 
   function OnItemUsed(event : ItemUsed)
   {
-    Console.WriteLine("Event received.");
-    if (event.TheItem == "Ostrich")
+    
+    if (event.TheItem == "Ostrich" && this.ItemInBox == "")
     {
+      Console.WriteLine("Event received.");
       this.UsedOstrich = true;
+      this.ItemInBox = "Ostrich";
       this.GameSession.GameStats.ObjectTwo = "";
       this.JeffreyFloor.Sprite.SpriteSource = this.PitWorld;
       
@@ -51,8 +54,6 @@ class OstrichToBox : ZilchComponent
         this.Rhino.Sprite.Visible = true;
         this.Rhino.BoxCollider.Ghost = false;
       }
-      
-      //this.GameSession.GameStats.CurrentString = "The ostrich is now in the box.";
     }
   }
 }
