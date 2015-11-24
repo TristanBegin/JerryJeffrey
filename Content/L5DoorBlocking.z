@@ -3,6 +3,7 @@ class L5DoorBlocking : ZilchComponent
   
   var MagicBarrierLeft: Cog;
   var MagicBarrierRight: Cog;
+  var BlockingActive : Boolean = true;
   
   function Initialize(init : CogInitializer)
   {
@@ -20,27 +21,30 @@ class L5DoorBlocking : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    // If the player is in the right room (Jeffrey) and they have the rhino
-    if (this.Owner.Transform.Translation.X > 8 && this.GameSession.GameStats.ObjectOne == "Rhino")
+    if (this.BlockingActive == true)
     {
-      this.MagicBarrierLeft.BoxCollider.Ghost = false;
-      this.MagicBarrierLeft.Sprite.Visible = true;
-    }
-    else
-    {
-      this.MagicBarrierLeft.BoxCollider.Ghost = true;
-      this.MagicBarrierLeft.Sprite.Visible = false;
-    }
-    
-    if (this.Owner.Transform.Translation.X < 8 && this.GameSession.GameStats.ObjectTwo == "Ostrich")
-    {
-      this.MagicBarrierRight.BoxCollider.Ghost = false;
-      this.MagicBarrierRight.Sprite.Visible = true;
-    }
-    else
-    {
-      this.MagicBarrierRight.BoxCollider.Ghost = true;
-      this.MagicBarrierRight.Sprite.Visible = false;
+      // If the player is in the right room (Jeffrey) and they have the rhino
+      if (this.Owner.Transform.Translation.X > 8 && this.GameSession.GameStats.ObjectOne == "Rhino")
+      {
+        this.MagicBarrierLeft.BoxCollider.Ghost = false;
+        this.MagicBarrierLeft.Sprite.Visible = true;
+      }
+      else
+      {
+        this.MagicBarrierLeft.BoxCollider.Ghost = true;
+        this.MagicBarrierLeft.Sprite.Visible = false;
+      }
+      
+      if (this.Owner.Transform.Translation.X < 8 && this.GameSession.GameStats.ObjectTwo == "Ostrich")
+      {
+        this.MagicBarrierRight.BoxCollider.Ghost = false;
+        this.MagicBarrierRight.Sprite.Visible = true;
+      }
+      else
+      {
+        this.MagicBarrierRight.BoxCollider.Ghost = true;
+        this.MagicBarrierRight.Sprite.Visible = false;
+      }
     }
   }
 }

@@ -35,7 +35,6 @@ class OstrichToBlueBox : ZilchComponent
       
       this.Space.CreateAtPosition(Archetype.PurpleFigure, Real3(14.5, 4.5, 0));
       this.Space.CreateAtPosition(Archetype.YellowFigure, Real3(14.5, 2.5, 0));
-      this.Space.CreateAtPosition(Archetype.Ostrich, Real3(14.5, 3.5, 0));
       
     }
     else if (event.TheItem == "Rhino" && this.ItemInBox == "")

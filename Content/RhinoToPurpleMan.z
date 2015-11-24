@@ -1,0 +1,35 @@
+class RhinoToPurpleMan : ZilchComponent
+{
+  var JerryFloor : Cog;
+  var BlueFigure : Cog;
+  var BlueBox : Cog;
+  var Player : Cog;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
+    this.JerryFloor = this.Space.FindObjectByName("JerryFloor");
+    this.BlueFigure = this.Space.FindObjectByName("BlueFigure");
+    this.BlueBox = this.Space.FindObjectByName("SecondBox5");
+    this.Player = this.Space.FindObjectByName("Player");
+  }
+
+  function OnItemUsed(event : ItemUsed)
+  {
+    Console.WriteLine("Event received.");
+    if (event.TheItem == "Rhino")
+    {
+      this.GameSession.GameStats.ObjectOne = "";
+      this.GameSession.GameStats.ObjectTwo = "Ostrich";
+      
+      this.JerryFloor.Sprite.SpriteSource = SpriteSource.IceTilesFull;
+      this.Space.CreateAtPosition(Archetype.LintBall1, Real3(1, 5, 0));
+      this.Space.CreateAtPosition(Archetype.LintBall2, Real3(1, 3, 0));
+      
+      this.BlueFigure.Destroy();
+      this.BlueBox.Destroy();
+      
+      this.Player.L5DoorBlocking.BlockingActive = false;
+    }
+  }
+}
