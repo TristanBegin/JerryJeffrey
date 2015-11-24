@@ -110,7 +110,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [8.23287296, 3.94047332, 50],
+			Vec3 Translation = [8.23287296, 1.90955067, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -130,7 +130,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [8.23287296, 3.94047332, 3.53585222e-007],
+			Vec3 LookTarget = [8.23287296, 1.90955067, 3.53585222e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -1224,52 +1224,6 @@ Level =
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "565ece4e895088b1:LintBall1",
-		LinkId = 
-		{
-			uint Id = 26,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [1, 5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Area = 
-		{
-			Vec2 Size = [1, 1],
-			Location Origin = TopLeft,
-		},
-		Named = 
-		{
-			string Name = "LintBall1",
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "565ecf56ac242e4f:LintBall2",
-		LinkId = 
-		{
-			uint Id = 27,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [1, 3, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Area = 
-		{
-			Vec2 Size = [1, 1],
-			Location Origin = TopLeft,
-		},
-		Named = 
-		{
-			string Name = "LintBall2",
 		},
 	},
 },

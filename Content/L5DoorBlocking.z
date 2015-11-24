@@ -46,5 +46,12 @@ class L5DoorBlocking : ZilchComponent
         this.MagicBarrierRight.Sprite.Visible = false;
       }
     }
+    else
+    {
+      this.MagicBarrierLeft.BoxCollider.Ghost = true;
+      this.MagicBarrierLeft.Sprite.Visible = false;
+      this.MagicBarrierRight.BoxCollider.Ghost = true;
+      this.MagicBarrierRight.Sprite.Visible = false;
+    }
   }
 }
