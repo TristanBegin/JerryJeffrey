@@ -8,9 +8,13 @@ Cog =
 	{
 		string Name = "WardrobeWorld",
 	},
+	Archetyped = 
+	{
+		string Name = "567a2781a4edf3c1:WardrobeWorld",
+	},
 	Transform = 
 	{
-		Vec3 Translation = [27.5, 5.5, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -31,6 +35,10 @@ Cog =
 		bool AnimationActive = true,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
+	},
+	DestroyScript = 
+	{
+		string Condition = "Wardrobe",
 	},
 	Hierarchy = 
 	{

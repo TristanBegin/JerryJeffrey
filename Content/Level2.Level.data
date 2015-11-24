@@ -97,6 +97,9 @@ Level =
 		HudInteraction = 
 		{
 		},
+		Level2Stats = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -110,7 +113,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [7.17250347, 2.27337337, 50],
+			Vec3 Translation = [3.5, 3.5, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -130,7 +133,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [7.17250347, 2.27337337, -3.23952804e-007],
+			Vec3 LookTarget = [3.5, 3.5, 0],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -167,7 +170,7 @@ Level =
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "56157d33d1d0d269:Player",
+			string SpriteLayer = "567a3066be6ac8a0:Five",
 			string SpriteSource = "5615718a3c9a2f20:PlayerIdleForwardAnim",
 			bool RenderMask = false,
 			bool FlipX = false,
@@ -397,7 +400,7 @@ Level =
 		EditorFlags = 
 		{
 			bool Locked = true,
-			bool Hidden = true,
+			bool Hidden = false,
 		},
 		Transform = 
 		{
@@ -414,7 +417,7 @@ Level =
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "56157f2144f1c243:Blacks",
+			string SpriteLayer = "567a3002b85804d8:Ten",
 			string SpriteSource = "56157801b60da455:Cover",
 			bool RenderMask = false,
 			bool FlipX = false,
@@ -575,7 +578,7 @@ Level =
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "56157f2144f1c243:Blacks",
+			string SpriteLayer = "567a3002b85804d8:Ten",
 			string SpriteSource = "56157801b60da455:Cover",
 			bool RenderMask = false,
 			bool FlipX = false,
@@ -1180,16 +1183,6 @@ Level =
 		{
 			Vec2 Size = [1, 1],
 			Location Origin = Center,
-		},
-		WorldChangerScript = 
-		{
-			string FreezerWorld = "56621671051b06fd:Freezer",
-			string FridgeWorld = "56621671051bc88e:Fridge",
-			string DeskWorld = "566218e7319fe88a:Desk",
-			string WardrobeWorld = "5662134e0193f146:Wardrobe",
-			string LaundryWorld = "56622356c9df1339:Laundry",
-			string BoxWorld = "56623c43f55fc6f4:THEBOX",
-			string NormalWorld = "5275aa4d802dd6dc:Square",
 		},
 	},
 	Cog = 

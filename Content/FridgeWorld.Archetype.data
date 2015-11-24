@@ -8,9 +8,13 @@ Cog =
 	{
 		string Name = "FridgeWorld",
 	},
+	Archetyped = 
+	{
+		string Name = "567a2796a630c50d:FridgeWorld",
+	},
 	Transform = 
 	{
-		Vec3 Translation = [6.5, 16, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -32,6 +36,10 @@ Cog =
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
 	},
+	DestroyScript = 
+	{
+		string Condition = "Fridge",
+	},
 	Hierarchy = 
 	{
 		Cog = 
@@ -39,51 +47,6 @@ Cog =
 			LinkId = 
 			{
 				uint Id = 2,
-			},
-			Named = 
-			{
-				string Name = "Yeti",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-3, 0.5, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = true,
-				bool CastShadows = false,
-				Vec4 Color = [1, 1, 1, 1],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "567a3015bd10befa:Eight",
-				string SpriteSource = "567bc810dec25852:Yeti",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			BoxCollider = 
-			{
-				bool Ghost = false,
-				bool SendsMessages = true,
-				bool Seamless = true,
-				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, 0],
-				Vec3 Size = [0.5, 0.5, 0.5],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 3,
 			},
 			Named = 
 			{
@@ -128,7 +91,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 4,
+				uint Id = 3,
 			},
 			Named = 
 			{
@@ -165,7 +128,7 @@ Cog =
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, -1],
+				Vec3 Offset = [0, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
@@ -173,7 +136,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 5,
+				uint Id = 4,
 			},
 			Named = 
 			{
@@ -218,7 +181,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 6,
+				uint Id = 5,
 			},
 			Named = 
 			{
@@ -255,7 +218,7 @@ Cog =
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, -1],
+				Vec3 Offset = [0, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
@@ -263,7 +226,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 7,
+				uint Id = 6,
 			},
 			Named = 
 			{
@@ -300,7 +263,7 @@ Cog =
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, -1],
+				Vec3 Offset = [0, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
@@ -308,7 +271,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 8,
+				uint Id = 7,
 			},
 			Named = 
 			{
@@ -345,7 +308,7 @@ Cog =
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, -1],
+				Vec3 Offset = [0, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
@@ -353,7 +316,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 9,
+				uint Id = 8,
 			},
 			Named = 
 			{
@@ -398,7 +361,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 10,
+				uint Id = 9,
 			},
 			Named = 
 			{
@@ -443,7 +406,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 11,
+				uint Id = 10,
 			},
 			Named = 
 			{
@@ -464,7 +427,7 @@ Cog =
 				Vec4 Color = [1, 1, 1, 1],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "567a3015bd10befa:Eight",
+				string SpriteLayer = "567a3010bc65f0ee:Seven",
 				string SpriteSource = "567bcb8e570b79e8:ChristmasTree",
 				bool RenderMask = false,
 				bool FlipX = false,
@@ -480,7 +443,7 @@ Cog =
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, -1],
+				Vec3 Offset = [0, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
@@ -488,7 +451,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 12,
+				uint Id = 11,
 			},
 			Named = 
 			{
@@ -525,7 +488,7 @@ Cog =
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, -1],
+				Vec3 Offset = [0, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
@@ -533,7 +496,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 13,
+				uint Id = 12,
 			},
 			Named = 
 			{
@@ -570,7 +533,7 @@ Cog =
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, -1],
+				Vec3 Offset = [0, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
@@ -578,7 +541,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 14,
+				uint Id = 13,
 			},
 			Named = 
 			{
@@ -615,7 +578,7 @@ Cog =
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, -1],
+				Vec3 Offset = [0, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
@@ -623,7 +586,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 15,
+				uint Id = 14,
 			},
 			Named = 
 			{
@@ -644,7 +607,7 @@ Cog =
 				Vec4 Color = [1, 1, 1, 1],
 				BlendMode BlendMode = Alpha,
 				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "567a3015bd10befa:Eight",
+				string SpriteLayer = "567a3010bc65f0ee:Seven",
 				string SpriteSource = "567bcb8e570b79e8:ChristmasTree",
 				bool RenderMask = false,
 				bool FlipX = false,
@@ -660,7 +623,7 @@ Cog =
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, -1],
+				Vec3 Offset = [0, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
@@ -668,7 +631,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 16,
+				uint Id = 15,
 			},
 			Named = 
 			{
@@ -713,7 +676,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 17,
+				uint Id = 16,
 			},
 			Named = 
 			{
@@ -750,7 +713,7 @@ Cog =
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, -1],
+				Vec3 Offset = [0, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
@@ -758,7 +721,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 18,
+				uint Id = 17,
 			},
 			Named = 
 			{
@@ -795,7 +758,7 @@ Cog =
 				bool Seamless = true,
 				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, -0.5, -1],
+				Vec3 Offset = [0, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
