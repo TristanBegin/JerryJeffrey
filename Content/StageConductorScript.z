@@ -52,9 +52,10 @@ class StageConductorScript : ZilchComponent
             {
                 if(this.I == 9)
                 {
-                    this.Player.Transform.Translation = Real3(3.5, 3.5, 0);
+                    this.Player.Transform.Translation = Real3(2.5, 3.5, 0);
                     this.Player.PlayerController.NextPosX = this.Player.Transform.Translation.X;
                     this.Player.PlayerController.NextPosY = this.Player.Transform.Translation.Y;
+                    this.Space.CreateAtPosition(Archetype.Rhino, Real3(3.5, 1.5, 0));
                     this.Player.PlayerController.Talking = false;
                     this.I = 0;
                     this.GameSession.GameStats.CurrentString = "";
@@ -63,6 +64,9 @@ class StageConductorScript : ZilchComponent
                     this.Owner.Parent.Destroy();
                     
                     
+                }
+                else if(this.I == 7 && this.Input == "")
+                {
                 }
                 else
                 {
@@ -76,7 +80,9 @@ class StageConductorScript : ZilchComponent
             if(this.I >= this.TextArray.Count 
             || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !this.Player.PlayerController.Texting ))
             {
-                
+                this.Player.PlayerController.Talking = false;
+                this.I = 0;
+                this.GameSession.GameStats.CurrentString = "";
             }
             //If not in the begining of the string
             if (this.I > 0)
@@ -114,6 +120,11 @@ class StageConductorScript : ZilchComponent
             this.GameSession.GameStats.AutoComplete = false;
         }
         
+        if(this.Talked == true && this.Player.PlayerController.Talking == true && this.I < 7 )
+        {
+            this.I = 6;
+        }
+        
         if(this.I == 8)
         {
             this.Input = this.Input.ToLower();
@@ -123,12 +134,12 @@ class StageConductorScript : ZilchComponent
             if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
             {
                 this.Talked = true;
-                this.TextArray.Set(8,"“\"A dog? Eh, we have enough freaky looking dogs. \nSorry.\"");
+                this.TextArray.Set(8,"“\"What? That isn't an animal. \nSorry.\"");
             }
             else if(this.Input != this.RightAnswer)
             {
                 this.Talked = true;
-                this.TextArray.Set(8,"“\"Jeffrey? Are you insane? That’ is not my name. \nGet out of here, imposter!\"");
+                this.TextArray.Set(8,"“\"A dog? Eh, we have enough freaky looking dogs. \nSorry.\"");
             }
             else
             {
