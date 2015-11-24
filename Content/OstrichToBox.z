@@ -1,23 +1,38 @@
 class OstrichToBox : ZilchComponent
 {
   var UsedOstrich : Boolean = false;
+  var JeffreyFloor : Cog;
+  var Rhino : Cog;
+  
+  [Property]
+  var PitWorld : SpriteSource;
   
   function Initialize(init : CogInitializer)
   {
-    Zero.Connect(this.GameSession, Events.ItemUsed, this.OnItemUsed);
+    Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    
+    this.JeffreyFloor = this.Space.FindObjectByName("JeffreyFloor");
+    this.Rhino = this.Space.FindObjectByName("Rhino");
+    
+    this.Rhino.Sprite.Visible = false;
+    this.Rhino.BoxCollider.Ghost = true;
   }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    if (this.UsedOstrich == true)
+    if (this.UsedOstrich == true && this.Rhino != null)
     {
       this.GameSession.GameStats.ObjectOne = "";
+      this.JeffreyFloor.Sprite.SpriteSource = this.PitWorld;
+      this.Rhino.Sprite.Visible = true;
+      this.Rhino.BoxCollider.Ghost = false;
     }
   }
 
   function OnItemUsed(event : ItemUsed)
   {
+    Console.WriteLine("Event received.");
     if (event.TheItem == "Ostrich")
     {
       this.UsedOstrich = true;

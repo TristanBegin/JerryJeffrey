@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "L5DoorBlocking",
+		uint64 ResourceId = 5659ac0d011b8ce9,
+	},
+},
