@@ -9,21 +9,7 @@ class JerryLevel2SpawnerScript : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        Console.WriteLine(this.Space.LevelSettings.Level2Stats.YetiState);
         if(this.GameSession.GameStats.Trigger == "Freezer")
-        {
-            if(this.Object == null)
-            {
-                if(this.Space.LevelSettings.Level2Stats.YetiState == 2)
-                {
-                    this.Space.CreateAtPosition(Archetype.YetiState2, Real3(0.5, 4.0, 0.0));
-                }
-                
-                this.Object = (this.Space.CreateAtPosition(Archetype.FreezerWorld, Real3(3.5, 3.5, 0.0)));
-            }
-            
-        }
-        else if(this.GameSession.GameStats.Trigger == "Fridge")
         {
             if(this.Object == null)
             {
@@ -31,9 +17,24 @@ class JerryLevel2SpawnerScript : ZilchComponent
                 {
                     this.Space.CreateAtPosition(Archetype.YetiState1, Real3(0.5, 4.0, 0.0));
                 }
-                if(this.Space.LevelSettings.Level2Stats.YetiState == 3)
+                else if(this.Space.LevelSettings.Level2Stats.YetiState == 3)
                 {
                     this.Space.CreateAtPosition(Archetype.YetiState3, Real3(0.5, 4.0, 0.0));
+                }
+                
+                
+                this.Object = (this.Space.CreateAtPosition(Archetype.FreezerWorld, Real3(3.5, 3.5, 0.0)));
+            }
+            
+        }
+        else if(this.GameSession.GameStats.Trigger == "Fridge")
+        {
+            
+            if(this.Object == null)
+            {
+                if(this.Space.LevelSettings.Level2Stats.YetiState == 2)
+                {
+                    this.Space.CreateAtPosition(Archetype.YetiState2, Real3(0.5, 4.0, 0.0));
                 }
                 this.Object = (this.Space.CreateAtPosition(Archetype.FridgeWorld, Real3(3.5, 3.5, 0.0)));
             }

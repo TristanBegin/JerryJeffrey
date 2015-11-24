@@ -6,15 +6,15 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "Yeti",
+		string Name = "StageConductorAnim",
 	},
 	Archetyped = 
 	{
-		string Name = "56985e46c222d2d6:YetiState3",
+		string Name = "569f3bdd7ad8047b:StageConductor",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [-1, -0.5, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -27,8 +27,8 @@ Cog =
 		Vec4 Color = [1, 1, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
-		string SpriteLayer = "567a301ebb5f633a:Nine",
-		string SpriteSource = "567bc810dec25852:Yeti",
+		string SpriteLayer = "567a307da02fc3e3:Four",
+		string SpriteSource = "567a3bcb808051ac:StageConductorAnim",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -43,14 +43,7 @@ Cog =
 		bool Seamless = true,
 		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, -0.5, 0],
+		Vec3 Offset = [0, 0, 0],
 		Vec3 Size = [0.5, 0.5, 0.5],
-	},
-	DestroyScript = 
-	{
-		string Condition = "Freezer",
-	},
-	YetiState3Script = 
-	{
 	},
 },

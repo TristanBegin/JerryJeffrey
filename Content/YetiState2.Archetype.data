@@ -48,6 +48,9 @@ Cog =
 	},
 	DestroyScript = 
 	{
-		string Condition = "Freezer",
+		string Condition = "Fridge",
+	},
+	YetiState2Script = 
+	{
 	},
 },

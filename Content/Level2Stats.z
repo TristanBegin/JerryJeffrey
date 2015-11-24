@@ -1,6 +1,6 @@
 class Level2Stats : ZilchComponent
 {
-    var YetiState : Integer = 2;
+    var YetiState : Integer = 1;
     
     function Initialize(init : CogInitializer)
     {
