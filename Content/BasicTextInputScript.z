@@ -70,7 +70,7 @@ class BasicTextInputScript : ZilchComponent
         //if(this.I == Number in the string array of imput)
         //{
             this.Input = this.Input.ToLower();
-            //Pu the possible results in here
+            //Put the possible results in here
         //}
         
         //If the player is texting, set Input to what ever the players types.

@@ -6,15 +6,15 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "PurpleFigure",
+		string Name = "LintBall1",
 	},
 	Archetyped = 
 	{
-		string Name = "5659888539e6f109:PurpleFigure",
+		string Name = "565ece4e895088b1:LintBall1",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [2, 5, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [0.911999822, 0, 0.959999979, 1],
+		Vec4 Color = [0.475000024, 0.779500008, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -36,21 +36,16 @@ Cog =
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
 	},
-	BoxCollider = 
+	Area = 
 	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		Vec3 Size = [0.5, 0.5, 0.5],
+		Vec2 Size = [1, 1],
+		Location Origin = TopLeft,
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "Hey!",
-		string Text2 = "If you give me your rhino,",
-		string Text3 = "I'll give you this ostrich.",
+		string Text1 = "I only talk to red.",
+		string Text2 = "",
+		string Text3 = "",
 		string Text4 = "",
 		string Text5 = "",
 		string Text6 = "",
@@ -78,8 +73,5 @@ Cog =
 		string Text28 = "",
 		string Text29 = "",
 		string Text30 = "",
-	},
-	RhinoToPurpleMan = 
-	{
 	},
 },
