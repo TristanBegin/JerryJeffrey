@@ -31,5 +31,16 @@ class L5DoorBlocking : ZilchComponent
       this.MagicBarrierLeft.BoxCollider.Ghost = true;
       this.MagicBarrierLeft.Sprite.Visible = false;
     }
+    
+    if (this.Owner.Transform.Translation.X < 8 && this.GameSession.GameStats.ObjectTwo == "Ostrich")
+    {
+      this.MagicBarrierRight.BoxCollider.Ghost = false;
+      this.MagicBarrierRight.Sprite.Visible = true;
+    }
+    else
+    {
+      this.MagicBarrierRight.BoxCollider.Ghost = true;
+      this.MagicBarrierRight.Sprite.Visible = false;
+    }
   }
 }

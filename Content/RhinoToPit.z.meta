@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "RhinoToPit",
+		uint64 ResourceId = 5659b9ca087d17d8,
+	},
+},

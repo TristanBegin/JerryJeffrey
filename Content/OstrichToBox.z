@@ -3,6 +3,8 @@ class OstrichToBox : ZilchComponent
   var UsedOstrich : Boolean = false;
   var JeffreyFloor : Cog;
   var Rhino : Cog;
+  var PitTop : Cog;
+  var PitBottom : Cog;
   
   [Property]
   var PitWorld : SpriteSource;
@@ -13,20 +15,22 @@ class OstrichToBox : ZilchComponent
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     
     this.JeffreyFloor = this.Space.FindObjectByName("JeffreyFloor");
-    this.Rhino = this.Space.FindObjectByName("Rhino");
     
+    this.PitTop = this.Space.FindObjectByName("PitRoomTop");
+    this.PitTop.BoxCollider.Ghost = true;
+    
+    this.PitBottom = this.Space.FindObjectByName("PitRoomBottom");
+    this.PitBottom.BoxCollider.Ghost = true;
+    
+    this.Rhino = this.Space.FindObjectByName("Rhino");
     this.Rhino.Sprite.Visible = false;
     this.Rhino.BoxCollider.Ghost = true;
   }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
-    if (this.UsedOstrich == true && this.Rhino != null)
+    if (this.UsedOstrich == true)
     {
-      this.GameSession.GameStats.ObjectOne = "";
-      this.JeffreyFloor.Sprite.SpriteSource = this.PitWorld;
-      this.Rhino.Sprite.Visible = true;
-      this.Rhino.BoxCollider.Ghost = false;
     }
   }
 
@@ -36,6 +40,19 @@ class OstrichToBox : ZilchComponent
     if (event.TheItem == "Ostrich")
     {
       this.UsedOstrich = true;
+      this.GameSession.GameStats.ObjectTwo = "";
+      this.JeffreyFloor.Sprite.SpriteSource = this.PitWorld;
+      
+      this.PitTop.BoxCollider.Ghost = false;
+      this.PitBottom.BoxCollider.Ghost = false;
+      
+      if (this.Rhino != null)
+      {
+        this.Rhino.Sprite.Visible = true;
+        this.Rhino.BoxCollider.Ghost = false;
+      }
+      
+      //this.GameSession.GameStats.CurrentString = "The ostrich is now in the box.";
     }
   }
 }

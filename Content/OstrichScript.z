@@ -33,7 +33,7 @@ class OstrichScript : ZilchComponent
       if(this.I >= this.TextArray.Count 
       || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !player.PlayerController.Texting ))
       {
-        this.GameSession.GameStats.ObjectOne = "Ostrich";
+        this.GameSession.GameStats.ObjectTwo = "Ostrich";
         player.PlayerController.Talking = false;
         this.I = 0;
         this.GameSession.GameStats.CurrentString = "";

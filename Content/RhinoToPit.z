@@ -1,0 +1,62 @@
+class RhinoToPit : ZilchComponent
+{
+  var UsedRhino : Boolean = false;
+  var JerryFloor : Cog;
+  var FirstBox : Cog;
+  
+  var PitTop : Cog;
+  var PitBottom : Cog;
+  
+  [Property]
+  var BottomOfPit : SpriteSource;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    
+    this.JerryFloor = this.Space.FindObjectByName("JerryFloor");
+    this.FirstBox = this.Space.FindObjectByName("Box5");
+    
+    this.PitTop = this.Space.FindObjectByName("PitRoomTop");
+    this.PitBottom = this.Space.FindObjectByName("PitRoomBottom");
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if (this.UsedRhino == true)
+    {
+    }
+  }
+
+  function OnItemUsed(event : ItemUsed)
+  {
+    Console.WriteLine("Event received.");
+    if (event.TheItem == "Rhino")
+    {
+      this.UsedRhino = true;
+      this.GameSession.GameStats.ObjectOne = "";
+      this.JerryFloor.Sprite.SpriteSource = this.BottomOfPit;
+      this.Space.CreateAtPosition(Archetype.Rhino, Real3(2.5, 0.5, 0));
+      this.Space.CreateAtPosition(Archetype.Ostrich, Real3(0.5, 0.5, 0));
+      
+      this.Space.CreateAtPosition(Archetype.BlueFigure, Real3(0.5, 4.5, 0));
+      this.Space.CreateAtPosition(Archetype.SecondBox5, Real3(0.5, 5.5, 0));
+      
+      if (this.FirstBox != null)
+      {
+        this.FirstBox.Destroy();
+      }
+      
+      if (this.PitTop != null)
+      {
+        this.PitTop.Destroy();
+      }
+      
+      if (this.PitBottom != null)
+      {
+        this.PitBottom.Destroy();
+      }
+    }
+  }
+}

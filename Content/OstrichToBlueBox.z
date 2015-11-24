@@ -1,0 +1,39 @@
+class OstrichToBlueBox : ZilchComponent
+{
+  var UsedOstrich : Boolean = false;
+  var JeffreyFloor : Cog;
+  
+  [Property]
+  var PurpleYellowWorld : SpriteSource;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    
+    this.JeffreyFloor = this.Space.FindObjectByName("JeffreyFloor");
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if (this.UsedOstrich == true)
+    {
+    }
+  }
+
+  function OnItemUsed(event : ItemUsed)
+  {
+    Console.WriteLine("Event received.");
+    if (event.TheItem == "Ostrich")
+    {
+      this.UsedOstrich = true;
+      this.GameSession.GameStats.ObjectTwo = "";
+      this.JeffreyFloor.Sprite.SpriteSource = this.PurpleYellowWorld;
+      
+      this.Space.CreateAtPosition(Archetype.PurpleFigure, Real3(14.5, 4.5, 0));
+      this.Space.CreateAtPosition(Archetype.YellowFigure, Real3(14.5, 2.5, 0));
+      this.Space.CreateAtPosition(Archetype.Ostrich, Real3(14.5, 3.5, 0));
+      
+    }
+  }
+}
