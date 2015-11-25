@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "GirlyDeskScript",
+		uint64 ResourceId = 569f7d6e65cbf770,
+	},
+},
