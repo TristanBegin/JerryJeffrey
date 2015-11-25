@@ -1,17 +1,24 @@
 class YetiState2Script : ZilchComponent
 {
+
+    var Timer : Real = 1;
     var I : Integer = Integer(0);
     var TextArray : Array[String] = Array[String]();
     var Player : Cog;
+    
+    var Talked : Boolean = false;
 
     
     function Initialize(init : CogInitializer)
     {
         this.TextArray.Add("");
-        this.TextArray.Add("Note : \"–“To the worthless piece of trash: \nThough I thought we had begun to form a bond\"”");
-        this.TextArray.Add("\"through pleasant conversation, it seems \n you’'d rather twiddle away our final hours \"");
-        this.TextArray.Add("\"together with that vile insect on the other \nside of the wall. Thus, I have decided to take my leave.\"”");
-        this.TextArray.Add("\"Good day, sir.\"");
+        this.TextArray.Add("\"Hello again.\"”");
+        this.TextArray.Add("\"I don’ t know why I came here; \nthis world is so depressing\"");
+        this.TextArray.Add("\"All it ever tells me about is how dangerous and scary it is.\"”");
+        this.TextArray.Add("\"I don’ t know why it would say that about itself, \nit’ s a perfectly pleasant world\"");
+        this.TextArray.Add("\"But all those snowman, they just make the world so depressing.\"");
+        this.TextArray.Add("\"At least the other world was ACTUALLY dangerous. \nThat world made me feel good about myself.\"");
+        this.TextArray.Add("\"I think I’ ll head back there. Surely that will make me happy.\"”");
         
         this.Player = this.Space.FindObjectByName("Player");
         
@@ -35,7 +42,7 @@ class YetiState2Script : ZilchComponent
                 {
                     if(this.I == this.TextArray.Count)
                     {
-                        this.Owner.Destroy();
+                        this.Talked = true;
                         this.Space.LevelSettings.Level2Stats.YetiState = 3;
                     }
                     this.Player.PlayerController.Talking = false;
@@ -57,6 +64,16 @@ class YetiState2Script : ZilchComponent
         if (this.I != 0)
         {
             this.Player.PlayerController.Talking = true;
+        }
+        
+        if(this.Talked == true)
+        {
+            this.Timer -= event.Dt;
+            this.Owner.Sprite.Color = Real4(1.0, 1.0, 1.0, this.Timer);
+        }
+        if (this.Timer <= 0)
+        {
+            this.Owner.Destroy();
         }
     }
 }
