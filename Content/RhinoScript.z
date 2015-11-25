@@ -1,5 +1,6 @@
 class RhinoScript : ZilchComponent
 {
+    var Player : Cog;
     
     var I : Integer = Integer(0); //Text counter
     
@@ -10,15 +11,15 @@ class RhinoScript : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.TextArray.Add("");
         this.TextArray.Add("Obtained a Ceramic Rhino");
+        this.Player = this.Space.FindObjectByName("Player"); //Finds the player
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var player = this.Space.FindObjectByName("Player"); //Finds the player
         var text = this.Space.LevelSettings.HudInteraction.HudText; //Finds the hud text
         
         // If the object is next to the player
-        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
+        if(this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
         {
             //If the player presses enter and not at the begining of the string
             if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
@@ -29,10 +30,10 @@ class RhinoScript : ZilchComponent
             }
             //If it has reached the end of the string or the player has pressed enter, stop talking to it
             if(this.I >= this.TextArray.Count 
-            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !player.PlayerController.Texting ))
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !this.Player.PlayerController.Texting ))
             {
                 this.GameSession.GameStats.ObjectOne = "Rhino";
-                player.PlayerController.Talking = false;
+                this.Player.PlayerController.Talking = false;
                 this.I = 0;
                 this.GameSession.GameStats.Trigger ="";
                 this.GameSession.GameStats.CurrentString = "";
@@ -41,6 +42,7 @@ class RhinoScript : ZilchComponent
             //If not in the begining of the string
             if (this.I > 0)
             {
+                this.Player.PlayerController.Talking = true;
                 this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
             }
         }
