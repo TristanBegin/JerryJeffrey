@@ -6,16 +6,27 @@ class OstrichToBox : ZilchComponent
   var PitTop : Cog;
   var PitBottom : Cog;
   var ItemInBox : String = "";
+  var Player : Cog;
+  
+  var TextArray : Array[String] = Array[String]();
+  var I : Integer = 0;
   
   [Property]
   var PitWorld : SpriteSource;
   
   function Initialize(init : CogInitializer)
   {
+    /* Text Array Stuff */
+    this.TextArray.Add("");
+    this.TextArray.Add("I'm a box.");
+    
+    
     Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     
     this.JeffreyFloor = this.Space.FindObjectByName("JeffreyFloor");
+    
+    this.Player = this.Space.FindObjectByName("Player");
     
     this.PitTop = this.Space.FindObjectByName("PitRoomTop");
     this.PitTop.BoxCollider.Ghost = true;
@@ -30,8 +41,46 @@ class OstrichToBox : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
+    
+    if (this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
+    {
+      if (Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping == true
+          && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
+      {
+        ++this.I;
+      }
+      
+      
+      if (this.I >= this.TextArray.Count || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping == true))
+      {
+        this.I = 0;
+        this.Player.PlayerController.Talking = false;
+        this.GameSession.GameStats.CurrentString = "";
+      }
+      
+    }
+    else
+    {
+      this.I = 0;
+    }
+    
+    if (this.I > 0)
+    {
+      this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+    }
+    
+    if (this.I != 0)
+    {
+      this.Player.PlayerController.Talking = true;
+    }
+    
+    
     if (this.UsedOstrich == true)
     {
+      this.UsedOstrich = false;
+      this.GameSession.GameStats.CurrentString = "";
+      this.TextArray.Set(1, "The ceramic ostrich is in the box.");
+      this.I = 1;
     }
   }
 
