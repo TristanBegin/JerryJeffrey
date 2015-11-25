@@ -1,12 +1,14 @@
 class YetiState2Script : ZilchComponent
 {
-
     var Timer : Real = 1;
     var I : Integer = Integer(0);
     var TextArray : Array[String] = Array[String]();
     var Player : Cog;
     
     var Talked : Boolean = false;
+    var UsedUnderwear : Boolean = false;
+    var HasUnderwear : Boolean = false;
+
 
     
     function Initialize(init : CogInitializer)
@@ -22,13 +24,12 @@ class YetiState2Script : ZilchComponent
         
         this.Player = this.Space.FindObjectByName("Player");
         
+        Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        var text = this.GameSession.GameStats.CurrentString;
-        
         
         if(this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
         {
@@ -46,12 +47,17 @@ class YetiState2Script : ZilchComponent
                     if(this.I == this.TextArray.Count)
                     {
                         this.Talked = true;
-                        this.Space.LevelSettings.Level2Stats.YetiState = 3;
+                        if(this.HasUnderwear == true)
+                        {
+                            this.Space.LevelSettings.Level2Stats.YetiState = 4;
+                        }
+                        else
+                        {
+                            this.Space.LevelSettings.Level2Stats.YetiState = 3;
+                        }
                         this.GameSession.GameStats.CurrentString = "";
                     }
                 }
-                    
-                
         }
         else
         {
@@ -78,6 +84,32 @@ class YetiState2Script : ZilchComponent
             this.Talked = false;
             this.Player.PlayerController.Talking = false;
             this.Owner.Destroy();
+        }
+        
+        if(this.UsedUnderwear)
+        {
+            this.HasUnderwear = true;
+            this.UsedUnderwear = false;
+            this.I = 1;
+            this.GameSession.GameStats.ObjectTwo = "";
+            this.TextArray.Set(1,"\"Wait... are those... PANTIES?\"”");
+            this.TextArray.Set(2,"\"And you... you’ re giving those... to me?\n Really?\"");
+            this.TextArray.Set(3,"\"My goodness, this is the greatest gift \nI have ever received\"”");
+            this.TextArray.Set(4,"\"Is this... is this what it feels like? \nTo be truly happy?\"");
+            this.TextArray.Set(5,"\"Thank you. Thank you so much\"");
+            this.TextArray.Set(6,"\"Please, if there’'s anything you need, \nplease ask.\"");
+            this.TextArray.Add("\"What’'s that, you’ re looking for someone?\"");
+            this.TextArray.Add("\"Oh, him. Yeah, I know him.\"");
+            this.TextArray.Add("\"Don’'t worry, I know where he went. \nI can bring him back no problem.\"");
+            this.TextArray.Add("\"In fact, I’'ll bet I can get him back faster \n than you can return to his room.\"");
+        }
+    }
+    
+    function OnItemUsed (event : ItemUsed)
+    {
+        if (event.TheItem == "Freezer")
+        {
+            this.UsedUnderwear = true;
         }
     }
 }

@@ -52,10 +52,10 @@ class StageConductorScript : ZilchComponent
             {
                 if(this.I == 9)
                 {
-                    this.Player.Transform.Translation = Real3(2.5, 3.5, 0);
+                    this.Player.Transform.Translation = Real3(3.5, 4.5, 0);
                     this.Player.PlayerController.NextPosX = this.Player.Transform.Translation.X;
                     this.Player.PlayerController.NextPosY = this.Player.Transform.Translation.Y;
-                    this.Space.CreateAtPosition(Archetype.Rhino, Real3(3.5, 1.5, 0));
+                    this.Space.CreateAtPosition(Archetype.Rhino, Real3(1.5, 3.5, 0));
                     this.Player.PlayerController.Talking = false;
                     this.I = 0;
                     this.GameSession.GameStats.CurrentString = "";
