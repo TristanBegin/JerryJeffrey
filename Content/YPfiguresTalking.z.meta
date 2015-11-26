@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "YPfiguresTalking",
+		uint64 ResourceId = 56b6998414f7bf2f,
+	},
+},
