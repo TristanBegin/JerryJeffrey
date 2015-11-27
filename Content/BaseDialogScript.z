@@ -4,7 +4,7 @@ class BaseDialogScript : ZilchComponent
     var I : Integer = Integer(0); // Text counter
     
     var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
-    
+    var Done : Boolean = false;
     // 30 strings for the text
     [Property]
     var Text1 : String;
@@ -66,6 +66,10 @@ class BaseDialogScript : ZilchComponent
     var Text29 : String;
     [Property]
     var Text30 : String;
+        [Property]
+    var Text31 : String;
+    [Property]
+    var Text32 : String;
     
     function Initialize(init : CogInitializer)
     {
@@ -103,7 +107,8 @@ class BaseDialogScript : ZilchComponent
         this.TextArray.Add(this.Text28);
         this.TextArray.Add(this.Text29);
         this.TextArray.Add(this.Text30);
-        
+        this.TextArray.Add(this.Text31);
+        this.TextArray.Add(this.Text32);
     }
 
 
@@ -136,6 +141,7 @@ class BaseDialogScript : ZilchComponent
             if(((this.TextArray[this.I]) == "" && (this.I != 0))
             || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
             {
+                this.Done = true;
                 //Player isn't talking anymore
                 player.PlayerController.Talking = false;
                 // Reset the text counter

@@ -1,0 +1,44 @@
+/*******************************************************************************
+ExplosionSequence
+Created by Tristan Begin.
+
+Description:
+Creates a sequence of explosions around the object. Used for Alina's death.
+
+Object -
+The object that the explosions should surround.
+
+*******************************************************************************/
+
+class ExplosionSequence : ZilchComponent
+{
+    [Property] var TheExplosion : Archetype;
+    [Property] var FinalExplosion : Archetype;
+    [Property] var Delay : Real = 0.5;
+    var CurDelay : Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Space.FindObjectByName("Camera").SoundEmitter.Stop();
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.CurDelay -= event.Dt;
+        this.Delay -= event.Dt / 10;
+        var ran : Random = new Random();
+        if (this.CurDelay <= 0)
+        {
+            this.Space.CreateAtPosition(this.TheExplosion, this.Owner.Transform.Translation + Real3(0,ran.Range(-4,4), 1));
+            this.CurDelay = this.Delay;
+        }
+        
+        if (this.Delay <= 0.03)
+        {
+            this.Space.CreateAtPosition(this.FinalExplosion, this.Owner.Transform.Translation);
+            this.Owner.Destroy();
+        }
+        
+    }
+    
+}
