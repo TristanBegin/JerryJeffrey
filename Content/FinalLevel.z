@@ -9,6 +9,8 @@ class FinalLevel : ZilchComponent
     var TheExplosions : Cog;
     var TalkingPart : Boolean = false;
     var I : Integer = 0;
+    var CurDelay : Real = 0.75;
+    var Delay : Real = 0;
     var TextArray : Array[String] = Array[String]();
     function Initialize(init : CogInitializer)
     {
@@ -21,6 +23,7 @@ class FinalLevel : ZilchComponent
         this.TextArray.Add("I MUST DESTROY HIM");
         this.TextArray.Add("I MUST DESTROY EVERYTHING HE LOVES");
         this.TextArray.Add("JEFFREY MUST DIE");
+        this.TextArray.Add("JERRY MUST DIE");
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -43,6 +46,31 @@ class FinalLevel : ZilchComponent
             this.TalkingPart = true;
             this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
         }
+        if (this.I >= 4)
+        {
+            //this.GameSession.GameStats.AutoComplete = true;
+            this.Delay -= event.Dt;
+            this.CurDelay -= event.Dt / 10;
+            if (this.Delay <= 0)
+            {
+                this.Delay = this.CurDelay;
+                var ran : Random = new Random();
+                this.GameSession.GameStats.CurrentString = this.TextArray[3 + ran.DieRoll(2)];
+            }
+            if (this.CurDelay < -0.4)
+            {
+                this.TextArray[4] = "JEFFREY";
+            }
+            if (this.CurDelay < -0.4)
+            {
+                this.TextArray[5] = "JERRY";
+            }
+            if (this.CurDelay < -0.8)
+            {
+                this.GameSession.GameStats.CurrentString = "";
+                this.Space.LoadLevel(Level.Level1);
+            }
+        }
         if (this.TalkingPart && Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping )
         {
             if (this.I < 4)
@@ -50,9 +78,7 @@ class FinalLevel : ZilchComponent
                 ++this.I;
                 this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
             }
-            else
-            {
-            }
         }
+        
     }
 }
