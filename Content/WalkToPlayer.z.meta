@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "WalkToPlayer",
+		uint64 ResourceId = 5673c734c438c900,
+	},
+},

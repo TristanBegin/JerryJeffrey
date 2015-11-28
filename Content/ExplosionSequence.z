@@ -16,10 +16,15 @@ class ExplosionSequence : ZilchComponent
     [Property] var FinalExplosion : Archetype;
     [Property] var Delay : Real = 0.5;
     var CurDelay : Real = 0;
+    var Destroy : Cog;
+    var TheRoom1 : Cog;
+    var TheRoom2 : Cog;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        this.Space.FindObjectByName("Camera").SoundEmitter.Stop();
+        this.Destroy = this.Space.FindObjectByName("ToBeDestroyed");
+        this.TheRoom1 = this.Space.FindObjectByName("Room1");
+        this.TheRoom2 = this.Space.FindObjectByName("Room2");
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -33,9 +38,12 @@ class ExplosionSequence : ZilchComponent
             this.CurDelay = this.Delay;
         }
         
-        if (this.Delay <= 0.03)
+        if (this.Delay <= 0.003)
         {
             this.Space.CreateAtPosition(this.FinalExplosion, this.Owner.Transform.Translation);
+            this.Destroy.Destroy();
+            this.TheRoom1.Sprite.SpriteSource = SpriteSource.WallBroken;
+            this.TheRoom2.Sprite.SpriteSource = SpriteSource.WallBroken;
             this.Owner.Destroy();
         }
         

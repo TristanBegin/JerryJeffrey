@@ -1,0 +1,58 @@
+class FinalLevel : ZilchComponent
+{
+    var Wood : Cog;
+    var DoneExplosion : Boolean = false;
+    var Player : Cog;
+    [Property]
+    var Explosions : Archetype;
+    var Jerry : Cog;
+    var TheExplosions : Cog;
+    var TalkingPart : Boolean = false;
+    var I : Integer = 0;
+    var TextArray : Array[String] = Array[String]();
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Wood = this.Space.FindObjectByName("Wood");
+        this.Player = this.Space.FindObjectByName("Player");
+        this.Jerry = this.Space.FindObjectByName("Jerry");
+        this.TextArray.Add("WHERE IS JEFFREY?");
+        this.TextArray.Add("WHERE ARE YOU HIDING HIM?");
+        this.TextArray.Add("I MUST DESTROY HIM");
+        this.TextArray.Add("I MUST DESTROY EVERYTHING HE LOVES");
+        this.TextArray.Add("JEFFREY MUST DIE");
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Wood.BaseDialogScript.Done && this.DoneExplosion == false)
+        {
+            this.GameSession.GameStats.CurrentString = "Jerry: \"WHERE IS HE?\"";
+            this.DoneExplosion = true;
+            this.Player.Sprite.FlipX = true;
+            this.TheExplosions = this.Space.CreateAtPosition(this.Explosions, Real3 (8, 3.5, 1));
+            this.Player.PlayerController.Talking = true;
+        }
+        if (this.TheExplosions == null && this.DoneExplosion)
+        {
+            this.GameSession.GameStats.CurrentString = " ";
+            this.Jerry.WalkToPlayer.Start = true;
+        }
+        if (this.Jerry.WalkToPlayer.Done)
+        {
+            this.TalkingPart = true;
+            this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+        }
+        if (this.TalkingPart && Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping )
+        {
+            if (this.I < 4)
+            {
+                ++this.I;
+                this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            }
+            else
+            {
+            }
+        }
+    }
+}

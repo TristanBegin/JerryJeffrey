@@ -1,0 +1,43 @@
+/*******************************************************************************
+DESTROYOVERTIME
+Created by Tristan Begin.
+
+Description -
+Destroys object after a certain amount of time has passed since the object was created.
+
+Object -
+The object to be destroyed.
+*******************************************************************************/
+
+class DestroyOverTime : ZilchComponent
+{
+    //Amount of time before object should be destroyed.
+    [Property]
+    var TheTime : Real = 0.4;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //Consistently subract from timer.
+        this.TheTime -= event.Dt;
+        
+        //If timer reaches 0, destrooy the object.
+        if (this.TheTime <= 0.05)
+        {
+            if (this.Owner.SoundEmitter != null) this.Owner.SoundEmitter.Stop();
+        }
+        if (this.TheTime <= 0)
+        {
+            this.Owner.Destroy();
+        }
+        
+        if (this.Owner.SphericalParticleEmitter != null && this.TheTime <= 0.4)
+        {
+            this.Owner.SphericalParticleEmitter.Active = false;
+        }
+    }
+}

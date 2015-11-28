@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [8, 3.5, 1],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -76,5 +76,9 @@ Cog =
 		Vec4 Color2 = [1, 0.779999971, 0, 0.699999988],
 		Vec4 Color3 = [1, 0.389999986, 0, 0.400000006],
 		Vec4 Color4 = [1, 0, 0, 0],
+	},
+	DestroyOverTime = 
+	{
+		float TheTime = 0.5,
 	},
 },
