@@ -1,5 +1,11 @@
 class WorkingLeverScript : ZilchComponent
 {
+    [Property]
+    var PulledSprite : SpriteSource;
+    
+    [Property]
+    var NotPulledSprite : SpriteSource;
+    
     var I : Integer = Integer(0); //Text counter
     
     var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
@@ -40,7 +46,7 @@ class WorkingLeverScript : ZilchComponent
                     this.Pulled = true;
                 }
                 
-                this.TextArray.Set(1, "\"Lever `this.Owner.Name` has already been pulled\"");
+                
                 player.PlayerController.Talking = false;
                 this.I = 0;
                 this.GameSession.GameStats.CurrentString = "";
@@ -59,6 +65,23 @@ class WorkingLeverScript : ZilchComponent
         if (this.I != 0)
         {
             player.PlayerController.Talking = true;
+        }
+        
+        if(this.Pulled == true)
+        {
+            this.TextArray.Set(1, "\"Lever `this.Owner.Name` has already been pulled\"");
+            if(this.Owner.Sprite.SpriteSource != this.PulledSprite)
+            {
+                this.Owner.Sprite.SpriteSource = this.PulledSprite;
+            }
+        }
+        else
+        {
+            this.TextArray.Set(1, "\"Pulled lever `this.Owner.Name`.\"");
+            if(this.Owner.Sprite.SpriteSource != this.NotPulledSprite)
+            {
+                this.Owner.Sprite.SpriteSource = this.NotPulledSprite;
+            }
         }
     }
 }
