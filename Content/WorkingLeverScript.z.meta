@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "WorkingLeverScript",
+		uint64 ResourceId = 569180e022fa20d2,
+	},
+},

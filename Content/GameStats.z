@@ -20,6 +20,7 @@ class GameStats : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        Console.WriteLine(this.Trigger);
         var objectName = "Nothing";
         var lookingName = "Nothing";
         if (Zero.Keyboard.KeyIsPressed(Keys.One))

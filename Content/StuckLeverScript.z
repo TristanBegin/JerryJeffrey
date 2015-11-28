@@ -1,0 +1,167 @@
+class StuckLeverScript : ZilchComponent
+{
+    var Player : Cog;
+    
+    var I : Integer = Integer(0); // Text counter
+    
+    var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
+    
+    var Talked : Boolean = false;
+    // 30 strings for the text
+    [Property]
+    var Text1 : String;
+    [Property]
+    var Text2 : String;
+    [Property]
+    var Text3 : String;
+    [Property]
+    var Text4 : String;
+    [Property]
+    var Text5 : String;
+    [Property]
+    var Text6 : String;
+    [Property]
+    var Text7 : String;
+    [Property]
+    var Text8 : String;
+    [Property]
+    var Text9 : String;
+    [Property]
+    var Text10 : String;
+    [Property]
+    var Text11 : String;
+    [Property]
+    var Text12 : String;
+    [Property]
+    var Text13 : String;
+    [Property]
+    var Text14 : String;
+    [Property]
+    var Text15 : String;
+    [Property]
+    var Text16 : String;
+    [Property]
+    var Text17 : String;
+    [Property]
+    var Text18 : String;
+    [Property]
+    var Text19 : String;
+    [Property]
+    var Text20 : String;
+    [Property]
+    var Text21 : String;
+    [Property]
+    var Text22 : String;
+    [Property]
+    var Text23 : String;
+    [Property]
+    var Text24 : String;
+    [Property]
+    var Text25 : String;
+    [Property]
+    var Text26 : String;
+    [Property]
+    var Text27 : String;
+    [Property]
+    var Text28 : String;
+    [Property]
+    var Text29 : String;
+    [Property]
+    var Text30 : String;
+        [Property]
+    var Text31 : String;
+    [Property]
+    var Text32 : String;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Player = this.Space.FindObjectByName("Player");
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        this.TextArray.Add("");
+        this.TextArray.Add("");
+        this.TextArray.Add(this.Text1);
+        this.TextArray.Add(this.Text2);
+        this.TextArray.Add(this.Text3);
+        this.TextArray.Add(this.Text4);
+        this.TextArray.Add(this.Text5);
+        this.TextArray.Add(this.Text6);
+        this.TextArray.Add(this.Text7);
+        this.TextArray.Add(this.Text8);
+        this.TextArray.Add(this.Text9);
+        this.TextArray.Add(this.Text10);
+        this.TextArray.Add(this.Text11);
+        this.TextArray.Add(this.Text12);
+        this.TextArray.Add(this.Text13);
+        this.TextArray.Add(this.Text14);
+        this.TextArray.Add(this.Text15);
+        this.TextArray.Add(this.Text16);
+        this.TextArray.Add(this.Text17);
+        this.TextArray.Add(this.Text18);
+        this.TextArray.Add(this.Text19);
+        this.TextArray.Add(this.Text20);
+        this.TextArray.Add(this.Text21);
+        this.TextArray.Add(this.Text22);
+        this.TextArray.Add(this.Text23);
+        this.TextArray.Add(this.Text24);
+        this.TextArray.Add(this.Text25);
+        this.TextArray.Add(this.Text26);
+        this.TextArray.Add(this.Text27);
+        this.TextArray.Add(this.Text28);
+        this.TextArray.Add(this.Text29);
+        this.TextArray.Add(this.Text30);
+        this.TextArray.Add(this.Text31);
+        this.TextArray.Add(this.Text32);
+    }
+
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //Finds Player
+        var player = this.Player;
+        //If the player is near the object
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
+        {
+            //If you are talking to it AKA I is not zero
+            if (this.I != 0)
+            {
+                //You are taliking to it 
+                player.PlayerController.Talking = true;
+            }
+            
+            //If you press enter and is not typing
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
+                && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
+            {
+                //Increment the text counter by 2
+                this.I += 2; 
+                //Add the next two strings in the string array to the current string
+                this.GameSession.GameStats.CurrentString = ("`this.TextArray[this.I]`\n`this.TextArray[this.I + 1]`");
+            }
+            
+            //If you have reached an empty string that is not the first two or X is pressed
+            if(((this.TextArray[this.I]) == "" && (this.I != 0))
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
+            {
+                this.Talked = true;
+                //Player isn't talking anymore
+                player.PlayerController.Talking = false;
+                // Reset the text counter
+                this.I = 0;
+                //Clear the current string
+                this.GameSession.GameStats.CurrentString = "";
+            }
+        }
+        
+        
+        
+        if (this.Talked == true && player.PlayerController.Talking == false )
+        {
+            this.TextArray.Set(2, this.Text3);
+            this.TextArray.Set(3, this.Text4);
+            this.TextArray.Set(4, "");
+            this.TextArray.Set(5, "");
+        }
+    }
+}

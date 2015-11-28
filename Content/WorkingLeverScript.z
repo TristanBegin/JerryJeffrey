@@ -1,0 +1,64 @@
+class WorkingLeverScript : ZilchComponent
+{
+    var I : Integer = Integer(0); //Text counter
+    
+    var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
+    
+    var Player : Cog;
+    
+    var Pulled : Boolean = false; //The varable that see if the player has talked to this object
+    
+    function Initialize(init : CogInitializer)
+    {
+        
+        this.Player = this.Space.FindObjectByName("Player"); //Finds the player
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        this.TextArray.Add(""); //The first element of the string array, it will aways be ""
+        this.TextArray.Add("\"Pulled lever `this.Owner.Name`.\"");
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var player = this.Player;
+        
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
+        {
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
+                && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
+            {
+                ++this.I;
+            }
+            
+            if(this.I >= this.TextArray.Count
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !player.PlayerController.Texting ))
+            {
+                if (this.Pulled == false)
+                {
+                    this.Space.GameSession.GameStats.Trigger = "`this.Space.GameSession.GameStats.Trigger``this.Owner.Name`";
+                    this.Pulled = true;
+                }
+                
+                this.TextArray.Set(1, "\"Lever `this.Owner.Name` has already been pulled\"");
+                player.PlayerController.Talking = false;
+                this.I = 0;
+                this.GameSession.GameStats.CurrentString = "";
+            }
+            if (this.I > 0)
+            {
+                this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            }
+            
+        }
+        else
+        {
+            this.I = 0;
+        }
+        
+        if (this.I != 0)
+        {
+            player.PlayerController.Talking = true;
+        }
+    }
+}
