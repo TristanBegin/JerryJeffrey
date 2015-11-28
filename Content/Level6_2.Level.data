@@ -110,7 +110,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [9.4467659, 46.1086159, 50],
+			Vec3 Translation = [22.4471989, 62.3603783, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -122,7 +122,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 54.8811989,
+			float Size = 22.3130493,
 		},
 		EditorCameraController = 
 		{
@@ -130,7 +130,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [9.4467659, 46.1086159, -2.32675479e-009],
+			Vec3 LookTarget = [22.4471989, 62.3603783, 5.65939558e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -1767,6 +1767,86 @@ Level =
 			Vec4 Color2 = [1, 1, 1, 1],
 			Vec4 Color3 = [1, 1, 1, 1],
 			Vec4 Color4 = [1, 1, 1, 0],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 28,
+		},
+		Named = 
+		{
+			string Name = "Sprite",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [23.5, 67.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [0.139999866, 0, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		BaseDialogScript = 
+		{
+			string Text1 = "Sandra: ""How is he?""",
+			string Text2 = " ",
+			string Text3 = "You: ""He seems okay. But he's calling himself",
+			string Text4 = "'Jerjeffreyry' now.""",
+			string Text5 = "Sanda: ""That's... rather odd...""",
+			string Text6 = " ",
+			string Text7 = "You: ""It's not just odd. It's insanity. People like that are so",
+			string Text8 = "completely different from the rest of us...",
+			string Text9 = "...Thank goodness places like this exist to keep them",
+			string Text10 = "locked up.""",
+			string Text11 = "Sandra: ""Yes, and thank goodness the rest of us are",
+			string Text12 = "free to do as we please.""",
+			string Text13 = "Tom: ""Very true. I might go insane if I was locked in",
+			string Text14 = "such a cramped environment.""",
+			string Text15 = "Sandra: ""By the way, are you free for dinner tomorrow night?""",
+			string Text16 = " ",
+			string Text17 = "Tom: ""No, sorry. I have the night shift tomorrow. I won't",
+			string Text18 = "be able to do anything.""",
+			string Text19 = "Sandra: ""Well that's too bad.""",
+			string Text20 = " ",
+			string Text21 = "You: ""Sorry, but I can't squelch my duties. I am the best",
+			string Text22 = "nurse this place has to offer, after all.""",
+			string Text23 = "Sandra: ""Ah, yes, very true. You a pretty skilled nurse.",
+			string Text24 = " ",
+			string Text25 = "You: ""Aren't I? Surely this place would fall apart without my",
+			string Text26 = "being here.""",
+			string Text27 = "",
+			string Text28 = "",
+			string Text29 = "",
+			string Text30 = "",
+			string Text31 = "",
+			string Text32 = "",
 		},
 	},
 },
