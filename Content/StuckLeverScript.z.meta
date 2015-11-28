@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "StuckLeverScript",
+		uint64 ResourceId = 56918e332cc6002f,
+	},
+},

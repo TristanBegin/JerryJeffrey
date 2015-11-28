@@ -9,10 +9,20 @@ class DoorCheckpointScript : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
          Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
     }
     
-     function OnCollisionEnded(event : CollisionEvent)
+    function OnCollisionStarted(event : CollisionEvent)
     {
+        if (this.GameSession.GameStats.Trigger == "Right")
+        {
+            this.GameSession.GameStats.Trigger = "Passed";
+        }
+    }
+        
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        
         var otherObject = event.OtherObject;
         
         otherObject.PlayerController.CurrentLevel = 1;
@@ -25,5 +35,6 @@ class DoorCheckpointScript : ZilchComponent
         {
             this.Space.LoadLevel(this.Level2);
         }
+        
     }
 }

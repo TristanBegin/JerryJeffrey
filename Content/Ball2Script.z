@@ -1,0 +1,56 @@
+class Ball2Script : ZilchComponent
+{
+
+    var Player : Cog;
+    
+    var I : Integer = Integer(0); //Text counter
+    
+    var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.TextArray.Add("");
+        this.TextArray.Add("Obtained a Ball");
+        this.Player = this.Space.FindObjectByName("Player"); //Finds the player
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var text = this.Space.LevelSettings.HudInteraction.HudText; //Finds the hud text
+        
+        // If the object is next to the player
+        if(this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
+        {
+            //If the player presses enter and not at the begining of the string
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
+                && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
+            {
+                //Go to the next string
+                ++this.I;
+            }
+            //If it has reached the end of the string or the player has pressed enter, stop talking to it
+            if(this.I >= this.TextArray.Count 
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !this.Player.PlayerController.Texting ))
+            {
+                this.GameSession.GameStats.ObjectTwo = "Ball";
+                this.Player.PlayerController.Talking = false;
+                this.I = 0;
+                this.GameSession.GameStats.CurrentString = "";
+                this.Owner.Destroy();
+            }
+            //If not in the begining of the string
+            if (this.I > 0)
+            {
+                this.Player.PlayerController.Talking = true;
+                this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            }
+        }
+        else //If not next to the player
+        {
+            //Reset text counter 
+            this.I = 0;
+        }
+        
+    }
+}
