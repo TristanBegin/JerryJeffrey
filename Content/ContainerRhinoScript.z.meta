@@ -2,7 +2,7 @@ TextContent =
 {
 	ZilchScriptBuilder = 
 	{
-		string Name = "FridgeRhinoScript",
+		string Name = "ContainerRhinoScript",
 		uint64 ResourceId = 56847f1da03f1550,
 	},
 },
