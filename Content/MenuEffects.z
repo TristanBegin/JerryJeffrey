@@ -1,0 +1,52 @@
+class MenuEffects : ZilchComponent
+{
+
+    var Room1 : Cog;
+
+    var Room2 : Cog;
+    
+    var Cover : Cog;
+    var Time : Real = 3.9;
+    var CurTime : Real = 0;
+    var Rooms : Array[SpriteSource] = Array[SpriteSource]();
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Room1 = this.Space.FindObjectByName("Room1");
+        this.Room2 = this.Space.FindObjectByName("Room2");
+        this.Cover = this.Space.FindObjectByName("Cover");
+        this.Rooms.Add(SpriteSource.TitleLeft01);
+        this.Rooms.Add(SpriteSource.TitleRight01);
+        this.Rooms.Add(SpriteSource.Title02);
+        this.Rooms.Add(SpriteSource.Title03);
+        this.Rooms.Add(SpriteSource.Title04);
+        this.Rooms.Add(SpriteSource.Title05);
+        this.Rooms.Add(SpriteSource.Title06);
+        this.Rooms.Add(SpriteSource.Title07);
+        this.Rooms.Add(SpriteSource.Title08);
+        this.Rooms.Add(SpriteSource.Title09);
+        this.Rooms.Add(SpriteSource.Title10);
+        this.Rooms.Add(SpriteSource.Title11);
+        this.Rooms.Add(SpriteSource.Title12);
+        this.Rooms.Add(SpriteSource.Title13);
+        this.Rooms.Add(SpriteSource.Title14);
+        this.Rooms.Add(SpriteSource.Title15);
+        this.Rooms.Add(SpriteSource.Title16);
+        this.Rooms.Add(SpriteSource.Title17);
+        this.Rooms.Add(SpriteSource.Title18);
+        this.Rooms.Add(SpriteSource.Title19);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.CurTime -= event.Dt;
+        if (this.CurTime < 0)
+        {
+            var ran : Random = new Random();
+            this.Room1.Sprite.SpriteSource = this.Rooms[ran.DieRoll(19) - 1];
+            this.Room2.Sprite.SpriteSource = this.Rooms[ran.DieRoll(19) - 1];
+            this.CurTime = this.Time;
+            this.Cover.Transform.Translation = Real3(-this.Cover.Transform.Translation.X, 0, 0);
+        }
+    }
+}

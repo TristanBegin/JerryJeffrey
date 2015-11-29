@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LongDialogueScript",
+		uint64 ResourceId = 567109f221f38a54,
+	},
+},

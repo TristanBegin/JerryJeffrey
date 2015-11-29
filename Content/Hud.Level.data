@@ -269,6 +269,13 @@ Level =
 				{
 					float Delay = 0.0199999996,
 				},
+				SoundEmitter = 
+				{
+					float Volume = 1,
+					float Pitch = 0,
+					bool Positional = true,
+					int Version = 1,
+				},
 			},
 		},
 	},

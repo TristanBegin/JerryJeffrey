@@ -35,11 +35,18 @@ class DisplayText : ZilchComponent
             || (Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.Count > 2))
         {
             this.CurText = goalText;
+            this.Owner.SoundEmitter.Stop();
             this.GameSession.GameStats.DoneTyping = true;
             this.Count = 0;
         }
         else
         {
+            if (this.Owner.SoundEmitter.IsPlaying() == false)
+            {
+                var ran : Random = new Random();
+                if (ran.DieRoll(2) == 1) this.Owner.SoundEmitter.PlayCue(SoundCue.TypingCue);
+                else this.Owner.SoundEmitter.PlayCue(SoundCue.TypingSound2);
+            }
             this.GameSession.GameStats.DoneTyping = false;
         }
         

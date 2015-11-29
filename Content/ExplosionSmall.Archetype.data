@@ -81,4 +81,16 @@ Cog =
 	{
 		float TheTime = 0.5,
 	},
+	SoundEmitter = 
+	{
+		float Volume = 0.5,
+		float Pitch = 0,
+		bool Positional = true,
+		int Version = 1,
+	},
+	SimpleSound = 
+	{
+		bool StartPlaying = true,
+		string CueName = "56707f8704f4d697:ExplosionCue",
+	},
 },

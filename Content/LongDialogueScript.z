@@ -1,0 +1,346 @@
+class LongDialogScript : ZilchComponent
+{
+    
+    var I : Integer = Integer(0); // Text counter
+    
+    var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
+    var Done : Boolean = false;
+    // 30 strings for the text
+    [Property]
+    var Text1 : String;
+    [Property]
+    var Text2 : String;
+    [Property]
+    var Text3 : String;
+    [Property]
+    var Text4 : String;
+    [Property]
+    var Text5 : String;
+    [Property]
+    var Text6 : String;
+    [Property]
+    var Text7 : String;
+    [Property]
+    var Text8 : String;
+    [Property]
+    var Text9 : String;
+    [Property]
+    var Text10 : String;
+    [Property]
+    var Text11 : String;
+    [Property]
+    var Text12 : String;
+    [Property]
+    var Text13 : String;
+    [Property]
+    var Text14 : String;
+    [Property]
+    var Text15 : String;
+    [Property]
+    var Text16 : String;
+    [Property]
+    var Text17 : String;
+    [Property]
+    var Text18 : String;
+    [Property]
+    var Text19 : String;
+    [Property]
+    var Text20 : String;
+    [Property]
+    var Text21 : String;
+    [Property]
+    var Text22 : String;
+    [Property]
+    var Text23 : String;
+    [Property]
+    var Text24 : String;
+    [Property]
+    var Text25 : String;
+    [Property]
+    var Text26 : String;
+    [Property]
+    var Text27 : String;
+    [Property]
+    var Text28 : String;
+    [Property]
+    var Text29 : String;
+    [Property]
+    var Text30 : String;
+    [Property]
+    var Text31 : String;
+    [Property]
+    var Text32 : String;
+    [Property]
+    var T2ext1 : String;
+    [Property]
+    var T2ext2 : String;
+    [Property]
+    var T2ext3 : String;
+    [Property]
+    var T2ext4 : String;
+    [Property]
+    var T2ext5 : String;
+    [Property]
+    var T2ext6 : String;
+    [Property]
+    var T2ext7 : String;
+    [Property]
+    var T2ext8 : String;
+    [Property]
+    var T2ext9 : String;
+    [Property]
+    var T2ext10 : String;
+    [Property]
+    var T2ext11 : String;
+    [Property]
+    var T2ext12 : String;
+    [Property]
+    var T2ext13 : String;
+    [Property]
+    var T2ext14 : String;
+    [Property]
+    var T2ext15 : String;
+    [Property]
+    var T2ext16 : String;
+    [Property]
+    var T2ext17 : String;
+    [Property]
+    var T2ext18 : String;
+    [Property]
+    var T2ext19 : String;
+    [Property]
+    var T2ext20 : String;
+    [Property]
+    var T2ext21 : String;
+    [Property]
+    var T2ext22 : String;
+    [Property]
+    var T2ext23 : String;
+    [Property]
+    var T2ext24 : String;
+    [Property]
+    var T2ext25 : String;
+    [Property]
+    var T2ext26 : String;
+    [Property]
+    var T2ext27 : String;
+    [Property]
+    var T2ext28 : String;
+    [Property]
+    var T2ext29 : String;
+    [Property]
+    var T2ext30 : String;
+    [Property]
+    var T2ext31 : String;
+    [Property]
+    var T2ext32 : String;
+    [Property]
+    var T3ext1 : String;
+    [Property]
+    var T3ext2 : String;
+    [Property]
+    var T3ext3 : String;
+    [Property]
+    var T3ext4 : String;
+    [Property]
+    var T3ext5 : String;
+    [Property]
+    var T3ext6 : String;
+    [Property]
+    var T3ext7 : String;
+    [Property]
+    var T3ext8 : String;
+    [Property]
+    var T3ext9 : String;
+    [Property]
+    var T3ext10 : String;
+    [Property]
+    var T3ext11 : String;
+    [Property]
+    var T3ext12 : String;
+    [Property]
+    var T3ext13 : String;
+    [Property]
+    var T3ext14 : String;
+    [Property]
+    var T3ext15 : String;
+    [Property]
+    var T3ext16 : String;
+    [Property]
+    var T3ext17 : String;
+    [Property]
+    var T3ext18 : String;
+    [Property]
+    var T3ext19 : String;
+    [Property]
+    var T3ext20 : String;
+    [Property]
+    var T3ext21 : String;
+    [Property]
+    var T3ext22 : String;
+    [Property]
+    var T3ext23 : String;
+    [Property]
+    var T3ext24 : String;
+    [Property]
+    var T3ext25 : String;
+    [Property]
+    var T3ext26 : String;
+    [Property]
+    var T3ext27 : String;
+    [Property]
+    var T3ext28 : String;
+    [Property]
+    var T3ext29 : String;
+    [Property]
+    var T3ext30 : String;
+    [Property]
+    var T3ext31 : String;
+    [Property]
+    var T3ext32 : String;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        this.TextArray.Add("");
+        this.TextArray.Add("");
+        this.TextArray.Add(this.Text1);
+        this.TextArray.Add(this.Text2);
+        this.TextArray.Add(this.Text3);
+        this.TextArray.Add(this.Text4);
+        this.TextArray.Add(this.Text5);
+        this.TextArray.Add(this.Text6);
+        this.TextArray.Add(this.Text7);
+        this.TextArray.Add(this.Text8);
+        this.TextArray.Add(this.Text9);
+        this.TextArray.Add(this.Text10);
+        this.TextArray.Add(this.Text11);
+        this.TextArray.Add(this.Text12);
+        this.TextArray.Add(this.Text13);
+        this.TextArray.Add(this.Text14);
+        this.TextArray.Add(this.Text15);
+        this.TextArray.Add(this.Text16);
+        this.TextArray.Add(this.Text17);
+        this.TextArray.Add(this.Text18);
+        this.TextArray.Add(this.Text19);
+        this.TextArray.Add(this.Text20);
+        this.TextArray.Add(this.Text21);
+        this.TextArray.Add(this.Text22);
+        this.TextArray.Add(this.Text23);
+        this.TextArray.Add(this.Text24);
+        this.TextArray.Add(this.Text25);
+        this.TextArray.Add(this.Text26);
+        this.TextArray.Add(this.Text27);
+        this.TextArray.Add(this.Text28);
+        this.TextArray.Add(this.Text29);
+        this.TextArray.Add(this.Text30);
+        this.TextArray.Add(this.Text31);
+        this.TextArray.Add(this.Text32);
+        this.TextArray.Add(this.T2ext1);
+        this.TextArray.Add(this.T2ext2);
+        this.TextArray.Add(this.T2ext3);
+        this.TextArray.Add(this.T2ext4);
+        this.TextArray.Add(this.T2ext5);
+        this.TextArray.Add(this.T2ext6);
+        this.TextArray.Add(this.T2ext7);
+        this.TextArray.Add(this.T2ext8);
+        this.TextArray.Add(this.T2ext9);
+        this.TextArray.Add(this.T2ext10);
+        this.TextArray.Add(this.T2ext11);
+        this.TextArray.Add(this.T2ext12);
+        this.TextArray.Add(this.T2ext13);
+        this.TextArray.Add(this.T2ext14);
+        this.TextArray.Add(this.T2ext15);
+        this.TextArray.Add(this.T2ext16);
+        this.TextArray.Add(this.T2ext17);
+        this.TextArray.Add(this.T2ext18);
+        this.TextArray.Add(this.T2ext19);
+        this.TextArray.Add(this.T2ext20);
+        this.TextArray.Add(this.T2ext21);
+        this.TextArray.Add(this.T2ext22);
+        this.TextArray.Add(this.T2ext23);
+        this.TextArray.Add(this.T2ext24);
+        this.TextArray.Add(this.T2ext25);
+        this.TextArray.Add(this.T2ext26);
+        this.TextArray.Add(this.T2ext27);
+        this.TextArray.Add(this.T2ext28);
+        this.TextArray.Add(this.T2ext29);
+        this.TextArray.Add(this.T2ext30);
+        this.TextArray.Add(this.T2ext31);
+        this.TextArray.Add(this.T2ext32);
+        this.TextArray.Add(this.T3ext1);
+        this.TextArray.Add(this.T3ext2);
+        this.TextArray.Add(this.T3ext3);
+        this.TextArray.Add(this.T3ext4);
+        this.TextArray.Add(this.T3ext5);
+        this.TextArray.Add(this.T3ext6);
+        this.TextArray.Add(this.T3ext7);
+        this.TextArray.Add(this.T3ext8);
+        this.TextArray.Add(this.T3ext9);
+        this.TextArray.Add(this.T3ext10);
+        this.TextArray.Add(this.T3ext11);
+        this.TextArray.Add(this.T3ext12);
+        this.TextArray.Add(this.T3ext13);
+        this.TextArray.Add(this.T3ext14);
+        this.TextArray.Add(this.T3ext15);
+        this.TextArray.Add(this.T3ext16);
+        this.TextArray.Add(this.T3ext17);
+        this.TextArray.Add(this.T3ext18);
+        this.TextArray.Add(this.T3ext19);
+        this.TextArray.Add(this.T3ext20);
+        this.TextArray.Add(this.T3ext21);
+        this.TextArray.Add(this.T3ext22);
+        this.TextArray.Add(this.T3ext23);
+        this.TextArray.Add(this.T3ext24);
+        this.TextArray.Add(this.T3ext25);
+        this.TextArray.Add(this.T3ext26);
+        this.TextArray.Add(this.T3ext27);
+        this.TextArray.Add(this.T3ext28);
+        this.TextArray.Add(this.T3ext29);
+        this.TextArray.Add(this.T3ext30);
+        this.TextArray.Add(this.T3ext31);
+        this.TextArray.Add(this.T3ext32);
+    }
+
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //Finds Player
+        var player = this.Space.FindObjectByName("Player");
+        
+        //If the player is near the object
+        if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
+        {
+            //If you are talking to it AKA I is not zero
+            if (this.I != 0)
+            {
+                //You are taliking to it 
+                player.PlayerController.Talking = true;
+            }
+            
+            //If you press enter and is not typing
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
+                && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
+            {
+                //Increment the text counter by 2
+                this.I += 2; 
+                //Add the next two strings in the string array to the current string
+                this.GameSession.GameStats.CurrentString = ("`this.TextArray[this.I]`\n`this.TextArray[this.I + 1]`");
+            }
+            
+            //If you have reached an empty string that is not the first two or X is pressed
+            if(((this.TextArray[this.I]) == "" && (this.I != 0))
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
+            {
+                this.Done = true;
+                //Player isn't talking anymore
+                player.PlayerController.Talking = false;
+                // Reset the text counter
+                this.I = 0;
+                //Clear the current string
+                this.GameSession.GameStats.CurrentString = "";
+            }
+        }
+    }
+}

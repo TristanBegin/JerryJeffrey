@@ -1,0 +1,61 @@
+class FinalLevel02 : ZilchComponent
+{
+    var Sandra : Cog;
+    var Player : Cog;
+    var TalkingPart : Boolean = false;
+    var CurDelay : Real = 0.75;
+    var Delay : Real = 0;
+    var TextArray : Array[String] = Array[String]();
+    var I : Integer = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Sandra = this.Space.FindObjectByName("Sandra");
+        this.Player = this.Space.FindObjectByName("Player");
+        this.TextArray.Add("");
+        this.TextArray.Add("Sandra: \"Wait, what's that?\"");
+        this.TextArray.Add("You: \"It's just a piece of wood. Stop wasting time.\"");
+        this.TextArray.Add("");
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        Console.WriteLine(this.Player.Transform.Translation.Y);
+        Console.WriteLine(this.GameSession.GameStats.CurrentString);
+        if (this.Sandra.LongDialogScript.Done)
+        {
+            this.GameSession.GameStats.CurrentString = " ";
+            
+            this.Player.PlayerController.Talking = true;
+            if (this.Player.Transform.Translation.Y < 77)
+            {
+                if (this.Player.Sprite.SpriteSource != SpriteSource.PlayerWalkingBackAnim)
+                this.Player.Sprite.SpriteSource = SpriteSource.PlayerWalkingBackAnim;
+                this.Player.Transform.Translation += Real3(0, event.Dt * 2, 0);
+                this.Sandra.Transform.Translation += Real3(0, event.Dt * 2, 0);
+            }
+            else if (this.I == 0)
+            {
+                ++this.I;
+            }
+        }
+        if (this.I > 0 && this.I < 3)
+        {
+            this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            if (Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping)
+            {
+                ++this.I;
+            }
+        }
+        //Console.WriteLine(this.I);
+        if (this.I >= 3)
+        {
+            this.Player.Transform.Translation += Real3(0, event.Dt * 2, 0);
+            this.Sandra.Transform.Translation += Real3(0, event.Dt * 2, 0);
+        }
+        if (this.Player.Transform.Translation.Y > 83)
+        {
+            this.Space.LoadLevel(Level.Credits);
+        }
+    }
+}
