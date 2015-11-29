@@ -1,0 +1,151 @@
+class JeffreyBall3Script : ZilchComponent
+{
+    
+    var I : Integer = Integer(0); //Text counter
+    
+    var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
+    
+    var Player : Cog;
+    
+    var Wardrobe : Cog;
+    
+    var Input : String; //The input that the player will input.
+    
+    var Talked : Boolean = false; //The varable that see if the player has talked to this object
+    
+    [Property]
+    var RightAnswer : String;
+    
+    [Property]
+    var WrongAnswer1 : String;
+    
+    [Property]
+    var WrongAnswer2 : String;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        this.Player = this.Space.FindObjectByName("Player"); //Finds the player
+        this.Wardrobe = this.Space.FindObjectByName("Wardrobe");
+        
+        this.TextArray.Add(""); //The first element of the string array, it will aways be ""
+        this.TextArray.Add("\"My wife….. I love...… my wife...… I do...…\nEven though she's Italian...…\"");
+        this.TextArray.Add("\"Ah!\"");
+        this.TextArray.Add("\"Oh, it's just you.\nYou've suddenly become more talkative.\"");
+        this.TextArray.Add("\"Is it because you've taken interest in my rhinoceros”\"");
+        this.TextArray.Add("\"What's that? You just want a glass of water?\nHumph, why does no one ever ask about my rhinoceros heritage?\"");
+        this.TextArray.Add("\"Oh well. \nWho is it you need this water for?\"");
+        this.TextArray.Add("");
+        this.TextArray.Add("”");
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var text = this.Space.LevelSettings.HudInteraction.HudText; //Finds the hud text
+        
+        Console.WriteLine(text.TextInput.ST);
+        // If the object is next to the player
+        if(this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
+        {
+            //If the player presses enter and not at the begining of the string
+            if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
+                && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
+            {
+                if(this.I == 7 && this.Input == "")
+                {
+                }
+                else
+                {
+                //Go to the next string
+                    ++this.I;
+                }
+                
+            }
+            
+            //If it has reached the end of the string or the player has pressed enter, stop talking to it
+            if(this.I >= this.TextArray.Count 
+            || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !this.Player.PlayerController.Texting ))
+            {
+                this.Player.PlayerController.Talking = false;
+                this.I = 0;
+                this.GameSession.GameStats.CurrentString = "";
+            }
+            //If not in the begining of the string
+            if (this.I > 0)
+            {
+                this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+            }
+        }
+        else //If not next to the player
+        {
+            //Reset text counter 
+            this.I = 0;
+        }
+        
+        if (this.I != 0)
+        {
+            this.Player.PlayerController.Talking = true;
+        }
+        
+        this.TextArray.Set(7, (text.TextInput.ST));
+        
+        if (this.I < 7)
+        {
+            text.TextInput.ST = "";
+        }
+        else if (this.I == 7)
+        { 
+            if(this.Player.PlayerController.Texting == false)
+            {
+                this.Player.PlayerController.Texting = true;
+            }
+            this.GameSession.GameStats.AutoComplete = true;
+        }
+        else if (this.I != 7)
+        {
+            this.GameSession.GameStats.AutoComplete = false;
+        }
+        
+        if(this.Talked == true && this.Player.PlayerController.Talking == true && this.I < 7 )
+        {
+            this.I = 6;
+        }
+        
+        if(this.I == 8)
+        {
+            this.Input = this.Input.ToLower();
+            this.WrongAnswer1 = this.WrongAnswer1.ToLower();
+            this.WrongAnswer2 = this.WrongAnswer2.ToLower();
+            this.RightAnswer = this.RightAnswer.ToLower();
+            
+            if(this.Input != this.WrongAnswer1 && this.Input != this.WrongAnswer2 && this.Input != this.RightAnswer)
+            {
+                this.Talked = true;
+                this.TextArray.Set(8,"“\"I'll give it to anyone else\"");
+            }
+            else if(this.Input == this.WrongAnswer1)
+            {
+                this.Talked = true;
+                this.TextArray.Set(8,"“\"You want to give water to a bomb?\nThat's insane; that would just make it explode.\"");
+            }
+            else if(this.Input == this.WrongAnswer2)
+            {
+                this.Talked = true;
+                this.TextArray.Set(8,"“\"Who is that?\"");
+            }
+            else
+            {
+                this.GameSession.GameStats.ObjectThree = "Freezer";
+                this.TextArray.Set(8,"\"Ah, you wish to give water to him?\nI suppose that's alright, but tell him he owes me.\"");
+            }
+            this.Player.PlayerController.Texting = false;
+        }
+        
+        //If the player is texting, set Input to what ever the players types.
+        if(this.Player.PlayerController.Texting == true)
+        {
+            this.Input = text.TextInput.ST;
+        }
+    }
+}

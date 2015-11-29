@@ -16,6 +16,7 @@ class DoorCheckpointScript : ZilchComponent
     {
         if (this.GameSession.GameStats.Trigger == "Right")
         {
+            this.Space.CreateAtPosition(Archetype.Bomb, Real3(3.5,3.5, 0));
             this.GameSession.GameStats.Trigger = "Passed";
         }
     }

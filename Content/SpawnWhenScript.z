@@ -1,0 +1,20 @@
+class SpawnWhenScript : ZilchComponent
+{
+    [Property]
+    var Condition : String;
+    [Property]
+    var Spawns : Archetype;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.GameSession.GameStats.Trigger == this.Condition)
+        {
+            this.Space.CreateAtPosition(this.Spawns, this.Owner.Transform.Translation);
+        }
+    }
+}

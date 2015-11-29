@@ -42,7 +42,7 @@ class DestroyWhenScript : ZilchComponent
             if(this.GameSession.GameStats.Trigger == this.Right)
             {
                 this.GameSession.GameStats.Trigger = "Right";
-                this.Space.CreateAtPosition(Archetype.Ball2, Real3(3.5, 4.5, 0));
+                this.Space.CreateAtPosition(Archetype.Ball2, Real3(3.5, 3.5, 0));
             }
             else if(this.GameSession.GameStats.Trigger.Count == 27)
             {
