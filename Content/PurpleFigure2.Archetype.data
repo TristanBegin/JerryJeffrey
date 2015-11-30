@@ -6,15 +6,15 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "Rhino",
+		string Name = "PurpleFigure2",
 	},
 	Archetyped = 
 	{
-		string Name = "5680726c71cbee1a:Rhino",
+		string Name = "56bb25b1ccc60d61:PurpleFigure2",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [15.5, 4.5, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -28,7 +28,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "56706f0aa6c534a5:Rhino",
+		string SpriteSource = "56bb16b08d9e4279:FigurePurpleAnim",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -46,7 +46,9 @@ Cog =
 		Vec3 Offset = [0, 0, 0],
 		Vec3 Size = [0.5, 0.5, 0.5],
 	},
-	RhinoScript = 
+	P2Talking = 
 	{
+		string RightAnswer = "Solve",
+		string WrongAnswer = "Wrong",
 	},
 },

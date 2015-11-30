@@ -2,15 +2,15 @@ ImageContent =
 {
 	SpriteSourceBuilder = 
 	{
-		string Name = "Rhino_0",
-		uint64 ResourceId = 56706f0aa6c534a5,
+		string Name = "FigurePurpleAnim",
+		uint64 ResourceId = 56bb16b08d9e4279,
 		uint64 AtlasId = 5274cf95e4a661fd,
 		uint FrameSizeX = 16,
-		uint FrameSizeY = 16,
-		uint FrameCount = 1,
-		float FrameDelay = 0.0833333358,
+		uint FrameSizeY = 18,
+		uint FrameCount = 2,
+		float FrameDelay = 1,
 		float OriginX = 8,
-		float OriginY = 8,
+		float OriginY = 9,
 		float PixelsPerUnit = 16,
 		bool Smoothing = false,
 		bool Looping = true,

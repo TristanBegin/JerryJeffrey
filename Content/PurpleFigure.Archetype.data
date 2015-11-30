@@ -24,11 +24,11 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [0.911999822, 0, 0.959999979, 1],
+		Vec4 Color = [1, 1, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "5275aa4d802dd6dc:Square",
+		string SpriteSource = "56bb16b08d9e4279:FigurePurpleAnim",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -48,7 +48,7 @@ Cog =
 	},
 	YPfiguresTalking = 
 	{
-		string RightAnswer = "",
-		string WrongAnswer = "",
+		string RightAnswer = "Solve",
+		string WrongAnswer = "Wrong",
 	},
 },
