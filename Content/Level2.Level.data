@@ -113,7 +113,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.5, 3.5, 50],
+			Vec3 Translation = [9.18039227, 3.5, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -133,7 +133,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [3.5, 3.5, 0],
+			Vec3 LookTarget = [9.18039227, 3.5, 0],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -378,6 +378,8 @@ Level =
 			string Text28 = "",
 			string Text29 = "",
 			string Text30 = "",
+			string Text31 = "",
+			string Text32 = "",
 		},
 		InvisMouse = 
 		{
@@ -712,7 +714,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "56807051ceb4ea89:Rhino",
+			string SpriteSource = "56706f0aa6c534a5:Rhino",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -822,6 +824,8 @@ Level =
 		},
 		ContainerRhinoScript = 
 		{
+			string Text1 = """""You came back! Ready fro some nutrition?""",
+			string Text2 = "",
 		},
 	},
 	Cog = 
@@ -874,6 +878,8 @@ Level =
 		},
 		ContainerRhinoScript = 
 		{
+			string Text1 = """I told you to stay away.""",
+			string Text2 = "",
 		},
 	},
 	ArchetypeInstance = 
@@ -1034,6 +1040,8 @@ Level =
 		},
 		ContainerRhinoScript = 
 		{
+			string Text1 = """Open close open close open close open close open close",
+			string Text2 = "open close open close open close open close open close...""",
 		},
 	},
 	Cog = 
@@ -1086,6 +1094,8 @@ Level =
 		},
 		ContainerRhinoScript = 
 		{
+			string Text1 = """Ah, if it isn't the most important person.",
+			string Text2 = "What do you there?""",
 		},
 	},
 	Cog = 
@@ -1143,6 +1153,8 @@ Level =
 		},
 		ContainerRhinoScript = 
 		{
+			string Text1 = """Find him yet? Well you found a part of him.",
+			string Text2 = "You should put him somewhere.""",
 		},
 	},
 	Cog = 
@@ -1258,6 +1270,8 @@ Level =
 		},
 		ContainerRhinoScript = 
 		{
+			string Text1 = """MORE PAINTIES""",
+			string Text2 = "",
 		},
 	},
 },

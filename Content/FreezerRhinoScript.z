@@ -8,6 +8,11 @@ class ContainerRhinoScript : ZilchComponent
     
     var HasRhino : Boolean = false;
     
+    [Property]
+    var Text1 : String;
+    [Property]
+    var Text2 : String;
+    
     
     
     var Start : Boolean = false;
@@ -17,7 +22,7 @@ class ContainerRhinoScript : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
         this.TextArray.Add("");
-        this.TextArray.Add("It's locked.");
+        this.TextArray.Add("\"`this.Text1`\n`this.Text2`\"");
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -73,7 +78,7 @@ class ContainerRhinoScript : ZilchComponent
         }
         if(this.I == 0 && this.HasRhino == false)
         {
-            this.TextArray.Set(1,"It's locked.");
+            this.TextArray.Set(1,"`this.Text1`\n`this.Text2`");
         }
         if (this.I != 0)
         {

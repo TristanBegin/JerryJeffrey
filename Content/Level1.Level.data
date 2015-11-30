@@ -167,7 +167,7 @@ Level =
 			Vec4 Color = [1, 1, 1, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteLayer = "567a3066be6ac8a0:Five",
 			string SpriteSource = "5615718a3c9a2f20:PlayerIdleForwardAnim",
 			bool RenderMask = false,
 			bool FlipX = false,
@@ -548,6 +548,8 @@ Level =
 			string Text28 = "",
 			string Text29 = "",
 			string Text30 = "",
+			string Text31 = "",
+			string Text32 = "",
 		},
 	},
 	Cog = 
