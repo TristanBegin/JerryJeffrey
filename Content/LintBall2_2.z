@@ -28,10 +28,8 @@ class LintBall2_2 : ZilchComponent
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     
     this.TextArray.Add(""); //The first element of the string array, it will aways be ""
-    this.TextArray.Add("\"Phew. At least that's over.\"");
-    this.TextArray.Add("\"This gaping wound hurts, though. \"");
-    this.TextArray.Add("\"If only I had something to staunch the bleeding...”\"");
-    this.TextArray.Add("");
+    this.TextArray.Add("\"Phew. At least that's over.\nThis gaping wound hurts, though.\"");
+    this.TextArray.Add("\"If only I had something to staunch the bleeding...\nDo you have something that would help?”\"");
     this.TextArray.Add("");
     this.TextArray.Add("");
 
@@ -46,7 +44,7 @@ class LintBall2_2 : ZilchComponent
       if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping && 
         (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
       {
-        if(this.I == 2 && this.Input == "")
+        if(this.I == 3 && this.Input == "")
         {
         }
         else
@@ -81,13 +79,13 @@ class LintBall2_2 : ZilchComponent
       this.Player.PlayerController.Talking = true;
     }
     
-    this.TextArray.Set(2, (text.TextInput.ST));
+    this.TextArray.Set(3, (text.TextInput.ST));
     
-    if (this.I < 4)
+    if (this.I < 3)
     {
       text.TextInput.ST = "";
     }
-    else if (this.I == 4)
+    else if (this.I == 3)
     { 
       if(this.Player.PlayerController.Texting == false)
       {
@@ -95,7 +93,7 @@ class LintBall2_2 : ZilchComponent
       }
       this.GameSession.GameStats.AutoComplete = true;
     }
-    else if (this.I != 4)
+    else if (this.I != 3)
     {
       this.GameSession.GameStats.AutoComplete = false;
     }
@@ -105,7 +103,7 @@ class LintBall2_2 : ZilchComponent
       this.I = 1;
     }
     
-    if(this.I == 5)
+    if(this.I == 4)
     {
       this.Input = this.Input.ToLower();
       this.WrongAnswer = this.WrongAnswer.ToLower();
@@ -114,28 +112,26 @@ class LintBall2_2 : ZilchComponent
       if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
       {
         this.Talked = true;
-        this.TextArray.Set(4,"“\"What the heck are you trying to say to me?.\"");
+        this.TextArray.Set(4,"“\"What the heck are you trying to say to me?\"");
       }
       else if(this.Input == this.WrongAnswer)
       {
         this.Talked = true;
-        this.TextArray.Set(4,"“\"That won't help me...you worthless piece\nof trash.\"");
+        this.TextArray.Set(4,"“\"That won't help me...you worthless piece of trash.\"");
       }
-      else if (this.Input == this.RightAnswer)
+      else if (this.Input == this.RightAnswer && this.Switch == "On")
       {
         this.TextArray.Set(4,"\"Aaahhh, that feels better.\"");
-        
-        if(this.Switch == "On")
+        this.GameSession.GameStats.ObjectTwo = "";
+        if(this.Player.PlayerController.Talking == false && this.Player.PlayerController.Texting == false)
         {
-          
+            this.Switch = "Off";
         }
-        this.Switch = "Off";
       }
       else if(this.Input == this.RightAnswer && 
               this.Switch == "Off")
       {
-        this.TextArray.Set(4,"\"I already told you it felt nice!\"");
-        this.TextArray.Set(5,"\"Stop pestering me!\"");
+        this.TextArray.Set(4,"\"I already told you it felt nice!\nStop pestering me!\"");
       }
       
       this.Player.PlayerController.Texting = false;
