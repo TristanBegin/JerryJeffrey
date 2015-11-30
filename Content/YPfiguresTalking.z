@@ -33,101 +33,104 @@ class YPfiguresTalking : ZilchComponent
   {
     var text = this.Space.LevelSettings.HudInteraction.HudText; //Finds the hud text
     
-    if(this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
+    if (this.Player.Transform.Translation == Real3(12.5, 5.5, 0.0))
     {
-      if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping && 
-        (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
+      if(this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
       {
-        if(this.I == 2 && this.Input == "")
+        if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping && 
+          (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
         {
+          if(this.I == 2 && this.Input == "")
+          {
+          }
+          else
+          {
+          //Go to the next string
+            ++this.I;
+          }
+        }
+        
+        //If it has reached the end of the string or the player has pressed enter, stop talking to it
+        if(this.I >= this.TextArray.Count 
+        || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !this.Player.PlayerController.Texting ))
+        {
+          this.Player.PlayerController.Talking = false;
+          this.I = 0;
+          this.GameSession.GameStats.CurrentString = "";
+        }
+        //If not in the begining of the string
+        if (this.I > 0)
+        {
+          this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+        }
+      }
+      else //If not next to the player
+      {
+        //Reset text counter 
+        this.I = 0;
+      }
+      
+      if (this.I != 0)
+      {
+        this.Player.PlayerController.Talking = true;
+      }
+      
+      this.TextArray.Set(2, (text.TextInput.ST));
+      
+      if (this.I < 2)
+      {
+        text.TextInput.ST = "";
+      }
+      else if (this.I == 2)
+      { 
+        if(this.Player.PlayerController.Texting == false)
+        {
+          this.Player.PlayerController.Texting = true;
+        }
+        this.GameSession.GameStats.AutoComplete = true;
+      }
+      else if (this.I != 2)
+      {
+        this.GameSession.GameStats.AutoComplete = false;
+      }
+      
+      if(this.Talked == true && this.Player.PlayerController.Talking == true && this.I < 2 )
+      {
+        this.I = 1;
+      }
+      
+      if(this.I == 3)
+      {
+        this.Input = this.Input.ToLower();
+        this.WrongAnswer = this.WrongAnswer.ToLower();
+        this.RightAnswer = this.RightAnswer.ToLower();
+        
+        if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
+        {
+          this.Talked = true;
+          this.TextArray.Set(3,"“\"You're LAME.\"");
+        }
+        else if(this.Input != this.RightAnswer)
+        {
+          this.Talked = true;
+          this.TextArray.Set(3,"“\"I thought so...You're still lame!\"");
         }
         else
         {
-        //Go to the next string
-          ++this.I;
+          this.TextArray.Set(3,"\"You solved the puzzle.\nTake this ostrich, but give me that rhino.\"");
+          if (this.TextArray.Count <= 4 )
+          {
+            this.TextArray.Add("\"God...damnit.\"");
+          }
         }
+        this.Player.PlayerController.Texting = false;
       }
       
-      //If it has reached the end of the string or the player has pressed enter, stop talking to it
-      if(this.I >= this.TextArray.Count 
-      || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !this.Player.PlayerController.Texting ))
+      //If the player is texting, set Input to what ever the players types.
+      if(this.Player.PlayerController.Texting == true)
       {
-        this.Player.PlayerController.Talking = false;
-        this.I = 0;
-        this.GameSession.GameStats.CurrentString = "";
+          this.Input = text.TextInput.ST;
       }
-      //If not in the begining of the string
-      if (this.I > 0)
-      {
-        this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
-      }
-    }
-    else //If not next to the player
-    {
-      //Reset text counter 
-      this.I = 0;
-    }
-    
-    if (this.I != 0)
-    {
-      this.Player.PlayerController.Talking = true;
-    }
-    
-    this.TextArray.Set(2, (text.TextInput.ST));
-    
-    if (this.I < 2)
-    {
-      text.TextInput.ST = "";
-    }
-    else if (this.I == 2)
-    { 
-      if(this.Player.PlayerController.Texting == false)
-      {
-        this.Player.PlayerController.Texting = true;
-      }
-      this.GameSession.GameStats.AutoComplete = true;
-    }
-    else if (this.I != 2)
-    {
-      this.GameSession.GameStats.AutoComplete = false;
-    }
-    
-    if(this.Talked == true && this.Player.PlayerController.Talking == true && this.I < 2 )
-    {
-      this.I = 1;
-    }
-    
-    if(this.I == 3)
-    {
-      this.Input = this.Input.ToLower();
-      this.WrongAnswer = this.WrongAnswer.ToLower();
-      this.RightAnswer = this.RightAnswer.ToLower();
-      
-      if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
-      {
-        this.Talked = true;
-        this.TextArray.Set(3,"“\"You're LAME.\"");
-      }
-      else if(this.Input != this.RightAnswer)
-      {
-        this.Talked = true;
-        this.TextArray.Set(3,"“\"I thought so...You're still lame!\"");
-      }
-      else
-      {
-        this.TextArray.Set(3,"\"You solved the puzzle.\nTake this ostrich, but give me that rhino.\"");
-        if (this.TextArray.Count <= 4 )
-        {
-          this.TextArray.Add("\"God...damnit.\"");
-        }
-      }
-      this.Player.PlayerController.Texting = false;
-    }
-    
-    //If the player is texting, set Input to what ever the players types.
-    if(this.Player.PlayerController.Texting == true)
-    {
-        this.Input = text.TextInput.ST;
     }
   }
 }

@@ -15,11 +15,13 @@ class TakeItem : ZilchComponent
     {
       if (this.GameSession.GameStats.CurrentString == "" && this.GameSession.GameStats.DoneTyping == true)
       {
-        if (this.Owner.OstrichToBox.ItemInBox == "Ostrich")
+        if (this.Owner.OstrichToBox.ItemInBox == "Ostrich" && this.Player.PlayerController.Talking == false)
         {
-          Console.WriteLine("Happened");
-          this.GameSession.GameStats.ObjectTwo = "Ostrich";
-          this.Owner.OstrichToBox.ItemInBox = "";
+          if (this.Owner.OstrichToBox.I != 1)
+          {
+            this.GameSession.GameStats.ObjectTwo = "Ostrich";
+            this.Owner.OstrichToBox.ItemInBox = "";
+          }
         }
       }
     }

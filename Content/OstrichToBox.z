@@ -50,6 +50,20 @@ class OstrichToBox : ZilchComponent
         ++this.I;
       }
       
+      if (Zero.Keyboard.KeyIsPressed(Keys.Enter))
+      {
+        if (this.GameSession.GameStats.CurrentString == "" && this.GameSession.GameStats.DoneTyping == true)
+        {
+          if (this.ItemInBox == "Ostrich" && this.Player.PlayerController.Talking == false)
+          {
+            this.GameSession.GameStats.ObjectTwo = "Ostrich";
+            this.ItemInBox = "";
+            this.TextArray.Set(1, "You grabbed the ostrich from the box.");
+            this.I = 1;
+          }
+        }
+      }
+      
       
       if (this.I >= this.TextArray.Count || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping == true))
       {
@@ -77,10 +91,10 @@ class OstrichToBox : ZilchComponent
     
     if (this.UsedOstrich == true)
     {
-      this.UsedOstrich = false;
       this.GameSession.GameStats.CurrentString = "";
       this.TextArray.Set(1, "The ceramic ostrich is in the box.");
       this.I = 1;
+      this.UsedOstrich = false;
     }
   }
 
@@ -90,13 +104,14 @@ class OstrichToBox : ZilchComponent
     if (event.TheItem == "Ostrich" && this.ItemInBox == "")
     {
       Console.WriteLine("Event received.");
-      this.UsedOstrich = true;
       this.ItemInBox = "Ostrich";
       this.GameSession.GameStats.ObjectTwo = "";
       this.JeffreyFloor.Sprite.SpriteSource = this.PitWorld;
       
       this.PitTop.BoxCollider.Ghost = false;
       this.PitBottom.BoxCollider.Ghost = false;
+      
+      this.UsedOstrich = true;
       
       if (this.Rhino != null)
       {
