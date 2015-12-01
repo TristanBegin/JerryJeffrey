@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "RedFigure_3",
+		uint64 ResourceId = 56bd3828603664cd,
+	},
+},

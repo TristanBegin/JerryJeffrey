@@ -1,0 +1,36 @@
+class RhinoToPit_2 : ZilchComponent
+{
+  var UsedRhino : Boolean = false;
+  var JerryFloor : Cog;
+  
+  var CottonPit : Cog;
+  
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    
+    this.JerryFloor = this.Space.FindObjectByName("JerryFloor");
+    this.CottonPit = this.Space.FindObjectByName("CottonPit");
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if (this.UsedRhino == true)
+    {
+    }
+  }
+
+  function OnItemUsed(event : ItemUsed)
+  {
+    Console.WriteLine("Event received.");
+    if (event.TheItem == "Rhino")
+    {
+      this.UsedRhino = true;
+      this.GameSession.GameStats.ObjectOne = "";
+      this.JerryFloor.Sprite.SpriteSource = SpriteSource.WhiteFull;
+      
+      this.Space.CreateAtPosition(Archetype.Scientist, Real3(2.5, 5, 0));
+    }
+  }
+}

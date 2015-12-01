@@ -1,10 +1,8 @@
-class LintBall1_2Script : ZilchComponent
+class Scientist : ZilchComponent
 {
   var I : Integer = Integer(0); // Text counter
   
   var Switch : String = "On";
-  var JerryFloor : Cog;
-  
   var Player : Cog;
     
   var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
@@ -22,8 +20,6 @@ class LintBall1_2Script : ZilchComponent
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-    
-    this.JerryFloor = this.Space.FindObjectByName("JerryFloor");
     this.Player = this.Space.FindObjectByName("Player");
     
     this.TextArray.Add("");
@@ -37,14 +33,17 @@ class LintBall1_2Script : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
+    //Finds Player
+    var player = this.Player;
+    
     //If the player is near the object
-    if(this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
+    if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
     {
       //If you are talking to it AKA I is not zero
       if (this.I != 0)
       {
         //You are taliking to it 
-        this.Player.PlayerController.Talking = true;
+        player.PlayerController.Talking = true;
       }
       
       //If you press enter and is not typing
@@ -63,24 +62,22 @@ class LintBall1_2Script : ZilchComponent
       {
         this.Done = true;
         //Player isn't talking anymore
-        this.Player.PlayerController.Talking = false;
+        player.PlayerController.Talking = false;
         // Reset the text counter
         this.I = 0;
-        //Clear the current string
-        this.GameSession.GameStats.CurrentString = "";
         
-        this.GameSession.GameStats.ObjectOne = "Rhino";
+        this.TextArray.Set(2, "\"Go find me an ostrich!\"");
+        this.TextArray.Set(2, "\"You can't be my friend until then.\"");
         
-        this.TextArray.Set(2, "\"I already gave you the rhino.\"");
-        this.TextArray.Set(2, "\"Gosh, you are so greedy.\"");
-        
-        
-        //if(this.Switch == "On")
-        //{
-        //  this.JerryFloor.Sprite.SpriteSource = SpriteSource.WhiteFull;
-           
-        //  this.Switch = "Off";
-        //}
+        if(this.Switch == "On")
+        {
+          this.Space.CreateAtPosition(Archetype.RedFigure_3, Real3(11.5, 5.5, 0.0));
+          this.Space.FindObjectByName("RedFigure_2").Destroy();
+          this.Space.FindObjectByName("RedFigure2_2").Destroy();
+          this.Space.FindObjectByName("RedFigureSide").Destroy();
+          this.Space.FindObjectByName("RedFigureSide2_2").Destroy();
+          this.Switch = "Off";
+        }
       }
     }
   }
