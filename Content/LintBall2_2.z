@@ -125,7 +125,8 @@ class LintBall2_2 : ZilchComponent
         this.GameSession.GameStats.ObjectTwo = "";
         if(this.Player.PlayerController.Talking == false && this.Player.PlayerController.Texting == false)
         {
-            this.Switch = "Off";
+          Console.WriteLine("Bump");
+          this.Switch = "Off";
         }
       }
       else if(this.Input == this.RightAnswer && 
