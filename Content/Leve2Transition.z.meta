@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Leve2Transition",
+		uint64 ResourceId = 5695a23c64ef5e5d,
+	},
+},
