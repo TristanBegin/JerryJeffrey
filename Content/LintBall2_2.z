@@ -63,8 +63,11 @@ class LintBall2_2 : ZilchComponent
         this.I = 0;
         this.GameSession.GameStats.CurrentString = "";
         
-        this.Space.CreateAtPosition(Archetype.LintBall2_3, this.Owner.Transform.Translation);
-        this.Owner.Destroy();
+        if(this.Switch2 == "Off")
+        {
+          this.Space.CreateAtPosition(Archetype.LintBall2_3, this.Owner.Transform.Translation);
+          this.Owner.Destroy();
+        }
       }
       //If not in the begining of the string
       if (this.I > 0)
@@ -137,6 +140,7 @@ class LintBall2_2 : ZilchComponent
           this.Space.CreateAtPosition(Archetype.RedFigureSide, Real3(15.5, 3.5, 0.0));
           this.Space.CreateAtPosition(Archetype.RedFigureSide2, Real3(15.5, 1.5, 0.0));
           this.Space.CreateAtPosition(Archetype.L5Dog, Real3(9.5, 0.5, 0.0));
+          this.Space.CreateAtPosition(Archetype.CottonPit, Real3(12, 3, 0.0));
           
           this.Switch2 = "Off";
         }
