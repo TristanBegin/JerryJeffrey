@@ -1,0 +1,97 @@
+/*******************************************************************************
+StartGame
+Created by Tristan Begin.
+
+Description -
+Contains nearly all functionality of title screen.
+
+Object -
+The particle effect that represents which option is being selected.
+*******************************************************************************/
+
+class StartGame : ZilchComponent
+{
+    //Different Y positions of particle effect to show what is being selected.
+    [Property] var Y1 : Real;
+    [Property] var Y2 : Real;
+    [Property] var Y3 : Real;
+    [Property] var Y4 : Real;
+    
+    //position for camera to show controls, credits, or difficulty.
+    [Property] var ControlsPosition : Real3;
+    [Property] var CreditsPosition : Real3;
+    [Property] var DifficultyPosition : Real3;
+    
+    //Current position of particle.
+    var TheY : Real;
+    
+    //Current option particle is pointing to.
+    var TheYNum : Integer = 1;
+    
+    //Object for camera to follow.
+    var Player : Cog;
+    
+    //Camera in the scene.
+    var Camera : Cog;
+    
+    //Fader of the level.
+    var Fader : Cog;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.TheY = this.Y1;
+        this.Player = this.Space.FindObjectByName("Player");
+        this.Camera = this.Space.FindObjectByName("Camera");
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (Zero.Keyboard.KeyIsPressed(Keys.Down) || Zero.Keyboard.KeyIsPressed(Keys.S))
+        {
+            this.TheYNum += 1;
+        }
+        
+        if (Zero.Keyboard.KeyIsPressed(Keys.Up) || Zero.Keyboard.KeyIsPressed(Keys.W))
+        {
+            this.TheYNum -= 1;
+        }
+        if (this.TheYNum > 4) this.TheYNum = 1;
+        if (this.TheYNum < 1) this.TheYNum = 4;
+        if (this.TheYNum == 1) this.TheY = this.Y1;
+        if (this.TheYNum == 2) this.TheY = this.Y2;
+        if (this.TheYNum == 3) this.TheY = this.Y3;
+        if (this.TheYNum == 4) this.TheY = this.Y4;
+        
+        this.Owner.Transform.Translation = Real3 (this.Owner.Transform.Translation.X, this.TheY, 2);
+        if (Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.Camera.FindChildByName("Fader").Fader.IsEntering == false)
+        {
+            //if (this.Player.Transform.Translation == Real3.Zero)
+            //{
+                if (this.TheYNum == 1)
+                {
+                    this.Camera.FindChildByName("Fader").Fader.IsExiting = true;
+                    this.Camera.FindChildByName("Fader").Fader.NextLevel = Level.Level1;
+                }
+                if (this.TheYNum == 2)
+                {
+                    this.Camera.FindChildByName("Fader").Fader.IsExiting = true;
+                    this.Camera.FindChildByName("Fader").Fader.NextLevel = Level.Credits;
+                }
+                if (this.TheYNum == 3)
+                {
+                    
+                }
+                if (this.TheYNum == 4)
+                {
+                    
+                }
+            //}
+            //else
+            //{
+            //    this.Player.Transform.Translation = Real3.Zero;
+            //}
+        }
+
+    }
+}

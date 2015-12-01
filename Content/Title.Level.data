@@ -118,7 +118,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 20,
+			float Size = 8.1313982,
 		},
 		EditorCameraController = 
 		{
@@ -180,12 +180,59 @@ Level =
 			bool StartPlaying = true,
 			string CueName = "5671622a7af52fe7:MainThemeCue",
 		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 4,
+				},
+				Named = 
+				{
+					string Name = "Fader",
+				},
+				EditorFlags = 
+				{
+					bool Locked = false,
+					bool Hidden = true,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.103130192, -0.190609455, -35],
+					Vec3 Scale = [20, 20, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0, 0, 0, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "5275aa4d802dd6dc:Square",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+				Fader = 
+				{
+					string NextLevel = "",
+				},
+			},
+		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 4,
+			uint Id = 5,
 		},
 		Named = 
 		{
@@ -220,7 +267,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 5,
+			uint Id = 6,
 		},
 		Named = 
 		{
@@ -254,7 +301,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 6,
+			uint Id = 7,
 		},
 		Named = 
 		{
@@ -288,7 +335,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 8,
 		},
 		Named = 
 		{
@@ -322,7 +369,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 8,
+			uint Id = 9,
 		},
 		Named = 
 		{
@@ -356,7 +403,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 10,
 		},
 		Named = 
 		{
@@ -364,7 +411,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1, -0.310927927, 0],
+			Vec3 Translation = [-1, -0.300000012, 0],
 			Vec3 Scale = [0.75, 0.75, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -386,12 +433,22 @@ Level =
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
 		},
+		StartGame = 
+		{
+			float Y1 = -0.300000012,
+			float Y2 = -0.949999988,
+			float Y3 = -1.60000002,
+			float Y4 = -2.29999995,
+			Vec3 ControlsPosition = [0, 0, 0],
+			Vec3 CreditsPosition = [0, 0, 0],
+			Vec3 DifficultyPosition = [0, 0, 0],
+		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -426,7 +483,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -461,7 +518,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -496,7 +553,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 14,
 		},
 		Named = 
 		{
@@ -531,7 +588,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 14,
+			uint Id = 15,
 		},
 		Named = 
 		{

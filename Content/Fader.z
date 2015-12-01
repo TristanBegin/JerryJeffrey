@@ -1,0 +1,65 @@
+/*******************************************************************************
+Fader
+Created by Tristan Begin.
+
+Description:
+Code for fading in and out of scenes.
+
+Object -
+A large black sprite parented in to camer that covers the camera.
+*******************************************************************************/
+
+class Fader : ZilchComponent
+{
+    var IsEntering : Boolean = true;
+    var IsExiting : Boolean = false;
+    var Timer : Real = 3;
+    [Property]
+    var NextLevel : Level;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //Decrease opacity of black when level starts.
+        if (this.IsEntering)
+        {
+            this.Space.SoundSpace.Pause;
+            if (this.Owner.Sprite.Color.W > 0.05)
+            {
+                this.Owner.Sprite.Color -= Real4 (0, 0, 0, 0.6 * event.Dt);
+            }
+            else
+            {
+                this.Owner.Sprite.Color = Real4 (0, 0, 0, 0);
+                this.IsEntering = false;
+            }
+        }
+        
+        //Increase opacity of black when the level is over.
+        if (this.IsExiting && !this.IsEntering)
+        {
+            this.Timer -= event.Dt;
+            if (this.Owner.Sprite.Color.W < 0.95)
+            {
+                this.Owner.Sprite.Color += Real4 (0, 0, 0, 0.6 * event.Dt);
+            }
+            else
+            {
+                this.Owner.Sprite.Color = Real4 (0, 0, 0, 1);
+            }
+            
+            if (this.Timer <= 0.2)
+            {
+                //Pause SoundSpace to avoid glitches.
+                this.Space.SoundSpace.Pause;
+            }
+            if (this.Timer <= 0)
+            {
+                this.Space.LoadLevel(this.NextLevel);
+            }
+        }
+    }
+}

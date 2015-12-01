@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Fader",
+		uint64 ResourceId = 567081c19473d66f,
+	},
+},

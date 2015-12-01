@@ -226,7 +226,7 @@ Level =
 			string String8 = "Presidented By: Claude Comaire.",
 			string String9 = "Thank you for playing.",
 			string String10 = "You worthless piece of trash.",
-			string NextLevel = "554cea0f94af672f:Level1",
+			string NextLevel = "567060c1dc10d0d0:Title",
 		},
 		SoundEmitter = 
 		{
