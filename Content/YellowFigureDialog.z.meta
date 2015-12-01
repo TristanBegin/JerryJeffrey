@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "YellowFigureDialog",
+		uint64 ResourceId = 56bb5afa8bdfe87b,
+	},
+},

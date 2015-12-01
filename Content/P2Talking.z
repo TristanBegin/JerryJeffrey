@@ -1,4 +1,4 @@
-class YPfiguresTalking : ZilchComponent
+class P2Talking : ZilchComponent
 {
   var I : Integer = Integer(0); //Text counter
   
@@ -9,6 +9,8 @@ class YPfiguresTalking : ZilchComponent
   var Input : String; //The input that the player will input.
   
   var Talked : Boolean = false; //The varable that see if the player has talked to this object
+  
+  var Solved : Boolean = false;
   
   [Property]
   var RightAnswer : String;
@@ -33,9 +35,10 @@ class YPfiguresTalking : ZilchComponent
     this.BlueBox = this.Space.FindObjectByName("SecondBox5");
     
     this.TextArray.Add(""); //The first element of the string array, it will aways be ""
-    this.TextArray.Add("\"I'm going to give you a puzzle!\"");
+    this.TextArray.Add("\"What do you want from me?\"");
     this.TextArray.Add("");
     this.TextArray.Add("”");
+    this.TextArray.Add("");
 
   }
 
@@ -67,6 +70,15 @@ class YPfiguresTalking : ZilchComponent
           this.Player.PlayerController.Talking = false;
           this.I = 0;
           this.GameSession.GameStats.CurrentString = "";
+        
+          if (this.Solved == true && this.Switch == "On")
+          {
+            this.Space.FindObjectByName("LintBall2").Destroy();
+            this.Space.CreateAtPosition(Archetype.LintBall2_2, Real3(3.5, 2.5, 0.0));
+            this.Space.CreateAtPosition(Archetype.PurpleFigure3, this.Owner.Transform.Translation);
+            this.Switch = "Off";
+            this.Owner.Destroy();
+          }
         }
         //If not in the begining of the string
         if (this.I > 0)
@@ -118,48 +130,25 @@ class YPfiguresTalking : ZilchComponent
         if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
         {
           this.Talked = true;
-          this.TextArray.Set(3,"“\"You're LAME.\"");
+          this.TextArray.Set(3,"“\"You aren't making any sense.\"");
         }
-        else if(this.Input != this.RightAnswer)
+        else if(this.Input == this.WrongAnswer)
         {
           this.Talked = true;
-          this.TextArray.Set(3,"“\"I thought so...You're still lame!\"");
+          this.TextArray.Set(3,"“\"Hmm...I don't think so.\"");
         }
-        else if (this.Input == this.RightAnswer && this.GameSession.GameStats.ObjectOne == "Rhino")
+        else if (this.Input == this.RightAnswer)
         {
-          this.TextArray.Set(3,"\"You solved the puzzle.\nTake this ostrich, but give me that rhino.\"");
-          //if (this.TextArray.Count <= 4 )
-          //{
-          //  this.TextArray.Add("");
-          //}
-          
-          if(this.Switch == "On")
-          {
-            this.GameSession.GameStats.ObjectOne = "";
-            this.GameSession.GameStats.ObjectTwo = "Ostrich";
-            this.JerryFloor.Sprite.SpriteSource = SpriteSource.PocketFull;
-            this.Space.CreateAtPosition(Archetype.LintBall1, Real3(1.5, 5.5, 0));
-            this.Space.CreateAtPosition(Archetype.LintBall2, Real3(1.5, 3.5, 0));
-            this.Space.CreateAtPosition(Archetype.L5Trigger1, Real3(3.5, 3.5, 0));
-            this.BlueFigure.Destroy();
-            this.BlueBox.Destroy();
-            this.Player.L5DoorBlocking.BlockingActive = false;
-            Console.WriteLine("Once");
-          }
-          this.Switch = "Off";
+          this.Solved = true;
+          this.TextArray.Set(3,"\"Fine, if you insist.\nHere, take this pencil.\"");
+          this.TextArray.Set(4,"\"Oh! I dropped it! Where'd it go?\nI guess you just have to move on.\"");
         }
         else if(this.Input == this.RightAnswer && 
-                this.GameSession.GameStats.ObjectOne != "Rhino" &&
-                this.Switch == "On")
+                this.Switch == "Off")
         {
-          this.TextArray.Set(3,"\"You solved the puzzle, but you don't have the \nrhino. Give me the rhino...or else.\"");
-          if (this.TextArray.Count <= 4 )
-          {
-            this.TextArray.Add("\"God...damnit.\"");
-          }
-          
+          this.TextArray.Set(3,"\"Don't look at me like that...\"");
+          this.TextArray.Set(4,"\"You're the one that dropped it.\"");
         }
-        
         
         this.Player.PlayerController.Texting = false;
       }

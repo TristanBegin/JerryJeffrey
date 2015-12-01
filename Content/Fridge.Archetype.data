@@ -27,7 +27,7 @@ Cog =
 		Vec4 Color = [1, 1, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
-		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteLayer = "567a3072a24b9b12:Three",
 		string SpriteSource = "56621671051bc88e:Fridge",
 		bool RenderMask = false,
 		bool FlipX = false,
@@ -78,6 +78,8 @@ Cog =
 		string Text28 = "",
 		string Text29 = "",
 		string Text30 = "",
+		string Text31 = "",
+		string Text32 = "",
 	},
 	TellDrawer = 
 	{

@@ -6,11 +6,11 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "SecondBox5",
+		string Name = "LintBall2_2",
 	},
 	Archetyped = 
 	{
-		string Name = "565981cd27942ca5:SecondBox5",
+		string Name = "56bc446fa0bd9526:LintBall2_2",
 	},
 	Transform = 
 	{
@@ -24,11 +24,11 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [0.154999971, 0.442299902, 1, 1],
+		Vec4 Color = [0.475000024, 0.779500008, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "56623c43f55fc6f4:THEBOX",
+		string SpriteSource = "5275aa4d802dd6dc:Square",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -36,9 +36,10 @@ Cog =
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
 	},
-	OstrichToBlueBox = 
+	Area = 
 	{
-		string PurpleYellowWorld = "567a3b26f52894ad:CircusFull",
+		Vec2 Size = [1, 1],
+		Location Origin = Center,
 	},
 	BoxCollider = 
 	{
@@ -49,5 +50,10 @@ Cog =
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
 		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	LintBall2_2 = 
+	{
+		string RightAnswer = "Solve",
+		string WrongAnswer = "Wrong",
 	},
 },

@@ -6,11 +6,11 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "SecondBox5",
+		string Name = "PurpleFigure2",
 	},
 	Archetyped = 
 	{
-		string Name = "565981cd27942ca5:SecondBox5",
+		string Name = "56bb25b1ccc60d61:PurpleFigure2",
 	},
 	Transform = 
 	{
@@ -24,21 +24,17 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [0.154999971, 0.442299902, 1, 1],
+		Vec4 Color = [1, 1, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "56623c43f55fc6f4:THEBOX",
+		string SpriteSource = "56bb16b08d9e4279:FigurePurpleAnim",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
 		bool AnimationActive = true,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
-	},
-	OstrichToBlueBox = 
-	{
-		string PurpleYellowWorld = "567a3b26f52894ad:CircusFull",
 	},
 	BoxCollider = 
 	{
@@ -49,5 +45,10 @@ Cog =
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
 		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	P2Talking = 
+	{
+		string RightAnswer = "Solve",
+		string WrongAnswer = "Wrong",
 	},
 },

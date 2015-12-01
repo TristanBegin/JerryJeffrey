@@ -27,7 +27,7 @@ class L5DoorBlocking : ZilchComponent
       if (this.Owner.Transform.Translation.X > 8 && this.GameSession.GameStats.ObjectOne == "Rhino")
       {
         this.MagicBarrierLeft.BoxCollider.Ghost = false;
-        this.MagicBarrierLeft.Sprite.Visible = true;
+        //this.MagicBarrierLeft.Sprite.Visible = true;
       }
       else
       {
@@ -38,7 +38,7 @@ class L5DoorBlocking : ZilchComponent
       if (this.Owner.Transform.Translation.X < 8 && this.GameSession.GameStats.ObjectTwo == "Ostrich")
       {
         this.MagicBarrierRight.BoxCollider.Ghost = false;
-        this.MagicBarrierRight.Sprite.Visible = true;
+        //this.MagicBarrierRight.Sprite.Visible = true;
       }
       else
       {

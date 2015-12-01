@@ -6,11 +6,11 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "LintBall2",
+		string Name = "PurpleFigure3",
 	},
 	Archetyped = 
 	{
-		string Name = "565ecf56ac242e4f:LintBall2",
+		string Name = "56bc405f6d4a8ead:PurpleFigure3",
 	},
 	Transform = 
 	{
@@ -24,22 +24,17 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [0.475000024, 0.779500008, 1, 1],
+		Vec4 Color = [1, 1, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "5275aa4d802dd6dc:Square",
+		string SpriteSource = "56bb16b08d9e4279:FigurePurpleAnim",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
 		bool AnimationActive = true,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
-	},
-	Area = 
-	{
-		Vec2 Size = [1, 1],
-		Location Origin = Center,
 	},
 	BoxCollider = 
 	{
@@ -53,8 +48,8 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "Help! I'm being stabbed",
-		string Text2 = "by a pencil! And it's HUGE!",
+		string Text1 = """Don't look at me like that...",
+		string Text2 = "You're the one that dropped it.""",
 		string Text3 = "",
 		string Text4 = "",
 		string Text5 = "",

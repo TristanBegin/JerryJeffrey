@@ -1,7 +1,12 @@
 class OstrichToBlueBox : ZilchComponent
 {
   var UsedOstrich : Boolean = false;
+  var UsedRhino : Boolean = false;
   var JeffreyFloor : Cog;
+  var Player : Cog;
+  
+  var TextArray : Array[String] = Array[String]();
+  var I : Integer = 0;
   
   var ItemInBox : String = "";
   
@@ -10,16 +15,86 @@ class OstrichToBlueBox : ZilchComponent
   
   function Initialize(init : CogInitializer)
   {
+    /* Text Array Stuff */
+    this.TextArray.Add("");
+    this.TextArray.Add("I'm a blue box.");
+    
     Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     
     this.JeffreyFloor = this.Space.FindObjectByName("JeffreyFloor");
+    this.Player = this.Space.FindObjectByName("Player");
   }
 
   function OnLogicUpdate(event : UpdateEvent)
   {
+    if (this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
+    {
+      if (Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping == true
+          && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
+      {
+        ++this.I;
+      }
+      
+      if (Zero.Keyboard.KeyIsPressed(Keys.Enter))
+      {
+        if (this.GameSession.GameStats.CurrentString == "" && this.GameSession.GameStats.DoneTyping == true)
+        {
+          if (this.ItemInBox == "Ostrich" && this.Player.PlayerController.Talking == false)
+          {
+            this.GameSession.GameStats.ObjectTwo = "Ostrich";
+            this.Owner.OstrichToBlueBox.ItemInBox = "";
+            this.TextArray.Set(1, "You grabbed the ostrich from the box.");
+            this.I = 1;
+          }
+          else if (this.ItemInBox == "Rhino" && this.Player.PlayerController.Talking == false)
+          {
+            this.GameSession.GameStats.ObjectOne = "Rhino";
+            this.Owner.OstrichToBlueBox.ItemInBox = "";
+            this.TextArray.Set(1, "You grabbed the rhino from the box.");
+            this.I = 1;
+          }
+        }
+      }
+      
+      
+      if (this.I >= this.TextArray.Count || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping == true))
+      {
+        this.I = 0;
+        this.Player.PlayerController.Talking = false;
+        this.GameSession.GameStats.CurrentString = "";
+      }
+      
+    }
+    else
+    {
+      this.I = 0;
+    }
+    
+    if (this.I > 0)
+    {
+      this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+    }
+    
+    if (this.I != 0)
+    {
+      this.Player.PlayerController.Talking = true;
+    }
+    
+    
     if (this.UsedOstrich == true)
     {
+      this.GameSession.GameStats.CurrentString = "";
+      this.TextArray.Set(1, "The ceramic ostrich is in the box.");
+      this.I = 1;
+      this.UsedOstrich = false;
+    }
+    else if (this.UsedRhino == true)
+    {
+      this.GameSession.GameStats.CurrentString = "";
+      this.TextArray.Set(1, "The ceramic rhino is in the box.");
+      this.I = 1;
+      this.UsedRhino = false;
     }
   }
 
@@ -33,14 +108,15 @@ class OstrichToBlueBox : ZilchComponent
       this.GameSession.GameStats.ObjectTwo = "";
       this.JeffreyFloor.Sprite.SpriteSource = this.PurpleYellowWorld;
       
-      this.Space.CreateAtPosition(Archetype.PurpleFigure, Real3(14.5, 4.5, 0));
-      this.Space.CreateAtPosition(Archetype.YellowFigure, Real3(14.5, 2.5, 0));
+      this.Space.CreateAtPosition(Archetype.PurpleFigure, Real3(11.5, 5.5, 0));
+      this.Space.CreateAtPosition(Archetype.YellowFigure, Real3(13.5, 5.5, 0));
       
     }
     else if (event.TheItem == "Rhino" && this.ItemInBox == "")
     {
       this.ItemInBox = "Rhino";
       this.GameSession.GameStats.ObjectOne = "";
+      this.UsedRhino = true;
     }
   }
 }

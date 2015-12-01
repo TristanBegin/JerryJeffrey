@@ -110,7 +110,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [8.23287296, 1.90955067, 50],
+			Vec3 Translation = [8.71210957, 3.5, 49.9990005],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -130,7 +130,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [8.23287296, 1.90955067, 3.53585222e-007],
+			Vec3 LookTarget = [8.71210957, 3.5, -0.00100000005],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -435,6 +435,8 @@ Level =
 			string Text28 = "",
 			string Text29 = "",
 			string Text30 = "",
+			string Text31 = "",
+			string Text32 = "",
 		},
 	},
 	Cog = 
@@ -831,7 +833,7 @@ Level =
 		},
 		Area = 
 		{
-			Vec2 Size = [0.5, 0.5],
+			Vec2 Size = [1, 1],
 			Location Origin = Center,
 		},
 		Named = 
@@ -891,9 +893,6 @@ Level =
 		OstrichToBox = 
 		{
 			string PitWorld = "567a3ff2f1dcc5b2:ThePitFull",
-		},
-		TakeItem = 
-		{
 		},
 	},
 	Cog = 
@@ -1031,7 +1030,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [16.5, 4.5, 0],
+			Vec3 Translation = [15.5, 4.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1170,7 +1169,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [14.5, 3.5, 0],
+			Vec3 Translation = [13.5, 5.5, 0],
 			Vec3 Scale = [0.5, 0.5, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1201,21 +1200,21 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "TestTalking",
+			string Name = "Sprite",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.5, 1.5, 0],
-			Vec3 Scale = [1, 1, 1],
+			Vec3 Translation = [0.5, 2.5, 0],
+			Vec3 Scale = [0.5, 0.5, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Sprite = 
 		{
-			bool Visible = true,
+			bool Visible = false,
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
+			Vec4 Color = [0.774999976, 0, 0, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -1226,21 +1225,6 @@ Level =
 			bool AnimationActive = true,
 			float AnimationSpeed = 1,
 			uint StartFrame = 0,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		YPfiguresTalking = 
-		{
-			string RightAnswer = "Solve",
-			string WrongAnswer = "Wrong",
 		},
 	},
 },
