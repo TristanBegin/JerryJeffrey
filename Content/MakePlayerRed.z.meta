@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "MakePlayerRed",
+		uint64 ResourceId = 5657b241c8462450,
+	},
+},

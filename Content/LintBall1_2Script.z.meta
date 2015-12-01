@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LintBall1_2Script",
+		uint64 ResourceId = 5657ba81ef9abae3,
+	},
+},

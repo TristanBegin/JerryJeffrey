@@ -1,4 +1,4 @@
-class LintBall2_2 : ZilchComponent
+class MakePlayerRed : ZilchComponent
 {
   var I : Integer = Integer(0); //Text counter
   
@@ -16,23 +16,22 @@ class LintBall2_2 : ZilchComponent
   [Property]
   var WrongAnswer : String;
   
-  var JeffreyFloor : Cog;
+  var JerryFloor : Cog;
+  var BlueFigure : Cog;
+  var BlueBox : Cog;
   
   var Switch : String = "On";
-  var Switch2 : String = "On";
   
   function Initialize(init : CogInitializer)
   {
     this.Player = this.Space.FindObjectByName("Player"); //Finds the player
-    this.JeffreyFloor = this.Space.FindObjectByName("JeffreyFloor");
     
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     
     this.TextArray.Add(""); //The first element of the string array, it will aways be ""
-    this.TextArray.Add("\"Phew. At least that's over.\nThis gaping wound hurts, though.\"");
-    this.TextArray.Add("\"If only I had something to staunch the bleeding...\nDo you have something that would help?”\"");
+    this.TextArray.Add("\"Hey... Do you want to change?\nI can make that happen - you just have to ask.\"");
     this.TextArray.Add("");
-    this.TextArray.Add("");
+    this.TextArray.Add("”");
 
   }
 
@@ -45,7 +44,7 @@ class LintBall2_2 : ZilchComponent
       if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping && 
         (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
       {
-        if(this.I == 3 && this.Input == "")
+        if(this.I == 2 && this.Input == "")
         {
         }
         else
@@ -63,7 +62,7 @@ class LintBall2_2 : ZilchComponent
         this.I = 0;
         this.GameSession.GameStats.CurrentString = "";
         
-        this.Space.CreateAtPosition(Archetype.LintBall2_3, this.Owner.Transform.Translation);
+        this.Space.CreateAtPosition(Archetype.L5Dog2, this.Owner.Transform.Translation);
         this.Owner.Destroy();
       }
       //If not in the begining of the string
@@ -83,13 +82,13 @@ class LintBall2_2 : ZilchComponent
       this.Player.PlayerController.Talking = true;
     }
     
-    this.TextArray.Set(3, (text.TextInput.ST));
+    this.TextArray.Set(2, (text.TextInput.ST));
     
-    if (this.I < 3)
+    if (this.I < 2)
     {
       text.TextInput.ST = "";
     }
-    else if (this.I == 3)
+    else if (this.I == 2)
     { 
       if(this.Player.PlayerController.Texting == false)
       {
@@ -97,7 +96,7 @@ class LintBall2_2 : ZilchComponent
       }
       this.GameSession.GameStats.AutoComplete = true;
     }
-    else if (this.I != 3)
+    else if (this.I != 2)
     {
       this.GameSession.GameStats.AutoComplete = false;
     }
@@ -107,7 +106,7 @@ class LintBall2_2 : ZilchComponent
       this.I = 1;
     }
     
-    if(this.I == 4)
+    if(this.I == 3)
     {
       this.Input = this.Input.ToLower();
       this.WrongAnswer = this.WrongAnswer.ToLower();
@@ -116,35 +115,35 @@ class LintBall2_2 : ZilchComponent
       if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
       {
         this.Talked = true;
-        this.TextArray.Set(4,"“\"What the heck are you trying to say to me?\"");
+        this.TextArray.Set(3,"“\"You just don't know how to talk to people, do you?\"");
       }
-      else if(this.Input == this.WrongAnswer)
+      else if(this.Input != this.RightAnswer)
       {
         this.Talked = true;
-        this.TextArray.Set(4,"“\"That won't help me...you worthless piece of trash.\"");
+        this.TextArray.Set(3,"“\"Are you calling me an ANIMAL?!?\"");
       }
-      else if (this.Input == this.RightAnswer && this.Switch == "On")
+      else if (this.Input == this.RightAnswer)
       {
-        this.TextArray.Set(4,"\"Aaahhh, that feels better.\"");
-        this.GameSession.GameStats.ObjectTwo = "";
-        if(this.Switch2 == "On")
+        this.TextArray.Set(3,"\"Don't worry, I'll make you cool.\nYou'll fit in with the rest of the guys.\"");
+        
+        if(this.Switch == "On")
         {
-          this.JeffreyFloor.Sprite.SpriteSource = SpriteSource.BloodyCottonRoom;
-          this.Space.FindObjectByName("PurpleFigure3").Destroy();
-          this.Space.FindObjectByName("YellowFigure").Destroy();
-          this.Space.CreateAtPosition(Archetype.RedFigure, Real3(11.5, 5.5, 0.0));
-          this.Space.CreateAtPosition(Archetype.RedFigure2, Real3(14.5, 5.5, 0.0));
-          this.Space.CreateAtPosition(Archetype.RedFigureSide, Real3(15.5, 3.5, 0.0));
-          this.Space.CreateAtPosition(Archetype.RedFigureSide2, Real3(15.5, 1.5, 0.0));
-          this.Space.CreateAtPosition(Archetype.L5Dog, Real3(9.5, 0.5, 0.0));
           
-          this.Switch2 = "Off";
+          this.Space.CreateAtPosition(Archetype.RedFigure_2, Real3(11.5, 5.5, 0.0));
+          this.Space.FindObjectByName("RedFigure").Destroy();
+          
+          this.Space.CreateAtPosition(Archetype.RedFigure2_2, Real3(14.5, 5.5, 0.0));
+          this.Space.FindObjectByName("RedFigure2").Destroy();
+          
+          this.Space.CreateAtPosition(Archetype.RedFigureSide2_2, Real3(15.5, 1.5, 0.0));
+          this.Space.FindObjectByName("RedFigureSide2").Destroy();
+          
+          this.Space.CreateAtPosition(Archetype.LintBall1_2, Real3(1.5, 5.5, 0.0));
+          this.Space.FindObjectByName("LintBall1").Destroy();
+          
+          this.Player.Sprite.Color = Real4(190, 0, 0, 1);
+          this.Switch = "Off";
         }
-      }
-      else if(this.Input == this.RightAnswer && 
-              this.Switch == "Off")
-      {
-        this.TextArray.Set(4,"\"I already told you it felt nice!\nStop pestering me!\"");
       }
       
       this.Player.PlayerController.Texting = false;
@@ -155,5 +154,6 @@ class LintBall2_2 : ZilchComponent
     {
         this.Input = text.TextInput.ST;
     }
+    
   }
 }
