@@ -10,9 +10,6 @@ class OstrichToBlueBox : ZilchComponent
   
   var ItemInBox : String = "";
   
-  [Property]
-  var PurpleYellowWorld : SpriteSource;
-  
   function Initialize(init : CogInitializer)
   {
     /* Text Array Stuff */
@@ -106,7 +103,7 @@ class OstrichToBlueBox : ZilchComponent
       this.UsedOstrich = true;
       this.ItemInBox = "Ostrich";
       this.GameSession.GameStats.ObjectTwo = "";
-      this.JeffreyFloor.Sprite.SpriteSource = this.PurpleYellowWorld;
+      this.JeffreyFloor.Sprite.SpriteSource = SpriteSource.WhiteFull;
       
       this.Space.CreateAtPosition(Archetype.PurpleFigure, Real3(11.5, 5.5, 0));
       this.Space.CreateAtPosition(Archetype.YellowFigure, Real3(13.5, 5.5, 0));

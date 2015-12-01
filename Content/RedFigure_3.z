@@ -29,7 +29,7 @@ class RedFigure_3 : ZilchComponent
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     
     this.TextArray.Add(""); //The first element of the string array, it will aways be ""
-    this.TextArray.Add("\"If\"");
+    this.TextArray.Add("\"Dialog Puzzle\"");
     this.TextArray.Add("");
     this.TextArray.Add("”");
 
@@ -62,8 +62,13 @@ class RedFigure_3 : ZilchComponent
         this.I = 0;
         this.GameSession.GameStats.CurrentString = "";
         
-        this.Space.CreateAtPosition(Archetype.L5Dog2, this.Owner.Transform.Translation);
-        this.Owner.Destroy();
+        if(this.Switch == "Off")
+        {
+          this.Space.FindObjectByName("Scientist").Destroy();
+          this.Space.CreateAtPosition(Archetype.Scientist_2, Real3(3.5, 5.5, 0.0));
+          this.Space.CreateAtPosition(Archetype.L5Dog2_2, this.Owner.Transform.Translation);
+          this.Owner.Destroy();
+        }
       }
       //If not in the begining of the string
       if (this.I > 0)
@@ -115,33 +120,20 @@ class RedFigure_3 : ZilchComponent
       if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
       {
         this.Talked = true;
-        this.TextArray.Set(3,"“\"You just don't know how to talk to people, do you?\"");
+        this.TextArray.Set(3,"“\"I don't understand you.\"");
       }
       else if(this.Input != this.RightAnswer)
       {
         this.Talked = true;
-        this.TextArray.Set(3,"“\"Are you calling me an ANIMAL?!?\"");
+        this.TextArray.Set(3,"“\"That's not the answer.\"");
       }
       else if (this.Input == this.RightAnswer)
       {
-        this.TextArray.Set(3,"\"Don't worry, I'll make you cool.\nYou'll fit in with the rest of the guys.\"");
+        this.TextArray.Set(3,"\"That's the answer I'm looking for.\"");
         
         if(this.Switch == "On")
         {
-          
-          this.Space.CreateAtPosition(Archetype.RedFigure_2, Real3(11.5, 5.5, 0.0));
-          this.Space.FindObjectByName("RedFigure").Destroy();
-          
-          this.Space.CreateAtPosition(Archetype.RedFigure2_2, Real3(14.5, 5.5, 0.0));
-          this.Space.FindObjectByName("RedFigure2").Destroy();
-          
-          this.Space.CreateAtPosition(Archetype.RedFigureSide2_2, Real3(15.5, 1.5, 0.0));
-          this.Space.FindObjectByName("RedFigureSide2").Destroy();
-          
-          this.Space.CreateAtPosition(Archetype.LintBall1_2, Real3(1.5, 5.5, 0.0));
-          this.Space.FindObjectByName("LintBall1").Destroy();
-          
-          this.Player.Sprite.Color = Real4(190, 0, 0, 1);
+          this.GameSession.GameStats.ObjectTwo = "Ostrich";
           this.Switch = "Off";
         }
       }

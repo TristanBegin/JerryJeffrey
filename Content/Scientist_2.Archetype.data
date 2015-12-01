@@ -6,11 +6,11 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "CottonPit",
+		string Name = "Scientist_2",
 	},
 	Archetyped = 
 	{
-		string Name = "5657866290bbffb0:CottonPit",
+		string Name = "56becf6fa7892bfb:Scientist_2",
 	},
 	Transform = 
 	{
@@ -20,7 +20,7 @@ Cog =
 	},
 	Sprite = 
 	{
-		bool Visible = false,
+		bool Visible = true,
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
@@ -28,7 +28,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "5275aa4d802dd6dc:Square",
+		string SpriteSource = "567bcb53aebb0663:SnowMan",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -44,9 +44,9 @@ Cog =
 		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
-		Vec3 Size = [1, 1, 0.5],
+		Vec3 Size = [0.5, 0.5, 0.5],
 	},
-	RhinoToPit_2 = 
+	OstrichToScientist = 
 	{
 	},
 },
