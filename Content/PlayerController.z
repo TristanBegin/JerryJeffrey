@@ -87,10 +87,12 @@ class PlayerController : ZilchComponent
             else if (Zero.Keyboard.KeyIsDown(Keys.A))
             {
                 this.LookingDirection = 3;
+                this.Owner.Sprite.FlipX = true;
             }
             else if (Zero.Keyboard.KeyIsDown(Keys.D))
             {
                 this.LookingDirection = 1;
+                this.Owner.Sprite.FlipX = false;
             }
             
             //checks which key is pressed and if the player has reached the next position on the grid on that axis

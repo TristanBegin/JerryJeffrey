@@ -10,11 +10,9 @@ class YPfiguresTalking : ZilchComponent
   
   var Talked : Boolean = false; //The varable that see if the player has talked to this object
   
-  [Property]
-  var RightAnswer : String;
+  var RightAnswer : String = "Rhino";
   
-  [Property]
-  var WrongAnswer : String;
+  var WrongAnswer : String = "Ostrich";
   
   var JerryFloor : Cog;
   var BlueFigure : Cog;
@@ -33,7 +31,7 @@ class YPfiguresTalking : ZilchComponent
     this.BlueBox = this.Space.FindObjectByName("SecondBox5");
     
     this.TextArray.Add(""); //The first element of the string array, it will aways be ""
-    this.TextArray.Add("\"I'm going to give you a puzzle!\"");
+    this.TextArray.Add("\"The ostrich is mine! I can't live without something \nceramic! What else would I cuddle at night?\"");
     this.TextArray.Add("");
     this.TextArray.Add("”");
 
@@ -67,6 +65,12 @@ class YPfiguresTalking : ZilchComponent
           this.Player.PlayerController.Talking = false;
           this.I = 0;
           this.GameSession.GameStats.CurrentString = "";
+          
+          if(this.Switch == "Off")
+          {
+            this.TextArray.Set(1, "\"I love my new fuzzy pet. What else could you \npossibly offer me?\"");
+            this.TextArray.Set(3, "\"I already have the rhino.\"");
+          }
         }
         //If not in the begining of the string
         if (this.I > 0)
@@ -118,46 +122,36 @@ class YPfiguresTalking : ZilchComponent
         if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
         {
           this.Talked = true;
-          this.TextArray.Set(3,"“\"You're LAME.\"");
+          this.TextArray.Set(3,"“\"I don't want to cuddle with THAT ugly thing.\"");
         }
         else if(this.Input != this.RightAnswer)
         {
           this.Talked = true;
-          this.TextArray.Set(3,"“\"I thought so...You're still lame!\"");
+          this.TextArray.Set(3,"“\"I already have the ostrich.\"");
         }
         else if (this.Input == this.RightAnswer && this.GameSession.GameStats.ObjectOne == "Rhino")
         {
-          this.TextArray.Set(3,"\"You solved the puzzle.\nTake this ostrich, but give me that rhino.\"");
-          //if (this.TextArray.Count <= 4 )
-          //{
-          //  this.TextArray.Add("");
-          //}
+          this.TextArray.Set(3,"\"A....a rhino? I love rhinos! Give me \nthat right now! Take the ostrich, I don't want it.\"");
           
           if(this.Switch == "On")
           {
             this.GameSession.GameStats.ObjectOne = "";
             this.GameSession.GameStats.ObjectTwo = "Ostrich";
             this.JerryFloor.Sprite.SpriteSource = SpriteSource.PocketFull;
-            this.Space.CreateAtPosition(Archetype.LintBall1, Real3(1.5, 5.5, 0));
-            this.Space.CreateAtPosition(Archetype.LintBall2, Real3(1.5, 3.5, 0));
+            this.Space.CreateAtPosition(Archetype.LintBall1, Real3(0.5, 5.5, 0));
+            this.Space.CreateAtPosition(Archetype.LintBall2, Real3(1.5, 4.5, 0));
             this.Space.CreateAtPosition(Archetype.L5Trigger1, Real3(3.5, 3.5, 0));
             this.BlueFigure.Destroy();
             this.BlueBox.Destroy();
             this.Player.L5DoorBlocking.BlockingActive = false;
-            Console.WriteLine("Once");
+            this.Switch = "Off";
           }
-          this.Switch = "Off";
         }
         else if(this.Input == this.RightAnswer && 
                 this.GameSession.GameStats.ObjectOne != "Rhino" &&
                 this.Switch == "On")
         {
-          this.TextArray.Set(3,"\"You solved the puzzle, but you don't have the \nrhino. Give me the rhino...or else.\"");
-          if (this.TextArray.Count <= 4 )
-          {
-            this.TextArray.Add("\"God...damnit.\"");
-          }
-          
+          this.TextArray.Set(3,"\"You don't have a rhino...you worthless piece of trash.\"");
         }
         
         
