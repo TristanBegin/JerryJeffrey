@@ -48,7 +48,7 @@ Cog =
 	},
 	P2Talking = 
 	{
-		string RightAnswer = "Solve",
-		string WrongAnswer = "Wrong",
+		string RightAnswer = "Pencil",
+		string WrongAnswer = "Lint",
 	},
 },

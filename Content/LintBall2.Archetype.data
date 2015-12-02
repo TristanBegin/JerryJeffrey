@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [1.5, 4.5, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -28,18 +28,13 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "5275aa4d802dd6dc:Square",
+		string SpriteSource = "56be9fb2c0e13dab:LintBloodyWithPencil",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
 		bool AnimationActive = true,
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
-	},
-	Area = 
-	{
-		Vec2 Size = [1, 1],
-		Location Origin = Center,
 	},
 	BoxCollider = 
 	{
@@ -48,7 +43,7 @@ Cog =
 		bool Seamless = true,
 		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
+		Vec3 Offset = [-1, -4, 0],
 		Vec3 Size = [0.5, 0.5, 0.5],
 	},
 	BaseDialogScript = 
@@ -85,5 +80,10 @@ Cog =
 		string Text30 = "",
 		string Text31 = "",
 		string Text32 = "",
+	},
+	Area = 
+	{
+		Vec2 Size = [3, 9],
+		Location Origin = Center,
 	},
 },

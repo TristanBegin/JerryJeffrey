@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [7, 5, 0],
+		Vec3 Translation = [3.5, 4.5, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -33,11 +33,11 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "One",
+				string Name = "Four",
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-5.5, -0.5, 0],
+				Vec3 Translation = [1, 0, 0],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -71,7 +71,7 @@ Cog =
 			},
 			WorkingLeverScript = 
 			{
-				string PulledSprite = "567a3a078f5dbe01:Dog",
+				string PulledSprite = "5695958817f2d3be:LeverDown",
 				string NotPulledSprite = "5695953ff2200939:LeverUp",
 			},
 		},
@@ -83,11 +83,11 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "Two",
+				string Name = "Three",
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-4.5, -0.5, 0],
+				Vec3 Translation = [0, 0, 0],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -121,7 +121,7 @@ Cog =
 			},
 			WorkingLeverScript = 
 			{
-				string PulledSprite = "567a3a078f5dbe01:Dog",
+				string PulledSprite = "5695958817f2d3be:LeverDown",
 				string NotPulledSprite = "5695953ff2200939:LeverUp",
 			},
 		},
@@ -137,7 +137,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-1.5, -0.5, 0],
+				Vec3 Translation = [2, 0, 0],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -171,7 +171,7 @@ Cog =
 			},
 			WorkingLeverScript = 
 			{
-				string PulledSprite = "567a3a078f5dbe01:Dog",
+				string PulledSprite = "5695958817f2d3be:LeverDown",
 				string NotPulledSprite = "5695953ff2200939:LeverUp",
 			},
 		},
@@ -183,11 +183,11 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "Three",
+				string Name = "One",
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-3.5, -0.5, 0],
+				Vec3 Translation = [-2, 0, 0],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -221,7 +221,7 @@ Cog =
 			},
 			WorkingLeverScript = 
 			{
-				string PulledSprite = "567a3a078f5dbe01:Dog",
+				string PulledSprite = "5695958817f2d3be:LeverDown",
 				string NotPulledSprite = "5695953ff2200939:LeverUp",
 			},
 		},
@@ -233,11 +233,11 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "Four",
+				string Name = "Two",
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-2.5, -0.5, 0],
+				Vec3 Translation = [-1, 0, 0],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -271,7 +271,7 @@ Cog =
 			},
 			WorkingLeverScript = 
 			{
-				string PulledSprite = "567a3a078f5dbe01:Dog",
+				string PulledSprite = "5695958817f2d3be:LeverDown",
 				string NotPulledSprite = "5695953ff2200939:LeverUp",
 			},
 		},

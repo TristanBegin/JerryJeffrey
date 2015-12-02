@@ -133,7 +133,7 @@ class LintBall2_2 : ZilchComponent
         if(this.Switch2 == "On")
         {
           this.JeffreyFloor.Sprite.SpriteSource = SpriteSource.BloodyCottonRoom;
-          this.JeffreyFloor.Sprite.FlipX = false;
+          this.JeffreyFloor.Sprite.FlipX = true;
           this.Space.FindObjectByName("PurpleFigure3").Destroy();
           this.Space.FindObjectByName("YellowFigure").Destroy();
           this.Space.CreateAtPosition(Archetype.RedFigure, Real3(11.5, 5.5, 0.0));
@@ -141,7 +141,7 @@ class LintBall2_2 : ZilchComponent
           this.Space.CreateAtPosition(Archetype.RedFigureSide, Real3(15.5, 3.5, 0.0));
           this.Space.CreateAtPosition(Archetype.RedFigureSide2, Real3(15.5, 1.5, 0.0));
           this.Space.CreateAtPosition(Archetype.L5Dog, Real3(9.5, 0.5, 0.0));
-          this.Space.CreateAtPosition(Archetype.CottonPit, Real3(13, 3, 0.0));
+          this.Space.CreateAtPosition(Archetype.CottonPit, Real3(12, 3, 0.0));
           
           this.Switch2 = "Off";
         }

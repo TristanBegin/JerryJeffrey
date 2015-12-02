@@ -28,9 +28,9 @@ class RhinoToPit_2 : ZilchComponent
     {
       this.UsedRhino = true;
       this.GameSession.GameStats.ObjectOne = "";
-      this.JerryFloor.Sprite.SpriteSource = SpriteSource.TileSet06Full;
+      this.JerryFloor.Sprite.SpriteSource = SpriteSource.DrawnWorld;
       
-      this.Space.CreateAtPosition(Archetype.Scientist, Real3(2.5, 5.5, 0));
+      this.Space.CreateAtPosition(Archetype.Scientist, Real3(2.5, 2, 0));
       this.Space.FindObjectByName("LintBall1_2").Destroy();
       this.Space.FindObjectByName("LintBall2_3").Destroy();
     }

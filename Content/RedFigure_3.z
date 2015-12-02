@@ -65,7 +65,7 @@ class RedFigure_3 : ZilchComponent
         if(this.Switch == "Off")
         {
           this.Space.FindObjectByName("Scientist").Destroy();
-          this.Space.CreateAtPosition(Archetype.Scientist_2, Real3(3.5, 5.5, 0.0));
+          this.Space.CreateAtPosition(Archetype.Scientist_2, Real3(2.5, 2, 0.0));
           this.Space.CreateAtPosition(Archetype.L5Dog2_2, this.Owner.Transform.Translation);
           this.Owner.Destroy();
         }
