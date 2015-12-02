@@ -12,7 +12,7 @@ class L4TriggerLeft : ZilchComponent
   {
     if(event.OtherObject.Name == "Player" && this.RightBox.BoxLvl4_1.Talked == true)
     {
-      this.Space.CreateAtPosition(Archetype.BlockPuzzle, Real3());
+      this.Space.CreateAtPosition(Archetype.BlockPuzzle, Real3(8.17715, 3.38588, 0.0));
       this.Owner.Destroy();
     }
   }

@@ -37,7 +37,7 @@ class Box4D : ZilchComponent
   function OnLogicUpdate(event : UpdateEvent)
   {
     var rayLeft = Ray();
-    rayLeft.Start = this.Owner.Transform.Translation;
+    rayLeft.Start = this.Owner.Transform.WorldTranslation;
     rayLeft.Direction = Real3(-1, 0, 0);
     var leftResult = this.Space.PhysicsSpace.CastRayFirst(rayLeft);
     if(leftResult.ObjectHit.Name == "Block4D")
@@ -50,7 +50,7 @@ class Box4D : ZilchComponent
     }
     
     var rayRight = Ray();
-    rayRight.Start = this.Owner.Transform.Translation;
+    rayRight.Start = this.Owner.Transform.WorldTranslation;
     rayRight.Direction = Real3(1, 0, 0);
     var rightResult = this.Space.PhysicsSpace.CastRayFirst(rayRight);
     if(rightResult.ObjectHit.Name == "Block4D")
@@ -63,7 +63,7 @@ class Box4D : ZilchComponent
     }
     
     var rayUp = Ray();
-    rayUp.Start = this.Owner.Transform.Translation;
+    rayUp.Start = this.Owner.Transform.WorldTranslation;
     rayUp.Direction = Real3(0, 1, 0);
     var upResult = this.Space.PhysicsSpace.CastRayFirst(rayUp);
     if(upResult.ObjectHit.Name == "Block4D")
@@ -76,7 +76,7 @@ class Box4D : ZilchComponent
     }
     
     var rayDown = Ray();
-    rayDown.Start = this.Owner.Transform.Translation;
+    rayDown.Start = this.Owner.Transform.WorldTranslation;
     rayDown.Direction = Real3(0, -1, 0);
     var downResult = this.Space.PhysicsSpace.CastRayFirst(rayDown);
     if(downResult.ObjectHit.Name == "Block4D")

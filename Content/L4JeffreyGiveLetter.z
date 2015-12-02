@@ -1,15 +1,16 @@
-class L4Box2DestroyPuzzle : ZilchComponent
+class L4JeffreyGiveLetter : ZilchComponent
 {
   var I : Integer = Integer(0); // Text counter
   
   var Switch : String = "On";
+  
   var Player : Cog;
     
   var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
   var Done : Boolean = false;
   
-  var Text1 : String = "\"There's no point to looking inside me.\"";
-  var Text2 : String = "\"I'm empty, you idiot.\"";
+  var Text1 : String = "\"Please, give this letter to my love.\"";
+  var Text2 : String = "";
   var Text3 : String = "";
   var Text4 : String = "";
   
@@ -62,10 +63,7 @@ class L4Box2DestroyPuzzle : ZilchComponent
         //Clear the current string
         this.GameSession.GameStats.CurrentString = "";
         
-        this.Space.FindObjectByName("BlockPuzzle").Destroy();
-        this.Space.CreateAtPosition(Archetype.L4Jeffrey_2, Real3(12.5, 6.5, 0.0));
-        this.Space.FindObjectByName("L4Jeffrey").Destroy();
-        this.Owner.Destroy();
+        this.GameSession.GameStats.ObjectThree = "Note";
       }
     }
   }
