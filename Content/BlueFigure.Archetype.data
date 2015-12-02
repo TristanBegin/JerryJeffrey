@@ -38,11 +38,11 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "Hello.",
+		string Text1 = """Hello.""",
 		string Text2 = "",
-		string Text3 = "You can take the ostrich left.",
+		string Text3 = """You can't take the ostrich right.""",
 		string Text4 = "",
-		string Text5 = "You can take the rhino right.",
+		string Text5 = """You can't take the rhino left.""",
 		string Text6 = "",
 		string Text7 = "",
 		string Text8 = "",

@@ -38,7 +38,7 @@ Cog =
 	},
 	MakePlayerRed = 
 	{
-		string RightAnswer = "Solve",
+		string RightAnswer = "Red",
 		string WrongAnswer = "Dog",
 	},
 	BoxCollider = 

@@ -43,7 +43,7 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "I only talk to red.",
+		string Text1 = """I only talk to red.""",
 		string Text2 = "",
 		string Text3 = "",
 		string Text4 = "",

@@ -8,7 +8,7 @@ class YPfiguresTalking : ZilchComponent
   
   var Input : String; //The input that the player will input.
   
-  var Talked : Boolean = false; //The varable that see if the player has talked to this object
+  var Talked : Boolean = false; //The variable that see if the player has talked to this object
   
   var RightAnswer : String = "Rhino";
   

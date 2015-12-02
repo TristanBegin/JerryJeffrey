@@ -1,6 +1,7 @@
 class RhinoToPit : ZilchComponent
 {
   var UsedRhino : Boolean = false;
+  var Switch : String = "Off";
   var JerryFloor : Cog;
   var FirstBox : Cog;
   
@@ -10,31 +11,94 @@ class RhinoToPit : ZilchComponent
   [Property]
   var BottomOfPit : SpriteSource;
   
+  var ItemInBox : String = "";
+  var Player : Cog;
+  
+  var TextArray : Array[String] = Array[String]();
+  var I : Integer = 0;
+  
+  [Property]
+  var PitWorld : SpriteSource;
+  
   function Initialize(init : CogInitializer)
   {
+    /* Text Array Stuff */
+    this.TextArray.Add("");
+    this.TextArray.Add("It's a deep, dark pit.");
+    
+    
     Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     
     this.JerryFloor = this.Space.FindObjectByName("JerryFloor");
-    this.FirstBox = this.Space.FindObjectByName("Box5");
-    
+    this.Player = this.Space.FindObjectByName("Player");
     this.PitTop = this.Space.FindObjectByName("PitRoomTop");
     this.PitBottom = this.Space.FindObjectByName("PitRoomBottom");
+    this.FirstBox = this.Space.FindObjectByName("Box5");
   }
-
+  
   function OnLogicUpdate(event : UpdateEvent)
   {
+    
+    if (this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
+    {
+      if (Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping == true
+          && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
+      {
+        ++this.I;
+      }
+      
+      if (this.I >= this.TextArray.Count || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping == true))
+      {
+        this.I = 0;
+        this.Player.PlayerController.Talking = false;
+        this.GameSession.GameStats.CurrentString = "";
+        
+        if(this.Switch == "On")
+        {
+          if (this.PitTop != null)
+          {
+            this.PitTop.Destroy();
+          }
+          
+          if (this.PitBottom != null)
+          {
+            this.PitBottom.Destroy();
+          }
+          this.Switch = "Off";
+        }
+      }
+    }
+    else
+    {
+      this.I = 0;
+    }
+    
+    if (this.I > 0)
+    {
+      this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
+    }
+    
+    if (this.I != 0)
+    {
+      this.Player.PlayerController.Talking = true;
+    }
+    
     if (this.UsedRhino == true)
     {
+      this.GameSession.GameStats.CurrentString = "";
+      this.TextArray.Set(1, "You threw the rhino into the pit.");
+      this.I = 1;
+      this.UsedRhino = false;
     }
   }
 
   function OnItemUsed(event : ItemUsed)
   {
-    Console.WriteLine("Event received.");
     if (event.TheItem == "Rhino")
     {
       this.UsedRhino = true;
+      this.Switch = "On";
       this.GameSession.GameStats.ObjectOne = "";
       this.JerryFloor.Sprite.SpriteSource = this.BottomOfPit;
       this.Space.CreateAtPosition(Archetype.Rhino, Real3(4.5, 0.5, 0));
@@ -47,16 +111,6 @@ class RhinoToPit : ZilchComponent
       if (this.FirstBox != null)
       {
         this.FirstBox.Destroy();
-      }
-      
-      if (this.PitTop != null)
-      {
-        this.PitTop.Destroy();
-      }
-      
-      if (this.PitBottom != null)
-      {
-        this.PitBottom.Destroy();
       }
     }
   }

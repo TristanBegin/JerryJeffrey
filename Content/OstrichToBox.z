@@ -18,7 +18,7 @@ class OstrichToBox : ZilchComponent
   {
     /* Text Array Stuff */
     this.TextArray.Add("");
-    this.TextArray.Add("I'm a box.");
+    this.TextArray.Add("It's a box.");
     
     
     Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);

@@ -53,7 +53,7 @@ Cog =
 	},
 	LintBall2_2 = 
 	{
-		string RightAnswer = "Solve",
-		string WrongAnswer = "Wrong",
+		string RightAnswer = "Ostrich",
+		string WrongAnswer = "Rhino",
 	},
 },

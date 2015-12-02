@@ -48,7 +48,7 @@ Cog =
 	},
 	YellowFigureDialog = 
 	{
-		string Text1 = "Hey! I want that ostrich!",
-		string Text2 = "Tell him to give it to me!",
+		string Text1 = """Hey! I want that ostrich!""",
+		string Text2 = """Tell him to give it to me!""",
 	},
 },
