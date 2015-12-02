@@ -1,0 +1,33 @@
+CollisionTable = 
+{
+	Array RegisteredGroups = 
+	[
+		"4e740859314e5515:DefaultGroup",
+		"5675477d2caf6eea:OnlyPlayer",
+		"567540de38b83e5e:Player",
+	],
+	Array CollisionFilters = 
+	[
+		{
+			string TypeA = "4e740859314e5515:DefaultGroup",
+			string TypeB = "5675477d2caf6eea:OnlyPlayer",
+			bool SkipResolution = false,
+			bool SkipDetectingCollision = true,
+			bool StartEvent = false,
+			bool EndEvent = false,
+			bool PersistedEvent = false,
+			bool PreSolveEvent = false,
+		},
+		{
+			string TypeA = "5675477d2caf6eea:OnlyPlayer",
+			string TypeB = "5675477d2caf6eea:OnlyPlayer",
+			bool SkipResolution = false,
+			bool SkipDetectingCollision = true,
+			bool StartEvent = false,
+			bool EndEvent = false,
+			bool PersistedEvent = false,
+			bool PreSolveEvent = false,
+		},
+	],
+	bool AutoRegister = true,
+},

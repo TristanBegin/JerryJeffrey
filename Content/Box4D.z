@@ -46,7 +46,7 @@ class Box4D : ZilchComponent
     }
     else 
     {
-      this.LeftDistance = 2.0;
+      this.LeftDistance = 1.0;
     }
     
     var rayRight = Ray();
@@ -59,7 +59,7 @@ class Box4D : ZilchComponent
     }
     else
     {
-      this.RightDistance = 2.0;
+      this.RightDistance = 1.0;
     }
     
     var rayUp = Ray();
@@ -72,7 +72,7 @@ class Box4D : ZilchComponent
     }
     else
     {
-      this.UpDistance = 2.0;
+      this.UpDistance = 1.0;
     }
     
     var rayDown = Ray();
@@ -85,7 +85,7 @@ class Box4D : ZilchComponent
     }
     else
     {
-      this.DownDistance = 2.0;
+      this.DownDistance = 1.0;
     }
     
     var actionQueue = Action.Sequence(this.Owner.Actions);
