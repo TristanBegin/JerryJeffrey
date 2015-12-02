@@ -110,7 +110,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [9.85873795, 4.45283794, 50],
+			Vec3 Translation = [9.29206657, 4.96850824, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -130,7 +130,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [9.85873795, 4.45283794, -1.99315082e-007],
+			Vec3 LookTarget = [9.29206657, 4.96850824, -1.99315082e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -268,7 +268,7 @@ Level =
 	},
 	ArchetypeInstance = 
 	{
-		string Name = "5691c8baf0ab2c1c:JerryBall2",
+		string Name = "5695fea162f5a73e:JerryBall1_1",
 		LinkId = 
 		{
 			uint Id = 5,
@@ -289,11 +289,34 @@ Level =
 			string Name = "Jerry",
 		},
 	},
+	ArchetypeInstance = 
+	{
+		string Name = "5695f393359f9f0f:JerryGhostBall1_2",
+		LinkId = 
+		{
+			uint Id = 6,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [1, 4, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Area = 
+		{
+			Vec2 Size = [0.9375, 1.125],
+			Location Origin = TopLeft,
+		},
+		Named = 
+		{
+			string Name = "Jerry",
+		},
+	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 6,
+			uint Id = 7,
 		},
 		Named = 
 		{
@@ -324,12 +347,19 @@ Level =
 			float MeshThickness = 1.20000005,
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "5691c8b1f136a9fe:JeffreyBall2",
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 8,
+		},
+		Named = 
+		{
+			string Name = "Jeffery",
+		},
+		Archetyped = 
+		{
+			string Name = "5695fe9a63ef945a:JeffreyBall1_1",
 		},
 		Transform = 
 		{
@@ -337,21 +367,58 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "56157c18eb8599b1:JeffreyIdleForwardAnim",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0.5, -0.5, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
 		Area = 
 		{
 			Vec2 Size = [1, 1.125],
 			Location Origin = TopLeft,
 		},
-		Named = 
+		DestroyWhenScript = 
 		{
-			string Name = "Jeffery",
+			string Condition = "...",
+			string Right = "",
+		},
+		SpawnWhenScript = 
+		{
+			string Condition = "...",
+			string Spawns = "5691c92b0edb8f29:JeffreyBall3",
+		},
+		JeffreyBall1Script = 
+		{
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 8,
+			uint Id = 9,
 		},
 		Named = 
 		{
@@ -411,7 +478,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 9,
+				uint ResolvedCog = 10,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -422,7 +489,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -467,7 +534,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -512,7 +579,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 10,
 		},
 		Named = 
 		{
@@ -569,7 +636,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 8,
+				uint ResolvedCog = 9,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -580,7 +647,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -615,7 +682,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 14,
 		},
 		Named = 
 		{
@@ -650,7 +717,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 14,
+			uint Id = 15,
 		},
 		Named = 
 		{
@@ -693,7 +760,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 15,
+			uint Id = 16,
 		},
 		Named = 
 		{
@@ -732,301 +799,50 @@ Level =
 		{
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "5695feda59f060b1:BoxBall1",
 		LinkId = 
 		{
-			uint Id = 16,
-		},
-		Named = 
-		{
-			string Name = "WorkingLevers",
-		},
-		Archetyped = 
-		{
-			string Name = "5695825f52e1a43b:WorkingLevers",
+			uint Id = 17,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [7, 5, 0],
+			Vec3 Translation = [0, 4, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		DestroyWhenScript = 
+		Area = 
 		{
-			string Condition = "Passed",
-			string Right = "FourTwoThreeFiveOne",
+			Vec2 Size = [1, 1],
+			Location Origin = TopLeft,
 		},
-		Hierarchy = 
+		Named = 
 		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 17,
-				},
-				Named = 
-				{
-					string Name = "One",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-5.5, -0.5, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "5695953ff2200939:LeverUp",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				WorkingLeverScript = 
-				{
-					string PulledSprite = "5695958817f2d3be:LeverDown",
-					string NotPulledSprite = "5695953ff2200939:LeverUp",
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 18,
-				},
-				Named = 
-				{
-					string Name = "Two",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-4.5, -0.5, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "5695953ff2200939:LeverUp",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				WorkingLeverScript = 
-				{
-					string PulledSprite = "5695958817f2d3be:LeverDown",
-					string NotPulledSprite = "5695953ff2200939:LeverUp",
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 19,
-				},
-				Named = 
-				{
-					string Name = "Five",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-1.5, -0.5, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "5695953ff2200939:LeverUp",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				WorkingLeverScript = 
-				{
-					string PulledSprite = "5695958817f2d3be:LeverDown",
-					string NotPulledSprite = "5695953ff2200939:LeverUp",
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 20,
-				},
-				Named = 
-				{
-					string Name = "Three",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-3.5, -0.5, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "5695953ff2200939:LeverUp",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				WorkingLeverScript = 
-				{
-					string PulledSprite = "5695958817f2d3be:LeverDown",
-					string NotPulledSprite = "5695953ff2200939:LeverUp",
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 21,
-				},
-				Named = 
-				{
-					string Name = "Four",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [-2.5, -0.5, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "5695953ff2200939:LeverUp",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				WorkingLeverScript = 
-				{
-					string PulledSprite = "5695958817f2d3be:LeverDown",
-					string NotPulledSprite = "5695953ff2200939:LeverUp",
-				},
-			},
+			string Name = "Box",
 		},
 	},
 	ArchetypeInstance = 
 	{
-		string Name = "56958649fef39a4c:StuckLevers",
+		string Name = "5695fd81e719f558:WoodJeffreyBall1_1",
 		LinkId = 
 		{
-			uint Id = 22,
+			uint Id = 18,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [14.5, 5, 0],
+			Vec3 Translation = [15, 4, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
+		Area = 
+		{
+			Vec2 Size = [1, 1],
+			Location Origin = TopLeft,
+		},
 		Named = 
 		{
-			string Name = "StuckLevers",
+			string Name = "Wood",
 		},
 	},
 },

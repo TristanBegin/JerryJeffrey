@@ -1,0 +1,32 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Jerry",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [1, 4, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Area = 
+	{
+		Vec2 Size = [0.9375, 1.125],
+		Location Origin = TopLeft,
+	},
+	DestroyWhenScript = 
+	{
+		string Condition = "...",
+		string Right = "",
+	},
+	SpawnWhenScript = 
+	{
+		string Condition = "...",
+		string Spawns = "5695fc26a50c46c3:JerryBall1_2",
+	},
+},

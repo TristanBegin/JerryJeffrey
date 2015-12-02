@@ -1,0 +1,94 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Wood",
+	},
+	Archetyped = 
+	{
+		string Name = "5695f271e2f85fa1:WoodJerryBall1_2",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 0, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Sprite = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteSource = "56622430a2d0da0d:Wood",
+		bool RenderMask = false,
+		bool FlipX = false,
+		bool FlipY = false,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0.5, -0.5, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	SpawnWhenScript = 
+	{
+		string Condition = "",
+		string Spawns = "",
+	},
+	BaseDialogScript = 
+	{
+		string Text1 = "",
+		string Text2 = "",
+		string Text3 = "",
+		string Text4 = "",
+		string Text5 = "",
+		string Text6 = "",
+		string Text7 = "",
+		string Text8 = "",
+		string Text9 = "",
+		string Text10 = "",
+		string Text11 = "",
+		string Text12 = "",
+		string Text13 = "",
+		string Text14 = "",
+		string Text15 = "",
+		string Text16 = "",
+		string Text17 = "",
+		string Text18 = "",
+		string Text19 = "",
+		string Text20 = "",
+		string Text21 = "",
+		string Text22 = "",
+		string Text23 = "",
+		string Text24 = "",
+		string Text25 = "",
+		string Text26 = "",
+		string Text27 = "",
+		string Text28 = "",
+		string Text29 = "",
+		string Text30 = "",
+		string Text31 = "",
+		string Text32 = "",
+	},
+	DestroyWhenScript = 
+	{
+		string Condition = "",
+		string Right = "",
+	},
+},
