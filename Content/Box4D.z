@@ -8,6 +8,11 @@ class Box4D : ZilchComponent
   var DelayLength : Real = 1.0;
   var TimerRunning : Boolean = false;
   
+  var UpDistance : Real;
+  var DownDistance : Real;
+  var RightDistance : Real;
+  var LeftDistance : Real;
+  
   var OriginalPos : Real3;
   
   [Property]
@@ -35,21 +40,53 @@ class Box4D : ZilchComponent
     rayLeft.Start = this.Owner.Transform.Translation;
     rayLeft.Direction = Real3(-1, 0, 0);
     var leftResult = this.Space.PhysicsSpace.CastRayFirst(rayLeft);
+    if(leftResult.ObjectHit.Name == "Block4D")
+    {
+      this.LeftDistance = 1.0;
+    }
+    else 
+    {
+      this.LeftDistance = 2.0;
+    }
     
     var rayRight = Ray();
     rayRight.Start = this.Owner.Transform.Translation;
     rayRight.Direction = Real3(1, 0, 0);
     var rightResult = this.Space.PhysicsSpace.CastRayFirst(rayRight);
+    if(rightResult.ObjectHit.Name == "Block4D")
+    {
+      this.RightDistance = 1.0;
+    }
+    else
+    {
+      this.RightDistance = 2.0;
+    }
     
     var rayUp = Ray();
     rayUp.Start = this.Owner.Transform.Translation;
     rayUp.Direction = Real3(0, 1, 0);
     var upResult = this.Space.PhysicsSpace.CastRayFirst(rayUp);
+    if(upResult.ObjectHit.Name == "Block4D")
+    {
+      this.UpDistance = 1.0;
+    }
+    else
+    {
+      this.UpDistance = 2.0;
+    }
     
     var rayDown = Ray();
     rayDown.Start = this.Owner.Transform.Translation;
     rayDown.Direction = Real3(0, -1, 0);
     var downResult = this.Space.PhysicsSpace.CastRayFirst(rayDown);
+    if(downResult.ObjectHit.Name == "Block4D")
+    {
+      this.DownDistance = 1.0;
+    }
+    else
+    {
+      this.DownDistance = 2.0;
+    }
     
     var actionQueue = Action.Sequence(this.Owner.Actions);
     
@@ -82,7 +119,7 @@ class Box4D : ZilchComponent
     {
       
       if(this.Player.PlayerController.LookingDirection == 0 &&
-        upResult.Distance >= 2 && this.UpDownMove == true)
+        upResult.Distance >= this.UpDistance && this.UpDownMove == true)
       {
         Action.Property(actionQueue, @this.Owner.Transform.Translation, 
         Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1, 0), 
@@ -91,7 +128,7 @@ class Box4D : ZilchComponent
         this.TimerRunning = true;
       }
       else if(this.Player.PlayerController.LookingDirection == 1 &&
-        rightResult.Distance >= 2 && this.LeftRight == true)
+        rightResult.Distance >= this.RightDistance && this.LeftRight == true)
       {
         Action.Property(actionQueue, @this.Owner.Transform.Translation, 
         Real3(this.Owner.Transform.Translation.X + 1, this.Owner.Transform.Translation.Y, 0), 
@@ -100,7 +137,7 @@ class Box4D : ZilchComponent
         this.TimerRunning = true;
       }
       else if(this.Player.PlayerController.LookingDirection == 2 &&
-        downResult.Distance >= 2 && this.UpDownMove == true)
+        downResult.Distance >= this.DownDistance && this.UpDownMove == true)
       {
         Action.Property(actionQueue, @this.Owner.Transform.Translation, 
         Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y - 1, 0), 
@@ -109,7 +146,7 @@ class Box4D : ZilchComponent
         this.TimerRunning = true;
       }
       else if(this.Player.PlayerController.LookingDirection == 3 &&
-        leftResult.Distance >= 2 && this.LeftRight == true)
+        leftResult.Distance >= this.LeftDistance && this.LeftRight == true)
       {
         Action.Property(actionQueue, @this.Owner.Transform.Translation, 
         Real3(this.Owner.Transform.Translation.X - 1, this.Owner.Transform.Translation.Y, 0), 

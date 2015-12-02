@@ -755,10 +755,64 @@ Level =
 	},
 	ArchetypeInstance = 
 	{
-		string Name = "56bef9a782245a5a:ResetLever",
+		string Name = "56beed38e066d4a4:Block4D",
 		LinkId = 
 		{
 			uint Id = 16,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.5, 1.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Block4D",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56beed38e066d4a4:Block4D",
+		LinkId = 
+		{
+			uint Id = 17,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.5, 3.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Block4D",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56beed38e066d4a4:Block4D",
+		LinkId = 
+		{
+			uint Id = 18,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [3.5, 3.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Block4D",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56bef9a782245a5a:ResetLever",
+		LinkId = 
+		{
+			uint Id = 19,
 		},
 		Transform = 
 		{
