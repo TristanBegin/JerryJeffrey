@@ -71,7 +71,7 @@ class StartGame : ZilchComponent
                 if (this.TheYNum == 1)
                 {
                     this.Camera.FindChildByName("Fader").Fader.IsExiting = true;
-                    this.Camera.FindChildByName("Fader").Fader.NextLevel = Level.Level1;
+                    this.Camera.FindChildByName("Fader").Fader.NextLevel = Level.Quote1;
                 }
                 if (this.TheYNum == 2)
                 {

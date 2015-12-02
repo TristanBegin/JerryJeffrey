@@ -1,6 +1,6 @@
 class DoorCheckpointScript : ZilchComponent
 {
-    var Level2 : Level = Level.Find("Level2");
+    var Level2 : Level = Level.Find("Quote2");
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
