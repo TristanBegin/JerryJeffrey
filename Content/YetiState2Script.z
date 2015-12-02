@@ -15,12 +15,12 @@ class YetiState2Script : ZilchComponent
     {
         this.TextArray.Add("");
         this.TextArray.Add("\"Hello again.\"”");
-        this.TextArray.Add("\"I don’ t know why I came here; \nthis world is so depressing\"");
-        this.TextArray.Add("\"All it ever tells me about is how dangerous and scary it is.\"”");
-        this.TextArray.Add("\"I don’ t know why it would say that about itself, \nit’ s a perfectly pleasant world\"");
-        this.TextArray.Add("\"But all those snowman, they just make the world so depressing.\"");
+        this.TextArray.Add("\"I don’'t know why I came here; \nthis world is so depressing\"");
+        this.TextArray.Add("\"All it ever tells me about is how dangerous \nand scary it is.\"”");
+        this.TextArray.Add("\"I don’'st know why it would say that about \nitself, it’ s a perfectly pleasant world\"");
+        this.TextArray.Add("\"But all those snowman, they just make the world\n so depressing.\"");
         this.TextArray.Add("\"At least the other world was ACTUALLY dangerous. \nThat world made me feel good about myself.\"");
-        this.TextArray.Add("\"I think I’ ll head back there. Surely that will make me happy.\"”");
+        this.TextArray.Add("\"I think I’'ll head back there. Surely that will make me \nhappy.\"”");
         
         this.Player = this.Space.FindObjectByName("Player");
         
@@ -98,7 +98,7 @@ class YetiState2Script : ZilchComponent
             this.TextArray.Set(4,"\"Is this... is this what it feels like? \nTo be truly happy?\"");
             this.TextArray.Set(5,"\"Thank you. Thank you so much\"");
             this.TextArray.Set(6,"\"Please, if there’'s anything you need, \nplease ask.\"");
-            this.TextArray.Add("\"What’'s that, you’ re looking for someone?\"");
+            this.TextArray.Add("\"What’'s that, you’'re looking for someone?\"");
             this.TextArray.Add("\"Oh, him. Yeah, I know him.\"");
             this.TextArray.Add("\"Don’'t worry, I know where he went. \nI can bring him back no problem.\"");
             this.TextArray.Add("\"In fact, I’'ll bet I can get him back faster \n than you can return to his room.\"");
@@ -107,7 +107,7 @@ class YetiState2Script : ZilchComponent
     
     function OnItemUsed (event : ItemUsed)
     {
-        if (event.TheItem == "Freezer")
+        if (event.TheItem == "Underwear")
         {
             this.UsedUnderwear = true;
         }

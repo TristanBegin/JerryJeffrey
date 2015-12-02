@@ -61,7 +61,7 @@ class GirlyDeskScript : ZilchComponent
         
         if(this.I == 2)
         {
-            this.GameSession.GameStats.ObjectTwo = "Freezer";
+            this.GameSession.GameStats.ObjectTwo = "Underwear";
         }
         
         if (this.I != 0)

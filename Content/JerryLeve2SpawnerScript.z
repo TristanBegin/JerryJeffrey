@@ -67,6 +67,5 @@ class JerryLevel2SpawnerScript : ZilchComponent
                 this.Object = (this.Space.CreateAtPosition(Archetype.TheBoxWorld, Real3(3.5, 3.5, 0.0)));
             }
         }
-        
     }
 }

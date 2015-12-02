@@ -15,11 +15,11 @@ class YetiState3Script : ZilchComponent
     {
         this.TextArray.Add("");
         this.TextArray.Add("\"Hello again. \"”");
-        this.TextArray.Add("\"I don’ t know why I came here; \nThis world is so depressing\"");
+        this.TextArray.Add("\"I don’'t know why I came here; \nThis world is so depressing\"");
         this.TextArray.Add("\"Always talking about how good it is; \nplease\"”");
-        this.TextArray.Add("\"I’ m a better person than this place, for sure. I deserve much better.\"");
+        this.TextArray.Add("\"I’'m a better person than this place, for sure.\n I deserve much better.\"");
         this.TextArray.Add("\"This world scares me.\"");
-        this.TextArray.Add("\"I think I’ ll go back to the other world. \nThat will definitely make me happy. \"");
+        this.TextArray.Add("\"I think I’'ll go back to the other world. \nThat will definitely make me happy.\"");
 
         
         this.Player = this.Space.FindObjectByName("Player");
@@ -52,7 +52,7 @@ function OnLogicUpdate(event : UpdateEvent)
                         }
                         else
                         {
-                            this.Space.LevelSettings.Level2Stats.YetiState = 3;
+                            this.Space.LevelSettings.Level2Stats.YetiState = 2;
                         }
                         this.GameSession.GameStats.CurrentString = "";
                     }
@@ -97,7 +97,7 @@ function OnLogicUpdate(event : UpdateEvent)
             this.TextArray.Set(4,"\"Is this... is this what it feels like? \nTo be truly happy?\"");
             this.TextArray.Set(5,"\"Thank you. Thank you so much\"");
             this.TextArray.Set(6,"\"Please, if there’'s anything you need, \nplease ask.\"");
-            this.TextArray.Add("\"What’'s that, you’ re looking for someone?\"");
+            this.TextArray.Add("\"What’'s that, you’'re looking for someone?\"");
             this.TextArray.Add("\"Oh, him. Yeah, I know him.\"");
             this.TextArray.Add("\"Don’'t worry, I know where he went. \nI can bring him back no problem.\"");
             this.TextArray.Add("\"In fact, I’'ll bet I can get him back faster \n than you can return to his room.\"");
@@ -106,7 +106,7 @@ function OnLogicUpdate(event : UpdateEvent)
     
     function OnItemUsed (event : ItemUsed)
     {
-        if (event.TheItem == "Freezer")
+        if (event.TheItem == "Underwear")
         {
             this.UsedUnderwear = true;
         }

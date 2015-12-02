@@ -223,7 +223,7 @@ Level =
 				},
 				Fader = 
 				{
-					string NextLevel = "",
+					string NextLevel = "56752c58428afde1:Quote1",
 				},
 			},
 		},
@@ -425,7 +425,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "56706f0aa6c534a5:Rhino_0",
+			string SpriteSource = "4e07948c35993095:DefaultSprite",
 			bool RenderMask = false,
 			bool FlipX = true,
 			bool FlipY = false,

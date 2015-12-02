@@ -43,6 +43,7 @@ class KeyScript : ZilchComponent
             //If not in the begining of the string
             if (this.I > 0)
             {
+                this.Player.PlayerController.Talking = true;
                 this.GameSession.GameStats.CurrentString = this.TextArray[this.I];
             }
         }
@@ -51,6 +52,8 @@ class KeyScript : ZilchComponent
             //Reset text counter 
             this.I = 0;
         }
+        
+        
         
     }
 }

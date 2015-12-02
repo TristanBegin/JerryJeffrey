@@ -68,7 +68,7 @@ class FinalLevel : ZilchComponent
             if (this.CurDelay < -0.8)
             {
                 this.GameSession.GameStats.CurrentString = "";
-                this.Space.LoadLevel(Level.Level6_2);
+                this.Space.LoadLevel(Level.Quote6);
             }
         }
         if (this.TalkingPart && Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping )

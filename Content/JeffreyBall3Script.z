@@ -122,7 +122,7 @@ class JeffreyBall3Script : ZilchComponent
             if(this.Input != this.WrongAnswer1 && this.Input != this.WrongAnswer2 && this.Input != this.RightAnswer)
             {
                 this.Talked = true;
-                this.TextArray.Set(8,"“\"I'll give it to anyone else\"");
+                this.TextArray.Set(8,"“\"I'll give it to ANYONE ELSE.\"");
             }
             else if(this.Input == this.WrongAnswer1)
             {
