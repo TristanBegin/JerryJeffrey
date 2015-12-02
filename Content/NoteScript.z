@@ -19,7 +19,7 @@ class NoteScript : ZilchComponent
         
         this.TextArray.Add("");
         this.TextArray.Add("Note : \"–“To the worthless piece of trash: \nThough I thought we had begun to form a bond\"”");
-        this.TextArray.Add("\"through pleasant conversation, it seems \n you’'d rather twiddle away our final hours \"");
+        this.TextArray.Add("\"through pleasant conversation, it seems \n you’'d rather twiddle away our final hours\"");
         this.TextArray.Add("\"together with that vile insect on the other \nside of the wall. Thus, I have decided to take my leave.\"”");
         this.TextArray.Add("\"Good day, sir.\"");
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)

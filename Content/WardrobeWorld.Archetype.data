@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [26.5, 2.5, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -291,7 +291,7 @@ Cog =
 				string Text1 = "It's a newpaper clipping.",
 				string Text2 = "The title reads: ""A Review of The Amazing Jerry.""",
 				string Text3 = """I hired Jerry to juggle at my daughter's",
-				string Text4 = "birthday party after seeing on of his fliers.""",
+				string Text4 = "birthday party after seeing one of his flyers.""",
 				string Text5 = """It seemed logical at the time; nice, easy, cheap",
 				string Text6 = "entertainment. However, when he got here...""",
 				string Text7 = "The next part is completely blacked out. There",
@@ -330,6 +330,11 @@ Cog =
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 				Vec3 Offset = [0.5, -0.5, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
+			},
+			Area = 
+			{
+				Vec2 Size = [1, 1],
+				Location Origin = TopLeft,
 			},
 		},
 	},
