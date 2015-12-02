@@ -5,8 +5,6 @@ class DestroyWhenScript : ZilchComponent
     var Three : Cog;
     var Four : Cog;
     var Five : Cog;
-    var Six : Cog;
-    var Seven : Cog;
     
     [Property]
     var Condition : String;
@@ -23,8 +21,6 @@ class DestroyWhenScript : ZilchComponent
             this.Three = this.Owner.FindChildByName("Three");
             this.Four = this.Owner.FindChildByName("Four");
             this.Five = this.Owner.FindChildByName("Five");
-            this.Six = this.Owner.FindChildByName("Six");
-            this.Seven = this.Owner.FindChildByName("Seven");
             
         }
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -44,7 +40,7 @@ class DestroyWhenScript : ZilchComponent
                 this.GameSession.GameStats.Trigger = "Right";
                 this.Space.CreateAtPosition(Archetype.Ball2, Real3(3.5, 3.5, 0));
             }
-            else if(this.GameSession.GameStats.Trigger.Count == 27)
+            else if(this.GameSession.GameStats.Trigger.Count == 19)
             {
                 this.GameSession.GameStats.Trigger = "";
                 
@@ -53,8 +49,6 @@ class DestroyWhenScript : ZilchComponent
                 this.Three.WorkingLeverScript.Pulled = false;
                 this.Four.WorkingLeverScript.Pulled = false;
                 this.Five.WorkingLeverScript.Pulled = false;
-                this.Six.WorkingLeverScript.Pulled = false;
-                this.Seven.WorkingLeverScript.Pulled = false;
             }
         }
     }

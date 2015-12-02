@@ -28,6 +28,8 @@ class Scientist : ZilchComponent
     this.TextArray.Add(this.Text2);
     this.TextArray.Add(this.Text3);
     this.TextArray.Add(this.Text4);
+    this.TextArray.Add("");
+    this.TextArray.Add("");
   }
 
 
@@ -60,14 +62,15 @@ class Scientist : ZilchComponent
       if(((this.TextArray[this.I]) == "" && (this.I != 0))
       || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
       {
+        this.TextArray.Set(2, "\"Go find me an ostrich!\"");
+        this.TextArray.Set(3, "\"You can't be my friend until then.\"");
         this.Done = true;
         //Player isn't talking anymore
         player.PlayerController.Talking = false;
         // Reset the text counter
         this.I = 0;
+        this.GameSession.GameStats.CurrentString = "";
         
-        this.TextArray.Set(2, "\"Go find me an ostrich!\"");
-        this.TextArray.Set(2, "\"You can't be my friend until then.\"");
         
         if(this.Switch == "On")
         {

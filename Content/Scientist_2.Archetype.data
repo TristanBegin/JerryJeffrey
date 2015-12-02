@@ -6,11 +6,11 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "Sir Bomb",
+		string Name = "Scientist_2",
 	},
 	Archetyped = 
 	{
-		string Name = "5691cf9a753bf252:Bomb",
+		string Name = "56becf6fa7892bfb:Scientist_2",
 	},
 	Transform = 
 	{
@@ -24,11 +24,11 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [0.995000005, 0.995000005, 0.995000005, 1],
+		Vec4 Color = [1, 1, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "5695a9369c310ebc:Bomb",
+		string SpriteSource = "567bcb53aebb0663:SnowMan",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -46,7 +46,7 @@ Cog =
 		Vec3 Offset = [0, 0, 0],
 		Vec3 Size = [0.5, 0.5, 0.5],
 	},
-	BombScript = 
+	OstrichToScientist = 
 	{
 	},
 },

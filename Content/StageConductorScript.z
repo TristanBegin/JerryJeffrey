@@ -29,10 +29,11 @@ class StageConductorScript : ZilchComponent
         
         this.TextArray.Add(""); //The first element of the string array, it will aways be ""
         this.TextArray.Add("\"Come one and all to see the most bizarre freaks \nof nature imaginable!\"");
+        this.TextArray.Add("\"These odd creatures are 100% guarenteed to make\nyou feel better about yourself.\"");
         this.TextArray.Add("\"Hey, who are you\"");
-        this.TextArray.Add("\"Get out of here, you’ re screwing with my show\"");
+        this.TextArray.Add("\"Get out of here, you’'re screwing with my show\"");
         this.TextArray.Add("\"What’'s that? You want to participate?”\"");
-        this.TextArray.Add("\"Hmm, I don’'t know. I guess you’'10re pretty freaky looking...\nhmm...”\"");
+        this.TextArray.Add("\"Hmm, I don’'t know. I guess you’'10re pretty freaky \nlooking... hmm...”\"");
         this.TextArray.Add("\"I’'m afraid it’ s not so simple, though. We like to have our\n animals work in pairs. What kind of animal are you?\"");
         this.TextArray.Add("");
         this.TextArray.Add("”");
@@ -50,7 +51,7 @@ class StageConductorScript : ZilchComponent
             if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
                 && (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
             {
-                if(this.I == 9)
+                if(this.I == 10)
                 {
                     this.Player.Transform.Translation = Real3(3.5, 4.5, 0);
                     this.Player.PlayerController.NextPosX = this.Player.Transform.Translation.X;
@@ -65,7 +66,7 @@ class StageConductorScript : ZilchComponent
                     
                     
                 }
-                else if(this.I == 7 && this.Input == "")
+                else if(this.I == 8 && this.Input == "")
                 {
                 }
                 else
@@ -101,13 +102,13 @@ class StageConductorScript : ZilchComponent
             this.Player.PlayerController.Talking = true;
         }
         
-        this.TextArray.Set(7, (text.TextInput.ST));
+        this.TextArray.Set(8, (text.TextInput.ST));
         
-        if (this.I < 7)
+        if (this.I < 8)
         {
             text.TextInput.ST = "";
         }
-        else if (this.I == 7)
+        else if (this.I == 8)
         { 
             if(this.Player.PlayerController.Texting == false)
             {
@@ -115,17 +116,17 @@ class StageConductorScript : ZilchComponent
             }
             this.GameSession.GameStats.AutoComplete = true;
         }
-        else if (this.I != 7)
+        else if (this.I != 8)
         {
             this.GameSession.GameStats.AutoComplete = false;
         }
         
-        if(this.Talked == true && this.Player.PlayerController.Talking == true && this.I < 7 )
+        if(this.Talked == true && this.Player.PlayerController.Talking == true && this.I < 8 )
         {
-            this.I = 6;
+            this.I = 7;
         }
         
-        if(this.I == 8)
+        if(this.I == 9)
         {
             this.Input = this.Input.ToLower();
             this.WrongAnswer = this.WrongAnswer.ToLower();
@@ -134,17 +135,17 @@ class StageConductorScript : ZilchComponent
             if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
             {
                 this.Talked = true;
-                this.TextArray.Set(8,"“\"What? That isn't an animal. \nSorry.\"");
+                this.TextArray.Set(9,"“\"What? That isn't an animal. \nSorry.\"");
             }
             else if(this.Input != this.RightAnswer)
             {
                 this.Talked = true;
-                this.TextArray.Set(8,"“\"A dog? Eh, we have enough freaky looking dogs. \nSorry.\"");
+                this.TextArray.Set(9,"“\"A dog? Eh, we have enough freaky looking dogs. \nSorry.\"");
             }
             else
             {
-                this.TextArray.Set(8,"\"A rhino? Really? What a strange coincidence, \nwe just got a new rhino recently.\"");
-                if (this.TextArray.Count <= 9 )
+                this.TextArray.Set(9,"\"A rhino? Really? What a strange coincidence, \nwe just got a new rhino recently.\"");
+                if (this.TextArray.Count <= 10 )
                 {
                     this.TextArray.Add("\" I'll bet you two would make a perfect pair!\nCome with me, we’ ll get you in your cage.\"");
                     

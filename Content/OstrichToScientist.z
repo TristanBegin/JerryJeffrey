@@ -1,42 +1,24 @@
-class OstrichToBox : ZilchComponent
+class OstrichToScientist : ZilchComponent
 {
   var UsedOstrich : Boolean = false;
   var JeffreyFloor : Cog;
-  var Rhino : Cog;
-  var PitTop : Cog;
-  var PitBottom : Cog;
-  var ItemInBox : String = "";
   var Player : Cog;
   
   var TextArray : Array[String] = Array[String]();
   var I : Integer = 0;
   
-  [Property]
-  var PitWorld : SpriteSource;
-  
   function Initialize(init : CogInitializer)
   {
     /* Text Array Stuff */
     this.TextArray.Add("");
-    this.TextArray.Add("I'm a box.");
+    this.TextArray.Add("I'm a scientist.");
     
     
     Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     
     this.JeffreyFloor = this.Space.FindObjectByName("JeffreyFloor");
-    
     this.Player = this.Space.FindObjectByName("Player");
-    
-    this.PitTop = this.Space.FindObjectByName("PitRoomTop");
-    this.PitTop.BoxCollider.Ghost = true;
-    
-    this.PitBottom = this.Space.FindObjectByName("PitRoomBottom");
-    this.PitBottom.BoxCollider.Ghost = true;
-    
-    this.Rhino = this.Space.FindObjectByName("Rhino");
-    this.Rhino.Sprite.Visible = false;
-    this.Rhino.BoxCollider.Ghost = true;
   }
 
   function OnLogicUpdate(event : UpdateEvent)
@@ -50,19 +32,6 @@ class OstrichToBox : ZilchComponent
         ++this.I;
       }
       
-      if (Zero.Keyboard.KeyIsPressed(Keys.Enter))
-      {
-        if (this.GameSession.GameStats.CurrentString == "" && this.GameSession.GameStats.DoneTyping == true)
-        {
-          if (this.ItemInBox == "Ostrich" && this.Player.PlayerController.Talking == false)
-          {
-            this.GameSession.GameStats.ObjectTwo = "Ostrich";
-            this.ItemInBox = "";
-            this.TextArray.Set(1, "You grabbed the ostrich from the box.");
-            this.I = 1;
-          }
-        }
-      }
       
       if (this.I >= this.TextArray.Count || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping == true))
       {
@@ -91,7 +60,7 @@ class OstrichToBox : ZilchComponent
     if (this.UsedOstrich == true)
     {
       this.GameSession.GameStats.CurrentString = "";
-      this.TextArray.Set(1, "The ceramic ostrich is in the box.");
+      this.TextArray.Set(1, "You gave the ostrich to the scientist.");
       this.I = 1;
       this.UsedOstrich = false;
     }
@@ -100,23 +69,17 @@ class OstrichToBox : ZilchComponent
   function OnItemUsed(event : ItemUsed)
   {
     
-    if (event.TheItem == "Ostrich" && this.ItemInBox == "")
+    if (event.TheItem == "Ostrich")
     {
       Console.WriteLine("Event received.");
-      this.ItemInBox = "Ostrich";
       this.GameSession.GameStats.ObjectTwo = "";
-      this.JeffreyFloor.Sprite.SpriteSource = this.PitWorld;
+      this.JeffreyFloor.Sprite.SpriteSource = SpriteSource.TileSet06Full;
+      this.JeffreyFloor.Sprite.FlipX = true;
       
-      this.PitTop.BoxCollider.Ghost = false;
-      this.PitBottom.BoxCollider.Ghost = false;
+      this.Space.FindObjectByName("L5Dog2").Destroy();
+      this.Space.FindObjectByName("L5Dog2_2").Destroy();
       
       this.UsedOstrich = true;
-      
-      if (this.Rhino != null)
-      {
-        this.Rhino.Sprite.Visible = true;
-        this.Rhino.BoxCollider.Ghost = false;
-      }
     }
   }
 }

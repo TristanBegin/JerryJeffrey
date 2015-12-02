@@ -8,6 +8,8 @@ class ContainerRhinoScript : ZilchComponent
     
     var HasRhino : Boolean = false;
     
+    var NotRhino : Boolean = false; 
+    
     [Property]
     var Text1 : String;
     [Property]
@@ -56,6 +58,10 @@ class ContainerRhinoScript : ZilchComponent
             }
             if(this.I >= this.TextArray.Count)
             {
+                if(this.NotRhino == true)
+                {
+                    this.NotRhino = false;
+                }
                 player.PlayerController.Talking = false;
                 this.I  = 0;
                 this.GameSession.GameStats.CurrentString = "";
@@ -76,7 +82,11 @@ class ContainerRhinoScript : ZilchComponent
             this.GameSession.GameStats.Trigger = "";
             this.GameSession.GameStats.ObjectOne = "Rhino";
         }
-        if(this.I == 0 && this.HasRhino == false)
+        if(this.NotRhino == true)
+        {
+            this.TextArray.Set(1,"Nothing happened");
+        }
+        else if(this.I == 0 && this.HasRhino == false)
         {
             this.TextArray.Set(1,"`this.Text1`\n`this.Text2`");
         }
@@ -92,6 +102,10 @@ class ContainerRhinoScript : ZilchComponent
         if (event.TheItem == "Rhino")
         {
             this.UsedRhino = true;
+        }
+        else
+        {
+            this.NotRhino = true;
         }
     }
 }

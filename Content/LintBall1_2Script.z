@@ -72,7 +72,7 @@ class LintBall1_2Script : ZilchComponent
         this.GameSession.GameStats.ObjectOne = "Rhino";
         
         this.TextArray.Set(2, "\"I already gave you the rhino.\"");
-        this.TextArray.Set(2, "\"Gosh, you are so greedy.\"");
+        this.TextArray.Set(3, "\"Gosh, you are so greedy.\"");
         
         
         //if(this.Switch == "On")
