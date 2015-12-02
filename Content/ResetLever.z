@@ -7,6 +7,9 @@ class ResetLever : ZilchComponent
 {
   
   var Player : Cog;
+  var SwitchPulled : Boolean;
+  var Timer : Real = 0.0;
+  var Delay : Real = 0.35;
   
   function Initialize(init : CogInitializer)
   {
@@ -22,6 +25,20 @@ class ResetLever : ZilchComponent
     {
       var resetEvent : ResetEvent = new ResetEvent();
       this.Space.DispatchEvent(Events.ResetEvent, resetEvent);
+      this.SwitchPulled = true;
+    }
+    
+    if(this.SwitchPulled == true)
+    {
+      this.Timer += event.Dt;
+      this.Owner.Sprite.SpriteSource = SpriteSource.LeverDown;
+    }
+    
+    if(this.Timer > this.Delay)
+    {
+      this.Owner.Sprite.SpriteSource = SpriteSource.LeverUp;
+      this.SwitchPulled = false;
+      this.Timer = 0;
     }
   }
 }
