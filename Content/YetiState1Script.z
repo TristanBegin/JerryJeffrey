@@ -14,7 +14,7 @@ class YetiState1Script : ZilchComponent
     {
         this.TextArray.Add("");
         this.TextArray.Add("\"Who are you? What are you doing here?\"”");
-        this.TextArray.Add("\"You aren’'t supposed to be here\"");
+        this.TextArray.Add("\"You aren’'t supposed to be here.\"");
         this.TextArray.Add("\"Ugh, fine, stay. See if I care.\"”");
         this.TextArray.Add("\"It’'s not like it matters, anyways.\"");
         this.TextArray.Add("\"I thought I’'d be happier if I came to this world, \nbut it seems that’'s just not the case.\"");

@@ -14,9 +14,9 @@ class YetiState3Script : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         this.TextArray.Add("");
-        this.TextArray.Add("\"Hello again. \"”");
-        this.TextArray.Add("\"I don’'t know why I came here; \nThis world is so depressing\"");
-        this.TextArray.Add("\"Always talking about how good it is; \nplease\"”");
+        this.TextArray.Add("\"Hello again.\"”");
+        this.TextArray.Add("\"I don’'t know why I came here; \nThis world is so depressing.\"");
+        this.TextArray.Add("\"It's always talking about how good it is; \nplease.\"”");
         this.TextArray.Add("\"I’'m a better person than this place, for sure.\n I deserve much better.\"");
         this.TextArray.Add("\"This world scares me.\"");
         this.TextArray.Add("\"I think I’'ll go back to the other world. \nThat will definitely make me happy.\"");
@@ -93,14 +93,14 @@ function OnLogicUpdate(event : UpdateEvent)
             this.GameSession.GameStats.ObjectTwo = "";
             this.TextArray.Set(1,"\"Wait... are those... PANTIES?\"”");
             this.TextArray.Set(2,"\"And you... you’ re giving those... to me?\n Really?\"");
-            this.TextArray.Set(3,"\"My goodness, this is the greatest gift \nI have ever received\"”");
-            this.TextArray.Set(4,"\"Is this... is this what it feels like? \nTo be truly happy?\"");
+            this.TextArray.Set(3,"\"My goodness, this is the greatest gift I have ever received\"”");
+            this.TextArray.Set(4,"\"Is this... is this what it feels like to be \ntruly happy?\"");
             this.TextArray.Set(5,"\"Thank you. Thank you so much\"");
-            this.TextArray.Set(6,"\"Please, if there’'s anything you need, \nplease ask.\"");
+            this.TextArray.Set(6,"\"If there’'s anything you need, \nplease ask.\"");
             this.TextArray.Add("\"What’'s that, you’'re looking for someone?\"");
             this.TextArray.Add("\"Oh, him. Yeah, I know him.\"");
             this.TextArray.Add("\"Don’'t worry, I know where he went. \nI can bring him back no problem.\"");
-            this.TextArray.Add("\"In fact, I’'ll bet I can get him back faster \n than you can return to his room.\"");
+            this.TextArray.Add("\"In fact, I’ bet I can get him back faster \n than you can return to his room.\"");
         }
     }
     

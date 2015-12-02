@@ -50,4 +50,9 @@ Cog =
 	{
 		float NumberOfLines = 4,
 	},
+	Area = 
+	{
+		Vec2 Size = [1, 1],
+		Location Origin = TopLeft,
+	},
 },

@@ -26,8 +26,8 @@ class JerryAllBallsScript : ZilchComponent
         this.TextArray.Add("\"I know that I only have a few hours to live, and it's all\nbecause of that man over there.\"");
         this.TextArray.Add("\"He's poisoned me, you see.\"");
         this.TextArray.Add("\"It's because he's jealous.\"");
-        this.TextArray.Add("\"He knows that he could never hope to match my \ninhuman level of juggling talent\"");
-        this.TextArray.Add("\"You see, a lot of people don't know this, but jugglers are \nin fact quite viscous creatures.\"");
+        this.TextArray.Add("\"He knows that he could never hope to match my \nsuperhuman level of juggling talent.\"");
+        this.TextArray.Add("\"You see, a lot of people don't know this, but jugglers are \nin fact quite vicious creatures.\"");
         this.TextArray.Add("\"Luckily for you, I am the exception to this rule.\"");
         this.TextArray.Add("\"All I wish to do is have fun with my balls. But these other\n jugglers, they get so competitive.\"");
         this.TextArray.Add("\"I need you to do something for me.\"");
@@ -36,7 +36,7 @@ class JerryAllBallsScript : ZilchComponent
         this.TextArray.Add("\"I need you to kill his family.\"");
         this.TextArray.Add("");
         this.TextArray.Add("\"You will? Thank goodness.\"");
-        this.TextArray.Add("\"Alright, listen, his family is hidden in a box. \nYou could say that it is the only box. THE box, so to speak.\"");
+        this.TextArray.Add("\"Alright, listen. His family is hidden in a box. \nYou could say that it is the only box. THE box, so to speak.\"");
 
     }
 

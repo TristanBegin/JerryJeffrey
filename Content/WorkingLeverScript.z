@@ -69,7 +69,7 @@ class WorkingLeverScript : ZilchComponent
         
         if(this.Pulled == true)
         {
-            this.TextArray.Set(1, "\"Lever `this.Owner.Name` has already been pulled\"");
+            this.TextArray.Set(1, "\"Lever `this.Owner.Name` has already been pulled.\"");
             if(this.Owner.Sprite.SpriteSource != this.PulledSprite)
             {
                 this.Owner.Sprite.SpriteSource = this.PulledSprite;

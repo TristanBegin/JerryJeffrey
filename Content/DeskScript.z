@@ -130,7 +130,7 @@ class DeskScript : ZilchComponent
                 this.TextArray.Set(7,"\"“What was that? Those words... they were...\nsomething BESIDES open and close?”\"");
                 if (this.TextArray.Count <= 8 )
                 {
-                    this.TextArray.Add("\"Are you... by chance... trying to have a conversation with me?”“\nOh goodness, this has never happened before.\"");
+                    this.TextArray.Add("\"Are you... by chance... trying to have a conversation \nwith me?”“ Oh goodness, this has never happened before.\"");
                     this.TextArray.Add("*Ahem*”“\n\"Hello! How are you today? I’'m doing amazing, actually.\"");
                     this.TextArray.Add("\"You know how it is, opening and closing and whatnot.”“\nYes, yes, being a drawer is a truly thrilling experience,\"" );
                     this.TextArray.Add("\"let me tell you. Why, just the other day, I had to open\nfor a very important individual.\"");

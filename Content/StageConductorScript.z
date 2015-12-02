@@ -30,11 +30,11 @@ class StageConductorScript : ZilchComponent
         this.TextArray.Add(""); //The first element of the string array, it will aways be ""
         this.TextArray.Add("\"Come one and all to see the most bizarre freaks \nof nature imaginable!\"");
         this.TextArray.Add("\"These odd creatures are 100% guarenteed to make\nyou feel better about yourself.\"");
-        this.TextArray.Add("\"Hey, who are you\"");
-        this.TextArray.Add("\"Get out of here, you’'re screwing with my show\"");
+        this.TextArray.Add("\"Hey, who are you?\"");
+        this.TextArray.Add("\"Get out of here! You’'re screwing with my show!\"");
         this.TextArray.Add("\"What’'s that? You want to participate?”\"");
-        this.TextArray.Add("\"Hmm, I don’'t know. I guess you’'10re pretty freaky \nlooking... hmm...”\"");
-        this.TextArray.Add("\"I’'m afraid it’ s not so simple, though. We like to have our\n animals work in pairs. What kind of animal are you?\"");
+        this.TextArray.Add("\"Hmm, I don’'t know... I guess you’'re pretty freaky \nlooking... hmm...”\"");
+        this.TextArray.Add("\"I’'m afraid it’'s not so simple, though. We prefer to have our\n animals work in pairs. What kind of animal are you?\"");
         this.TextArray.Add("");
         this.TextArray.Add("”");
     }

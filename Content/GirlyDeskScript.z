@@ -29,8 +29,8 @@ class GirlyDeskScript : ZilchComponent
         {
             this.UsedKey = false;
             this.I = 0;
-            this.TextArray.Set(1,"You unlocked the drawer");
-            this.TextArray.Add("You found a pair of men’'s underwear");
+            this.TextArray.Set(1,"You unlocked the drawer.");
+            this.TextArray.Add("You found a pair of men’'s underwear.");
             this.GameSession.GameStats.ObjectOne = "";
         }
         
