@@ -1,0 +1,122 @@
+class Box4D : ZilchComponent
+{
+  var Player : Cog;
+  var HitObject : Cog;
+  var BoxMoving : Boolean = false;
+  var ActionTime : Real = 1.0;
+  var DelayTimer : Real = 0.0;
+  var DelayLength : Real = 1.0;
+  var TimerRunning : Boolean = false;
+  
+  var OriginalPos : Real3;
+  
+  [Property]
+  var UpDownMove : Boolean = true;
+  
+  [Property]
+  var LeftRight : Boolean = true;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.OriginalPos = this.Owner.Transform.Translation;
+    this.Player = this.Space.FindObjectByName("Player");
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    Zero.Connect(this.Space, Events.ResetEvent, this.OnResetEvent);
+  }
+
+  function OnResetEvent(event : ResetEvent)
+  {
+    this.Owner.Transform.Translation = this.OriginalPos;
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    var rayLeft = Ray();
+    rayLeft.Start = this.Owner.Transform.Translation;
+    rayLeft.Direction = Real3(-1, 0, 0);
+    var leftResult = this.Space.PhysicsSpace.CastRayFirst(rayLeft);
+    
+    var rayRight = Ray();
+    rayRight.Start = this.Owner.Transform.Translation;
+    rayRight.Direction = Real3(1, 0, 0);
+    var rightResult = this.Space.PhysicsSpace.CastRayFirst(rayRight);
+    
+    var rayUp = Ray();
+    rayUp.Start = this.Owner.Transform.Translation;
+    rayUp.Direction = Real3(0, 1, 0);
+    var upResult = this.Space.PhysicsSpace.CastRayFirst(rayUp);
+    
+    var rayDown = Ray();
+    rayDown.Start = this.Owner.Transform.Translation;
+    rayDown.Direction = Real3(0, -1, 0);
+    var downResult = this.Space.PhysicsSpace.CastRayFirst(rayDown);
+    
+    var actionQueue = Action.Sequence(this.Owner.Actions);
+    
+    if(this.DelayTimer > this.DelayLength && this.TimerRunning == true)
+    {
+      this.DelayTimer = 0;
+      this.TimerRunning = false;
+    }
+    
+    if(this.TimerRunning == true)
+    {
+      this.DelayTimer += event.Dt;
+    }
+    
+    if(this.TimerRunning == true)
+    {
+      this.Player.PlayerController.Talking = true;
+      this.BoxMoving = true;
+    }
+    else
+    {
+      this.Player.PlayerController.Talking = false;
+      this.BoxMoving = false;
+    }
+    
+    if(this.Player.RayCastings.DistanceLooking < 0.5 && 
+       this.Player.RayCastings.HitObject == this.Owner &&
+       Zero.Keyboard.KeyIsPressed(Keys.Enter) &&
+       this.BoxMoving == false)
+    {
+      
+      if(this.Player.PlayerController.LookingDirection == 0 &&
+        upResult.Distance >= 2 && this.UpDownMove == true)
+      {
+        Action.Property(actionQueue, @this.Owner.Transform.Translation, 
+        Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1, 0), 
+        this.ActionTime, Ease.Linear);
+        
+        this.TimerRunning = true;
+      }
+      else if(this.Player.PlayerController.LookingDirection == 1 &&
+        rightResult.Distance >= 2 && this.LeftRight == true)
+      {
+        Action.Property(actionQueue, @this.Owner.Transform.Translation, 
+        Real3(this.Owner.Transform.Translation.X + 1, this.Owner.Transform.Translation.Y, 0), 
+        this.ActionTime, Ease.Linear);
+        
+        this.TimerRunning = true;
+      }
+      else if(this.Player.PlayerController.LookingDirection == 2 &&
+        downResult.Distance >= 2 && this.UpDownMove == true)
+      {
+        Action.Property(actionQueue, @this.Owner.Transform.Translation, 
+        Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y - 1, 0), 
+        this.ActionTime, Ease.Linear);
+        
+        this.TimerRunning = true;
+      }
+      else if(this.Player.PlayerController.LookingDirection == 3 &&
+        leftResult.Distance >= 2 && this.LeftRight == true)
+      {
+        Action.Property(actionQueue, @this.Owner.Transform.Translation, 
+        Real3(this.Owner.Transform.Translation.X - 1, this.Owner.Transform.Translation.Y, 0), 
+        this.ActionTime, Ease.Linear);
+        
+        this.TimerRunning = true;
+      }
+    }
+  }
+}

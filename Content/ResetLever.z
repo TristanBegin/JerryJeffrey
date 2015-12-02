@@ -1,0 +1,27 @@
+class ResetEvent : ZilchEvent
+{
+  sends ResetEvent : ResetEvent;
+}
+
+class ResetLever : ZilchComponent
+{
+  
+  var Player : Cog;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.Player = this.Space.FindObjectByName("Player");
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+  
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Player.RayCastings.DistanceLooking < 0.5 && 
+       this.Player.RayCastings.HitObject == this.Owner &&
+       Zero.Keyboard.KeyIsPressed(Keys.Enter))
+    {
+      var resetEvent : ResetEvent = new ResetEvent();
+      this.Space.DispatchEvent(Events.ResetEvent, resetEvent);
+    }
+  }
+}

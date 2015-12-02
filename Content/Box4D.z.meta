@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Box4D",
+		uint64 ResourceId = 56beee7a90e864f2,
+	},
+},

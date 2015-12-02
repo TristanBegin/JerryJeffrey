@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "ResetLever",
+		uint64 ResourceId = 56bef90f99464766,
+	},
+},
