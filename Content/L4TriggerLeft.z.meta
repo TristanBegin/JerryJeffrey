@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "L4TriggerLeft",
+		uint64 ResourceId = 56be4694a0c9da89,
+	},
+},

@@ -1,0 +1,19 @@
+class L4TriggerLeft : ZilchComponent
+{
+  var RightBox : Cog;
+  
+  function Initialize(init : CogInitializer)
+  {
+    this.RightBox = this.Space.FindObjectByName("THEBOX");
+    Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+  }
+
+  function OnCollisionStarted(event : CollisionEvent)
+  {
+    if(event.OtherObject.Name == "Player" && this.RightBox.BoxLvl4_1.Talked == true)
+    {
+      this.Space.CreateAtPosition(Archetype.BlockPuzzle, Real3());
+      this.Owner.Destroy();
+    }
+  }
+}

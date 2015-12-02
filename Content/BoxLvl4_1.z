@@ -1,5 +1,6 @@
 class BoxLvl4_1 : ZilchComponent
 {
+    var Talked : Boolean = false;
     
     var I : Integer = Integer(0); // Text counter
     
@@ -148,6 +149,8 @@ class BoxLvl4_1 : ZilchComponent
                 this.I = 0;
                 //Clear the current string
                 this.GameSession.GameStats.CurrentString = "";
+                
+                this.Talked = true;
                 
                 this.Owner.Sprite.SpriteSource = SpriteSource.Wood;
                 

@@ -3,7 +3,7 @@ ImageContent =
 	SpriteSourceBuilder = 
 	{
 		string Name = "JeffreyIdleForwardAnim",
-		uint64 ResourceId = 56157c18eb8599b1,
+		uint64 ResourceId = 56beba2cff2bc3fb,
 		uint64 AtlasId = 5274cf95e4a661fd,
 		uint FrameSizeX = 16,
 		uint FrameSizeY = 18,
@@ -11,7 +11,7 @@ ImageContent =
 		float FrameDelay = 1,
 		float OriginX = 8,
 		float OriginY = 9,
-		float PixelsPerUnit = 64,
+		float PixelsPerUnit = 16,
 		bool Smoothing = false,
 		bool Looping = true,
 		Vec4 Slices = [0, 0, 0, 0],

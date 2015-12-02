@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "L4Box2DestroyPuzzle",
+		uint64 ResourceId = 56be403f595c8c44,
+	},
+},
