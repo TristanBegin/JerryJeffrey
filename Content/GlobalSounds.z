@@ -1,0 +1,31 @@
+class GlobalSounds : ZilchComponent
+{
+    var LastObjectState : String = "";
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.LastObjectState == "" && this.GameSession.GameStats.ObjectOne != "")
+        {
+            this.Play(SoundCue.PickUpCue);
+            this.LastObjectState = this.GameSession.GameStats.ObjectOne;
+        }
+        else if (this.LastObjectState == "" && this.GameSession.GameStats.ObjectTwo != "")
+        {
+            this.Play(SoundCue.PickUpCue);
+            this.LastObjectState = this.GameSession.GameStats.ObjectTwo;
+        }
+        else if (this.LastObjectState == "" && this.GameSession.GameStats.ObjectThree != "")
+        {
+            this.Play(SoundCue.PickUpCue);
+            this.LastObjectState = this.GameSession.GameStats.ObjectThree;
+        }
+    }
+    function Play (theSound : SoundCue)
+    {
+        this.Owner.SoundEmitter.PlayCue(theSound);
+    }
+}

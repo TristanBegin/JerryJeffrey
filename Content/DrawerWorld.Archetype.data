@@ -40,6 +40,18 @@ Cog =
 	{
 		string Condition = "Desk",
 	},
+	SoundEmitter = 
+	{
+		float Volume = 1,
+		float Pitch = 0,
+		bool Positional = false,
+		int Version = 1,
+	},
+	SimpleSound = 
+	{
+		bool StartPlaying = true,
+		string CueName = "56750787ca1c7ea5:WhiteNoiseCue",
+	},
 	Hierarchy = 
 	{
 		Cog = 

@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [26.5, 22.5, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -39,6 +39,18 @@ Cog =
 	DestroyScript = 
 	{
 		string Condition = "Freezer",
+	},
+	SoundEmitter = 
+	{
+		float Volume = 1,
+		float Pitch = 0,
+		bool Positional = false,
+		int Version = 1,
+	},
+	SimpleSound = 
+	{
+		bool StartPlaying = true,
+		string CueName = "56749bb54867caa6:FrozenWind",
 	},
 	Hierarchy = 
 	{

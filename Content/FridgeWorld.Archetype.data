@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [27.4033184, 5.63561392, 0],
+		Vec3 Translation = [36.5, 12.5, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -39,6 +39,18 @@ Cog =
 	DestroyScript = 
 	{
 		string Condition = "Fridge",
+	},
+	SoundEmitter = 
+	{
+		float Volume = 0.5,
+		float Pitch = 0,
+		bool Positional = false,
+		int Version = 1,
+	},
+	SimpleSound = 
+	{
+		bool StartPlaying = true,
+		string CueName = "56749988d54fdaa3:SoftWindCue",
 	},
 	Hierarchy = 
 	{
