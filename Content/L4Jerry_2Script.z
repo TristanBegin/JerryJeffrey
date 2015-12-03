@@ -12,14 +12,12 @@ class L4Jerry_2Script : ZilchComponent
   function Initialize(init : CogInitializer)
   {
     this.TextArray.Add("");
-    this.TextArray.Add("\"Hello again.\"”");
-    this.TextArray.Add("\"I don’'t know why I came here; \nThis world is so depressing.\"");
-    this.TextArray.Add("\"It's always talking about how good it is; \nplease.\"”");
-    this.TextArray.Add("\"I’'m a better person than this place, for sure.\n I deserve much better.\"");
-    this.TextArray.Add("\"This world scares me.\"");
-    this.TextArray.Add("\"I think I’'ll go back to the other world. \nThat will definitely make me happy.\"");
-    this.TextArray.Add("");
-    this.TextArray.Add("");
+    this.TextArray.Add("\"Thanks for finding my balls!\"”");
+    this.TextArray.Add("\"I would hate to have lost them.\"");
+    this.TextArray.Add("\"My balls are...\"”");
+    this.TextArray.Add("\"...\"");
+    this.TextArray.Add("\".....\"");
+    this.TextArray.Add("\"...precious to me.\"");
     
     this.Player = this.Space.FindObjectByName("Player");
     
@@ -44,6 +42,8 @@ class L4Jerry_2Script : ZilchComponent
       {
         if(this.I == this.TextArray.Count)
         {
+          this.I = 0;
+          this.Player.PlayerController.Talking = false;
           this.GameSession.GameStats.CurrentString = "";
         }
       }
