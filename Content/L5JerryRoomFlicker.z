@@ -1,0 +1,73 @@
+class L5JerryRoomFlicker : ZilchComponent
+{
+  var Player : Cog;
+  var JerryFloor : Cog;
+  var Timer : Real = 0.0;
+  var FlickerTime : Real = 3.0;
+
+
+  function Initialize(init : CogInitializer)
+  {
+    this.JerryFloor = this.Space.FindObjectByName("JerryFloor");
+    this.Player = this.Space.FindObjectByName("Player");
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(this.Player.Transform.Translation.X < 8.0 && 
+       this.GameSession.GameStats.ObjectOne == "Rhino")
+    {
+      this.FlickerTime -= event.Dt / 5;
+      if (this.FlickerTime > 1.5)
+      {
+        this.Timer -= event.Dt;
+        
+        if(this.Timer < 0)
+        {
+          if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.BottomOfPit)
+          {
+            this.JerryFloor.Sprite.SpriteSource = SpriteSource.TileSet06Full;
+            this.JerryFloor.Sprite.SpriteLayer = SpriteLayer.Five;
+          }
+          else if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.TileSet06Full)
+          {
+            this.JerryFloor.Sprite.SpriteSource = SpriteSource.BottomOfPit;
+            this.JerryFloor.Sprite.SpriteLayer = SpriteLayer.Zero;
+          }
+          
+          this.Timer = this.FlickerTime;
+          this.FlickerTime -= 2;
+        }
+      }
+      
+      if(this.FlickerTime <=  1.5 && this.FlickerTime > 0.035)
+      {
+        this.Timer -= event.Dt;
+        
+        if(this.Timer < 0)
+        {
+          if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.BottomOfPit)
+          {
+            this.JerryFloor.Sprite.SpriteSource = SpriteSource.TileSet06Full;
+            this.JerryFloor.Sprite.SpriteLayer = SpriteLayer.Five;
+          }
+          else if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.TileSet06Full)
+          {
+            this.JerryFloor.Sprite.SpriteSource = SpriteSource.BottomOfPit;
+            this.JerryFloor.Sprite.SpriteLayer = SpriteLayer.Zero;
+          }
+          
+          this.Timer = this.FlickerTime;
+        }
+        
+      }
+      
+      if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.TileSet06Full && this.FlickerTime <= 0)
+      {
+        this.JerryFloor.Sprite.SpriteSource = SpriteSource.BottomOfPit;
+        this.JerryFloor.Sprite.SpriteLayer = SpriteLayer.Zero;
+      }
+    }
+  }
+}
