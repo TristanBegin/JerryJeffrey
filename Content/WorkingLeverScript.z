@@ -29,6 +29,11 @@ class WorkingLeverScript : ZilchComponent
     {
         var player = this.Player;
         
+        if(this.GameSession.GameStats.Trigger == "Lever")
+        {
+            this.GameSession.GameStats.Trigger = "";
+        }
+        
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
         {
             if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping

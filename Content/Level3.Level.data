@@ -814,22 +814,4 @@ Level =
 			string Name = "Wood",
 		},
 	},
-	ArchetypeInstance = 
-	{
-		string Name = "5695825f52e1a43b:WorkingLevers",
-		LinkId = 
-		{
-			uint Id = 19,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [3.57952213, 3.52171326, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Named = 
-		{
-			string Name = "WorkingLevers",
-		},
-	},
 },
