@@ -9,12 +9,18 @@ class DoorCheckpointScript : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        Console.WriteLine(this.GameSession.GameStats.Trigger);
          Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
          Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
     }
     
     function OnCollisionStarted(event : CollisionEvent)
     {
+        
+        if(this.GameSession.GameStats.Trigger == "Lever")
+        {
+            this.GameSession.GameStats.Trigger = "";
+        }
         if (this.GameSession.GameStats.Trigger == "Right")
         {
             this.Space.CreateAtPosition(Archetype.Bomb, Real3(3.5,3.5, 0));
@@ -26,15 +32,16 @@ class DoorCheckpointScript : ZilchComponent
             this.Space.CreateAtPosition(Archetype.Ball1 , Real3(2.5, 3.5, 0.0));
             this.GameSession.GameStats.Trigger = "SoulMapa";
         }
-         if (this.GameSession.GameStats.ObjectOne == "Ball")
-         {
-             this.GameSession.GameStats.Trigger = "Lever";
-             if(this.Object == null)
-             {
-                this.Object = this.Space.CreateAtPosition(Archetype.WorkingLevers , Real3(3.5, 3.5, 0.0));
-                this.Space.CreateAtPosition(Archetype.StuckLevers , Real3(12.5, 3.5, 0.0));
+        if (this.GameSession.GameStats.ObjectOne == "Ball")
+        {
+            this.GameSession.GameStats.Trigger = "Lever";
+            if(this.Object == null)
+            {
+            this.Object = this.Space.CreateAtPosition(Archetype.WorkingLevers , Real3(3.5, 3.5, 0.0));
+            this.Space.CreateAtPosition(Archetype.StuckLevers , Real3(12.5, 3.5, 0.0));
             }
-         }
+        }
+
     }
         
     function OnCollisionEnded(event : CollisionEvent)

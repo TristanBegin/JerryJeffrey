@@ -53,7 +53,7 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "",
+		string Text1 = "It's just a piece of wood.",
 		string Text2 = "",
 		string Text3 = "",
 		string Text4 = "",
@@ -88,7 +88,12 @@ Cog =
 	},
 	DestroyWhenScript = 
 	{
-		string Condition = "...",
+		string Condition = "SoulMapa",
 		string Right = "",
+	},
+	SpawnWhenScript = 
+	{
+		string Condition = "SoulMapa",
+		string Spawns = "569509a5bb72edea:BlockPuzzleBall1",
 	},
 },

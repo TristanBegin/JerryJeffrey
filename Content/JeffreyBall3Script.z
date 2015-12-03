@@ -44,7 +44,6 @@ class JeffreyBall3Script : ZilchComponent
     {
         var text = this.Space.LevelSettings.HudInteraction.HudText; //Finds the hud text
         
-        Console.WriteLine(text.TextInput.ST);
         // If the object is next to the player
         if(this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
         {

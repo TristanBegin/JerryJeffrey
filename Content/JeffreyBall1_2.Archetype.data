@@ -28,7 +28,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "56157c18eb8599b1:JeffreyIdleForwardAnim",
+		string SpriteSource = "56beba2cff2bc3fb:JeffreyIdleForwardAnim",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -63,8 +63,8 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "",
-		string Text2 = "",
+		string Text1 = """What a mess... my wife will kill me if she sees my room",
+		string Text2 = "like this...""",
 		string Text3 = "",
 		string Text4 = "",
 		string Text5 = "",

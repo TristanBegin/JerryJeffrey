@@ -53,8 +53,8 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "",
-		string Text2 = "",
+		string Text1 = "It's just a piece of wood.",
+		string Text2 = "There are no balls here, I promise.",
 		string Text3 = "",
 		string Text4 = "",
 		string Text5 = "",

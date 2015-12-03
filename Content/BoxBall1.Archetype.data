@@ -53,7 +53,7 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "",
+		string Text1 = """Interesting. I thought he was gone for good.""",
 		string Text2 = "",
 		string Text3 = "",
 		string Text4 = "",

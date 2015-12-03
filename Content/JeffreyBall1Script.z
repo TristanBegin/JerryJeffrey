@@ -20,33 +20,41 @@ class JeffreyBall1Script : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
 
         this.TextArray.Add("");
-        this.TextArray.Add("\"Aha! You found them! \nI knew I was right in choosing you as my best friend.\"");
-        this.TextArray.Add("\"It was him who stole them, wasn't it?\"");
-        this.TextArray.Add("\"That man on the other side of the wall.\n I've never seen him before, but I know he is there.\"");
-        this.TextArray.Add("\"He's the one who stole my balls, isn't he?\"");
+        this.TextArray.Add("\"Hello.\"");
+        this.TextArray.Add("\"Hello?\"");
+        this.TextArray.Add("\"Hello?!?\"");
+        this.TextArray.Add("\"For the love of God, man, why will\nyou not speak?\"");
         this.TextArray.Add("");
-        this.TextArray.Add("\"Of course he is….\"");
-        this.TextArray.Add("\"He's the reason I am dying, you see.\"");
-        this.TextArray.Add("\"I know that I only have a few hours to live, and it's all\nbecause of that man over there.\"");
-        this.TextArray.Add("\"He's poisoned me, you see.\"");
-        this.TextArray.Add("\"It's because he's jealous.\"");
-        this.TextArray.Add("\"He knows that he could never hope to match my \nsuperhuman level of juggling talent.\"");
-        this.TextArray.Add("\"You see, a lot of people don't know this, but jugglers \nare in fact quite vicious creatures.\"");
-        this.TextArray.Add("\"Luckily for you, I am the exception to this rule.\"");
-        this.TextArray.Add("\"All I wish to do is have fun with my balls. But these \nother jugglers, they get so competitive.\"");
-        this.TextArray.Add("\"I need you to do something for me.\"");
-        this.TextArray.Add("\"I am already dying, that much is certain.\n However, if you could do me this kindness,\"");
-        this.TextArray.Add("\"then perhaps I could juggle in peace for these last\n few hours.\"");
-        this.TextArray.Add("\"I need you to kill his family.\"");
-        this.TextArray.Add("\"You will? Thank goodness.\"");
-        this.TextArray.Add("\"Alright, listen, his family is hidden in a box. You \ncould say that it is the only box. THE box, so to speak.\"");
+        this.TextArray.Add("\"What is it? Why won't you say anything? Is it \nbecause you are secretly racist, is that the reason?\"");
+        this.TextArray.Add("\"That's it, isn't it? You are, in fact, a racist. Don't \ntry to defend yourself with some...\"");
+        this.TextArray.Add("\"...'I have horned friends' nonsense.\"");
+        this.TextArray.Add("\"Then again, it would seem I am racist as well.\"");
+        this.TextArray.Add("\"I've been having all sorts of foul thoughts.\nYou see, my wife and I, we are so different.\"");
+        this.TextArray.Add("\"I try to love her as she is, but I feel as \nif our differences put a barrier between us.\"");
+        this.TextArray.Add("\"You see, my wife...\"");
+        this.TextArray.Add("\"She's...\"");
+        this.TextArray.Add("\"Italian.\"");
+        this.TextArray.Add("\"Not that there's anything wrong with being Italian!\"");
+        this.TextArray.Add("\"It's just, considering that I am a rhinoceros, would\nit not make more sense for me to be with...\"");
+        this.TextArray.Add("\"...someone of my own kind?\"");
+        this.TextArray.Add("\"I truly wish I was Italian as well...\nmaybe then my wife and I could live in peace.\"");
+        this.TextArray.Add("\"But alas, I remain a rhinoceros. My wife doesn't even \nknow. She believes I'm Italian, just like her.\"");
+        this.TextArray.Add("\"And I guess I'm happy...\"");
+        this.TextArray.Add("\"But some part of me wishes I didn't have to \nlive this lie.\"");
+        this.TextArray.Add("\"And since it is impossible for me to stop being\na rhinoceros, perhaps my wife and I were not meant to be?\"");
+        this.TextArray.Add("\"You see, there's this rhino.\"");
+        this.TextArray.Add("\"I don't know much about her. I don't even know her name.\"");
+        this.TextArray.Add("\"But she's just so mysterious.\"");
+        this.TextArray.Add("\"I feel like I can be myself around her.\"");
+        this.TextArray.Add("\"NO! I mustn't be having these thoughts. My wife\nis the one for me.\"");
+        this.TextArray.Add("");
+        
 
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
         var text = this.Space.LevelSettings.HudInteraction.HudText; //Finds the hud text
-        Console.WriteLine(text.TextInput.ST);
         
         // If the object is next to the player
         if(this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)

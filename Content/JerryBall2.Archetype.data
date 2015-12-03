@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [3, 7, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -55,9 +55,9 @@ Cog =
 	{
 		string Text1 = "Jerry: ""My levers! I never thought I'd see them again.",
 		string Text2 = "Levers are great tools for creating spectacular shows.""",
-		string Text3 = """That one there used to drop a disco ball form the ceiling""",
-		string Text4 = "",
-		string Text5 = """It would fall down and crash and send glass presents",
+		string Text3 = """That one there used to drop a disco ball",
+		string Text4 = "from the ceiling.""",
+		string Text5 = """It would fall down, crash and send glass presents",
 		string Text6 = "to all of my guests!""",
 		string Text7 = """Truly a fun time for the entire family.""",
 		string Text8 = "",
