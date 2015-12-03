@@ -6,15 +6,11 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "L4Jeffrey",
-	},
-	Archetyped = 
-	{
-		string Name = "5654f0615f37b55e:L4Jeffrey",
+		string Name = "L4Jerry",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [12.5, 6.5, 0],
+		Vec3 Translation = [3.5, 6.5, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -28,7 +24,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "56beba2cff2bc3fb:JeffreyIdleForwardAnim",
+		string SpriteSource = "56157c8d9e5eb505:JerryFrontIdleAnim",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -48,7 +44,7 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "Jeffrey: ""Hello.""",
+		string Text1 = "Jerry: ""Have you killed them yet?""",
 		string Text2 = "",
 		string Text3 = "",
 		string Text4 = "",
