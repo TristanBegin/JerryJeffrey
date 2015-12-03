@@ -5,20 +5,40 @@ class L4JeffreyGiveLetter : ZilchComponent
   var Switch : String = "On";
   
   var Player : Cog;
+  var Jerry : Cog;
     
   var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
   var Done : Boolean = false;
   
-  var Text1 : String = "\"Please, give this letter to my love.\"";
-  var Text2 : String = "";
-  var Text3 : String = "";
-  var Text4 : String = "";
+  var Text1 : String = "Jeffrey: \"Oh, it's you.\"";
+  var Text2 : String = "\"Hello again.\"";
+  
+  var Text3 : String = "\"Listen, I'd like you to do me a small kindness.";
+  var Text4 : String = " Despite my attempts to stay loyal, I simply cannot...\"";
+  
+  var Text5 : String = "\"justify staying in this relationship any longer. It's not";
+  var Text6 : String = " fair to my wife and children to continue lying to them.\"";
+  
+  var Text7 : String = "\"I... I told them I was a rhinoceros. But, alas, she";
+  var Text8 : String = " couldn't accept the truth. She told me that I was not,...\"";
+  
+  var Text9 : String = "\"in fact, a rhinoceros; that I was Italian, just like her.";
+  var Text10 : String = " It was so sad watching her cling to her delusions.\"";
+  
+  var Text11 : String = "\"How could she not see it? Regardless, I've left.";
+  var Text12 : String = " Could you give this letter to the object of my desire?\"";
+  
+  var Text13 : String = "\"She's the rhino I told you about before;";
+  var Text14 : String = " she's right across the wall.\"";
+  
+  var Text15 : String = "\"Please, give this to her.\"";
   
   function Initialize(init : CogInitializer)
   {
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     
     this.Player = this.Space.FindObjectByName("Player");
+    this.Jerry = this.Space.FindObjectByName("L4Jerry");
     
     this.TextArray.Add("");
     this.TextArray.Add("");
@@ -26,6 +46,20 @@ class L4JeffreyGiveLetter : ZilchComponent
     this.TextArray.Add(this.Text2);
     this.TextArray.Add(this.Text3);
     this.TextArray.Add(this.Text4);
+    this.TextArray.Add(this.Text5);
+    this.TextArray.Add(this.Text6);
+    this.TextArray.Add(this.Text7);
+    this.TextArray.Add(this.Text8);
+    this.TextArray.Add(this.Text9);
+    this.TextArray.Add(this.Text10);
+    this.TextArray.Add(this.Text11);
+    this.TextArray.Add(this.Text12);
+    this.TextArray.Add(this.Text13);
+    this.TextArray.Add(this.Text14);
+    this.TextArray.Add(this.Text15);
+    this.TextArray.Add("");
+    this.TextArray.Add("");
+    this.TextArray.Add("");
   }
 
 
@@ -64,6 +98,12 @@ class L4JeffreyGiveLetter : ZilchComponent
         this.GameSession.GameStats.CurrentString = "";
         
         this.GameSession.GameStats.ObjectThree = "Note";
+        
+        if(this.Jerry != null)
+        {
+          this.Space.CreateAtPosition(Archetype.L4Jerry_2, Real3(3.5, 6.5, 0.0));
+          this.Jerry.Destroy();
+        }
       }
     }
   }
