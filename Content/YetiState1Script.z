@@ -19,7 +19,7 @@ class YetiState1Script : ZilchComponent
         this.TextArray.Add("\"It’'s not like it matters, anyways.\"");
         this.TextArray.Add("\"I thought I’'d be happier if I came to this world, \nbut it seems that’'s just not the case.\"");
         this.TextArray.Add("\"I’'ll probably be happy if I go back to the \nother frozen world.\"");
-        this.TextArray.Add("\"Yes, that’ s right, I’'m sure that will make me happy.\"");
+        this.TextArray.Add("\"Yes, that’'s right, I’'m sure that will make me happy.\"");
         
         this.Player = this.Space.FindObjectByName("Player");
         
