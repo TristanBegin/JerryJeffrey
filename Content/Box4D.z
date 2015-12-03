@@ -21,12 +21,15 @@ class Box4D : ZilchComponent
   [Property]
   var LeftRight : Boolean = true;
   
+  var CameraSound : SoundEmitter;
+  
   function Initialize(init : CogInitializer)
   {
     this.OriginalPos = this.Owner.Transform.Translation;
     this.Player = this.Space.FindObjectByName("Player");
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     Zero.Connect(this.Space, Events.ResetEvent, this.OnResetEvent);
+    this.CameraSound = this.Space.FindObjectByName("Camera").SoundEmitter;
   }
 
   function OnResetEvent(event : ResetEvent)
@@ -124,7 +127,10 @@ class Box4D : ZilchComponent
         Action.Property(actionQueue, @this.Owner.Transform.Translation, 
         Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y + 1, 0), 
         this.ActionTime, Ease.Linear);
-        
+        if (!this.CameraSound.IsPlaying()) 
+        {
+            this.CameraSound.PlayCue(SoundCue.PickUpCue);
+        }
         this.TimerRunning = true;
       }
       else if(this.Player.PlayerController.LookingDirection == 1 &&
@@ -133,7 +139,10 @@ class Box4D : ZilchComponent
         Action.Property(actionQueue, @this.Owner.Transform.Translation, 
         Real3(this.Owner.Transform.Translation.X + 1, this.Owner.Transform.Translation.Y, 0), 
         this.ActionTime, Ease.Linear);
-        
+        if (!this.CameraSound.IsPlaying()) 
+        {
+            this.CameraSound.PlayCue(SoundCue.PickUpCue);
+        }
         this.TimerRunning = true;
       }
       else if(this.Player.PlayerController.LookingDirection == 2 &&
@@ -142,7 +151,10 @@ class Box4D : ZilchComponent
         Action.Property(actionQueue, @this.Owner.Transform.Translation, 
         Real3(this.Owner.Transform.Translation.X, this.Owner.Transform.Translation.Y - 1, 0), 
         this.ActionTime, Ease.Linear);
-        
+        if (!this.CameraSound.IsPlaying()) 
+        {
+            this.CameraSound.PlayCue(SoundCue.PickUpCue);
+        }
         this.TimerRunning = true;
       }
       else if(this.Player.PlayerController.LookingDirection == 3 &&
@@ -151,7 +163,10 @@ class Box4D : ZilchComponent
         Action.Property(actionQueue, @this.Owner.Transform.Translation, 
         Real3(this.Owner.Transform.Translation.X - 1, this.Owner.Transform.Translation.Y, 0), 
         this.ActionTime, Ease.Linear);
-        
+        if (!this.CameraSound.IsPlaying()) 
+        {
+            this.CameraSound.PlayCue(SoundCue.PickUpCue);
+        }
         this.TimerRunning = true;
       }
     }

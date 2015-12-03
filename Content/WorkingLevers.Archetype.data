@@ -20,7 +20,7 @@ Cog =
 	},
 	DestroyWhenScript = 
 	{
-		string Condition = "Passed",
+		string Condition = "Right",
 		string Right = "FourTwoThreeFiveOne",
 	},
 	Hierarchy = 

@@ -38,6 +38,7 @@ class Ball2Script : ZilchComponent
                 this.I = 0;
                 this.GameSession.GameStats.CurrentString = "";
                 this.Owner.Destroy();
+                this.Space.CreateAtPosition(Archetype.Bomb, Real3(3.5,3.5, 0));
             }
             //If not in the begining of the string
             if (this.I > 0)

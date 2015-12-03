@@ -1,6 +1,8 @@
 class GlobalSounds : ZilchComponent
 {
-    var LastObjectState : String = "";
+    var LastObjectStateOne : String = "";
+    var LastObjectStateTwo : String = "";
+    var LastObjectStateThree : String = "";
     var Done : Boolean = false;
     function Initialize(init : CogInitializer)
     {
@@ -9,21 +11,23 @@ class GlobalSounds : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if (this.LastObjectState == "" && this.GameSession.GameStats.ObjectOne != "")
+        if (this.LastObjectStateOne == "" && this.GameSession.GameStats.ObjectOne != "")
         {
             this.Play(SoundCue.PickUpCue);
-            this.LastObjectState = this.GameSession.GameStats.ObjectOne;
         }
-        else if (this.LastObjectState == "" && this.GameSession.GameStats.ObjectTwo != "")
+        if (this.LastObjectStateTwo == "" && this.GameSession.GameStats.ObjectTwo != "")
         {
             this.Play(SoundCue.PickUpCue);
-            this.LastObjectState = this.GameSession.GameStats.ObjectTwo;
         }
-        else if (this.LastObjectState == "" && this.GameSession.GameStats.ObjectThree != "")
+        if (this.LastObjectStateThree == "" && this.GameSession.GameStats.ObjectThree != "")
         {
             this.Play(SoundCue.PickUpCue);
-            this.LastObjectState = this.GameSession.GameStats.ObjectThree;
         }
+        
+        this.LastObjectStateOne = this.GameSession.GameStats.ObjectOne;
+        this.LastObjectStateTwo = this.GameSession.GameStats.ObjectTwo;
+        this.LastObjectStateThree = this.GameSession.GameStats.ObjectThree;
+        
         var comparison = this.GameSession.GameStats.CurrentString.CompareTo("It's locked");
         if (this.GameSession.GameStats.CurrentString.Contains("unlock") && !this.Done)
         {

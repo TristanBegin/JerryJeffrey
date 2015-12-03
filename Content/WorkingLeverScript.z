@@ -22,7 +22,7 @@ class WorkingLeverScript : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         
         this.TextArray.Add(""); //The first element of the string array, it will aways be ""
-        this.TextArray.Add("\"Pulled lever `this.Owner.Name`.\"");
+        this.TextArray.Add("\"Pulled lever `this.Owner.Name` (Press X to cancel this).\"");
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -45,10 +45,11 @@ class WorkingLeverScript : ZilchComponent
             if(this.I >= this.TextArray.Count
             || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !player.PlayerController.Texting ))
             {
-                if (this.Pulled == false)
+                if (this.Pulled == false && !Zero.Keyboard.KeyIsPressed(Keys.X))
                 {
                     this.Space.GameSession.GameStats.Trigger = "`this.Space.GameSession.GameStats.Trigger``this.Owner.Name`";
                     this.Pulled = true;
+                    this.Space.FindObjectByName("Camera").SoundEmitter.PlayCue(SoundCue.LockNotCue);
                 }
                 
                 
@@ -82,7 +83,7 @@ class WorkingLeverScript : ZilchComponent
         }
         else
         {
-            this.TextArray.Set(1, "\"Pulled lever `this.Owner.Name`.\"");
+            this.TextArray.Set(1, "\"Pulled lever `this.Owner.Name` (Press X to cancel this).\"");
             if(this.Owner.Sprite.SpriteSource != this.NotPulledSprite)
             {
                 this.Owner.Sprite.SpriteSource = this.NotPulledSprite;

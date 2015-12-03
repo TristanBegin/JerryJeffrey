@@ -229,7 +229,7 @@ Level =
 			float DelayLines = 0.75,
 			string String0 = """Lead us not into temptation. Just tell us where it is; we'll find it.""",
 			string String1 = " - Sam Levenson",
-			string NextLevel = "554cea0f94af672f:Level1",
+			string NextLevel = "5675550d4f75bd85:Level4",
 		},
 	},
 },

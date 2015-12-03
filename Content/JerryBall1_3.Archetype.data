@@ -88,12 +88,12 @@ Cog =
 	},
 	DestroyWhenScript = 
 	{
-		string Condition = "BallPuzzle1",
+		string Condition = "Lever",
 		string Right = "",
 	},
 	SpawnWhenScript = 
 	{
-		string Condition = "BalPuzzle1",
-		string Spawns = "5695f393359f9f0f:JerryGhostBall1_2",
+		string Condition = "Lever",
+		string Spawns = "5691c8baf0ab2c1c:JerryBall2",
 	},
 },

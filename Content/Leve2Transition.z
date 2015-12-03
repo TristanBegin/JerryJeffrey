@@ -1,6 +1,6 @@
 class Leve2Transition : ZilchComponent
 {
-    var Level3 : Level = Level.Find("Level3");
+    var Level3 : Level = Level.Find("Quote3");
     
     function Initialize(init : CogInitializer)
     {

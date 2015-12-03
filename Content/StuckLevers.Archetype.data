@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [12.5, 4.5, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -72,9 +72,9 @@ Cog =
 			StuckLeverScript = 
 			{
 				string Text1 = "The lever is stuck.",
-				string Text2 = "There is a note attached to it :",
-				string Text3 = "Four : ""He told you to pull me first, didn't he?",
-				string Text4 = "Well make sure you pull him last""",
+				string Text2 = "There is a note attached to it:",
+				string Text3 = "Four: ""He told you to pull me first, didn't he?",
+				string Text4 = "Well make sure you pull him last.""",
 				string Text5 = "",
 				string Text6 = "",
 				string Text7 = "",
@@ -152,8 +152,8 @@ Cog =
 			StuckLeverScript = 
 			{
 				string Text1 = "The lever is stuck.",
-				string Text2 = "There is a note attached to it :",
-				string Text3 = "One : ""Pull four first.""",
+				string Text2 = "There is a note attached to it:",
+				string Text3 = "One: ""Pull four first.""",
 				string Text4 = "",
 				string Text5 = "",
 				string Text6 = "",
@@ -232,8 +232,8 @@ Cog =
 			StuckLeverScript = 
 			{
 				string Text1 = "The lever is stuck.",
-				string Text2 = "There is a note attached to it :",
-				string Text3 = "Five : ""You hate us, don't you? Well fine.",
+				string Text2 = "There is a note attached to it:",
+				string Text3 = "Five: ""You hate us, don't you? Well, fine.",
 				string Text4 = "Pull all even levers first.""",
 				string Text5 = "",
 				string Text6 = "",
@@ -312,8 +312,8 @@ Cog =
 			StuckLeverScript = 
 			{
 				string Text1 = "The lever is stuck.",
-				string Text2 = "There is a note attached to it :",
-				string Text3 = "Two : ""Hey, don't pull my right side neighbour""",
+				string Text2 = "There is a note attached to it:",
+				string Text3 = "Two: ""Hey, don't pull my right side neighbour""",
 				string Text4 = "directly after me.""",
 				string Text5 = "",
 				string Text6 = "",
@@ -392,9 +392,9 @@ Cog =
 			StuckLeverScript = 
 			{
 				string Text1 = "The lever is stuck.",
-				string Text2 = "There is a note attached to it :",
-				string Text3 = "Three : ""Did you listen two what Two said? He is a",
-				string Text4 = "compulsive liar, just do the oposit of what it tells you.",
+				string Text2 = "There is a note attached to it:",
+				string Text3 = "Three: ""Did you listen to what Two said? He is a",
+				string Text4 = "compulsive liar, just do the opposite of what it tells you.""",
 				string Text5 = "",
 				string Text6 = "",
 				string Text7 = "",

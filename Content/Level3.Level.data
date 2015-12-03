@@ -265,6 +265,16 @@ Level =
 		{
 			bool Active = true,
 		},
+		SoundEmitter = 
+		{
+			float Volume = 1,
+			float Pitch = 0,
+			bool Positional = false,
+			int Version = 1,
+		},
+		GlobalSounds = 
+		{
+		},
 	},
 	ArchetypeInstance = 
 	{

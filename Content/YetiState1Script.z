@@ -48,6 +48,10 @@ class YetiState1Script : ZilchComponent
                         this.Talked = true;
                         if(this.HasUnderwear == true)
                         {
+                            if (this.Space.LevelSettings.Level2Stats.YetiState < 4)
+                            {
+                                this.Space.FindObjectByName("Camera").SoundEmitter.PlayCue(SoundCue.GoodCue);
+                            }
                             this.Space.LevelSettings.Level2Stats.YetiState = 4;
                         }
                         else
@@ -92,11 +96,11 @@ class YetiState1Script : ZilchComponent
             this.I = 1;
             this.GameSession.GameStats.ObjectTwo = "";
             this.TextArray.Set(1,"\"Wait... are those... PANTIES?\"”");
-            this.TextArray.Set(2,"\"And you... you’ re giving those... to me?\n Really?\"");
-            this.TextArray.Set(3,"\"My goodness, this is the greatest gift \nI have ever received\"”");
+            this.TextArray.Set(2,"\"And you... you’'re giving those... to me?\n Really?\"");
+            this.TextArray.Set(3,"\"My goodness, this is the greatest gift \nI have ever received.\"”");
             this.TextArray.Set(4,"\"Is this... is this what it feels like? \nTo be truly happy?\"");
             this.TextArray.Set(5,"\"Thank you. Thank you so much\"");
-            this.TextArray.Set(6,"\"Please, if there’'s anything you need, \nplease ask.\"");
+            this.TextArray.Set(6,"\"Please, if there’'s anything you need, \njust ask.\"");
             this.TextArray.Set(7,"\"What’'s that, you’'re looking for someone?\"");
             this.TextArray.Add("\"Oh, him. Yeah, I know him.\"");
             this.TextArray.Add("\"Don’'t worry, I know where he went. \nI can bring him back no problem.\"");

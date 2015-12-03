@@ -88,12 +88,12 @@ Cog =
 	},
 	DestroyWhenScript = 
 	{
-		string Condition = "Passed",
+		string Condition = "Right",
 		string Right = "",
 	},
 	SpawnWhenScript = 
 	{
-		string Condition = "Passed",
+		string Condition = "Right",
 		string Spawns = "5691c959078a33e4:JerryBall3",
 	},
 },

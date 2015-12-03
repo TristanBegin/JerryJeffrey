@@ -20,8 +20,8 @@ class BombScript : ZilchComponent
         this.TextArray.Add("\"Hello.\"");
         this.TextArray.Add("\"My name is.\nSir Bomb.\"");
         this.TextArray.Add("\"I am.\nA bomb.\"");
-        this.TextArray.Add("\"AAAAGEEEEREEEGAAAH\"");
-        this.TextArray.Add("\"My apologies.\nI coughed\"");
+        this.TextArray.Add("\"AAAAGEEEEREEEGAAAH!!!\"");
+        this.TextArray.Add("\"My apologies.\nI coughed.\"");
         this.TextArray.Add("\"I seem.\nTo have something lodged in my throat.\"");
         this.TextArray.Add("\"Would you mind.\nBringing me some water?\"");
 

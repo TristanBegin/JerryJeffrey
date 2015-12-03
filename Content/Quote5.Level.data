@@ -229,7 +229,7 @@ Level =
 			float DelayLines = 4,
 			string String0 = """Go to Heaven for the climate, Hell for the company.""",
 			string String1 = " - Mark Twain",
-			string NextLevel = "554cea0f94af672f:Level1",
+			string NextLevel = "56accfce1e2ae85d:Level5",
 		},
 	},
 },

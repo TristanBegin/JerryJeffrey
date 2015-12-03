@@ -76,7 +76,7 @@ class ContainerRhinoScript : ZilchComponent
             this.I = 0;
         }
         
-        if(this.I == 1 && this.TextArray[1] == "You collected the Rhino" )
+        if(this.I == 1 && this.TextArray[1] == "You collected the Rhino." )
         {
             this.HasRhino = false; 
             this.GameSession.GameStats.Trigger = "";

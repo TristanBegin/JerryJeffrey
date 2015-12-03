@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [36.5, 2.5, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -206,7 +206,7 @@ Cog =
 			},
 			BaseDialogScript = 
 			{
-				string Text1 = "It’ s a book. The title reads: ",
+				string Text1 = "It’'s a book. The title reads: ",
 				string Text2 = """How to Know You've Been Poisoned.""",
 				string Text3 = """Step 1: Check for any dirty needles around the place",
 				string Text4 = "that you sleep. Poisoners are often very careless...""",
