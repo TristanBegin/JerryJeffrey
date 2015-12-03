@@ -288,11 +288,11 @@ Cog =
 			},
 			BaseDialogScript = 
 			{
-				string Text1 = "It's a newpaper clipping.",
+				string Text1 = "It's a newspaper clipping.",
 				string Text2 = "The title reads: ""A Review of The Amazing Jerry.""",
 				string Text3 = """I hired Jerry to juggle at my daughter's",
 				string Text4 = "birthday party after seeing one of his flyers.""",
-				string Text5 = """It seemed logical at the time; nice, easy, cheap",
+				string Text5 = """It seemed logical at the time: nice, easy, cheap",
 				string Text6 = "entertainment. However, when he got here...""",
 				string Text7 = "The next part is completely blacked out. There",
 				string Text8 = "are scribblings written in marker above the text:",
