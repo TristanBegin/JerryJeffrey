@@ -18,7 +18,7 @@ class YetiState2Script : ZilchComponent
         this.TextArray.Add("\"I don’'t know why I came here; \nthis world is so depressing.\"");
         this.TextArray.Add("\"All it ever tells me about is how dangerous \nand scary it is.\"”");
         this.TextArray.Add("\"I don’'t know why it would say that about \nitself, it’'s a perfectly pleasant world.\"");
-        this.TextArray.Add("\"But all these snowman, they just make the world\n so depressing.\"");
+        this.TextArray.Add("\"But all these snowmen, they just make the world\n so depressing.\"");
         this.TextArray.Add("\"At least the other world was ACTUALLY dangerous. \nThat world made me feel good about myself.\"");
         this.TextArray.Add("\"I think I’'ll head back there. Surely that will make me \nhappy.\"”");
         

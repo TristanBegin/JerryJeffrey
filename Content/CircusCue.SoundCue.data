@@ -1,6 +1,6 @@
 SoundCue = 
 {
-	SoundPlayMode PlayMode = Single,
+	SoundPlayMode PlayMode = Looping,
 	float Volume = 1,
 	float VolumeVariation = 0,
 	float Pitch = 0,
@@ -14,7 +14,7 @@ SoundCue =
 	[
 		{
 			string SoundName = "56749889e9761e66:CircusAmbience",
-			string GeneratedSoundName = "",
+			string GeneratedSoundName = "55017c595ef88bf0:DefaultGeneratedSound",
 			WhichSoundType WhichToUse = FromFile,
 			float Weight = 1,
 			float LoopEndTime = 0,

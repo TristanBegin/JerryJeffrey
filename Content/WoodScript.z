@@ -3,7 +3,7 @@ class Wood1Script : ZilchComponent
     var I : Integer = Integer(0);
     var TextArray : Array[String] = Array[String]();
     
-    
+    var Count : Integer = 0;
     [Property]
     var NumberOfLines : Real;
     [Property]
@@ -12,22 +12,28 @@ class Wood1Script : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
         var text = this.GameSession.GameStats.CurrentString;
         var player = this.Space.FindObjectByName("Player");
-        
+        Console.WriteLine(this.Count);
         this.TextArray.Add("");
         this.TextArray.Add(this.Text);
+        if (this.Count >= 2)
+        {
+            this.TextArray.Set(1, "Seriously, it's just wood. Try going back.");
+        }
+        
         
         if(this.GameSession.GameStats.NoteRead == true)
         {
             this.Space.CreateAtPosition(Archetype.Box2, this.Owner.Transform.Translation);
             this.Owner.Destroy();
         }
-         
+        
         if(player.RayCastings.DistanceLooking < 0.5 && player.RayCastings.HitObject == this.Owner)
         {
                 if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping
@@ -39,10 +45,9 @@ class Wood1Script : ZilchComponent
                 if(this.I == this.NumberOfLines + 1)
                 {
                     player.PlayerController.Talking = false;
+                    ++this.Count;
                     this.I  = 0;
                 }
-                
-                
         }
         else
         {

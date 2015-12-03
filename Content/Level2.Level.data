@@ -113,7 +113,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.18347383, 4.97814035, 50],
+			Vec3 Translation = [7.8423357, 3.44753385, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -125,7 +125,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 14.6310673,
+			float Size = 11.9789076,
 		},
 		EditorCameraController = 
 		{
@@ -133,7 +133,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [2.18347383, 4.97814035, -1.10959968e-006],
+			Vec3 LookTarget = [7.8423357, 3.44753385, -8.62242985e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -260,6 +260,16 @@ Level =
 		SoundListener = 
 		{
 			bool Active = true,
+		},
+		SoundEmitter = 
+		{
+			float Volume = 1,
+			float Pitch = 0,
+			bool Positional = false,
+			int Version = 1,
+		},
+		GlobalSounds = 
+		{
 		},
 	},
 	Cog = 

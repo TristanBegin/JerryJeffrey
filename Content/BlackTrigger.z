@@ -1,6 +1,6 @@
 class BlackTrigger : ZilchComponent
 {
-
+    var CameraSound : SoundEmitter;
     [Property]
     var TheBlackOff : CogPath;
     function Initialize(init : CogInitializer)
@@ -11,11 +11,16 @@ class BlackTrigger : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        this.CameraSound = this.Space.FindObjectByName("Camera").SoundEmitter;
     }
     function OnCollisionPersisted(event : CollisionEvent)
     {
         if (event.OtherObject.Name == "Player")
         {
+            if (this.Owner.Sprite.Visible)
+            {
+                if (!this.CameraSound.IsPlaying()) this.CameraSound.PlayCue(SoundCue.LockOpenCue);
+            }
             this.Owner.Sprite.Visible = false;
             this.TheBlackOff.Cog.Sprite.Visible = true;
         }

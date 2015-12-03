@@ -1,6 +1,7 @@
 class GlobalSounds : ZilchComponent
 {
     var LastObjectState : String = "";
+    var Done : Boolean = false;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -23,6 +24,28 @@ class GlobalSounds : ZilchComponent
             this.Play(SoundCue.PickUpCue);
             this.LastObjectState = this.GameSession.GameStats.ObjectThree;
         }
+        var comparison = this.GameSession.GameStats.CurrentString.CompareTo("It's locked");
+        if (this.GameSession.GameStats.CurrentString.Contains("unlock") && !this.Done)
+        {
+            
+            this.Play(SoundCue.LockNotCue);
+            this.Done = true;
+        }
+        /*
+        else if (this.GameSession.GameStats.CurrentString.Contains("lock") && !this.Done)
+        {
+            
+            this.Play(SoundCue.LockNotCue);
+            this.Done = true;
+        }
+        */
+        if (this.GameSession.GameStats.CurrentString == "")
+        {
+            this.Done = false;
+        }
+        Console.WriteLine(this.GameSession.GameStats.CurrentString.Contains("lock"));
+        Console.WriteLine(this.GameSession.GameStats.CurrentString);
+        Console.WriteLine("It's locked.");
     }
     function Play (theSound : SoundCue)
     {

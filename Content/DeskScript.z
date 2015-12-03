@@ -139,17 +139,21 @@ class DeskScript : ZilchComponent
                     this.TextArray.Add("\"What about just being my friend?”“\"");
                     this.TextArray.Add("\"Acquaintance?\"");
                     this.TextArray.Add("\"Okay. I understand... \nI’'ll just be opening then.”\"");
-                    this.TextArray.Add("The drawer opens and you receive Jeffrey'’s journal.");
+                    this.TextArray.Add("The drawer opens and spits out Jeffrey's Diary.");
                 }
             }
             player.PlayerController.Texting = false;
             
         }
-        if(this.I == 16)
+        if(this.I == 17)
         {
+            if (this.GameSession.GameStats.Trigger != "Journal")
+            {
+                this.Space.FindObjectByName("Camera").SoundEmitter.PlayCue(SoundCue.GoodCue);
+            }
+            this.Space.CreateAtPosition(Archetype.Journal, Real3(16.5, 6.5, 0));
             this.GameSession.GameStats.Trigger = "Journal";
         }
-        
         if(player.PlayerController.Texting == true)
         {
             this.Input = text.TextInput.ST;

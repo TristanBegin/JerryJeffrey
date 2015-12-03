@@ -1,7 +1,7 @@
 SoundCue = 
 {
-	SoundPlayMode PlayMode = Single,
-	float Volume = 1,
+	SoundPlayMode PlayMode = Looping,
+	float Volume = 0.229999989,
 	float VolumeVariation = 0,
 	float Pitch = 0,
 	float PitchVariation = 0,
@@ -14,7 +14,7 @@ SoundCue =
 	[
 		{
 			string SoundName = "56750794cedb0ab4:WhiteNoiseAmbience",
-			string GeneratedSoundName = "",
+			string GeneratedSoundName = "55017c595ef88bf0:DefaultGeneratedSound",
 			WhichSoundType WhichToUse = FromFile,
 			float Weight = 1,
 			float LoopEndTime = 0,

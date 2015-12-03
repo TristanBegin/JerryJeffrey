@@ -10,7 +10,7 @@ class RhinoScript : ZilchComponent
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.TextArray.Add("");
-        this.TextArray.Add("Obtained a Ceramic Rhino");
+        this.TextArray.Add("Obtained a Ceramic Rhino.");
         this.Player = this.Space.FindObjectByName("Player"); //Finds the player
     }
 

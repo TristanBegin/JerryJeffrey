@@ -37,13 +37,13 @@ class ContainerRhinoScript : ZilchComponent
             this.HasRhino = true;
             this.UsedRhino = false;
             this.I = 0;
-            this.TextArray.Set(1,"Rhino is now inside the `this.Owner.Name`");
+            this.TextArray.Set(1,"Rhino is now inside the `this.Owner.Name`.");
             this.GameSession.GameStats.ObjectOne = "";
         }
         if(this.HasRhino == true && player.PlayerController.Talking == false)
         {
             this.GameSession.GameStats.Trigger = this.Owner.Name;
-            this.TextArray.Set(1,"You collected the Rhino");
+            this.TextArray.Set(1,"You collected the Rhino.");
             
         }
         
