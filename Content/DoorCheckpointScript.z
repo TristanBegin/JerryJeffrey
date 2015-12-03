@@ -1,5 +1,6 @@
 class DoorCheckpointScript : ZilchComponent
 {
+    var Object : Cog;
     var Level2 : Level = Level.Find("Quote2");
     function Initialize(init : CogInitializer)
     {
@@ -19,15 +20,31 @@ class DoorCheckpointScript : ZilchComponent
             this.Space.CreateAtPosition(Archetype.Bomb, Real3(3.5,3.5, 0));
             this.GameSession.GameStats.Trigger = "Passed";
         }
+        
+        if (this.GameSession.GameStats.Trigger == "BoxPuzzle")
+        {
+            this.Space.CreateAtPosition(Archetype.Ball1 , Real3(2.5, 3.5, 0.0));
+            this.GameSession.GameStats.Trigger = "SoulMapa";
+        }
+         if (this.GameSession.GameStats.ObjectOne == "Ball")
+         {
+             this.GameSession.GameStats.Trigger = "Lever";
+             if(this.Object == null)
+             {
+                this.Object = this.Space.CreateAtPosition(Archetype.WorkingLevers , Real3(3.5, 3.5, 0.0));
+                this.Space.CreateAtPosition(Archetype.StuckLevers , Real3(12.5, 3.5, 0.0));
+            }
+         }
     }
         
     function OnCollisionEnded(event : CollisionEvent)
     {
         
         var otherObject = event.OtherObject;
-        
-        otherObject.PlayerController.CurrentLevel = 1;
-        
+        if (otherObject.PlayerController != null)
+        {
+            otherObject.PlayerController.CurrentLevel = 1;
+        }
         if (this.GameSession.GameStats.Trigger == "Box2")
         {
             this.GameSession.GameStats.Trigger = "TrashCan";
@@ -37,5 +54,9 @@ class DoorCheckpointScript : ZilchComponent
             this.Space.LoadLevel(this.Level2);
         }
         
+        if (this.GameSession.GameStats.Trigger == "...")
+        {
+            this.GameSession.GameStats.Trigger = "BoxPuzzle";
+        }
     }
 }

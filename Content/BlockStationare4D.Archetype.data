@@ -8,13 +8,9 @@ Cog =
 	{
 		string Name = "Block4D",
 	},
-	Archetyped = 
-	{
-		string Name = "56beed38e066d4a4:Block4D",
-	},
 	Transform = 
 	{
-		Vec3 Translation = [9.5, 3.5, 0],
+		Vec3 Translation = [7, 4.5, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -28,7 +24,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "5675536cbdeacd6d:MovableAll",
+		string SpriteSource = "56622430a2d0da0d:Wood",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -48,8 +44,8 @@ Cog =
 	},
 	Box4D = 
 	{
-		bool UpDownMove = true,
-		bool LeftRight = true,
+		bool UpDownMove = false,
+		bool LeftRight = false,
 	},
 	RigidBody = 
 	{

@@ -6,11 +6,11 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "Jerry",
+		string Name = "Jeffery",
 	},
 	Archetyped = 
 	{
-		string Name = "5695f05f3df8689a:JerryBall1_3",
+		string Name = "5694188b4565ecd1:JeffreyBall1_2",
 	},
 	Transform = 
 	{
@@ -28,7 +28,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "56157c8d9e5eb505:JerryFrontIdleAnim",
+		string SpriteSource = "56157c18eb8599b1:JeffreyIdleForwardAnim",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -48,18 +48,28 @@ Cog =
 	},
 	Area = 
 	{
-		Vec2 Size = [0.9375, 1.125],
+		Vec2 Size = [1, 1.125],
 		Location Origin = TopLeft,
+	},
+	DestroyWhenScript = 
+	{
+		string Condition = "Lever",
+		string Right = "",
+	},
+	SpawnWhenScript = 
+	{
+		string Condition = "Lever",
+		string Spawns = "5691c8b1f136a9fe:JeffreyBall2",
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "Jerry: ""My levers! I never thought I'd see them again.",
-		string Text2 = "Levers are great tools for creating spectacular shows.""",
-		string Text3 = """That one there used to drop a disco ball form the ceiling""",
+		string Text1 = "",
+		string Text2 = "",
+		string Text3 = "",
 		string Text4 = "",
-		string Text5 = """It would fall down and crash and send glass presents",
-		string Text6 = "to all of my guests!""",
-		string Text7 = """Truly a fun time for the entire family.""",
+		string Text5 = "",
+		string Text6 = "",
+		string Text7 = "",
 		string Text8 = "",
 		string Text9 = "",
 		string Text10 = "",
@@ -85,15 +95,5 @@ Cog =
 		string Text30 = "",
 		string Text31 = "",
 		string Text32 = "",
-	},
-	DestroyWhenScript = 
-	{
-		string Condition = "BallPuzzle1",
-		string Right = "",
-	},
-	SpawnWhenScript = 
-	{
-		string Condition = "BalPuzzle1",
-		string Spawns = "5695f393359f9f0f:JerryGhostBall1_2",
 	},
 },

@@ -8,6 +8,10 @@ Cog =
 	{
 		string Name = "Jerry",
 	},
+	Archetyped = 
+	{
+		string Name = "5695fea162f5a73e:JerryBall1_1",
+	},
 	Transform = 
 	{
 		Vec3 Translation = [3, 7, 0],
@@ -86,5 +90,10 @@ Cog =
 	{
 		string Condition = "...",
 		string Right = "",
+	},
+	SpawnWhenScript = 
+	{
+		string Condition = "...",
+		string Spawns = "5695f393359f9f0f:JerryGhostBall1_2",
 	},
 },

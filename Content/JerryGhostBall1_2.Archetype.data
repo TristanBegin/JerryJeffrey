@@ -8,9 +8,13 @@ Cog =
 	{
 		string Name = "Jerry",
 	},
+	Archetyped = 
+	{
+		string Name = "5695f393359f9f0f:JerryGhostBall1_2",
+	},
 	Transform = 
 	{
-		Vec3 Translation = [1, 4, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -21,12 +25,12 @@ Cog =
 	},
 	DestroyWhenScript = 
 	{
-		string Condition = "...",
+		string Condition = "SoulMapa",
 		string Right = "",
 	},
 	SpawnWhenScript = 
 	{
-		string Condition = "...",
-		string Spawns = "5695fc26a50c46c3:JerryBall1_2",
+		string Condition = "SoulMapa",
+		string Spawns = "5695f05f3df8689a:JerryBall1_3",
 	},
 },
