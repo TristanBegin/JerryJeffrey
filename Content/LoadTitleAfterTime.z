@@ -37,7 +37,7 @@ class LoadTitleAfterTime : ZilchComponent
         if (this.TheTime <= 0)
         {
             this.Space.SoundSpace.Pause;
-            this.Space.LoadLevel(Level.Find("ControlsScreen"));
+            this.Space.LoadLevel(Level.Title);
         }
     }
 }

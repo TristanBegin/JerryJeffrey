@@ -27,10 +27,10 @@ class L5JerryRoomFlicker : ZilchComponent
         {
           if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.BottomOfPit)
           {
-            this.JerryFloor.Sprite.SpriteSource = SpriteSource.TileSet06Full;
+            this.JerryFloor.Sprite.SpriteSource = SpriteSource.FlickerSprite;
             this.JerryFloor.Sprite.SpriteLayer = SpriteLayer.Five;
           }
-          else if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.TileSet06Full)
+          else if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.FlickerSprite)
           {
             this.JerryFloor.Sprite.SpriteSource = SpriteSource.BottomOfPit;
             this.JerryFloor.Sprite.SpriteLayer = SpriteLayer.Zero;
@@ -49,10 +49,10 @@ class L5JerryRoomFlicker : ZilchComponent
         {
           if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.BottomOfPit)
           {
-            this.JerryFloor.Sprite.SpriteSource = SpriteSource.TileSet06Full;
+            this.JerryFloor.Sprite.SpriteSource = SpriteSource.FlickerSprite;
             this.JerryFloor.Sprite.SpriteLayer = SpriteLayer.Five;
           }
-          else if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.TileSet06Full)
+          else if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.FlickerSprite)
           {
             this.JerryFloor.Sprite.SpriteSource = SpriteSource.BottomOfPit;
             this.JerryFloor.Sprite.SpriteLayer = SpriteLayer.Zero;
@@ -63,7 +63,7 @@ class L5JerryRoomFlicker : ZilchComponent
         
       }
       
-      if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.TileSet06Full && this.FlickerTime <= 0)
+      if(this.JerryFloor.Sprite.SpriteSource == SpriteSource.FlickerSprite && this.FlickerTime <= 0)
       {
         this.JerryFloor.Sprite.SpriteSource = SpriteSource.BottomOfPit;
         this.JerryFloor.Sprite.SpriteLayer = SpriteLayer.Zero;

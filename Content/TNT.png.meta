@@ -2,8 +2,8 @@ ImageContent =
 {
 	SpriteSourceBuilder = 
 	{
-		string Name = "Note",
-		uint64 ResourceId = 5662075eb08290ba,
+		string Name = "TNT",
+		uint64 ResourceId = 564aef75f8871dbc,
 		uint64 AtlasId = 5274cf95e4a661fd,
 		uint FrameSizeX = 16,
 		uint FrameSizeY = 16,

@@ -1,0 +1,89 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Wood",
+	},
+	Archetyped = 
+	{
+		string Name = "564afa0914b8a383:WoodFinal",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [15, 4, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Sprite = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		Vec4 Color = [1, 1, 1, 1],
+		BlendMode BlendMode = Alpha,
+		SpriteGeometryMode GeometryMode = ZPlane,
+		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteSource = "56622430a2d0da0d:Wood",
+		bool RenderMask = false,
+		bool FlipX = false,
+		bool FlipY = false,
+		bool AnimationActive = true,
+		float AnimationSpeed = 1,
+		uint StartFrame = 0,
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0.5, -0.5, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	Area = 
+	{
+		Vec2 Size = [1, 1],
+		Location Origin = TopLeft,
+	},
+	BaseDialogScript = 
+	{
+		string Text1 = "It's just a piece of wood.",
+		string Text2 = "There's nothing else here.",
+		string Text3 = "What do you think you'll get by continuing",
+		string Text4 = "to interact with this piece of wood?",
+		string Text5 = "Do you think the wood has the answers you seek?",
+		string Text6 = "That it will reveal to you what it all ""means""?",
+		string Text7 = "You're probably wondering who Jerry and",
+		string Text8 = "Jeffrey REALLY are.",
+		string Text9 = "What makes you think that matters?",
+		string Text10 = " ",
+		string Text11 = "This isn't a game about Jerry and Jeffrey.",
+		string Text12 = " ",
+		string Text13 = "This is a game about you.",
+		string Text14 = " ",
+		string Text15 = "Haven't you ever wondered who YOU are?",
+		string Text16 = " ",
+		string Text17 = "Are you The Box? Helpful but blind?",
+		string Text18 = "Or are you the piece of wood? Wise but resentful?",
+		string Text19 = "Are you the fridge? Convinced you are bad?",
+		string Text20 = "Or are you the freezer? Convinced you are good?",
+		string Text21 = "Are you the wall, or are you the door?",
+		string Text22 = "Are you the Yeti, or are you the stage conductor?",
+		string Text23 = "Are you Purple, or are you Yellow?",
+		string Text24 = "Are you the lint, or are you the pencil?",
+		string Text25 = "Are you the Reds, or are you the scientist?",
+		string Text26 = "Are you the Rhino, or are you the Ostrich?",
+		string Text27 = "Are you Jerry?",
+		string Text28 = "Or are you Jeffrey?",
+		string Text29 = "Maybe you're just a naked man with a tie.",
+		string Text30 = " ",
+		string Text31 = "",
+		string Text32 = "",
+	},
+},

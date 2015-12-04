@@ -100,6 +100,9 @@ Level =
 		FinalLevel02 = 
 		{
 		},
+		DebugTools = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -113,7 +116,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [13.7724304, 22.7074509, 50],
+			Vec3 Translation = [13.9909744, 16.5680923, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-008, 0, 1],
 		},
@@ -125,7 +128,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 60.6531563,
+			float Size = 49.6586266,
 		},
 		EditorCameraController = 
 		{
@@ -133,7 +136,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [13.7724304, 22.7074509, 1.86753539e-007],
+			Vec3 LookTarget = [13.9909744, 16.5680923, 1.96306559e-007],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -266,6 +269,16 @@ Level =
 				{
 					bool Active = true,
 				},
+				SoundEmitter = 
+				{
+					float Volume = 1,
+					float Pitch = 0,
+					bool Positional = false,
+					int Version = 1,
+				},
+				GlobalSounds = 
+				{
+				},
 			},
 		},
 	},
@@ -295,7 +308,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "56157c8d9e5eb505:JerryFrontIdleAnim",
+			string SpriteSource = "564aeda64a8b2534:JerryInsaneAnim",
 			bool RenderMask = false,
 			bool FlipX = false,
 			bool FlipY = false,
@@ -320,9 +333,9 @@ Level =
 		},
 		BaseDialogScript = 
 		{
-			string Text1 = "You: ""Jerry, what's all this racket you've been making?""",
+			string Text1 = "Jerry: ""Hello!""",
 			string Text2 = " ",
-			string Text3 = "Jerry: ""Hello!""",
+			string Text3 = "You: ...",
 			string Text4 = " ",
 			string Text5 = "You: ""You need to go to bed, Jerry.""",
 			string Text6 = "",
@@ -336,8 +349,8 @@ Level =
 			string Text14 = "",
 			string Text15 = "You: ""YOU are still Jerry. Jeffrey is inside of you.""",
 			string Text16 = "",
-			string Text17 = "Jerry: ""Jeffrey is inside of me? What a blind accusation. I've told",
-			string Text18 = "you before, Tom; I do not partake in the homosexual lifestyle.""",
+			string Text17 = "Jerry: ""Jeffrey is inside of me? What a blind accusation.",
+			string Text18 = "I do not partake in the homosexual lifestyle.""",
 			string Text19 = "You: ""No, he's inside your head. You and Jeffrey are the",
 			string Text20 = "same person.""",
 			string Text21 = "Jerry: ""The same person?""",
@@ -1838,9 +1851,9 @@ Level =
 			string Text18 = "be able to do anything.""",
 			string Text19 = "Sandra: ""Well that's too bad.""",
 			string Text20 = " ",
-			string Text21 = "You: ""Sorry, but I can't squelch my duties. I am the best",
+			string Text21 = "You: ""Sorry, but I can't shirk my duties. I am the best",
 			string Text22 = "nurse this place has to offer, after all.""",
-			string Text23 = "Sandra: ""Ah, yes, very true. You a pretty skilled nurse.",
+			string Text23 = "Sandra: ""Ah, yes, very true. You are a pretty skilled nurse.",
 			string Text24 = " ",
 			string Text25 = "You: ""Aren't I? Surely this place would fall apart without my",
 			string Text26 = "being here.""",

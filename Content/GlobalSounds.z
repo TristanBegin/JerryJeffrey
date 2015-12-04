@@ -95,7 +95,11 @@ class GlobalSounds : ZilchComponent
         {
             this.Play(SoundCue.PickUpCue);
         }
-        
+        if (Zero.Keyboard.KeyIsPressed(Keys.Enter) || Zero.Keyboard.KeyIsPressed(Keys.One)
+            || Zero.Keyboard.KeyIsPressed(Keys.Two) || Zero.Keyboard.KeyIsPressed(Keys.Three))
+        {
+            this.Play(SoundCue.InteractCue);
+        }
         this.LastObjectStateOne = this.GameSession.GameStats.ObjectOne;
         this.LastObjectStateTwo = this.GameSession.GameStats.ObjectTwo;
         this.LastObjectStateThree = this.GameSession.GameStats.ObjectThree;

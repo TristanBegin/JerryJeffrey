@@ -100,12 +100,33 @@ Level =
 		Level2Stats = 
 		{
 		},
+		DebugTools = 
+		{
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "56985e4ec1f99a86:YetiState2",
+		LinkId = 
+		{
+			uint Id = 3,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Yeti",
+		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 3,
+			uint Id = 4,
 		},
 		Named = 
 		{
@@ -149,7 +170,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 4,
+			uint Id = 5,
 		},
 		Named = 
 		{
@@ -276,7 +297,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 5,
+			uint Id = 6,
 		},
 		Named = 
 		{
@@ -311,7 +332,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 6,
+			uint Id = 7,
 		},
 		Named = 
 		{
@@ -403,7 +424,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 8,
 		},
 		Named = 
 		{
@@ -463,7 +484,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 8,
+				uint ResolvedCog = 9,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -477,7 +498,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 10,
 		},
 		Named = 
 		{
@@ -522,7 +543,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -567,7 +588,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 8,
+			uint Id = 9,
 		},
 		Named = 
 		{
@@ -624,7 +645,7 @@ Level =
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
 				bool ResolvedNullErrorOccurred = false,
-				uint ResolvedCog = 7,
+				uint ResolvedCog = 8,
 				CogPathPreference PathPreference0 = CogRelative,
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
@@ -635,7 +656,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -670,7 +691,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -705,7 +726,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 14,
 		},
 		Named = 
 		{
@@ -748,7 +769,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 14,
+			uint Id = 15,
 		},
 		Named = 
 		{
@@ -802,7 +823,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 15,
+			uint Id = 16,
 		},
 		Named = 
 		{
@@ -856,90 +877,6 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 16,
-		},
-		Named = 
-		{
-			string Name = "TrashCan",
-		},
-		Archetyped = 
-		{
-			string Name = "5689d0c46afb2982:TrashCan",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [8, 6, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "56622356c9de761a:TrashCan",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0.5, -0.5, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		BaseDialogScript = 
-		{
-			string Text1 = "There’'s nothing but trash in here.",
-			string Text2 = "",
-			string Text3 = "",
-			string Text4 = "",
-			string Text5 = "",
-			string Text6 = "",
-			string Text7 = "",
-			string Text8 = "",
-			string Text9 = "",
-			string Text10 = "",
-			string Text11 = "",
-			string Text12 = "",
-			string Text13 = "",
-			string Text14 = "",
-			string Text15 = "",
-			string Text16 = "",
-			string Text17 = "",
-			string Text18 = "",
-			string Text19 = "",
-			string Text20 = "",
-			string Text21 = "",
-			string Text22 = "",
-			string Text23 = "",
-			string Text24 = "",
-			string Text25 = "",
-			string Text26 = "",
-			string Text27 = "",
-			string Text28 = "",
-			string Text29 = "",
-			string Text30 = "",
-			string Text31 = "",
-			string Text32 = "",
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
 			uint Id = 17,
 		},
 		Named = 
@@ -952,7 +889,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [11, 8, 0],
+			Vec3 Translation = [8, 6, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1036,7 +973,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [16, 8, 0],
+			Vec3 Translation = [11, 8, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1120,7 +1057,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [15, 0, 0],
+			Vec3 Translation = [16, 8, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1204,7 +1141,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [14, 0, 0],
+			Vec3 Translation = [15, 0, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1288,7 +1225,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [11, 0, 0],
+			Vec3 Translation = [14, 0, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1364,6 +1301,90 @@ Level =
 		},
 		Named = 
 		{
+			string Name = "TrashCan",
+		},
+		Archetyped = 
+		{
+			string Name = "5689d0c46afb2982:TrashCan",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [11, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "56622356c9de761a:TrashCan",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0.5, -0.5, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		BaseDialogScript = 
+		{
+			string Text1 = "There’'s nothing but trash in here.",
+			string Text2 = "",
+			string Text3 = "",
+			string Text4 = "",
+			string Text5 = "",
+			string Text6 = "",
+			string Text7 = "",
+			string Text8 = "",
+			string Text9 = "",
+			string Text10 = "",
+			string Text11 = "",
+			string Text12 = "",
+			string Text13 = "",
+			string Text14 = "",
+			string Text15 = "",
+			string Text16 = "",
+			string Text17 = "",
+			string Text18 = "",
+			string Text19 = "",
+			string Text20 = "",
+			string Text21 = "",
+			string Text22 = "",
+			string Text23 = "",
+			string Text24 = "",
+			string Text25 = "",
+			string Text26 = "",
+			string Text27 = "",
+			string Text28 = "",
+			string Text29 = "",
+			string Text30 = "",
+			string Text31 = "",
+			string Text32 = "",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 23,
+		},
+		Named = 
+		{
 			string Name = "Desk",
 		},
 		Archetyped = 
@@ -1414,7 +1435,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 23,
+			uint Id = 24,
 		},
 		Named = 
 		{
@@ -1468,7 +1489,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 24,
+			uint Id = 25,
 		},
 		Named = 
 		{
@@ -1527,7 +1548,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 25,
+			uint Id = 26,
 		},
 		Named = 
 		{
@@ -1568,7 +1589,7 @@ Level =
 		string Name = "5680726c71cbee1a:Rhino",
 		LinkId = 
 		{
-			uint Id = 26,
+			uint Id = 27,
 		},
 		Transform = 
 		{
@@ -1585,7 +1606,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 27,
+			uint Id = 28,
 		},
 		Named = 
 		{

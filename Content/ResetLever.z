@@ -26,6 +26,7 @@ class ResetLever : ZilchComponent
       var resetEvent : ResetEvent = new ResetEvent();
       this.Space.DispatchEvent(Events.ResetEvent, resetEvent);
       this.SwitchPulled = true;
+      this.Space.FindObjectByName("Camera").SoundEmitter.PlayCue(SoundCue.LockNotCue);
     }
     
     if(this.SwitchPulled == true)

@@ -6,7 +6,7 @@ Description -
 Contains nearly all functionality of title screen.
 
 Object -
-The particle effect that represents which option is being selected.
+The object that represents which option is being selected.
 *******************************************************************************/
 
 class StartGame : ZilchComponent
@@ -56,12 +56,10 @@ class StartGame : ZilchComponent
         {
             this.TheYNum -= 1;
         }
-        if (this.TheYNum > 4) this.TheYNum = 1;
-        if (this.TheYNum < 1) this.TheYNum = 4;
+        if (this.TheYNum > 2) this.TheYNum = 1;
+        if (this.TheYNum < 1) this.TheYNum = 2;
         if (this.TheYNum == 1) this.TheY = this.Y1;
         if (this.TheYNum == 2) this.TheY = this.Y2;
-        if (this.TheYNum == 3) this.TheY = this.Y3;
-        if (this.TheYNum == 4) this.TheY = this.Y4;
         
         this.Owner.Transform.Translation = Real3 (this.Owner.Transform.Translation.X, this.TheY, 2);
         if (Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.Camera.FindChildByName("Fader").Fader.IsEntering == false)
@@ -71,20 +69,12 @@ class StartGame : ZilchComponent
                 if (this.TheYNum == 1)
                 {
                     this.Camera.FindChildByName("Fader").Fader.IsExiting = true;
-                    this.Camera.FindChildByName("Fader").Fader.NextLevel = Level.Quote1;
+                    this.Camera.FindChildByName("Fader").Fader.NextLevel = Level.ControlsScreen;
                 }
                 if (this.TheYNum == 2)
                 {
                     this.Camera.FindChildByName("Fader").Fader.IsExiting = true;
                     this.Camera.FindChildByName("Fader").Fader.NextLevel = Level.Credits;
-                }
-                if (this.TheYNum == 3)
-                {
-                    
-                }
-                if (this.TheYNum == 4)
-                {
-                    
                 }
             //}
             //else

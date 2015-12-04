@@ -2,15 +2,15 @@ ImageContent =
 {
 	SpriteSourceBuilder = 
 	{
-		string Name = "Note",
-		uint64 ResourceId = 5662075eb08290ba,
+		string Name = "JerryInsaneAnim",
+		uint64 ResourceId = 564aeda64a8b2534,
 		uint64 AtlasId = 5274cf95e4a661fd,
 		uint FrameSizeX = 16,
-		uint FrameSizeY = 16,
-		uint FrameCount = 1,
-		float FrameDelay = 0.0833333358,
+		uint FrameSizeY = 18,
+		uint FrameCount = 2,
+		float FrameDelay = 1,
 		float OriginX = 8,
-		float OriginY = 8,
+		float OriginY = 9,
 		float PixelsPerUnit = 16,
 		bool Smoothing = false,
 		bool Looping = true,

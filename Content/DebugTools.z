@@ -11,23 +11,23 @@ class DebugTools : ZilchComponent
     {
       if(Zero.Keyboard.KeyIsPressed(Keys.One))
       {
-        this.Space.LoadLevel(Level.Find("Level1"));
+        this.Space.LoadLevel(Level.Find("Quote1"));
       }
       else if(Zero.Keyboard.KeyIsPressed(Keys.Two))
       {
-        this.Space.LoadLevel(Level.Find("Level2"));
+        this.Space.LoadLevel(Level.Find("Quote2"));
       }
       else if(Zero.Keyboard.KeyIsPressed(Keys.Three))
       {
-        this.Space.LoadLevel(Level.Find("Level3"));
+        this.Space.LoadLevel(Level.Find("Quote3"));
       }
       else if(Zero.Keyboard.KeyIsPressed(Keys.Four))
       {
-        this.Space.LoadLevel(Level.Find("Level4"));
+        this.Space.LoadLevel(Level.Find("Quote4"));
       }
       else if(Zero.Keyboard.KeyIsPressed(Keys.Five))
       {
-        this.Space.LoadLevel(Level.Find("Level5"));
+        this.Space.LoadLevel(Level.Find("Quote5"));
       }
       else if(Zero.Keyboard.KeyIsPressed(Keys.Six))
       {

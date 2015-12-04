@@ -97,6 +97,9 @@ Level =
 		HudInteraction = 
 		{
 		},
+		DebugTools = 
+		{
+		},
 	},
 	Cog = 
 	{

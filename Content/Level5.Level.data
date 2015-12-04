@@ -100,6 +100,9 @@ Level =
 		L5JerryRoomFlicker = 
 		{
 		},
+		DebugTools = 
+		{
+		},
 	},
 	Cog = 
 	{

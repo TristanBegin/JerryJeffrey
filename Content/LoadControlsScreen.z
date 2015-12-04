@@ -39,7 +39,7 @@ class LoadControlsScreen : ZilchComponent
         if (this.TheTime <= 0)
         {
             this.Space.SoundSpace.Pause;
-            this.Space.LoadLevel(Level.Find("Title"));
+            this.Space.LoadLevel(Level.Quote1);
         }
     }
 }
