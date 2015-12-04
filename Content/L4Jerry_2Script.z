@@ -42,6 +42,11 @@ class L4Jerry_2Script : ZilchComponent
       {
         if(this.I == this.TextArray.Count)
         {
+            if (this.HasNote)
+            {
+                this.Space.FindObjectByName("Camera").SoundEmitter.PlayCue(SoundCue.GoodCue);
+                this.GameSession.GameStats.Trigger = "Level5";
+            }
           this.I = 0;
           this.Player.PlayerController.Talking = false;
           this.GameSession.GameStats.CurrentString = "";

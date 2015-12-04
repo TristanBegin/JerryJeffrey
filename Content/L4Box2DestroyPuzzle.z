@@ -8,8 +8,8 @@ class L4Box2DestroyPuzzle : ZilchComponent
   var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
   var Done : Boolean = false;
   
-  var Text1 : String = "\"There's no point to looking inside me.\"";
-  var Text2 : String = "\"I'm empty, you idiot.\"";
+  var Text1 : String = "It's Empty.";
+  var Text2 : String = " ";
   var Text3 : String = "";
   var Text4 : String = "";
   

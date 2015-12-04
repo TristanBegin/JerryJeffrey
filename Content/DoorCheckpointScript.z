@@ -39,9 +39,15 @@ class DoorCheckpointScript : ZilchComponent
             }
         }
         
-        if (this.GameSession.GameStats.Trigger == "Level4")
+        if (this.GameSession.GameStats.Trigger == "Level4" && this.Space.CurrentLevel != Level.Level4)
         {
             this.Space.LoadLevel(this.Level4);
+            this.GameSession.GameStats.Trigger == "";
+        }
+        if (this.GameSession.GameStats.Trigger == "Level5" && this.Space.CurrentLevel != Level.Level5)
+        {
+            this.Space.LoadLevel(Level.Quote5);
+            this.GameSession.GameStats.Trigger == "";
         }
 
     }

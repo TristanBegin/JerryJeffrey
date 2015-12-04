@@ -135,7 +135,7 @@ class JeffreyBall3Script : ZilchComponent
             }
             else
             {
-                this.GameSession.GameStats.ObjectThree = "Freezer";
+                this.GameSession.GameStats.ObjectThree = "Water";
                 this.TextArray.Set(8,"\"Ah, you wish to give water to him?\nI suppose that's alright, but tell him he owes me.\"");
             }
             this.Player.PlayerController.Texting = false;

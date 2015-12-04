@@ -51,6 +51,18 @@ class PlayerController : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if (this.Space.CurrentLevel == Level.Level6_2)
+        {
+            if (this.Owner.Transform.Translation.Y > 50)
+            {
+                this.IdleUp = SpriteSource.TomIdleBackAnim;
+                this.IdleDown = SpriteSource.TomIdleForwardAnim;
+                this.IdleRight = SpriteSource.TomIdleRightAnim;
+                this.WalkUp = SpriteSource.TomWalkingBackAnim;
+                this.WalkDown = SpriteSource.TomWalkingForwardAnim;
+                this.WalkRight = SpriteSource.TomWalkingRightAnim;
+            }
+        }
         var update : UpdateEvent = event;
         this.GameSession.DispatchEvent(Events.LogicUpdate, update);
         
@@ -146,65 +158,69 @@ class PlayerController : ZilchComponent
             
             //checks if the current position is less than the next Y position on the grid and there is 
             //if true, the player keeps moving in the Y direction
-            if (currentPosY < this.NextPosY && this.UpInput == true)
+            if (this.Owner.Transform.Translation.Y < 68)
             {
-                if (this.Owner.Sprite.SpriteSource != this.WalkUp)
+                Console.WriteLine("Stillrunning");
+                if (currentPosY < this.NextPosY && this.UpInput == true)
                 {
-                    this.Owner.Sprite.SpriteSource = this.WalkUp;
-                }
-                this.Owner.Sprite.FlipX = false;
-                this.Owner.RigidBody.Velocity = Real3(0.0, this.Speed * event.Dt, 0.0);
-            }
-            else if (currentPosY > this.NextPosY && this.DownInput == true)
-            {
-                if (this.Owner.Sprite.SpriteSource != this.WalkDown)
-                {
-                    this.Owner.Sprite.SpriteSource = this.WalkDown;
-                }
-                this.Owner.Sprite.FlipX = false;
-                this.Owner.RigidBody.Velocity = Real3(0.0, -this.Speed * event.Dt, 0.0);
-            }
-            else if (currentPosX < this.NextPosX && this.RightInput == true)
-            {
-                if (this.Owner.Sprite.SpriteSource != this.WalkRight)
-                {
-                    this.Owner.Sprite.SpriteSource = this.WalkRight;
-                }
-                this.Owner.Sprite.FlipX = false;
-                this.Owner.RigidBody.Velocity = Real3(this.Speed * event.Dt, 0.0, 0.0);
-            }
-            else if (currentPosX > this.NextPosX && this.LeftInput == true)
-            {
-                if (this.Owner.Sprite.SpriteSource != this.WalkRight)
-                {
-                    this.Owner.Sprite.SpriteSource = this.WalkRight;
-                }
-                this.Owner.Sprite.FlipX = true;
-                this.Owner.RigidBody.Velocity = Real3(-this.Speed * event.Dt, 0.0, 0.0);
-            }
-            else
-            {
-                if (this.LookingDirection == 0 && this.Owner.Sprite.SpriteSource != this.IdleUp)
-                {
-                    this.Owner.Sprite.SpriteSource = this.IdleUp;
+                    if (this.Owner.Sprite.SpriteSource != this.WalkUp)
+                    {
+                        this.Owner.Sprite.SpriteSource = this.WalkUp;
+                    }
                     this.Owner.Sprite.FlipX = false;
+                    this.Owner.RigidBody.Velocity = Real3(0.0, this.Speed * event.Dt, 0.0);
                 }
-                if (this.LookingDirection == 2 && this.Owner.Sprite.SpriteSource != this.IdleDown)
+                else if (currentPosY > this.NextPosY && this.DownInput == true)
                 {
-                    this.Owner.Sprite.SpriteSource = this.IdleDown;
+                    if (this.Owner.Sprite.SpriteSource != this.WalkDown)
+                    {
+                        this.Owner.Sprite.SpriteSource = this.WalkDown;
+                    }
                     this.Owner.Sprite.FlipX = false;
+                    this.Owner.RigidBody.Velocity = Real3(0.0, -this.Speed * event.Dt, 0.0);
                 }
-                if (this.LookingDirection == 1 && this.Owner.Sprite.SpriteSource != this.IdleRight)
+                else if (currentPosX < this.NextPosX && this.RightInput == true)
                 {
-                    this.Owner.Sprite.SpriteSource = this.IdleRight;
+                    if (this.Owner.Sprite.SpriteSource != this.WalkRight)
+                    {
+                        this.Owner.Sprite.SpriteSource = this.WalkRight;
+                    }
                     this.Owner.Sprite.FlipX = false;
+                    this.Owner.RigidBody.Velocity = Real3(this.Speed * event.Dt, 0.0, 0.0);
                 }
-                if (this.LookingDirection == 3 && this.Owner.Sprite.SpriteSource != this.IdleRight)
+                else if (currentPosX > this.NextPosX && this.LeftInput == true)
                 {
-                    this.Owner.Sprite.SpriteSource = this.IdleRight;
+                    if (this.Owner.Sprite.SpriteSource != this.WalkRight)
+                    {
+                        this.Owner.Sprite.SpriteSource = this.WalkRight;
+                    }
                     this.Owner.Sprite.FlipX = true;
+                    this.Owner.RigidBody.Velocity = Real3(-this.Speed * event.Dt, 0.0, 0.0);
                 }
-                this.Owner.RigidBody.Velocity = Real3(0.0, 0.0, 0.0);
+                else
+                {
+                    if (this.LookingDirection == 0 && this.Owner.Sprite.SpriteSource != this.IdleUp)
+                    {
+                        this.Owner.Sprite.SpriteSource = this.IdleUp;
+                        this.Owner.Sprite.FlipX = false;
+                    }
+                    if (this.LookingDirection == 2 && this.Owner.Sprite.SpriteSource != this.IdleDown)
+                    {
+                        this.Owner.Sprite.SpriteSource = this.IdleDown;
+                        this.Owner.Sprite.FlipX = false;
+                    }
+                    if (this.LookingDirection == 1 && this.Owner.Sprite.SpriteSource != this.IdleRight)
+                    {
+                        this.Owner.Sprite.SpriteSource = this.IdleRight;
+                        this.Owner.Sprite.FlipX = false;
+                    }
+                    if (this.LookingDirection == 3 && this.Owner.Sprite.SpriteSource != this.IdleRight)
+                    {
+                        this.Owner.Sprite.SpriteSource = this.IdleRight;
+                        this.Owner.Sprite.FlipX = true;
+                    }
+                    this.Owner.RigidBody.Velocity = Real3(0.0, 0.0, 0.0);
+                }
             }
         
     }

@@ -18,7 +18,6 @@ class GlobalSounds : ZilchComponent
     {
         if (this.JerryFloor != null && this.JeffreyFloor != null)
         {
-            Console.WriteLine(this.Switch);
             if (this.JeffreyFloor.Sprite.SpriteSource == SpriteSource.TileSet06Full
                 && this.JerryFloor.Sprite.SpriteSource == SpriteSource.DrawnWorld)
             {

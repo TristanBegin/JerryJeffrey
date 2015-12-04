@@ -71,6 +71,11 @@ class GameStats : ZilchComponent
                 this.LookingAt.DispatchEvent(Events.ItemUsed, itemUsed);
             }
         }
+        if (Zero.Keyboard.KeyIsPressed(Keys.X) && !this.AutoComplete && this.DoneTyping)
+        {
+            this.CurrentString = "";
+            this.Player.PlayerController.Talking = false;
+        }
     }
 }
 

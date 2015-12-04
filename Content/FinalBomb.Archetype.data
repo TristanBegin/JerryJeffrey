@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [12.5, 3.5, 0],
+		Vec3 Translation = [12.5, 3, 0],
 		Vec3 Scale = [1.20000005, 1.20000005, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -27,7 +27,7 @@ Cog =
 		Vec4 Color = [1, 1, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
-		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+		string SpriteLayer = "567a301ebb5f633a:Nine",
 		string SpriteSource = "564a11b782331807:BombAnim",
 		bool RenderMask = false,
 		bool FlipX = false,

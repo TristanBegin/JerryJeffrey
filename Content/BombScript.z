@@ -93,7 +93,7 @@ class BombScript : ZilchComponent
     
     function OnItemUsed (event : ItemUsed)
     {
-        if (event.TheItem == "Freezer")
+        if (event.TheItem == "Water")
         {
             this.UsedWater = true;
         }

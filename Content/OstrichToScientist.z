@@ -43,7 +43,7 @@ class OstrichToScientist : ZilchComponent
         
         if(this.Switch == "On")
         {
-            this.Space.CreateAtPosition(Archetype.FinalBomb, Real3(12.5, 3.5, 0.0));
+            this.Space.CreateAtPosition(Archetype.FinalBomb, Real3(12.5, 3, 0.0));
             this.Switch = "Off";
         }
       }
@@ -83,7 +83,7 @@ class OstrichToScientist : ZilchComponent
       this.JeffreyFloor.Sprite.SpriteSource = SpriteSource.TileSet06Full;
       this.JeffreyFloor.Sprite.FlipX = true;
       
-      this.Space.CreateAtPosition(Archetype.L5FinalTrigger, Real3(12.5, 3, 0.0));
+      this.Space.CreateAtPosition(Archetype.L5FinalTrigger, Real3(12.5, 3.5, 0.0));
       
       this.Space.FindObjectByName("L5Dog2").Destroy();
       this.Space.FindObjectByName("L5Dog2_2").Destroy();

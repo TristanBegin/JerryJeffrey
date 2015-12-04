@@ -48,8 +48,8 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = "Pocket Lint: ""Help! I'm being stabbed",
-		string Text2 = "by a pencil! And it's HUGE!""",
+		string Text1 = "Pocket Lint: ""Please! Get this pencil off of me!",
+		string Text2 = "Surely the owner of this pocket can help.""",
 		string Text3 = "",
 		string Text4 = "",
 		string Text5 = "",

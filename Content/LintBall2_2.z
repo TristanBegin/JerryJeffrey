@@ -30,7 +30,7 @@ class LintBall2_2 : ZilchComponent
     
     this.TextArray.Add(""); //The first element of the string array, it will aways be ""
     this.TextArray.Add("Pocket Lint: \"Phew. At least that's over.\nThis gaping wound hurts, though.\"");
-    this.TextArray.Add("\"If only I had something to staunch the bleeding...\nDo you have something that would help?”\"");
+    this.TextArray.Add("\"If only I had something to staunch the bleeding...\nDo you have something? Maybe something bird-shaped?\"");
     this.TextArray.Add("");
     this.TextArray.Add("");
 

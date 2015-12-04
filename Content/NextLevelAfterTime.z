@@ -14,6 +14,7 @@ class NextLevelAfterTime : ZilchComponent
         this.CurTime -= event.Dt;
         if (this.CurTime <= 0)
         {
+            this.GameSession.GameStats.CurrentString = "";
             this.Space.LoadLevel(Level.Level6);
         }
     }
