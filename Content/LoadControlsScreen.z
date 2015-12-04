@@ -1,0 +1,45 @@
+class LoadControlsScreen : ZilchComponent
+{
+    var TheTime : Real = 9;
+    var EnterPressed : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.Enter))
+        {
+          this.EnterPressed = true;
+        }
+        
+        if (this.TheTime > 6 && this.TheTime <= 9)
+        {
+            this.TheTime -= event.Dt;
+            if (this.Owner.Sprite.Color.W > 0.05) 
+                this.Owner.Sprite.Color -= Real4 (0, 0, 0, event.Dt);
+            else
+                this.Owner.Sprite.Color = Real4 (0, 0, 0, 0);
+        }
+        else if(this.TheTime > 2 && this.TheTime <= 6)
+        {
+          this.TheTime -= event.Dt;
+        }
+        else if (this.TheTime <= 2 && this.EnterPressed == true)
+        {
+            if (this.Owner.Sprite.Color.W < 0.95) 
+                this.Owner.Sprite.Color += Real4 (0, 0, 0, event.Dt);
+            else
+                this.Owner.Sprite.Color = Real4 (0, 0, 0, 1);
+            
+            this.TheTime -= event.Dt;
+        }
+        if (this.TheTime <= 0)
+        {
+            this.Space.SoundSpace.Pause;
+            this.Space.LoadLevel(Level.Find("Title"));
+        }
+    }
+}

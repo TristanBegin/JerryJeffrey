@@ -1,0 +1,46 @@
+class DebugTools : ZilchComponent
+{
+  function Initialize(init : CogInitializer)
+  {
+    Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+  }
+
+  function OnLogicUpdate(event : UpdateEvent)
+  {
+    if(Zero.Keyboard.KeyIsDown(Keys.Control))
+    {
+      if(Zero.Keyboard.KeyIsPressed(Keys.One))
+      {
+        this.Space.LoadLevel(Level.Find("Level1"));
+      }
+      else if(Zero.Keyboard.KeyIsPressed(Keys.Two))
+      {
+        this.Space.LoadLevel(Level.Find("Level2"));
+      }
+      else if(Zero.Keyboard.KeyIsPressed(Keys.Three))
+      {
+        this.Space.LoadLevel(Level.Find("Level3"));
+      }
+      else if(Zero.Keyboard.KeyIsPressed(Keys.Four))
+      {
+        this.Space.LoadLevel(Level.Find("Level4"));
+      }
+      else if(Zero.Keyboard.KeyIsPressed(Keys.Five))
+      {
+        this.Space.LoadLevel(Level.Find("Level5"));
+      }
+      else if(Zero.Keyboard.KeyIsPressed(Keys.Six))
+      {
+        this.Space.LoadLevel(Level.Find("Level6"));
+      }
+      else if(Zero.Keyboard.KeyIsPressed(Keys.Seven))
+      {
+        this.Space.LoadLevel(Level.Find("Title"));
+      }
+      else if(Zero.Keyboard.KeyIsPressed(Keys.R))
+      {
+        this.Space.ReloadLevel();
+      }
+    }
+  }
+}

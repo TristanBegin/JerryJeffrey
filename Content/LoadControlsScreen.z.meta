@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LoadControlsScreen",
+		uint64 ResourceId = 568189e9cdd4d36f,
+	},
+},
