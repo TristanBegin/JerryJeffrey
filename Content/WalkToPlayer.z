@@ -21,21 +21,29 @@ class WalkToPlayer : ZilchComponent
             }
             else if (this.UpTime > 0)
             {
+                if (this.Owner.Sprite.SpriteSource != SpriteSource.JerryWalkingBackAnim)
+                    this.Owner.Sprite.SpriteSource = SpriteSource.JerryWalkingBackAnim;
                 this.UpTime -= event.Dt;
                 this.Owner.Transform.Translation += Real3 (0, event.Dt * 2, 0);
             }
             else if (this.RightTime > 0)
             {
+                if (this.Owner.Sprite.SpriteSource != SpriteSource.JerrySidesWalkingAnim)
+                    this.Owner.Sprite.SpriteSource = SpriteSource.JerrySidesWalkingAnim;
                 this.RightTime -= event.Dt;
                 this.Owner.Transform.Translation += Real3 (event.Dt * 2, 0, 0);
             }
             else if (this.DownTime > 0)
             {
+                if (this.Owner.Sprite.SpriteSource != SpriteSource.JerryFrontWalkingAnim)
+                    this.Owner.Sprite.SpriteSource = SpriteSource.JerryFrontWalkingAnim;
                 this.DownTime -= event.Dt;
                 this.Owner.Transform.Translation += Real3 (0, -event.Dt * 2, 0);
             }
             else
             {
+                if (this.Owner.Sprite.SpriteSource != SpriteSource.JerryFrontIdleAnim)
+                    this.Owner.Sprite.SpriteSource = SpriteSource.JerryFrontIdleAnim;
                 this.Done = true;
             }
         }

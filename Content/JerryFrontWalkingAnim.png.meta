@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "JerryFrontWalkingAnim",
+		uint64 ResourceId = 564a709fd7a104cb,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 15,
+		uint FrameSizeY = 18,
+		uint FrameCount = 4,
+		float FrameDelay = 0.333333343,
+		float OriginX = 7,
+		float OriginY = 9,
+		float PixelsPerUnit = 16,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},
