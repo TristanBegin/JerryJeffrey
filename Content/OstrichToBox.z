@@ -102,7 +102,6 @@ class OstrichToBox : ZilchComponent
     
     if (event.TheItem == "Ostrich" && this.ItemInBox == "")
     {
-      Console.WriteLine("Event received.");
       this.ItemInBox = "Ostrich";
       this.GameSession.GameStats.ObjectTwo = "";
       this.JeffreyFloor.Sprite.SpriteSource = this.PitWorld;

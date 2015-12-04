@@ -8,14 +8,6 @@ class Scientist : ZilchComponent
   var TextArray : Array[String] = Array[String](); // The array of strings that will be printed on the screen
   var Done : Boolean = false;
   // 30 strings for the text
-  [Property]
-  var Text1 : String;
-  [Property]
-  var Text2 : String;
-  [Property]
-  var Text3 : String;
-  [Property]
-  var Text4 : String;
   
   function Initialize(init : CogInitializer)
   {
@@ -24,10 +16,14 @@ class Scientist : ZilchComponent
     
     this.TextArray.Add("");
     this.TextArray.Add("");
-    this.TextArray.Add(this.Text1);
-    this.TextArray.Add(this.Text2);
-    this.TextArray.Add(this.Text3);
-    this.TextArray.Add(this.Text4);
+    this.TextArray.Add("Scientist: \"You there, you look like a man who");
+    this.TextArray.Add(" respects the fine art of science.\"");
+    this.TextArray.Add("\"Surely you will help me complete my glorious machine.\"");
+    this.TextArray.Add("");
+    this.TextArray.Add("\"The only ingredient left is an ostrich.");
+    this.TextArray.Add(" Could you fetch me one?\"");
+    this.TextArray.Add("\"I assure you, it is purely for");
+    this.TextArray.Add(" the sake of science.\"");
     this.TextArray.Add("");
     this.TextArray.Add("");
   }
@@ -55,15 +51,17 @@ class Scientist : ZilchComponent
         //Increment the text counter by 2
         this.I += 2; 
         //Add the next two strings in the string array to the current string
-        this.GameSession.GameStats.CurrentString = ("`this.TextArray[this.I]`\n`this.TextArray[this.I + 1]`");
+        this.GameSession.GameStats.CurrentString = ("`this.TextArray[this.I]`\n`this.TextArray[this.I+1]`");
       }
       
       //If you have reached an empty string that is not the first two or X is pressed
       if(((this.TextArray[this.I]) == "" && (this.I != 0))
       || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping))
       {
-        this.TextArray.Set(2, "\"Go find me an ostrich!\"");
-        this.TextArray.Set(3, "\"You can't be my friend until then.\"");
+        this.TextArray.Set(2, "\"Really, it is only to progress science.\"");
+        this.TextArray.Set(3, "");
+        this.TextArray.Set(4, "\"You have nothing to worry about in");
+        this.TextArray.Set(5, " giving me an ostrich.\"");
         this.Done = true;
         //Player isn't talking anymore
         player.PlayerController.Talking = false;

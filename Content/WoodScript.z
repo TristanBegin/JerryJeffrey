@@ -19,7 +19,7 @@ class Wood1Script : ZilchComponent
     {
         var text = this.GameSession.GameStats.CurrentString;
         var player = this.Space.FindObjectByName("Player");
-        Console.WriteLine(this.Count);
+
         this.TextArray.Add("");
         this.TextArray.Add(this.Text);
         if (this.Count >= 2)

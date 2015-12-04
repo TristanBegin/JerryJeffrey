@@ -6,21 +6,21 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "Jerry",
+		string Name = "L5FinalBarrier",
 	},
 	Archetyped = 
 	{
-		string Name = "5655874c1488e80f:L4Jerry_2",
+		string Name = "564a21d67b64889d:L5FinalBarrier",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 0, 0],
+		Vec3 Translation = [7.0963273, 3.47499204, -6.13852649e-008],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
 	{
-		bool Visible = true,
+		bool Visible = false,
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
@@ -28,7 +28,7 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "56157c8d9e5eb505:JerryFrontIdleAnim",
+		string SpriteSource = "5275aa4d802dd6dc:Square",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
@@ -45,8 +45,5 @@ Cog =
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
 		Vec3 Size = [0.5, 0.5, 0.5],
-	},
-	L4Jerry_2Script = 
-	{
 	},
 },

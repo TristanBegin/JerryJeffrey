@@ -134,7 +134,7 @@ class DeskScript : ZilchComponent
                     this.TextArray.Add("*Ahem*”“\n\"Hello! How are you today? I’'m doing amazing, actually.\"");
                     this.TextArray.Add("\"You know how it is, opening and closing and whatnot.”“\nYes, yes, being a drawer is a truly thrilling experience,\"" );
                     this.TextArray.Add("\"let me tell you. Why, just the other day, I had to open\nfor a very important individual.\"");
-                    this.TextArray.Add("\"So...”“Would you like to be my girlfriend?\"");
+                    this.TextArray.Add("\"So...”“ Would you like to be my girlfriend?\"");
                     this.TextArray.Add("\"No? Okay, what about my boyfriend?”“”\"");
                     this.TextArray.Add("\"What about just being my friend?”“\"");
                     this.TextArray.Add("\"Acquaintance?\"");

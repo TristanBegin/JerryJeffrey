@@ -6,11 +6,15 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "L4Jerry",
+		string Name = "Jerry",
+	},
+	Archetyped = 
+	{
+		string Name = "565587be16e76395:L4Jerry",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [3.5, 6.5, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},

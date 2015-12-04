@@ -29,7 +29,7 @@ class RedFigure_3 : ZilchComponent
     Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     
     this.TextArray.Add(""); //The first element of the string array, it will aways be ""
-    this.TextArray.Add("\"Dialog Puzzle\"");
+    this.TextArray.Add("\"They've all left now. \nWas there something you wanted from me?\"");
     this.TextArray.Add("");
     this.TextArray.Add("”");
 
@@ -120,16 +120,16 @@ class RedFigure_3 : ZilchComponent
       if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
       {
         this.Talked = true;
-        this.TextArray.Set(3,"“\"I don't understand you.\"");
+        this.TextArray.Set(3,"“\"I don't have that to give you.\"");
       }
       else if(this.Input != this.RightAnswer)
       {
         this.Talked = true;
-        this.TextArray.Set(3,"“\"That's not the answer.\"");
+        this.TextArray.Set(3,"“\"I don't have that to give you.\"");
       }
       else if (this.Input == this.RightAnswer)
       {
-        this.TextArray.Set(3,"\"That's the answer I'm looking for.\"");
+        this.TextArray.Set(3,"\"Fine. Here.\"");
         
         if(this.Switch == "On")
         {

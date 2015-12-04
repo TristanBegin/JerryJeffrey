@@ -74,8 +74,8 @@ class L4Jerry_2Script : ZilchComponent
       this.TextArray.Set(3,"\"My, my… this is rather flattering.\n I'd never known anyone to be so eloquent\"”");
       this.TextArray.Set(4,"\"with words. Though I would argue that my\n horns are more of a brilliant teal than a\"");
       this.TextArray.Set(5,"\"'shimmering ivory'.\"");
-      this.TextArray.Set(6,"\"Ahem, but of course this is all just to throw me off his trail.\"");
-      this.TextArray.Add("\"That scoundrel, that delinquent, I will show him TRUE justice!\"");
+      this.TextArray.Set(6,"\"Ahem, but of course this is all just to throw \nme off his trail.\"");
+      this.TextArray.Add("\"That scoundrel, that delinquent, I will show him \nTRUE justice!\"");
       this.TextArray.Add("\"Best friend, I have a new assignment for you. If you\n truly wish to be worthy of my praises, then listen well.\"");
       this.TextArray.Add("\"Take this note, and deliver it to him.\"");
       this.TextArray.Add("\"What does it say? Why, it's a declaration\n of war, of course!\"");

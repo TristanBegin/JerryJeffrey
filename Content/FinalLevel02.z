@@ -20,8 +20,6 @@ class FinalLevel02 : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        Console.WriteLine(this.Player.Transform.Translation.Y);
-        Console.WriteLine(this.GameSession.GameStats.CurrentString);
         if (this.Sandra.LongDialogScript.Done)
         {
             this.GameSession.GameStats.CurrentString = " ";
@@ -47,7 +45,6 @@ class FinalLevel02 : ZilchComponent
                 ++this.I;
             }
         }
-        //Console.WriteLine(this.I);
         if (this.I >= 3)
         {
             this.Player.Transform.Translation += Real3(0, event.Dt * 2, 0);

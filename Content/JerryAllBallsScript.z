@@ -24,16 +24,16 @@ class JerryAllBallsScript : ZilchComponent
         this.TextArray.Add("\"Of course he is….\"");
         this.TextArray.Add("\"He's the reason I am dying, you see.\"");
         this.TextArray.Add("\"I know that I only have a few hours to live, and it's all\nbecause of that man over there.\"");
-        this.TextArray.Add("\"He's poisoned me, you see.\"");
+        this.TextArray.Add("\"He's poisoned me.\"");
         this.TextArray.Add("\"It's because he's jealous.\"");
         this.TextArray.Add("\"He knows that he could never hope to match my \nsuperhuman level of juggling talent.\"");
-        this.TextArray.Add("\"You see, a lot of people don't know this, but jugglers are \nin fact quite vicious creatures.\"");
+        this.TextArray.Add("\"A lot of people don't know this, but jugglers are \nin fact quite vicious creatures.\"");
         this.TextArray.Add("\"Luckily for you, I am the exception to this rule.\"");
         this.TextArray.Add("\"All I wish to do is have fun with my balls. But these other\n jugglers, they get so competitive.\"");
         this.TextArray.Add("\"I need you to do something for me.\"");
         this.TextArray.Add("\"I am already dying, that much is certain.\n However, if you could do me this kindness,\"");
         this.TextArray.Add("\"then perhaps I could juggle in peace for these last\n few hours.\"");
-        this.TextArray.Add("\"I need you to kill his family.\"");
+        this.TextArray.Add("\"I need you to kill his family.\nWhat do you say?\"");
         this.TextArray.Add("");
         this.TextArray.Add("\"You will? Thank goodness.\"");
         this.TextArray.Add("\"Alright, listen. His family is hidden in a box. \nYou could say that it is the only box. THE box, so to speak.\"");
@@ -43,7 +43,6 @@ class JerryAllBallsScript : ZilchComponent
     function OnLogicUpdate(event : UpdateEvent)
     {
         var text = this.Space.LevelSettings.HudInteraction.HudText; //Finds the hud text
-        Console.WriteLine(text.TextInput.ST);
         
         // If the object is next to the player
         if(this.Player.RayCastings.DistanceLooking < 0.5 && this.Player.RayCastings.HitObject == this.Owner)
@@ -68,6 +67,15 @@ class JerryAllBallsScript : ZilchComponent
             || (Zero.Keyboard.KeyIsPressed(Keys.X) && this.GameSession.GameStats.DoneTyping && !this.Player.PlayerController.Texting )
             || (this.TextArray[this.I] == "" && this.I > 0 && this.I != 18))
             {
+                if(this.I >= this.TextArray.Count )
+                {
+                    this.Space.FindObjectByName("Camera").SoundEmitter.PlayCue(SoundCue.GoodCue);
+                    this.GameSession.GameStats.ObjectOne = "";
+                    this.GameSession.GameStats.ObjectTwo = "";
+                    this.GameSession.GameStats.ObjectThree = "";
+                    this.GameSession.GameStats.Trigger = "Level4";
+                    
+                }
                 this.Player.PlayerController.Talking = false;
                 this.I = 0;
                 this.GameSession.GameStats.CurrentString = "";

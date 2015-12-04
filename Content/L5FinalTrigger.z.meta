@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "L5FinalTrigger",
+		uint64 ResourceId = 564a205615776ccd,
+	},
+},

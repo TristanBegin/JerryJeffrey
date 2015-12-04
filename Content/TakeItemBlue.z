@@ -17,14 +17,12 @@ class TakeItemBlue : ZilchComponent
       {
         if (this.Owner.OstrichToBlueBox.ItemInBox == "Ostrich")
         {
-          Console.WriteLine("Ostrich Grabbed");
           this.GameSession.GameStats.ObjectTwo = "Ostrich";
           this.Owner.OstrichToBlueBox.ItemInBox = "";
         }
         
         if (this.Owner.OstrichToBlueBox.ItemInBox == "Rhino")
         {
-          Console.WriteLine("Rhino Grabbed");
           this.GameSession.GameStats.ObjectOne = "Rhino";
           this.Owner.OstrichToBlueBox.ItemInBox = "";
         }

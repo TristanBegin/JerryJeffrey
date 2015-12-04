@@ -4,6 +4,8 @@ class OstrichToScientist : ZilchComponent
   var JeffreyFloor : Cog;
   var Player : Cog;
   
+  var Switch : String = "On";
+  
   var TextArray : Array[String] = Array[String]();
   var I : Integer = 0;
   
@@ -11,7 +13,7 @@ class OstrichToScientist : ZilchComponent
   {
     /* Text Array Stuff */
     this.TextArray.Add("");
-    this.TextArray.Add("I'm a scientist.");
+    this.TextArray.Add("Please, give me that, now!");
     
     
     Zero.Connect(this.Owner, Events.ItemUsed, this.OnItemUsed);
@@ -38,6 +40,12 @@ class OstrichToScientist : ZilchComponent
         this.I = 0;
         this.Player.PlayerController.Talking = false;
         this.GameSession.GameStats.CurrentString = "";
+        
+        if(this.Switch == "On")
+        {
+            this.Space.CreateAtPosition(Archetype.FinalBomb, Real3(12.5, 3.5, 0.0));
+            this.Switch = "Off";
+        }
       }
       
     }
@@ -71,13 +79,15 @@ class OstrichToScientist : ZilchComponent
     
     if (event.TheItem == "Ostrich")
     {
-      Console.WriteLine("Event received.");
       this.GameSession.GameStats.ObjectTwo = "";
       this.JeffreyFloor.Sprite.SpriteSource = SpriteSource.TileSet06Full;
       this.JeffreyFloor.Sprite.FlipX = true;
       
+      this.Space.CreateAtPosition(Archetype.L5FinalTrigger, Real3(12.5, 3, 0.0));
+      
       this.Space.FindObjectByName("L5Dog2").Destroy();
       this.Space.FindObjectByName("L5Dog2_2").Destroy();
+      this.Space.FindObjectByName("CottonPit").Destroy();
       
       this.UsedOstrich = true;
     }

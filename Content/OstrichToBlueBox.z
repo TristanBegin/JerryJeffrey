@@ -4,6 +4,10 @@ class OstrichToBlueBox : ZilchComponent
   var UsedRhino : Boolean = false;
   var JeffreyFloor : Cog;
   var Player : Cog;
+  var Switch : String = "On";
+  
+  var PitTop : Cog;
+  var PitBottom : Cog;
   
   var TextArray : Array[String] = Array[String]();
   var I : Integer = 0;
@@ -21,6 +25,8 @@ class OstrichToBlueBox : ZilchComponent
     
     this.JeffreyFloor = this.Space.FindObjectByName("JeffreyFloor");
     this.Player = this.Space.FindObjectByName("Player");
+    this.PitTop = this.Space.FindObjectByName("PitRoomTop");
+    this.PitBottom = this.Space.FindObjectByName("PitRoomBottom");
   }
 
   function OnLogicUpdate(event : UpdateEvent)
@@ -43,6 +49,7 @@ class OstrichToBlueBox : ZilchComponent
             this.Owner.OstrichToBlueBox.ItemInBox = "";
             this.TextArray.Set(1, "You grabbed the ostrich from the box.");
             this.I = 1;
+            
           }
           else if (this.ItemInBox == "Rhino" && this.Player.PlayerController.Talking == false)
           {
@@ -85,6 +92,20 @@ class OstrichToBlueBox : ZilchComponent
       this.TextArray.Set(1, "The ceramic ostrich is in the box.");
       this.I = 1;
       this.UsedOstrich = false;
+      
+      if(this.Switch == "On")
+      {
+        if (this.PitTop != null)
+        {
+        this.PitTop.Destroy();
+        }
+        
+        if (this.PitBottom != null)
+        {
+        this.PitBottom.Destroy();
+        }
+        this.Switch = "Off";
+      }
     }
     else if (this.UsedRhino == true)
     {
@@ -97,7 +118,6 @@ class OstrichToBlueBox : ZilchComponent
 
   function OnItemUsed(event : ItemUsed)
   {
-    Console.WriteLine("Event received.");
     if (event.TheItem == "Ostrich" && this.ItemInBox == "")
     {
       this.UsedOstrich = true;

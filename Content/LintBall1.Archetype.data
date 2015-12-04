@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [0.475000024, 0.779500008, 1, 1],
+		Vec4 Color = [1, 1, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -43,7 +43,7 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = """I only talk to red.""",
+		string Text1 = "Pocket Lint: ""I only talk to red.""",
 		string Text2 = "",
 		string Text3 = "",
 		string Text4 = "",

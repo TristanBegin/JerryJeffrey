@@ -33,8 +33,8 @@ class JeffreyBall3Script : ZilchComponent
         this.TextArray.Add("\"My wife….. I love...… my wife...… I do...…\nEven though she's Italian...…\"");
         this.TextArray.Add("\"Ah!\"");
         this.TextArray.Add("\"Oh, it's just you.\nYou've suddenly become more talkative.\"");
-        this.TextArray.Add("\"Is it because you've taken interest in my rhinoceros”\"");
-        this.TextArray.Add("\"What's that? You just want a glass of water?\nHumph, why does no one ever ask about my rhinoceros heritage?\"");
+        this.TextArray.Add("\"Is it because you've taken interest in my rhinoceros”\nheritage?\"");
+        this.TextArray.Add("\"What's that? You just want a glass of water?\nHumph, no one ever asks about my rhinoceros heritage.\"");
         this.TextArray.Add("\"Oh well. \nWho is it you need this water for?\"");
         this.TextArray.Add("");
         this.TextArray.Add("”");

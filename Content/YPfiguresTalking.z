@@ -28,10 +28,20 @@ class YPfiguresTalking : ZilchComponent
     
     this.JerryFloor = this.Space.FindObjectByName("JerryFloor");
     this.BlueFigure = this.Space.FindObjectByName("BlueFigure");
-    this.BlueBox = this.Space.FindObjectByName("SecondBox5");
+    this.BlueBox = this.Space.FindObjectByName("The Box");
     
     this.TextArray.Add(""); //The first element of the string array, it will aways be ""
-    this.TextArray.Add("\"The ostrich is mine! I can't live without something \nceramic! What else would I cuddle at night?\"");
+    this.TextArray.Add("Purple: \"Yoouuuu wiiiillll noooooot taaaaaaake iiiiiit.\"");
+    this.TextArray.Add("Yellow: \"Ah, come on now. What are ya' even gonna' do with \nsomethin' like that?\"");
+    this.TextArray.Add("Purple: \"Thaaaaat maaaatteeeeers nooooooot. Iiiiit iiiiis \nmiiiiiine.\"");
+    this.TextArray.Add("Yellow: \"Hey, you there, why don't ya' talk some sense into \ngramps over here.\"");
+    this.TextArray.Add("Purple: \"Weeeeee aaaaaare theeee saaaaaame aaaaaaage.\"");
+    this.TextArray.Add("Yellow: \"Yeah, yeah. Look, White, you know he's just bein' \nselfish. Just take it when he ain't lookin'.\"");
+    this.TextArray.Add("Purple: \"IIII caaaaaan heeeaaaar eeevveeryythiiiing \nyooouu'ree saaaaayiiing.\"");
+    this.TextArray.Add("Yellow: \"Shoot.\"");
+    this.TextArray.Add("Purple: \"Yooooouuuu theeeeerreee. Yooouuuu wiiish tooo \ntaaaake myyy oooostriiich as weeeell?\"");
+    this.TextArray.Add("Yellow: \"Of course he does, look how flippin' shiny it is!\"");
+    this.TextArray.Add("Purple: \"Iiiif yooou waaant iiit, yooouu haaad beettteeer \nhaaave soomethiiing tooo offeeer iiin rettuurn.\"");
     this.TextArray.Add("");
     this.TextArray.Add("”");
 
@@ -48,7 +58,7 @@ class YPfiguresTalking : ZilchComponent
         if(Zero.Keyboard.KeyIsPressed(Keys.Enter) && this.GameSession.GameStats.DoneTyping && 
           (this.GameSession.GameStats.CurrentString == "" || this.I > 0))
         {
-          if(this.I == 2 && this.Input == "")
+          if(this.I == 12 && this.Input == "")
           {
           }
           else
@@ -68,8 +78,8 @@ class YPfiguresTalking : ZilchComponent
           
           if(this.Switch == "Off")
           {
-            this.TextArray.Set(1, "\"I love my new fuzzy pet. What else could you \npossibly offer me?\"");
-            this.TextArray.Set(3, "\"I already have the rhino.\"");
+            this.TextArray.Set(1, "\"Thaaaaank yoooou fooor theee traaade.\"");
+            this.TextArray.Set(3, "\"IIIII haaaavvee theee rhiiinoo aaalreaaadyy.\"");
           }
         }
         //If not in the begining of the string
@@ -89,13 +99,13 @@ class YPfiguresTalking : ZilchComponent
         this.Player.PlayerController.Talking = true;
       }
       
-      this.TextArray.Set(2, (text.TextInput.ST));
+      this.TextArray.Set(12, (text.TextInput.ST));
       
-      if (this.I < 2)
+      if (this.I < 12)
       {
         text.TextInput.ST = "";
       }
-      else if (this.I == 2)
+      else if (this.I == 12)
       { 
         if(this.Player.PlayerController.Texting == false)
         {
@@ -103,17 +113,17 @@ class YPfiguresTalking : ZilchComponent
         }
         this.GameSession.GameStats.AutoComplete = true;
       }
-      else if (this.I != 2)
+      else if (this.I != 12)
       {
         this.GameSession.GameStats.AutoComplete = false;
       }
       
-      if(this.Talked == true && this.Player.PlayerController.Talking == true && this.I < 2 )
+      if(this.Talked == true && this.Player.PlayerController.Talking == true && this.I < 12)
       {
-        this.I = 1;
+        this.I = 11;
       }
       
-      if(this.I == 3)
+      if(this.I == 13)
       {
         this.Input = this.Input.ToLower();
         this.WrongAnswer = this.WrongAnswer.ToLower();
@@ -122,16 +132,16 @@ class YPfiguresTalking : ZilchComponent
         if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
         {
           this.Talked = true;
-          this.TextArray.Set(3,"“\"I don't want to cuddle with THAT ugly thing.\"");
+          this.TextArray.Set(13,"“\"Thaaaaat wooooon't dooooo.\"");
         }
         else if(this.Input != this.RightAnswer)
         {
           this.Talked = true;
-          this.TextArray.Set(3,"“\"I already have the ostrich.\"");
+          this.TextArray.Set(13,"“\"IIII haaaaaave thaaaat aaalreaaaady.\"");
         }
         else if (this.Input == this.RightAnswer && this.GameSession.GameStats.ObjectOne == "Rhino")
         {
-          this.TextArray.Set(3,"\"A....a rhino? I love rhinos! Give me \nthat right now! Take the ostrich, I don't want it.\"");
+          this.TextArray.Set(13,"\"Hmmmmmm... III suuupooose thaaat iiis aaa faaaair\ntraaade. IIII'll puuut iiit iiin myy poooockeeet.\"");
           
           if(this.Switch == "On")
           {
@@ -151,7 +161,7 @@ class YPfiguresTalking : ZilchComponent
                 this.GameSession.GameStats.ObjectOne != "Rhino" &&
                 this.Switch == "On")
         {
-          this.TextArray.Set(3,"\"You don't have a rhino...you worthless piece of trash.\"");
+          this.TextArray.Set(12,"\"Yooouuuu doooon't haaaave aaaa rhiiiino.\"");
         }
         
         

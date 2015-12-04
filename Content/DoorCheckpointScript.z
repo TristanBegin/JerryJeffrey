@@ -2,6 +2,7 @@ class DoorCheckpointScript : ZilchComponent
 {
     var Object : Cog;
     var Level2 : Level = Level.Find("Quote2");
+    var Level4 : Level = Level.Find("Quote4");
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -9,7 +10,6 @@ class DoorCheckpointScript : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-            Console.WriteLine(this.GameSession.GameStats.Trigger);
          Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
          Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
     }
@@ -37,6 +37,11 @@ class DoorCheckpointScript : ZilchComponent
                 this.Object = this.Space.CreateAtPosition(Archetype.WorkingLevers , Real3(3.5, 4.5, 0.0));
                 this.Space.CreateAtPosition(Archetype.StuckLevers , Real3(12.5, 4.5, 0.0));
             }
+        }
+        
+        if (this.GameSession.GameStats.Trigger == "Level4")
+        {
+            this.Space.LoadLevel(this.Level4);
         }
 
     }

@@ -35,7 +35,7 @@ class P2Talking : ZilchComponent
     this.BlueBox = this.Space.FindObjectByName("SecondBox5");
     
     this.TextArray.Add(""); //The first element of the string array, it will aways be ""
-    this.TextArray.Add("\"What do you want from me?\"");
+    this.TextArray.Add("\"Diiiid yoooouu waaant sooomethiiiing eeelse?\"");
     this.TextArray.Add("");
     this.TextArray.Add("”");
     this.TextArray.Add("");
@@ -130,24 +130,24 @@ class P2Talking : ZilchComponent
         if(this.Input != this.WrongAnswer && this.Input != this.RightAnswer)
         {
           this.Talked = true;
-          this.TextArray.Set(3,"“\"You aren't making any sense.\"");
+          this.TextArray.Set(3,"“\"III dooooon't hhaaaave thaaat.\"");
         }
         else if(this.Input == this.WrongAnswer)
         {
           this.Talked = true;
-          this.TextArray.Set(3,"“\"Hmm...I don't think so.\"");
+          this.TextArray.Set(3,"“\"Noooo.\"");
         }
         else if (this.Input == this.RightAnswer)
         {
           this.Solved = true;
-          this.TextArray.Set(3,"\"Fine, if you insist.\nHere, take this pencil.\"");
-          this.TextArray.Set(4,"\"Oh! I dropped it! Where'd it go?\nI guess you just have to move on.\"");
+          this.TextArray.Set(3,"\"Suuuuure, heeeere, taaaake iiiiit.\"");
+          this.TextArray.Set(4,"\"Oooooh. III drooooopped iiiit.\"");
         }
         else if(this.Input == this.RightAnswer && 
                 this.Switch == "Off")
         {
-          this.TextArray.Set(3,"\"Don't look at me like that...\"");
-          this.TextArray.Set(4,"\"You're the one that dropped it.\"");
+          this.TextArray.Set(3,"\"Doooon't giiive meee thaaat loook.?\"");
+          this.TextArray.Set(4,"\"Yooouuu're theee ooone thaaat droooppped iiiit.\"");
         }
         
         this.Player.PlayerController.Texting = false;

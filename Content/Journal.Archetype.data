@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [13.2792921, 11.4356422, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -49,7 +49,7 @@ Cog =
 	BaseDialogScript = 
 	{
 		string Text1 = "It's a diary. The title reads:",
-		string Text2 = """Jeffrey's everyday thoughts""",
+		string Text2 = """Jeffrey's everyday thoughts.""",
 		string Text3 = """Two days before yesterday: I saw her in the fields",
 		string Text4 = "today. She is such a beauty; I must have her!""",
 		string Text5 = """One day before yesterday: But alas, I cannot have her.",

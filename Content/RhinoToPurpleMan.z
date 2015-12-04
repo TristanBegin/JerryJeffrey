@@ -16,7 +16,6 @@ class RhinoToPurpleMan : ZilchComponent
 
   function OnItemUsed(event : ItemUsed)
   {
-    Console.WriteLine("Event received.");
     if (event.TheItem == "Rhino")
     {
       this.GameSession.GameStats.ObjectOne = "";

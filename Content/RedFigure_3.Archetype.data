@@ -48,7 +48,7 @@ Cog =
 	},
 	RedFigure_3 = 
 	{
-		string RightAnswer = "Solve",
-		string WrongAnswer = "Wrong",
+		string RightAnswer = "Ostrich",
+		string WrongAnswer = "Rhino",
 	},
 },

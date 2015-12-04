@@ -54,7 +54,7 @@ Cog =
 	BaseDialogScript = 
 	{
 		string Text1 = "It's just a piece of wood.",
-		string Text2 = "",
+		string Text2 = "Who wood have guessed?",
 		string Text3 = "",
 		string Text4 = "",
 		string Text5 = "",

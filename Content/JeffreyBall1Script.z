@@ -25,7 +25,7 @@ class JeffreyBall1Script : ZilchComponent
         this.TextArray.Add("\"Hello?!?\"");
         this.TextArray.Add("\"For the love of God, man, why will\nyou not speak?\"");
         this.TextArray.Add("");
-        this.TextArray.Add("\"What is it? Why won't you say anything? Is it \nbecause you are secretly racist, is that the reason?\"");
+        this.TextArray.Add("\"What is it? Why won't you say anything? Is it \nbecause you are secretly a racist, is that the reason?\"");
         this.TextArray.Add("\"That's it, isn't it? You are, in fact, a racist. Don't \ntry to defend yourself with some...\"");
         this.TextArray.Add("\"...'I have horned friends' nonsense.\"");
         this.TextArray.Add("\"Then again, it would seem I am racist as well.\"");

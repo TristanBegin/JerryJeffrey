@@ -1,0 +1,18 @@
+class L5FinalTrigger : ZilchComponent
+{
+    var Switch : String = "On";
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(event.OtherObject.Name == "Player" && this.Switch == "On")
+        {
+            this.Space.CreateAtPosition(Archetype.L5FinalBarrier, Real3(7.5, 3.5, 0.0));
+            this.Switch = "Off";
+        }
+    }
+}

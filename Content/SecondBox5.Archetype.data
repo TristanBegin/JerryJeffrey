@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "SecondBox5",
+		string Name = "The Box",
 	},
 	Archetyped = 
 	{

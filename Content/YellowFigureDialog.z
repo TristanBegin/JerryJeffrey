@@ -38,8 +38,8 @@ class YellowFigureDialog : ZilchComponent
     }
     else
     {
-      this.TextArray.Set(1, "\"AAAAAHHHHHH!!!\"");
-      this.TextArray.Set(2, "\"GO AWAY!!!\"");
+      this.TextArray.Set(2, "Yellow: \"Do ya' mind?\"");
+      this.TextArray.Set(3, "\"I'm tryin' ta' have a conversation here.\"");
     }
     
     //If the player is near the object

@@ -1,0 +1,20 @@
+class NextLevelAfterTime : ZilchComponent
+{
+    [Property]
+    var Time : Real = 20;
+    var CurTime : Real = 20;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.CurTime = this.Time;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.CurTime -= event.Dt;
+        if (this.CurTime <= 0)
+        {
+            this.Space.LoadLevel(Level.Level6);
+        }
+    }
+}

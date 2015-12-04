@@ -53,20 +53,6 @@ class RhinoToPit : ZilchComponent
         this.I = 0;
         this.Player.PlayerController.Talking = false;
         this.GameSession.GameStats.CurrentString = "";
-        
-        if(this.Switch == "On")
-        {
-          if (this.PitTop != null)
-          {
-            this.PitTop.Destroy();
-          }
-          
-          if (this.PitBottom != null)
-          {
-            this.PitBottom.Destroy();
-          }
-          this.Switch = "Off";
-        }
       }
     }
     else
@@ -97,17 +83,24 @@ class RhinoToPit : ZilchComponent
   {
     if (event.TheItem == "Rhino")
     {
+      if (this.Switch != "On")
+      {
       this.UsedRhino = true;
       this.Switch = "On";
       this.GameSession.GameStats.ObjectOne = "";
       this.JerryFloor.Sprite.SpriteSource = this.BottomOfPit;
-      this.Space.CreateAtPosition(Archetype.Rhino, Real3(4.5, 0.5, 0));
-      this.Space.CreateAtPosition(Archetype.Ostrich, Real3(1.5, 0.5, 0));
       
+      this.Space.CreateAtPosition(Archetype.Ostrich, Real3(1.5, 0.5, 0));
+      this.Space.CreateAtPosition(Archetype.Rhino, Real3(4.5, 0.5, 0));
       this.Space.CreateAtPosition(Archetype.BlueFigure, Real3(4.5, 5.5, 0));
       this.Space.CreateAtPosition(Archetype.SecondBox5, Real3(2.5, 5.5, 0));
       this.Space.FindObjectByName("Jerry").Destroy();
-      
+        }
+        else
+        {
+            this.Space.CreateAtPosition(Archetype.Rhino, Real3(4.5, 0.5, 0));
+            this.GameSession.GameStats.ObjectOne = "";
+        }
       if (this.FirstBox != null)
       {
         this.FirstBox.Destroy();

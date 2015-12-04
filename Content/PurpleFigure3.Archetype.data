@@ -48,8 +48,8 @@ Cog =
 	},
 	BaseDialogScript = 
 	{
-		string Text1 = """Don't look at me like that...",
-		string Text2 = "You're the one that dropped it.""",
+		string Text1 = "Purple: ""III aaapooologiize.",
+		string Text2 = "III diiid nooot inteeend toooo drooop iiit.""",
 		string Text3 = "",
 		string Text4 = "",
 		string Text5 = "",

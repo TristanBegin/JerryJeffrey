@@ -4,13 +4,86 @@ class GlobalSounds : ZilchComponent
     var LastObjectStateTwo : String = "";
     var LastObjectStateThree : String = "";
     var Done : Boolean = false;
+    var JerryFloor : Cog;
+    var JeffreyFloor : Cog;
+    var Switch : Integer = 0;
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.JerryFloor = this.Space.FindObjectByName("JerryFloor");
+        this.JeffreyFloor = this.Space.FindObjectByName("JeffreyFloor");
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        if (this.JerryFloor != null && this.JeffreyFloor != null)
+        {
+            Console.WriteLine(this.Switch);
+            if (this.JeffreyFloor.Sprite.SpriteSource == SpriteSource.TileSet06Full
+                && this.JerryFloor.Sprite.SpriteSource == SpriteSource.DrawnWorld)
+            {
+                if (this.Switch != 0) 
+                {
+                this.Play(SoundCue.RiotCue);
+                this.Play(SoundCue.MachineCue);
+                this.Switch = 0;
+                }
+            }
+            else if (this.JerryFloor.Sprite.SpriteSource == SpriteSource.DrawnWorld)
+            {
+                if (this.Switch != 1) 
+                {
+                this.Owner.SoundEmitter.Stop();
+                this.Play(SoundCue.WildernessCue);
+                this.Switch = 1;
+                }
+            }
+            else if (this.JeffreyFloor.Sprite.SpriteSource == SpriteSource.BloodyCottonRoom)
+            {
+                if (this.Switch != 2) 
+                {
+                this.Owner.SoundEmitter.Stop();
+                this.Play(SoundCue.FrozenWind);
+                this.Switch = 2;
+                }
+            }
+            else if (this.JerryFloor.Sprite.SpriteSource == SpriteSource.PocketFull)
+            {
+                if (this.Switch != 3) 
+                {
+                this.Owner.SoundEmitter.Stop();
+                this.Play(SoundCue.SoftWindCue);
+                this.Switch = 3;
+                }
+            }
+            else if (this.JeffreyFloor.Sprite.SpriteSource == SpriteSource.WhiteFull)
+            {
+                if (this.Switch != 4) 
+                {
+                this.Owner.SoundEmitter.Stop();
+                this.Play(SoundCue.WhiteNoiseCue);
+                this.Switch = 4;
+                }
+            }
+            else if (this.JerryFloor.Sprite.SpriteSource == SpriteSource.BottomOfPit)
+            {
+                if (this.Switch != 5) 
+                {
+                this.Owner.SoundEmitter.Stop();
+                this.Play(SoundCue.TypingCue);
+                this.Switch = 5;
+                }
+            }
+            else if (this.JeffreyFloor.Sprite.SpriteSource == SpriteSource.ThePitFull)
+            {
+                if (this.Switch != 6)
+                {
+                this.Owner.SoundEmitter.Stop();
+                this.Play(SoundCue.MachineCue);
+                this.Switch = 6;
+                }
+            }
+        }
         if (this.LastObjectStateOne == "" && this.GameSession.GameStats.ObjectOne != "")
         {
             this.Play(SoundCue.PickUpCue);
@@ -47,9 +120,6 @@ class GlobalSounds : ZilchComponent
         {
             this.Done = false;
         }
-        Console.WriteLine(this.GameSession.GameStats.CurrentString.Contains("lock"));
-        Console.WriteLine(this.GameSession.GameStats.CurrentString);
-        Console.WriteLine("It's locked.");
     }
     function Play (theSound : SoundCue)
     {

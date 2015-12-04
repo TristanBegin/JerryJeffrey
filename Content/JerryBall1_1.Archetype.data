@@ -55,7 +55,7 @@ Cog =
 	{
 		string Text1 = "Jerry: ""Hmm, this place looks familiar.…""",
 		string Text2 = "",
-		string Text3 = """You again? Hmm…, it would seem that I cannot stay",
+		string Text3 = """You again? It would seem that I cannot stay",
 		string Text4 = "mad at you.""",
 		string Text5 = """Alright, as you have decided to be my best friend,",
 		string Text6 = "I will allow you to stay here.""",

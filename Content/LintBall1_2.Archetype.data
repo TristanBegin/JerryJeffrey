@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [0.475000024, 0.779500008, 1, 1],
+		Vec4 Color = [1, 1, 1, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -53,7 +53,7 @@ Cog =
 	},
 	LintBall1_2Script = 
 	{
-		string Text1 = """Oh! A red! Would you like a rhino?""",
+		string Text1 = "Pocket Lint: ""Oh! A red! Would you like a rhino?""",
 		string Text2 = """Of course you would. Here, take it.""",
 		string Text3 = "",
 		string Text4 = "",
