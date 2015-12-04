@@ -1,0 +1,43 @@
+/*******************************************************************************
+LoadTitleAfterTime
+Created by Tristan Begin.
+
+Description -
+Controls fade in and fade out on splash screen.
+
+Object -
+Any Object in splash screen.
+*******************************************************************************/
+
+class LoadTitleAfterTime : ZilchComponent
+{
+    var TheTime : Real = 5;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.TheTime -= event.Dt;
+        if (this.TheTime > 3 && this.TheTime < 4.5)
+        {
+            if (this.Owner.Sprite.Color.W > 0.05) 
+                this.Owner.Sprite.Color -= Real4 (0, 0, 0, event.Dt);
+            else
+                this.Owner.Sprite.Color = Real4 (0, 0, 0, 0);
+        }
+        if (this.TheTime < 1.5)
+        {
+            if (this.Owner.Sprite.Color.W < 0.95) 
+                this.Owner.Sprite.Color += Real4 (0, 0, 0, event.Dt);
+            else
+                this.Owner.Sprite.Color = Real4 (0, 0, 0, 1);
+        }
+        if (this.TheTime <= 0)
+        {
+            this.Space.SoundSpace.Pause;
+            this.Space.LoadLevel(Level.Find("ControlsScreen"));
+        }
+    }
+}

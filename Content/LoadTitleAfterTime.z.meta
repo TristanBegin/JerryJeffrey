@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LoadTitleAfterTime",
+		uint64 ResourceId = 56818d0b026e22a1,
+	},
+},
