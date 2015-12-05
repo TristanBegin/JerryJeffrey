@@ -15,10 +15,11 @@ class Box4D : ZilchComponent
   
   var OriginalPos : Real3;
   
-  [Property]
+
+  [Property] //Turns on/off the block's ability to be moved up and down
   var UpDownMove : Boolean = true;
   
-  [Property]
+  [Property] //Turns on/off the block's ability to be moved left and right
   var LeftRight : Boolean = true;
   
   var CameraSound : SoundEmitter;
@@ -39,10 +40,13 @@ class Box4D : ZilchComponent
 
   function OnLogicUpdate(event : UpdateEvent)
   {
+    //Casting a ray left
     var rayLeft = Ray();
     rayLeft.Start = this.Owner.Transform.WorldTranslation;
     rayLeft.Direction = Real3(-1, 0, 0);
     var leftResult = this.Space.PhysicsSpace.CastRayFirst(rayLeft);
+    
+    //Checks if the ray hit another block
     if(leftResult.ObjectHit.Name == "Block4D")
     {
       this.LeftDistance = 1.0;
@@ -52,10 +56,12 @@ class Box4D : ZilchComponent
       this.LeftDistance = 1.0;
     }
     
+    //Casting a ray right
     var rayRight = Ray();
     rayRight.Start = this.Owner.Transform.WorldTranslation;
     rayRight.Direction = Real3(1, 0, 0);
     var rightResult = this.Space.PhysicsSpace.CastRayFirst(rayRight);
+    
     if(rightResult.ObjectHit.Name == "Block4D")
     {
       this.RightDistance = 1.0;
@@ -65,10 +71,12 @@ class Box4D : ZilchComponent
       this.RightDistance = 1.0;
     }
     
+    //Casting a ray up
     var rayUp = Ray();
     rayUp.Start = this.Owner.Transform.WorldTranslation;
     rayUp.Direction = Real3(0, 1, 0);
     var upResult = this.Space.PhysicsSpace.CastRayFirst(rayUp);
+    
     if(upResult.ObjectHit.Name == "Block4D")
     {
       this.UpDistance = 1.0;
@@ -78,10 +86,12 @@ class Box4D : ZilchComponent
       this.UpDistance = 1.0;
     }
     
+    //Casting a ray down
     var rayDown = Ray();
     rayDown.Start = this.Owner.Transform.WorldTranslation;
     rayDown.Direction = Real3(0, -1, 0);
     var downResult = this.Space.PhysicsSpace.CastRayFirst(rayDown);
+    
     if(downResult.ObjectHit.Name == "Block4D")
     {
       this.DownDistance = 1.0;
@@ -91,36 +101,43 @@ class Box4D : ZilchComponent
       this.DownDistance = 1.0;
     }
     
+    //Creates the action sequence for the movement
     var actionQueue = Action.Sequence(this.Owner.Actions);
     
+    //Resets the timer that delays player input
     if(this.DelayTimer > this.DelayLength && this.TimerRunning == true)
     {
       this.DelayTimer = 0;
       this.TimerRunning = false;
     }
     
+    //Adds to the timer
     if(this.TimerRunning == true)
     {
       this.DelayTimer += event.Dt;
     }
     
+    //Checks if the delay timer is running
     if(this.TimerRunning == true)
     {
+      //Stops the player from moving
       this.Player.PlayerController.Talking = true;
       this.BoxMoving = true;
     }
     else
     {
+      //Allows the player to move
       this.Player.PlayerController.Talking = false;
       this.BoxMoving = false;
     }
     
+    //Checks if the player is facing the box and is in a tile adjacent to the box
     if(this.Player.RayCastings.DistanceLooking < 0.5 && 
        this.Player.RayCastings.HitObject == this.Owner &&
        Zero.Keyboard.KeyIsPressed(Keys.Enter) &&
        this.BoxMoving == false)
     {
-      
+      //Checks if the player is facing the correct direction and if there is anything above the block
       if(this.Player.PlayerController.LookingDirection == 0 &&
         upResult.Distance >= this.UpDistance && this.UpDownMove == true)
       {
@@ -133,6 +150,7 @@ class Box4D : ZilchComponent
         }
         this.TimerRunning = true;
       }
+      //Checks if the player is facing the correct direction and if there is anything to the right of the block
       else if(this.Player.PlayerController.LookingDirection == 1 &&
         rightResult.Distance >= this.RightDistance && this.LeftRight == true)
       {
@@ -145,6 +163,7 @@ class Box4D : ZilchComponent
         }
         this.TimerRunning = true;
       }
+      //Checks if the player is facing the correct direction and if there is anything below the block
       else if(this.Player.PlayerController.LookingDirection == 2 &&
         downResult.Distance >= this.DownDistance && this.UpDownMove == true)
       {
@@ -157,6 +176,7 @@ class Box4D : ZilchComponent
         }
         this.TimerRunning = true;
       }
+      //Checks if the player is facing the correct direction and if there is anything to the left of the block
       else if(this.Player.PlayerController.LookingDirection == 3 &&
         leftResult.Distance >= this.LeftDistance && this.LeftRight == true)
       {
